@@ -12,6 +12,7 @@
 		0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E01FBB3CFC00D72378 /* Assets.xcassets */; };
 		0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E21FBB3CFD00D72378 /* Main.storyboard */; };
 		0A9194F01FBB3CFD00D72378 /* narodmon_barTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194EF1FBB3CFD00D72378 /* narodmon_barTests.swift */; };
+		3749CA25DD1EAE736FF5C8D8 /* Pods_narodmon_bar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2A21095F6891B048060AB8 /* Pods_narodmon_bar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,9 @@
 		0A9194EB1FBB3CFD00D72378 /* narodmon-barTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "narodmon-barTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A9194EF1FBB3CFD00D72378 /* narodmon_barTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = narodmon_barTests.swift; sourceTree = "<group>"; };
 		0A9194F11FBB3CFD00D72378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41ADBBDF1FF1AEBF42D54F9F /* Pods-narodmon-bar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-narodmon-bar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar.debug.xcconfig"; sourceTree = "<group>"; };
+		8E2A21095F6891B048060AB8 /* Pods_narodmon_bar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_narodmon_bar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9658BA933280F1A52AD1BB56 /* Pods-narodmon-bar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-narodmon-bar.release.xcconfig"; path = "Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3749CA25DD1EAE736FF5C8D8 /* Pods_narodmon_bar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +66,8 @@
 				0A9194DB1FBB3CFC00D72378 /* narodmon-bar */,
 				0A9194EE1FBB3CFD00D72378 /* narodmon-barTests */,
 				0A9194DA1FBB3CFC00D72378 /* Products */,
+				7FBB0C97F9628129CD0A26F5 /* Pods */,
+				8CB6DD74CF3C65ED3F8701C5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +102,23 @@
 			path = "narodmon-barTests";
 			sourceTree = "<group>";
 		};
+		7FBB0C97F9628129CD0A26F5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				41ADBBDF1FF1AEBF42D54F9F /* Pods-narodmon-bar.debug.xcconfig */,
+				9658BA933280F1A52AD1BB56 /* Pods-narodmon-bar.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8CB6DD74CF3C65ED3F8701C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8E2A21095F6891B048060AB8 /* Pods_narodmon_bar.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,9 +126,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A9194F41FBB3CFD00D72378 /* Build configuration list for PBXNativeTarget "narodmon-bar" */;
 			buildPhases = (
+				5B17A6AAD56005F6F2365ABD /* [CP] Check Pods Manifest.lock */,
 				0A9194D51FBB3CFC00D72378 /* Sources */,
 				0A9194D61FBB3CFC00D72378 /* Frameworks */,
 				0A9194D71FBB3CFC00D72378 /* Resources */,
+				7472942CDF5703339BA8CC30 /* [CP] Embed Pods Frameworks */,
+				DBE5748875D0608ECCBFB0FC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,6 +218,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5B17A6AAD56005F6F2365ABD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-narodmon-bar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7472942CDF5703339BA8CC30 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/Keys/Keys.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keys.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBE5748875D0608ECCBFB0FC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0A9194D51FBB3CFC00D72378 /* Sources */ = {
@@ -340,6 +431,7 @@
 		};
 		0A9194F51FBB3CFD00D72378 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41ADBBDF1FF1AEBF42D54F9F /* Pods-narodmon-bar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "narodmon-bar/narodmon_bar.entitlements";
@@ -356,6 +448,7 @@
 		};
 		0A9194F61FBB3CFD00D72378 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9658BA933280F1A52AD1BB56 /* Pods-narodmon-bar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "narodmon-bar/narodmon_bar.entitlements";
