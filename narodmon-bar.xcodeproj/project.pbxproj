@@ -12,6 +12,15 @@
 		0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E01FBB3CFC00D72378 /* Assets.xcassets */; };
 		0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E21FBB3CFD00D72378 /* Main.storyboard */; };
 		0A9194F01FBB3CFD00D72378 /* narodmon_barTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194EF1FBB3CFD00D72378 /* narodmon_barTests.swift */; };
+		0A9195031FBB416000D72378 /* SensorsValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194FB1FBB416000D72378 /* SensorsValues.swift */; };
+		0A9195041FBB416000D72378 /* SensorsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194FC1FBB416000D72378 /* SensorsHistory.swift */; };
+		0A9195051FBB416000D72378 /* SensorsOnDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194FD1FBB416000D72378 /* SensorsOnDevice.swift */; };
+		0A9195061FBB416000D72378 /* SensorsNearby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194FE1FBB416000D72378 /* SensorsNearby.swift */; };
+		0A9195071FBB416000D72378 /* UserLogon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194FF1FBB416000D72378 /* UserLogon.swift */; };
+		0A9195081FBB416000D72378 /* UserFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195001FBB416000D72378 /* UserFavorites.swift */; };
+		0A9195091FBB416000D72378 /* UserLogout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195011FBB416000D72378 /* UserLogout.swift */; };
+		0A91950A1FBB416000D72378 /* AppInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195021FBB416000D72378 /* AppInit.swift */; };
+		0A91950C1FBB41AE00D72378 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A91950B1FBB41AE00D72378 /* Sensor.swift */; };
 		3749CA25DD1EAE736FF5C8D8 /* Pods_narodmon_bar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2A21095F6891B048060AB8 /* Pods_narodmon_bar.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +45,15 @@
 		0A9194EB1FBB3CFD00D72378 /* narodmon-barTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "narodmon-barTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A9194EF1FBB3CFD00D72378 /* narodmon_barTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = narodmon_barTests.swift; sourceTree = "<group>"; };
 		0A9194F11FBB3CFD00D72378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A9194FB1FBB416000D72378 /* SensorsValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsValues.swift; sourceTree = "<group>"; };
+		0A9194FC1FBB416000D72378 /* SensorsHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsHistory.swift; sourceTree = "<group>"; };
+		0A9194FD1FBB416000D72378 /* SensorsOnDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsOnDevice.swift; sourceTree = "<group>"; };
+		0A9194FE1FBB416000D72378 /* SensorsNearby.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsNearby.swift; sourceTree = "<group>"; };
+		0A9194FF1FBB416000D72378 /* UserLogon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLogon.swift; sourceTree = "<group>"; };
+		0A9195001FBB416000D72378 /* UserFavorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFavorites.swift; sourceTree = "<group>"; };
+		0A9195011FBB416000D72378 /* UserLogout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLogout.swift; sourceTree = "<group>"; };
+		0A9195021FBB416000D72378 /* AppInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInit.swift; sourceTree = "<group>"; };
+		0A91950B1FBB41AE00D72378 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
 		41ADBBDF1FF1AEBF42D54F9F /* Pods-narodmon-bar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-narodmon-bar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar.debug.xcconfig"; sourceTree = "<group>"; };
 		8E2A21095F6891B048060AB8 /* Pods_narodmon_bar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_narodmon_bar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9658BA933280F1A52AD1BB56 /* Pods-narodmon-bar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-narodmon-bar.release.xcconfig"; path = "Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +101,7 @@
 		0A9194DB1FBB3CFC00D72378 /* narodmon-bar */ = {
 			isa = PBXGroup;
 			children = (
+				0A9194FA1FBB3FB600D72378 /* Model */,
 				0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */,
 				0A9194DE1FBB3CFC00D72378 /* ViewController.swift */,
 				0A9194E01FBB3CFC00D72378 /* Assets.xcassets */,
@@ -100,6 +119,22 @@
 				0A9194F11FBB3CFD00D72378 /* Info.plist */,
 			);
 			path = "narodmon-barTests";
+			sourceTree = "<group>";
+		};
+		0A9194FA1FBB3FB600D72378 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A9195021FBB416000D72378 /* AppInit.swift */,
+				0A9194FC1FBB416000D72378 /* SensorsHistory.swift */,
+				0A9194FE1FBB416000D72378 /* SensorsNearby.swift */,
+				0A9194FD1FBB416000D72378 /* SensorsOnDevice.swift */,
+				0A9194FB1FBB416000D72378 /* SensorsValues.swift */,
+				0A9195001FBB416000D72378 /* UserFavorites.swift */,
+				0A9194FF1FBB416000D72378 /* UserLogon.swift */,
+				0A9195011FBB416000D72378 /* UserLogout.swift */,
+				0A91950B1FBB41AE00D72378 /* Sensor.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7FBB0C97F9628129CD0A26F5 /* Pods */ = {
@@ -288,8 +323,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A9195091FBB416000D72378 /* UserLogout.swift in Sources */,
+				0A9195081FBB416000D72378 /* UserFavorites.swift in Sources */,
+				0A91950C1FBB41AE00D72378 /* Sensor.swift in Sources */,
 				0A9194DF1FBB3CFC00D72378 /* ViewController.swift in Sources */,
 				0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */,
+				0A9195061FBB416000D72378 /* SensorsNearby.swift in Sources */,
+				0A9195041FBB416000D72378 /* SensorsHistory.swift in Sources */,
+				0A9195031FBB416000D72378 /* SensorsValues.swift in Sources */,
+				0A9195071FBB416000D72378 /* UserLogon.swift in Sources */,
+				0A9195051FBB416000D72378 /* SensorsOnDevice.swift in Sources */,
+				0A91950A1FBB416000D72378 /* AppInit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +479,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "narodmon-bar/narodmon_bar.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9BEQ8V4XH9;
@@ -442,6 +487,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.borovikov.narodmon-bar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -452,6 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "narodmon-bar/narodmon_bar.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9BEQ8V4XH9;
@@ -459,6 +506,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.borovikov.narodmon-bar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
