@@ -10,6 +10,7 @@ target 'narodmon-bar' do
   pod 'PromiseKit'
   pod 'PromiseKit/Alamofire'
   pod 'KeychainAccess'
+  pod 'CommonCryptoModule', :git => 'https://github.com/DimaRU/CommonCryptoModule.git'
 
 plugin 'cocoapods-keys', {
     :project => 'narodmon-bar',
