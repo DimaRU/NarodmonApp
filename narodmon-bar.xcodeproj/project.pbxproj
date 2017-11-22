@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E11FC03230006605DC /* CwlSysctl.swift */; };
+		0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E41FC048BC006605DC /* String+MD5.swift */; };
+		0A6D89C41FC5C37100034A67 /* md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C31FC5C37100034A67 /* md5.swift */; };
 		0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */; };
 		0A9194DF1FBB3CFC00D72378 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194DE1FBB3CFC00D72378 /* ViewController.swift */; };
 		0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E01FBB3CFC00D72378 /* Assets.xcassets */; };
@@ -20,7 +22,7 @@
 		0A9195071FBB416000D72378 /* UserLogon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194FF1FBB416000D72378 /* UserLogon.swift */; };
 		0A9195081FBB416000D72378 /* UserFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195001FBB416000D72378 /* UserFavorites.swift */; };
 		0A9195091FBB416000D72378 /* UserLogout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195011FBB416000D72378 /* UserLogout.swift */; };
-		0A91950A1FBB416000D72378 /* AppInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195021FBB416000D72378 /* AppInit.swift */; };
+		0A91950A1FBB416000D72378 /* AppInitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195021FBB416000D72378 /* AppInitData.swift */; };
 		0A91950C1FBB41AE00D72378 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A91950B1FBB41AE00D72378 /* Sensor.swift */; };
 		0A9195231FBB463F00D72378 /* NarodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195151FBB463E00D72378 /* NarodAPI.swift */; };
 		0A9195251FBB463F00D72378 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195171FBB463E00D72378 /* APIKeys.swift */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		0A37C0E11FC03230006605DC /* CwlSysctl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CwlSysctl.swift; sourceTree = "<group>"; };
+		0A37C0E41FC048BC006605DC /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
+		0A6D89C31FC5C37100034A67 /* md5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = md5.swift; sourceTree = "<group>"; };
 		0A9194D91FBB3CFC00D72378 /* narodmon-bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "narodmon-bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A9194DE1FBB3CFC00D72378 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,7 +62,7 @@
 		0A9194FF1FBB416000D72378 /* UserLogon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLogon.swift; sourceTree = "<group>"; };
 		0A9195001FBB416000D72378 /* UserFavorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFavorites.swift; sourceTree = "<group>"; };
 		0A9195011FBB416000D72378 /* UserLogout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLogout.swift; sourceTree = "<group>"; };
-		0A9195021FBB416000D72378 /* AppInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInit.swift; sourceTree = "<group>"; };
+		0A9195021FBB416000D72378 /* AppInitData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInitData.swift; sourceTree = "<group>"; };
 		0A91950B1FBB41AE00D72378 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
 		0A9195151FBB463E00D72378 /* NarodAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarodAPI.swift; sourceTree = "<group>"; };
 		0A9195161FBB463E00D72378 /* NarProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarProvider.swift; sourceTree = "<group>"; };
@@ -91,9 +95,18 @@
 		0A37C0E01FC03217006605DC /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				0A6D89C31FC5C37100034A67 /* md5.swift */,
 				0A37C0E11FC03230006605DC /* CwlSysctl.swift */,
 			);
 			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		0A37C0E31FC04890006605DC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0A37C0E41FC048BC006605DC /* String+MD5.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		0A9194D01FBB3CFC00D72378 = {
@@ -119,6 +132,7 @@
 		0A9194DB1FBB3CFC00D72378 /* narodmon-bar */ = {
 			isa = PBXGroup;
 			children = (
+				0A37C0E31FC04890006605DC /* Extension */,
 				0A37C0E01FC03217006605DC /* ThirdParty */,
 				0A91950D1FBB45FB00D72378 /* Network */,
 				0A9194FA1FBB3FB600D72378 /* Model */,
@@ -144,7 +158,7 @@
 		0A9194FA1FBB3FB600D72378 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0A9195021FBB416000D72378 /* AppInit.swift */,
+				0A9195021FBB416000D72378 /* AppInitData.swift */,
 				0A9194FC1FBB416000D72378 /* SensorsHistory.swift */,
 				0A9194FE1FBB416000D72378 /* SensorsNearby.swift */,
 				0A9194FD1FBB416000D72378 /* SensorsOnDevice.swift */,
@@ -312,7 +326,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CommonCryptoModule/CommonCryptoModule.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Keys/Keys.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -322,7 +335,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CommonCryptoModule.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keys.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -356,7 +368,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A6D89C41FC5C37100034A67 /* md5.swift in Sources */,
 				0A9195091FBB416000D72378 /* UserLogout.swift in Sources */,
+				0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */,
 				0A9195081FBB416000D72378 /* UserFavorites.swift in Sources */,
 				0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */,
 				0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */,
@@ -371,7 +385,7 @@
 				0A9195071FBB416000D72378 /* UserLogon.swift in Sources */,
 				0AB3DB881FBB7DC8002C0705 /* NarodNetworkError.swift in Sources */,
 				0A9195051FBB416000D72378 /* SensorsOnDevice.swift in Sources */,
-				0A91950A1FBB416000D72378 /* AppInit.swift in Sources */,
+				0A91950A1FBB416000D72378 /* AppInitData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

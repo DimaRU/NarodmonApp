@@ -38,7 +38,7 @@ public enum NarodAPI: TargetType {
     var mappingType: Decodable.Type {
         switch self {
         case .appInit:
-            return AppInit.self
+            return AppInitData.self
         case .userLogon:
             return UserLogon.self
         case .userLogout:

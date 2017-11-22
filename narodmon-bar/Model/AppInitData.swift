@@ -1,10 +1,10 @@
 ////
-///  AppInit.swift
+///  AppInitData.swift
 //
 
 import Foundation
 
-struct AppInit: Codable {
+struct AppInitData: Codable {
     let login: String
     let vip: Int
     let uid: String
