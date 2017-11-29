@@ -10,6 +10,7 @@ target 'narodmon-bar' do
   pod 'PromiseKit'
   pod 'PromiseKit/Alamofire'
   pod 'KeychainAccess'
+  pod 'SwiftyUserDefaults'
 
 plugin 'cocoapods-keys', {
     :project => 'narodmon-bar',
