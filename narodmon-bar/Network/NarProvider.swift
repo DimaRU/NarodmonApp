@@ -97,7 +97,7 @@ extension NarProvider {
                 case 401: return NarodNetworkEror.authorizationNeed(message: message)
 //                     - 403 - в доступе к объекту отказано;
                 case 403: return NarodNetworkEror.accessDenied(message: message)
-//                     - 404 - искомый объект не найден;
+//                     - 404 - искомый объект не найден; (APP_NOT_FOUND)
                 case 404: return NarodNetworkEror.notFound(message: message)
 //                     - 423 - ключ API заблокирован администратором;
                 case 423: return NarodNetworkEror.apiKeyBlocked(message: message)

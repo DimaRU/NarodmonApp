@@ -19,7 +19,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var detachedWindow: NSWindow?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        Defaults.appStart()
         let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusView = StatusItemView(statusItem: statusItem) {
             print("Action")
@@ -27,7 +26,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         statusView.sizeToFit()
         
+        Defaults.appStart()
         initPopover()
+
+        
         
     }
 

@@ -10,6 +10,9 @@
 		0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E11FC03230006605DC /* CwlSysctl.swift */; };
 		0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E41FC048BC006605DC /* String+MD5.swift */; };
 		0A4C61521FC83FAD009F7B51 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C61511FC83FAD009F7B51 /* Settings.swift */; };
+		0A63DF971FCED92800C35607 /* HwUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF961FCED92800C35607 /* HwUUID.swift */; };
+		0A63DF991FCEDAED00C35607 /* InitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF981FCEDAED00C35607 /* InitService.swift */; };
+		0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */; };
 		0A6D89C41FC5C37100034A67 /* md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C31FC5C37100034A67 /* md5.swift */; };
 		0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */; };
 		0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E01FBB3CFC00D72378 /* Assets.xcassets */; };
@@ -48,6 +51,9 @@
 		0A37C0E11FC03230006605DC /* CwlSysctl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CwlSysctl.swift; sourceTree = "<group>"; };
 		0A37C0E41FC048BC006605DC /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		0A4C61511FC83FAD009F7B51 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		0A63DF961FCED92800C35607 /* HwUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HwUUID.swift; sourceTree = "<group>"; };
+		0A63DF981FCEDAED00C35607 /* InitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitService.swift; sourceTree = "<group>"; };
+		0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorType.swift; sourceTree = "<group>"; };
 		0A6D89C31FC5C37100034A67 /* md5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = md5.swift; sourceTree = "<group>"; };
 		0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemView.swift; sourceTree = "<group>"; };
 		0A9194D91FBB3CFC00D72378 /* narodmon-bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "narodmon-bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +121,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		0A63DF951FCED8F600C35607 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				0A63DF961FCED92800C35607 /* HwUUID.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		0A6D89C51FC5CC9000034A67 /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +161,7 @@
 		0A9194DB1FBB3CFC00D72378 /* narodmon-bar */ = {
 			isa = PBXGroup;
 			children = (
+				0A63DF951FCED8F600C35607 /* Utility */,
 				0A6D89C51FC5CC9000034A67 /* UI Components */,
 				0A37C0E31FC04890006605DC /* Extension */,
 				0A37C0E01FC03217006605DC /* ThirdParty */,
@@ -184,6 +199,7 @@
 				0A9194FF1FBB416000D72378 /* UserLogon.swift */,
 				0A9195011FBB416000D72378 /* UserLogout.swift */,
 				0A91950B1FBB41AE00D72378 /* Sensor.swift */,
+				0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,6 +211,7 @@
 				0A9195151FBB463E00D72378 /* NarodAPI.swift */,
 				0AB3DB871FBB7DC8002C0705 /* NarodNetworkError.swift */,
 				0A9195161FBB463E00D72378 /* NarProvider.swift */,
+				0A63DF981FCEDAED00C35607 /* InitService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -394,12 +411,15 @@
 				0A9195081FBB416000D72378 /* UserFavorites.swift in Sources */,
 				0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */,
 				0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */,
+				0A63DF971FCED92800C35607 /* HwUUID.swift in Sources */,
 				0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */,
 				0A9195231FBB463F00D72378 /* NarodAPI.swift in Sources */,
 				0A91950C1FBB41AE00D72378 /* Sensor.swift in Sources */,
 				0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */,
 				0A9195061FBB416000D72378 /* SensorsNearby.swift in Sources */,
+				0A63DF991FCEDAED00C35607 /* InitService.swift in Sources */,
 				0A9195041FBB416000D72378 /* SensorsHistory.swift in Sources */,
+				0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */,
 				0A9195251FBB463F00D72378 /* APIKeys.swift in Sources */,
 				0A9195031FBB416000D72378 /* SensorsValues.swift in Sources */,
 				0AB385FC1FC6D6A5007F4EE5 /* KeychainService.swift in Sources */,

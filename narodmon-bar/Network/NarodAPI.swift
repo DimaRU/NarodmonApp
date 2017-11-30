@@ -4,6 +4,7 @@
 import Foundation
 import Moya
 import Result
+import SwiftyUserDefaults
 
 typealias MoyaResult = Result<Moya.Response, Moya.MoyaError>
 
@@ -76,7 +77,7 @@ extension NarodAPI {
     public var baseURL: URL { return URL(string: API_DOMAIN + NarodAPI.apiVersion)! }
 
     public var task: Task {
-        let parameters: [String : Any]
+        var parameters: [String : Any]
         switch self {
 
         case .appInit(let version, let platform, let model, let timeZone):
@@ -91,7 +92,7 @@ extension NarodAPI {
             parameters = [
                 "cmd" : "userLogon",
                 "login" : login,
-                "hash" : loginHash(login: login, password: password)
+                "hash" : passwordHash(password)
                 ]
         case .userLogout:
             parameters = [
@@ -124,6 +125,10 @@ extension NarodAPI {
                 "my" : my
             ]
         }
+        parameters["api_key"] = APIKeys.shared.apiKey
+        parameters["uuid"] = Defaults[.machineUUID]!
+        parameters["lang"] = NSLocale.current.languageCode!
+
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
     }
     
@@ -149,20 +154,16 @@ extension NarodAPI {
         let assigned: [String: String] = [
             "Accept": "application/json",
             "Content-Type": "application/json",
-            "api_key" : APIKeys.shared.apiKey,
-            "uuid" : "uuid",
-            "lang" : "ru"
+            "User-Agent": "NarodmonMacOS"
             ]
-
-
         return assigned
     }
     
 }
 
 
-func loginHash(login: String, password: String) -> String {
-    return "dummy"
+func passwordHash(_ password: String) -> String {
+    return (Defaults[.machineUUID] ?? "" + password.md5()).md5()
 }
 
 // MARK: - Provider support
@@ -181,5 +182,3 @@ private extension String {
 func url(_ route: TargetType) -> String {
     return route.baseURL.appendingPathComponent(route.path).absoluteString
 }
-
-

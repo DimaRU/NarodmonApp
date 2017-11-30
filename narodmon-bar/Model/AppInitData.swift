@@ -14,10 +14,5 @@ struct AppInitData: Codable {
     let latest: String?
     let url: URL?
     let favorites: [String]
-    struct `Type`: Codable {
-        let type: Int
-        let name: String
-        let unit: String
-    }
-    let types: [Type]
+    let types: [SensorType]
 }
