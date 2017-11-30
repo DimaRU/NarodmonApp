@@ -8,9 +8,9 @@ extension DefaultsKeys {
     static let username = DefaultsKey<String?>("username")
     static let launchCount = DefaultsKey<Int>("launchCount")
     static let machineUUID = DefaultsKey<String?>("machineUUID")
-    static let deviceIds = DefaultsKey<[Int]>("deviceIds")
-    static let windowSensors = DefaultsKey<[Int]>("windowSensors")
-    static let barSensors = DefaultsKey<[Int]>("barSensors")
+    static let selectedDevices = DefaultsKey<[Int]>("selectedDevices")
+    static let selectedwindowSensors = DefaultsKey<[Int]>("selectedwindowSensors")
+    static let selectedBarSensors = DefaultsKey<[Int]>("selectedBarSensors")
     static let tinyFont = DefaultsKey<Bool>("tinyFont")
 }
 

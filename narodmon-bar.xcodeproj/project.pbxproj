@@ -29,6 +29,8 @@
 		0A91950C1FBB41AE00D72378 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A91950B1FBB41AE00D72378 /* Sensor.swift */; };
 		0A9195231FBB463F00D72378 /* NarodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195151FBB463E00D72378 /* NarodAPI.swift */; };
 		0A9195251FBB463F00D72378 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195171FBB463E00D72378 /* APIKeys.swift */; };
+		0A9AF9FB1FD000C200F5B5BB /* AppDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9AF9FA1FD000C200F5B5BB /* AppDataStore.swift */; };
+		0A9AFA011FD00F1C00F5B5BB /* PopoverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */; };
 		0AB385FC1FC6D6A5007F4EE5 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */; };
 		0AB3DB881FBB7DC8002C0705 /* NarodNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3DB871FBB7DC8002C0705 /* NarodNetworkError.swift */; };
 		0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195161FBB463E00D72378 /* NarProvider.swift */; };
@@ -77,6 +79,8 @@
 		0A9195151FBB463E00D72378 /* NarodAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarodAPI.swift; sourceTree = "<group>"; };
 		0A9195161FBB463E00D72378 /* NarProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarProvider.swift; sourceTree = "<group>"; };
 		0A9195171FBB463E00D72378 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		0A9AF9FA1FD000C200F5B5BB /* AppDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataStore.swift; sourceTree = "<group>"; };
+		0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverDelegate.swift; sourceTree = "<group>"; };
 		0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		0AB3DB871FBB7DC8002C0705 /* NarodNetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarodNetworkError.swift; sourceTree = "<group>"; };
 		0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorsViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 				0A91950D1FBB45FB00D72378 /* Network */,
 				0A9194FA1FBB3FB600D72378 /* Model */,
 				0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */,
+				0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */,
+				0A9AF9FA1FD000C200F5B5BB /* AppDataStore.swift */,
 				0A4C61511FC83FAD009F7B51 /* Settings.swift */,
 				0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */,
 				0A9194E01FBB3CFC00D72378 /* Assets.xcassets */,
@@ -418,7 +424,9 @@
 				0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */,
 				0A9195061FBB416000D72378 /* SensorsNearby.swift in Sources */,
 				0A63DF991FCEDAED00C35607 /* InitService.swift in Sources */,
+				0A9AFA011FD00F1C00F5B5BB /* PopoverDelegate.swift in Sources */,
 				0A9195041FBB416000D72378 /* SensorsHistory.swift in Sources */,
+				0A9AF9FB1FD000C200F5B5BB /* AppDataStore.swift in Sources */,
 				0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */,
 				0A9195251FBB463F00D72378 /* APIKeys.swift in Sources */,
 				0A9195031FBB416000D72378 /* SensorsValues.swift in Sources */,

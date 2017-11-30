@@ -154,7 +154,8 @@ extension NarodAPI {
         let assigned: [String: String] = [
             "Accept": "application/json",
             "Content-Type": "application/json",
-            "User-Agent": "NarodmonMacOS"
+            "User-Agent": "NarodmonMacOS",
+            "Accept-Encoding": "gzip, deflate"
             ]
         return assigned
     }
