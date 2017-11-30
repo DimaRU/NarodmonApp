@@ -5,13 +5,14 @@
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
-    static let username = DefaultsKey<String?>("username")
-    static let launchCount = DefaultsKey<Int>("launchCount")
-    static let machineUUID = DefaultsKey<String?>("machineUUID")
-    static let selectedDevices = DefaultsKey<[Int]>("selectedDevices")
-    static let selectedwindowSensors = DefaultsKey<[Int]>("selectedwindowSensors")
-    static let selectedBarSensors = DefaultsKey<[Int]>("selectedBarSensors")
-    static let tinyFont = DefaultsKey<Bool>("tinyFont")
+    static let Launchcount = DefaultsKey<Int>("LaunchCount")
+    static let MachineUUID = DefaultsKey<String?>("MachineUUID")
+    
+    static let SelectedDevices = DefaultsKey<[Int]>("SelectedDevices")
+    static let SelectedwindowSensors = DefaultsKey<[Int]>("SelectedwindowSensors")
+    static let SelectedBarSensors = DefaultsKey<[Int]>("SelectedBarSensors")
+    
+    static let TinyFont = DefaultsKey<Bool>("TinyFont")
 }
 
 
@@ -19,17 +20,21 @@ extension UserDefaults {
 
     /// Inital setup when App Started
     public func appStart() {
-        Defaults[.launchCount] = Defaults[.launchCount] + 1
+        Defaults[.Launchcount] += 1
         
-        if Defaults[.machineUUID] == nil {
+        if Defaults[.MachineUUID] == nil {
             // First start
             let uuid = getHwUUID().md5()!
             print(uuid)
-            Defaults[.machineUUID] = uuid
+            Defaults[.MachineUUID] = uuid
         } else {
             // Not first start
             
         }
+    }
+    
+    public func selectionExist() -> Bool {
+        return !Defaults[.SelectedDevices].isEmpty && !Defaults[.SelectedBarSensors].isEmpty
     }
 }
 
