@@ -15,7 +15,7 @@ import Foundation
 - 503 - сервер временно не обрабатывает запросы по техническим причинам.
 */
 
-enum NarodNetworkEror: Error {
+enum NarodNetworkError: Error {
     case requestSyntaxError(message: String)
     case authorizationNeed(message: String)
     case accessDenied(message: String)
@@ -23,6 +23,7 @@ enum NarodNetworkEror: Error {
     case apiKeyBlocked(message: String)
     case frequentRequestError(message: String)
     case disconnectedError(message: String)
+    case replySyntaxError(message: String)
     case serverError
     case networkError(code: Int)
 }

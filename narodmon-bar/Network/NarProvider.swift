@@ -10,6 +10,7 @@ import Alamofire
 import PromiseKit
 
 typealias WuSuccessCompletion = (Data) -> Void
+typealias WUFailureCompletion = (Error) -> Void
 
 class NarProvider {
     static var shared: NarProvider = NarProvider()
@@ -30,13 +31,10 @@ class NarProvider {
     // MARK: - Public
     func request(_ target: NarodAPI) -> Promise<Void> {
         let (promise, resolve, reject) = Promise<Void>.pending()
-        NarProvider.instance.request(target) { (result) in
-            self.handleRequest(target: target, result: result,
-                               success: { _ in
-                                resolve(())
-            },
-                               reject: reject)
-        }
+        APIRequest(target,
+                   success: { _ in
+                    resolve(()) },
+                   failure: reject)
         return promise
     }
 
@@ -44,15 +42,22 @@ class NarProvider {
     func request<T: Decodable>(_ target: NarodAPI) -> Promise<T> {
         let (promise, resolve, reject) = Promise<T>.pending()
         assert(target.mappingType == T.self)
-        NarProvider.instance.request(target) { (result) in
-            self.handleRequest(target: target, result: result,
-                               success: { rawData in
-                                self.parseData(data: rawData, resolve: resolve, reject: reject)
-            },
-                               reject: reject)
-        }
+        APIRequest(target,
+                   success: { rawData in
+                    self.parseData(data: rawData, resolve: resolve, reject: reject) },
+                   failure: reject)
         return promise
     }
+    
+    
+    func APIRequest(_ target: NarodAPI,
+                    success: @escaping WuSuccessCompletion,
+                    failure: @escaping WUFailureCompletion) {
+        NarProvider.instance.request(target) { (result) in
+                self.handleRequest(target: target, result: result, success: success, failure: failure) 
+            }
+    }
+
 }
 
 
@@ -61,7 +66,9 @@ extension NarProvider {
     
     // MARK: - Private
     
-    fileprivate func handleRequest(target: NarodAPI, result: MoyaResult, success: @escaping WuSuccessCompletion, reject: (Error) -> Void) {
+    fileprivate func handleRequest(target: NarodAPI, result: MoyaResult,
+                                   success: @escaping WuSuccessCompletion,
+                                   failure: @escaping WUFailureCompletion) {
         switch result {
         case let .success(moyaResponse):
             let data = moyaResponse.data
@@ -70,51 +77,52 @@ extension NarProvider {
             switch statusCode {
             case 200:
                 if let networkError = checkResponce(data: data) {
-                    reject(networkError)
+                    failure(networkError)
                 } else {
                     success(data)
                 }
             default:
-                let networkError = NarodNetworkEror.networkError(code: statusCode)
-                reject(networkError)
+                let networkError = NarodNetworkError.networkError(code: statusCode)
+                failure(networkError)
             }
             
         case let .failure(error):
-            handleNetworkFailure(target, success: success, reject: reject, error: error)
+            // Really network unreachable
+            handleNetworkFailure(target, error: error, success: success, failure: failure)
         }
     }
 
     
-    fileprivate func checkResponce(data: Data) -> NarodNetworkEror? {
+    fileprivate func checkResponce(data: Data) -> NarodNetworkError? {
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: data)
             if let dict = jsonObject as? [String : Any], let errno = dict["errno"] as? Int {
                 let message = (dict["error"] as? String) ?? "Unknown"
                 switch(errno) {
 //                     - 400 - ошибка синтаксиса в запросе к API;
-                case 400: return NarodNetworkEror.requestSyntaxError(message: message)
+                case 400: return NarodNetworkError.requestSyntaxError(message: message)
 //                     - 401 - требуется авторизация;
-                case 401: return NarodNetworkEror.authorizationNeed(message: message)
+                case 401: return NarodNetworkError.authorizationNeed(message: message)
 //                     - 403 - в доступе к объекту отказано;
-                case 403: return NarodNetworkEror.accessDenied(message: message)
+                case 403: return NarodNetworkError.accessDenied(message: message)
 //                     - 404 - искомый объект не найден; (APP_NOT_FOUND)
-                case 404: return NarodNetworkEror.notFound(message: message)
-//                     - 423 - ключ API заблокирован администратором;
-                case 423: return NarodNetworkEror.apiKeyBlocked(message: message)
-//                     - 429 - более 1 запроса в минуту;
-                case 429: return NarodNetworkEror.frequentRequestError(message: message)
+                case 404: return NarodNetworkError.notFound(message: message)
+//                     - 423 - ключ API заблокирован администратором;   - really fatal
+                case 423: return NarodNetworkError.apiKeyBlocked(message: message)
+//                     - 429 - более 1 запроса в минуту; - just retry
+                case 429: return NarodNetworkError.frequentRequestError(message: message)
 //                     - 434 - искомый объект отключен;
-                case 434: return NarodNetworkEror.disconnectedError(message: message)
+                case 434: return NarodNetworkError.disconnectedError(message: message)
 //                     - 503 - сервер временно не обрабатывает запросы по техническим причинам.
-                case 503: return NarodNetworkEror.serverError
+                case 503: return NarodNetworkError.serverError
                     
-                default: return NarodNetworkEror.networkError(code: errno)
+                default: return NarodNetworkError.networkError(code: errno)
                 }
             }
         } catch {
             print(error)
             let message = error.localizedDescription
-            return NarodNetworkEror.requestSyntaxError(message: message)
+            return NarodNetworkError.replySyntaxError(message: message)
         }
         return nil
     }
@@ -134,11 +142,13 @@ extension NarProvider {
     
    
     /// just retry request
-    fileprivate func handleNetworkFailure(_ target: NarodAPI, success: @escaping WuSuccessCompletion, reject: (Error) -> Void, error: Swift.Error?) {
-//        delay(1) {
-//            print("Retry request")
-//            self.wunderRequest(target, success: success, failure: failure)
-//        }
+    fileprivate func handleNetworkFailure(_ target: NarodAPI, error: Swift.Error?,
+                                          success: @escaping WuSuccessCompletion,
+                                          failure: @escaping WUFailureCompletion) {
+        delay(1) {
+            print("Retry request")
+            self.APIRequest(target, success: success, failure: failure)
+        }
     }
     
 }

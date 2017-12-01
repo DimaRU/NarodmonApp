@@ -126,7 +126,7 @@ extension NarodAPI {
             ]
         }
         parameters["api_key"] = APIKeys.shared.apiKey
-        parameters["uuid"] = Defaults[.machineUUID]!
+        parameters["uuid"] = Defaults[.MachineUUID]!
         parameters["lang"] = NSLocale.current.languageCode!
 
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
@@ -164,7 +164,7 @@ extension NarodAPI {
 
 
 func passwordHash(_ password: String) -> String {
-    return (Defaults[.machineUUID] ?? "" + password.md5()).md5()
+    return (Defaults[.MachineUUID] ?? "" + password.md5()).md5()
 }
 
 // MARK: - Provider support
