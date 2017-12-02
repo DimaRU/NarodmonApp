@@ -63,12 +63,22 @@ extension NarodAPI {
     public var method: Moya.Method {
         return .post
     }
-}
-
-extension NarodAPI {
     
     public var path: String {
         return ""
+    }
+    
+    
+    /// Network unreachable reaction
+    /// ## true - retry request until network reachable
+    /// ## false - return error to caller
+    public var requestRetry: Bool {
+        switch self {
+        case .sensorsValues:
+            return false
+        default:
+            return true
+        }
     }
 }
 

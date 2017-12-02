@@ -76,14 +76,14 @@ extension NarProvider {
 
             switch statusCode {
             case 200:
-                if let networkError = checkResponce(data: data) {
-                    failure(networkError)
+                if let APIError = checkResponce(data: data) {
+                    failure(APIError)
                 } else {
                     success(data)
                 }
             default:
-                let networkError = NarodNetworkError.networkError(code: statusCode)
-                failure(networkError)
+                let APIError = NarodNetworkError.statusError(code: statusCode)
+                failure(APIError)
             }
             
         case let .failure(error):
@@ -92,8 +92,28 @@ extension NarProvider {
         }
     }
 
+    /// Check for fatal errors.
+    /// On falal eroror, display error message end exit
+    /// On non-fatal, return error
+    ///
+    private func checkFatal(error: NarodNetworkError, failure: @escaping WUFailureCompletion) {
+        switch error {
+        case .requestSyntaxError(let message),
+             .notFound(let message),
+             .apiKeyBlocked(let message),
+             .responceSyntaxError(let message):
+            fatalError(message)
+        default:
+            failure(error)
+        }
+    }
     
-    fileprivate func checkResponce(data: Data) -> NarodNetworkError? {
+    
+    /// Pre-parce reply data and return error, if any
+    ///
+    /// - Parameter data: responce data
+    /// - Returns: NarodNetworkError
+    private func checkResponce(data: Data) -> NarodNetworkError? {
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: data)
             if let dict = jsonObject as? [String : Any], let errno = dict["errno"] as? Int {
@@ -116,13 +136,13 @@ extension NarProvider {
 //                     - 503 - сервер временно не обрабатывает запросы по техническим причинам.
                 case 503: return NarodNetworkError.serverError
                     
-                default: return NarodNetworkError.networkError(code: errno)
+                default: return NarodNetworkError.responceSyntaxError(message: "Unknown code: \(errno) \(message)")
                 }
             }
         } catch {
             print(error)
             let message = error.localizedDescription
-            return NarodNetworkError.replySyntaxError(message: message)
+            return NarodNetworkError.responceSyntaxError(message: message)
         }
         return nil
     }
@@ -142,12 +162,16 @@ extension NarProvider {
     
    
     /// just retry request
-    fileprivate func handleNetworkFailure(_ target: NarodAPI, error: Swift.Error?,
+    fileprivate func handleNetworkFailure(_ target: NarodAPI, error: Swift.Error,
                                           success: @escaping WuSuccessCompletion,
                                           failure: @escaping WUFailureCompletion) {
-        delay(1) {
-            print("Retry request")
-            self.APIRequest(target, success: success, failure: failure)
+        if target.requestRetry {
+            delay(1) {
+                print("Retry request")
+                self.APIRequest(target, success: success, failure: failure)
+            }
+        } else {
+            failure(error)
         }
     }
     

@@ -23,8 +23,8 @@ enum NarodNetworkError: Error {
     case apiKeyBlocked(message: String)
     case frequentRequestError(message: String)
     case disconnectedError(message: String)
-    case replySyntaxError(message: String)
+    case responceSyntaxError(message: String)
     case serverError
-    case networkError(code: Int)
+    case statusError(code: Int)
 }
 
