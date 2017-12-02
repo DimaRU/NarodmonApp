@@ -48,14 +48,9 @@ extension AppDelegate: NSPopoverDelegate {
         // the popover retains us and we retain the popover,
         // we drop the popover whenever it is closed to avoid a cycle
         myPopover?.contentViewController = sensorsViewController
-        switch 0 {
-        case 0:
-            myPopover?.appearance = NSAppearance(named: .vibrantLight)
-        case 1:
-            myPopover?.appearance = NSAppearance(named: .vibrantDark)
-        default:
-            myPopover?.appearance = NSAppearance(named: .aqua)
-        }
+        myPopover?.appearance = NSAppearance(named: .vibrantLight)
+//        myPopover?.appearance = NSAppearance(named: .vibrantDark)
+//        myPopover?.appearance = NSAppearance(named: .aqua)
         myPopover?.animates = true
         // AppKit will close the popover when the user interacts with a user interface element outside the popover.
         // note that interacting with menus or panels that become key only when needed will not cause a transient popover to close.
