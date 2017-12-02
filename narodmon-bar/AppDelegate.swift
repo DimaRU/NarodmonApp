@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       
         initPopover()
 
-        //InitService.appInit()
+        InitService.appInit()
         
         
     }

@@ -2,7 +2,7 @@
 ///  InitService.swift
 //
 
-import Foundation
+import Cocoa
 
 struct InitService {
     static func appInit() {
@@ -13,9 +13,18 @@ struct InitService {
         
         NarProvider.shared.request(.appInit(version: version, platform: platform, model: model, timeZone: utc))
             .then { (initData: AppInitData) -> Void in
+                let app  = NSApp.delegate as! AppDelegate
+                app.appDataStore.initData = initData
+                print(initData)
             }
             .catch { (error) in
-                
+                switch error {
+                case let e as NarodNetworkError:
+                    print(e.message())
+                default:
+                    print(error.localizedDescription)
+                }
+                fatalError("Can't init")
         }
     }
 }

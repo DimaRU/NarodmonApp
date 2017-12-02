@@ -11,7 +11,7 @@ typealias MoyaResult = Result<Moya.Response, Moya.MoyaError>
 
 // MARK: - Provider setup
 /// URL constants
-let API_DOMAIN = "http://narodmon.ru"
+let API_DOMAIN = "https://narodmon.ru"
 
 public enum HistoryPeriod: String {
     case hour
@@ -65,7 +65,7 @@ extension NarodAPI {
     }
     
     public var path: String {
-        return ""
+        return "/api"
     }
     
     
@@ -84,7 +84,7 @@ extension NarodAPI {
 
 extension NarodAPI {
   
-    public var baseURL: URL { return URL(string: API_DOMAIN + NarodAPI.apiVersion)! }
+    public var baseURL: URL { return URL(string: API_DOMAIN)! }
 
     public var task: Task {
         var parameters: [String : Any]

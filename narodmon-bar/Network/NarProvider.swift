@@ -82,7 +82,7 @@ extension NarProvider {
                     success(data)
                 }
             default:
-                let APIError = NarodNetworkError.statusError(code: statusCode)
+                let APIError = NarodNetworkError.statusError(message: "Responce status code: \(statusCode)")
                 failure(APIError)
             }
             
@@ -134,7 +134,7 @@ extension NarProvider {
 //                     - 434 - искомый объект отключен;
                 case 434: return NarodNetworkError.disconnectedError(message: message)
 //                     - 503 - сервер временно не обрабатывает запросы по техническим причинам.
-                case 503: return NarodNetworkError.serverError
+                case 503: return NarodNetworkError.serverError(message: "Server error")
                     
                 default: return NarodNetworkError.responceSyntaxError(message: "Unknown code: \(errno) \(message)")
                 }

@@ -24,7 +24,23 @@ enum NarodNetworkError: Error {
     case frequentRequestError(message: String)
     case disconnectedError(message: String)
     case responceSyntaxError(message: String)
-    case serverError
-    case statusError(code: Int)
+    case serverError(message: String)
+    case statusError(message: String)
+    
+    func message() -> String {
+        switch self {
+        case .requestSyntaxError(let message),
+             .authorizationNeed(let message),
+             .accessDenied(let message),
+             .notFound(let message),
+             .apiKeyBlocked(let message),
+             .frequentRequestError(let message),
+             .disconnectedError(let message),
+             .responceSyntaxError(let message),
+             .serverError(let message),
+             .statusError(let message):
+            return message
+        }
+    }
 }
 
