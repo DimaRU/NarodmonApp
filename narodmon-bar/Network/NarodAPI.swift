@@ -32,10 +32,6 @@ public enum NarodAPI: TargetType {
     case sensorsHistory(id: Int, period: HistoryPeriod, offset: Int)
     case sensorsNearby(my: Bool)
     
-
-    
-    static let apiVersion = "/api"
-    
     var mappingType: Decodable.Type {
         switch self {
         case .appInit:
