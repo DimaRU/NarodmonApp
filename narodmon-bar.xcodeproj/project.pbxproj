@@ -31,6 +31,8 @@
 		0A9195251FBB463F00D72378 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195171FBB463E00D72378 /* APIKeys.swift */; };
 		0A9AF9FB1FD000C200F5B5BB /* AppDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9AF9FA1FD000C200F5B5BB /* AppDataStore.swift */; };
 		0A9AFA011FD00F1C00F5B5BB /* PopoverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */; };
+		0AB311881FD557D500ED680F /* SensorCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB311871FD557D500ED680F /* SensorCellView.swift */; };
+		0AB3118A1FD557E600ED680F /* DeviceCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB311891FD557E600ED680F /* DeviceCellView.swift */; };
 		0AB385FC1FC6D6A5007F4EE5 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */; };
 		0AB3DB881FBB7DC8002C0705 /* NarodNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3DB871FBB7DC8002C0705 /* NarodNetworkError.swift */; };
 		0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195161FBB463E00D72378 /* NarProvider.swift */; };
@@ -84,6 +86,8 @@
 		0A9195171FBB463E00D72378 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		0A9AF9FA1FD000C200F5B5BB /* AppDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataStore.swift; sourceTree = "<group>"; };
 		0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverDelegate.swift; sourceTree = "<group>"; };
+		0AB311871FD557D500ED680F /* SensorCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorCellView.swift; sourceTree = "<group>"; };
+		0AB311891FD557E600ED680F /* DeviceCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCellView.swift; sourceTree = "<group>"; };
 		0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		0AB3DB871FBB7DC8002C0705 /* NarodNetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarodNetworkError.swift; sourceTree = "<group>"; };
 		0ABEA4CC1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedDecodingContainer.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 			children = (
 				0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */,
 				0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */,
+				0AB311871FD557D500ED680F /* SensorCellView.swift */,
+				0AB311891FD557E600ED680F /* DeviceCellView.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -424,6 +430,7 @@
 				0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */,
 				0A9195081FBB416000D72378 /* UserFavorites.swift in Sources */,
 				0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */,
+				0AB3118A1FD557E600ED680F /* DeviceCellView.swift in Sources */,
 				0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */,
 				0A63DF971FCED92800C35607 /* HwUUID.swift in Sources */,
 				0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */,
@@ -442,6 +449,7 @@
 				0A9195031FBB416000D72378 /* SensorsValues.swift in Sources */,
 				0AB385FC1FC6D6A5007F4EE5 /* KeychainService.swift in Sources */,
 				0A9195071FBB416000D72378 /* UserLogon.swift in Sources */,
+				0AB311881FD557D500ED680F /* SensorCellView.swift in Sources */,
 				0AB3DB881FBB7DC8002C0705 /* NarodNetworkError.swift in Sources */,
 				0A9195051FBB416000D72378 /* SensorsOnDevice.swift in Sources */,
 				0A91950A1FBB416000D72378 /* AppInitData.swift in Sources */,

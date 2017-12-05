@@ -1,0 +1,24 @@
+//
+//  DeviceCellView.swift
+//  narodmon-bar
+//
+//  Created by Dmitriy Borovikov on 04.12.2017.
+//  Copyright © 2017 Dmitriy Borovikov. All rights reserved.
+//
+
+import Cocoa
+
+class DeviceCellView: NSTableCellView {
+
+    @IBOutlet weak var deviceLocationLabel: NSTextField!
+    @IBOutlet weak var deviceNameLabel: NSTextField!
+    
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+    }
+    
+    func setContent(device: Device) {
+        deviceLocationLabel.stringValue = device.location
+        deviceNameLabel.stringValue = device.name
+    }
+}
