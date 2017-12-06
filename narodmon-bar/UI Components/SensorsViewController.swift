@@ -14,6 +14,7 @@ class SensorsViewController: NSViewController {
     @IBOutlet var settingsMenu: NSMenu!
     
     @IBOutlet weak var sensorsTableView: NSTableView!
+    @IBOutlet weak var sensorsScrollView: NSScrollView!
     
     @IBAction func settingsButtonPressed(_ sender: NSButton) {
         let p = NSPoint(x: 0, y: sender.frame.height)
@@ -23,10 +24,18 @@ class SensorsViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setViewSizeOnContent()
     }
     
     public func windowDidDetach() {
         print("Detach...")
+        print("On detach:", self.view.frame.size.height)
+    }
+
+    func setViewSizeOnContent() {
+        var size = view.frame.size
+        size.height = sensorsScrollView.documentView!.frame.size.height + toolbar.frame.size.height + 2
+        view.setFrameSize(size)
     }
 
 }
@@ -34,7 +43,7 @@ class SensorsViewController: NSViewController {
 
 extension SensorsViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 10
+        return 12
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {

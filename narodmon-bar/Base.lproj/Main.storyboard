@@ -665,11 +665,11 @@
             <objects>
                 <viewController storyboardIdentifier="SensorsViewController" id="XfG-lQ-9wD" customClass="SensorsViewController" customModule="narodmon_bar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="222" height="377"/>
+                        <rect key="frame" x="0.0" y="0.0" width="222" height="190"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box boxType="custom" borderType="none" borderWidth="0.0" title="Narodmon" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="bXf-qs-qIa">
-                                <rect key="frame" x="0.0" y="352" width="222" height="25"/>
+                                <rect key="frame" x="0.0" y="165" width="222" height="25"/>
                                 <view key="contentView" id="44m-yj-Su6">
                                     <rect key="frame" x="0.0" y="0.0" width="222" height="25"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -713,13 +713,13 @@
                                 <color key="fillColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                             </box>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="32" horizontalPageScroll="10" verticalLineScroll="32" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKn-RN-wXh">
-                                <rect key="frame" x="0.0" y="0.0" width="222" height="352"/>
+                                <rect key="frame" x="0.0" y="0.0" width="222" height="165"/>
                                 <clipView key="contentView" drawsBackground="NO" id="BtB-hD-3WG">
-                                    <rect key="frame" x="1" y="1" width="220" height="350"/>
+                                    <rect key="frame" x="1" y="1" width="220" height="163"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="30" rowSizeStyle="automatic" viewBased="YES" id="gqo-vb-nZh">
-                                            <rect key="frame" x="0.0" y="0.0" width="220" height="350"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="220" height="163"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
@@ -836,6 +836,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="sensorsScrollView" destination="hKn-RN-wXh" id="SGr-9r-ljx"/>
                         <outlet property="sensorsTableView" destination="gqo-vb-nZh" id="mVg-Pl-Uui"/>
                         <outlet property="settingsMenu" destination="R3s-R3-GGE" id="Kx9-e8-F21"/>
                         <outlet property="toolbar" destination="bXf-qs-qIa" id="nbN-pg-rkR"/>
