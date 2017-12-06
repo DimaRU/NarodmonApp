@@ -10,8 +10,9 @@ import Cocoa
 
 class SensorsViewController: NSViewController {
 
-    @IBOutlet weak var toolbarView: NSView!
+    @IBOutlet weak var toolbar: NSBox!
     @IBOutlet var settingsMenu: NSMenu!
+    
     @IBOutlet weak var sensorsTableView: NSTableView!
     
     @IBAction func settingsButtonPressed(_ sender: NSButton) {
@@ -19,15 +20,17 @@ class SensorsViewController: NSViewController {
         settingsMenu.popUp(positioning: nil, at: p, in: sender)
 
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        toolbarView.wantsLayer = true
-        toolbarView.layer?.backgroundColor = sensorsTableView.backgroundColor.cgColor
-        // Do view setup here.
+    }
+    
+    public func windowDidDetach() {
+        print("Detach...")
     }
 
 }
+
 
 extension SensorsViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {

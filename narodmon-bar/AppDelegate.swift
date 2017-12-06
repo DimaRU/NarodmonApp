@@ -15,7 +15,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusView: StatusItemView!
     var myPopover: NSPopover?
     var sensorsViewController: SensorsViewController!
-    var detachedWindow: NSWindow?
     
     var appDataStore = AppDataStore()
 
@@ -24,7 +23,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusView = StatusItemView(statusItem: statusItem) {
-            print("Action")
             self.showPopover()
             }
         statusView.sizeToFit()

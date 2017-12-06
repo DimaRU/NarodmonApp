@@ -10,13 +10,6 @@ extension AppDelegate: NSPopoverDelegate {
     public func initPopover() {
         sensorsViewController = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SensorsViewController")) as! SensorsViewController
         
-        let frame: NSRect = sensorsViewController.view.bounds
-        let styleMask: NSWindow.StyleMask = [.titled, .closable]
-        let rect = NSWindow.contentRect(forFrameRect: frame, styleMask: styleMask)
-        detachedWindow = NSWindow(contentRect: rect, styleMask: styleMask, backing: .buffered, defer: true)
-        detachedWindow?.contentViewController = sensorsViewController
-        detachedWindow?.isReleasedWhenClosed = false
-        
     }
     
     // -------------------------------------------------------------------------------
@@ -24,12 +17,6 @@ extension AppDelegate: NSPopoverDelegate {
     // -------------------------------------------------------------------------------
     
     public func showPopover() {
-        if detachedWindow?.isVisible ?? false {
-            // popover is already detached to a separate window, so select its window instead
-            detachedWindow?.makeKeyAndOrderFront(self)
-            return
-        }
-        
         createPopover()
         let targetButton = statusView.statusItem.button
         
@@ -48,9 +35,8 @@ extension AppDelegate: NSPopoverDelegate {
         // the popover retains us and we retain the popover,
         // we drop the popover whenever it is closed to avoid a cycle
         myPopover?.contentViewController = sensorsViewController
-        myPopover?.appearance = NSAppearance(named: .vibrantLight)
-//        myPopover?.appearance = NSAppearance(named: .vibrantDark)
-//        myPopover?.appearance = NSAppearance(named: .aqua)
+        myPopover?.appearance = NSAppearance(named: .aqua)
+        
         myPopover?.animates = true
         // AppKit will close the popover when the user interacts with a user interface element outside the popover.
         // note that interacting with menus or panels that become key only when needed will not cause a transient popover to close.
@@ -129,6 +115,7 @@ extension AppDelegate: NSPopoverDelegate {
     // -------------------------------------------------------------------------------
     func popoverDidDetach(_ popover: NSPopover) {
         print("popoverDidDetach")
+        self.sensorsViewController.windowDidDetach()
     }
     
     
