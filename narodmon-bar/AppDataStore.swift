@@ -14,7 +14,8 @@ final class AppDataStore {
     var devices: [Device] = []
     var sensors: [Sensor] = []
     
-    var initData: AppInitData?
+    var initData: AppInitData? = nil
+    var logonData: UserLogon? = nil
     
     init() {
         selectedDevices = Set<Int>(Defaults[.SelectedDevices])

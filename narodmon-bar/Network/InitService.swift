@@ -16,11 +16,11 @@ struct InitService {
         return NarProvider.shared.request(.appInit(version: version, platform: platform, model: model, timeZone: utc))
     }
     
-    static func appLogin() -> Promise<Void> {
+    static func appLogin() -> Promise<UserLogon?> {
         guard let login = KeychainService.shared[.login], let password = KeychainService.shared[.password] else {
-            return Promise<Void>()
+            return Promise { fulfill, reject in fulfill(nil) }
         }
-        return NarProvider.shared.request(.userLogon(login: login, password: password)).asVoid()
+        return NarProvider.shared.request(.userLogon(login: login, password: password))
     }
 
 }

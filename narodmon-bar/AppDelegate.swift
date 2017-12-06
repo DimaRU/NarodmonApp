@@ -31,13 +31,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         initPopover()
 
         InitService.appInit()
-            .then { (initData: AppInitData) -> Promise<Void> in
+            .then { (initData: AppInitData) -> Promise<UserLogon?> in
                 self.appDataStore.initData = initData
                 return InitService.appLogin()
             }
-            .then {
-                // Login
-                print("Logged in")
+            .then { (logonData: UserLogon?) -> Void in
+                self.appDataStore.logonData = logonData
+                if logonData != nil {
+                    print("Logged in")
+                }
             }
             .catch { (error) in
                 if let error = error as? NarodNetworkError {
@@ -56,6 +58,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
             .always {
                 // All ok, start refresh cycle
+                
         }
 
         
