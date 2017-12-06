@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import PromiseKit
 import SwiftyUserDefaults
 
 @NSApplicationMain
@@ -30,7 +31,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         initPopover()
 
         InitService.appInit()
-        
+            .then { (initData: AppInitData) -> Promise<Void> in
+                self.appDataStore.initData = initData
+                return InitService.appLogin()
+            }
+            .then {
+                // Login
+                print("Logged in")
+            }
+            .catch { (error) in
+                if let error = error as? NarodNetworkError {
+                    switch(error) {
+                    case .authorizationNeed(let message):
+                        let alert = NSAlert()
+                        alert.messageText = error.localizedDescription
+                        alert.informativeText = message
+                        alert.runModal()
+                    default:
+                        fatalError()
+                    }
+                } else {
+                    fatalError()
+                }
+            }
+            .always {
+                // All ok, start refresh cycle
+        }
+
         
     }
 
