@@ -57,16 +57,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 if self.appDataStore.devices.count == 0 && self.appDataStore.selectedBarSensors.count == 0 {
                     // No defaults for display, add it
                     InitService.loadDefaultDevices(isLogged: self.appDataStore.logonData != nil) {
-                        self.loadDevicesData()
+                        self.loadDevicesDefinitions()
                     }
                 } else {
                     // All ok, start refresh cycle
-                    self.loadDevicesData()
+                    self.loadDevicesDefinitions()
                 }
         }
     }
 
-    func loadDevicesData() {
+    func loadDevicesDefinitions() {
         when(fulfilled: appDataStore.selectedDevices.map { deviceId -> Promise<SensorsOnDevice> in
                 NarProvider.shared.request(.sensorsOnDevice(id: deviceId)) } )
             .then { devices in
