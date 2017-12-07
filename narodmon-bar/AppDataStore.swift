@@ -7,9 +7,9 @@ import Cocoa
 import SwiftyUserDefaults
 
 final class AppDataStore {
-    var selectedDevices: Set<Int> = []             // Selected device ID list
-    var selectedwindowSensors: Set<Int> = []       // Selected popup window sensors
-    var selectedBarSensors: Set<Int> = []          // Selected bar sensors
+    var selectedDevices: [Int] = []             // Selected device ID list
+    var selectedwindowSensors: [Int] = []       // Selected popup window sensors
+    var selectedBarSensors: [Int] = []          // Selected bar sensors
     
     var devices: [SensorsOnDevice] = []
     var sensors: [Sensor] = []
@@ -18,9 +18,9 @@ final class AppDataStore {
     var logonData: UserLogon? = nil
     
     init() {
-        selectedDevices = Set<Int>(Defaults[.SelectedDevices])
-        selectedwindowSensors = Set<Int>(Defaults[.SelectedwindowSensors])
-        selectedBarSensors = Set<Int>(Defaults[.SelectedBarSensors])
+        selectedDevices = Defaults[.SelectedDevices]
+        selectedwindowSensors = Defaults[.SelectedwindowSensors]
+        selectedBarSensors = Defaults[.SelectedBarSensors]
     }
     
     func selectionExist() -> Bool {

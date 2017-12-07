@@ -56,8 +56,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .always {
                 if self.appDataStore.devices.count == 0 && self.appDataStore.selectedBarSensors.count == 0 {
                     // No defaults for display, add it
-                    InitService.loadDefaultDevices(isLogged: self.appDataStore.logonData != nil) {
-                        self.loadDevicesDefinitions()
+                    InitService.loadDefaultDevices()
+                        .then {
+                            self.loadDevicesDefinitions()
+                        }
+                        .catch { (error) in
+                            print(error)
+                            fatalError()
                     }
                 } else {
                     // All ok, start refresh cycle
@@ -80,8 +85,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
-
 }
 
 
