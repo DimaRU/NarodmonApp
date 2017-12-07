@@ -17,7 +17,7 @@ class DeviceCellView: NSTableCellView {
         super.draw(dirtyRect)
     }
     
-    func setContent(device: Device) {
+    func setContent(device: SensorsOnDevice) {
         deviceLocationLabel.stringValue = device.location
         deviceNameLabel.stringValue = device.name
     }

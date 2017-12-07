@@ -23,4 +23,7 @@ struct InitService {
         return NarProvider.shared.request(.userLogon(login: login, password: password))
     }
 
+    static func loadDefaultDevices(isLogged: Bool, completion: () -> Void) {
+        completion()
+    }
 }

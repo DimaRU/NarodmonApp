@@ -17,18 +17,3 @@ struct Sensor: Codable {
     let trend: Int
 }
 
-struct Device: Codable {
-    let id: Int
-    let owner: String
-    let my: Int
-    let cmd: Int
-    let name: String
-    let location: String
-    let distance: Double
-    let time: Date
-    let lat: Double
-    let lng: Double
-    let liked: Int
-    let uptime: Int
-    let sensors: [Sensor]
-}

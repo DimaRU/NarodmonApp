@@ -42,28 +42,41 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             }
             .catch { (error) in
-                if let error = error as? NarodNetworkError {
-                    switch(error) {
-                    case .authorizationNeed(let message):
-                        let alert = NSAlert()
-                        alert.messageText = error.localizedDescription
-                        alert.informativeText = message
-                        alert.runModal()
-                    default:
-                        fatalError()
-                    }
-                } else {
+                guard let error = error as? NarodNetworkError else { fatalError() }
+                switch(error) {
+                case .authorizationNeed(let message):
+                    let alert = NSAlert()
+                    alert.messageText = error.localizedDescription
+                    alert.informativeText = message
+                    alert.runModal()
+                default:
                     fatalError()
                 }
             }
             .always {
-                // All ok, start refresh cycle
-                
+                if self.appDataStore.devices.count == 0 && self.appDataStore.selectedBarSensors.count == 0 {
+                    // No defaults for display, add it
+                    InitService.loadDefaultDevices(isLogged: self.appDataStore.logonData != nil) {
+                        self.loadDevicesData()
+                    }
+                } else {
+                    // All ok, start refresh cycle
+                    self.loadDevicesData()
+                }
         }
-
-        
     }
 
+    func loadDevicesData() {
+        when(fulfilled: appDataStore.selectedDevices.map { deviceId -> Promise<SensorsOnDevice> in
+                NarProvider.shared.request(.sensorsOnDevice(id: deviceId)) } )
+            .then { devices in
+                self.appDataStore.devices = devices
+            }
+            .catch { error in
+                print(error)
+        }
+    }
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }

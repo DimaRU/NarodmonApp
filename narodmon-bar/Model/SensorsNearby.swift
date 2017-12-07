@@ -5,5 +5,5 @@
 import Foundation
 
 struct SensorsNearby: Codable {
-    let devices: [Device]
+    let devices: [SensorsOnDevice]
 }

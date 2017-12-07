@@ -11,7 +11,7 @@ final class AppDataStore {
     var selectedwindowSensors: Set<Int> = []       // Selected popup window sensors
     var selectedBarSensors: Set<Int> = []          // Selected bar sensors
     
-    var devices: [Device] = []
+    var devices: [SensorsOnDevice] = []
     var sensors: [Sensor] = []
     
     var initData: AppInitData? = nil
