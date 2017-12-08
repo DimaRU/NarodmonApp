@@ -12,10 +12,6 @@ extension AppDelegate: NSPopoverDelegate {
         
     }
     
-    // -------------------------------------------------------------------------------
-    //  showPopover
-    // -------------------------------------------------------------------------------
-    
     public func showPopover() {
         createPopover()
         let targetButton = statusView.statusItem.button
@@ -23,10 +19,6 @@ extension AppDelegate: NSPopoverDelegate {
         // configure the preferred position of the popover
         myPopover?.show(relativeTo: targetButton?.bounds ?? NSRect(), of: statusView, preferredEdge: .minY)
     }
-    
-    // -------------------------------------------------------------------------------
-    //  createPopover
-    // -------------------------------------------------------------------------------
     
     func createPopover() {
         guard myPopover == nil else { return }
@@ -43,7 +35,6 @@ extension AppDelegate: NSPopoverDelegate {
         myPopover?.behavior = .transient
         // so we can be notified when the popover appears or closes
         myPopover?.delegate = self
-        
     }
 
     // MARK: - NSPopoverDelegate
@@ -52,9 +43,8 @@ extension AppDelegate: NSPopoverDelegate {
     // This method will also be invoked on the popover.
     // -------------------------------------------------------------------------------
     func popoverWillShow(_ notification: Notification) {
-        let popover = notification.object
-        if popover != nil {
-            //... operate on that popover
+        if notification.object != nil {
+            setPopoverState(showed: true)
         }
     }
     
@@ -63,7 +53,6 @@ extension AppDelegate: NSPopoverDelegate {
     // This method will also be invoked on the popover.
     // -------------------------------------------------------------------------------
     func popoverDidShow(_ notification: Notification) {
-        // add new code here after the popover has been shown
     }
     
     // -------------------------------------------------------------------------------
@@ -72,14 +61,12 @@ extension AppDelegate: NSPopoverDelegate {
     // -------------------------------------------------------------------------------
     
     func popoverWillClose(_ notification: Notification) {
-        let closeReason = notification.userInfo![NSPopover.closeReasonUserInfoKey] as? NSPopover.CloseReason
-        if closeReason != nil {
+        guard let closeReason = notification.userInfo![NSPopover.closeReasonUserInfoKey] as? NSPopover.CloseReason else { return }
             // closeReason can be:
             //      NSPopoverCloseReasonStandard
             //      NSPopoverCloseReasonDetachToWindow
-            //
-            // add new code here if you want to respond "before" the popover closes
-            //
+        if closeReason == NSPopover.CloseReason.standard {
+            setPopoverState(showed: false)
         }
     }
     
@@ -88,15 +75,6 @@ extension AppDelegate: NSPopoverDelegate {
     // This method will also be invoked on the popover.
     // -------------------------------------------------------------------------------
     func popoverDidClose(_ notification: Notification) {
-        let closeReason = notification.userInfo![NSPopover.closeReasonUserInfoKey] as? NSPopover.CloseReason
-        if closeReason != nil {
-            // closeReason can be:
-            //      NSPopoverCloseReasonStandard
-            //      NSPopoverCloseReasonDetachToWindow
-            //
-            // add new code here if you want to respond "after" the popover closes
-            //
-        }
         
         // release our popover since it closed
         myPopover = nil
