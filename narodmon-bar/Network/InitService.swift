@@ -47,7 +47,7 @@ struct InitService {
             return NarProvider.shared.request(.sensorsNearby(my: false))
                 // get near
                 .then { (near: SensorsNearby) -> Void in
-                    guard !near.devices.isEmpty else { throw NarodNetworkError.responceSyntaxError(message: "SensorsNearby") }
+                    guard !near.devices.isEmpty else { throw NarodNetworkError.responceSyntaxError(message: "SensorsNearby")}
                     let devices = near.devices.prefix(2)
                     var sensorsIds: [Int] = []
                     for device in devices {
@@ -60,4 +60,21 @@ struct InitService {
         }
     }
 
+    /// Load device and sensors definitions (location, name, etc)
+    ///
+    /// - Returns: void Promise
+    static func loadDevicesDefinitions() -> Promise<Void>{
+        let app = (NSApp.delegate as! AppDelegate)
+        let promises = app.appDataStore.selectedDevices.map { deviceId -> Promise<SensorsOnDevice> in
+            NarProvider.shared.request(.sensorsOnDevice(id: deviceId)) }
+        return when(fulfilled: promises)
+            .then { devices in
+                app.appDataStore.devices = devices
+        }
+    }
+    
+    /// Load and display data every N min
+    static func startRefreshCycle() {
+        
+    }
 }

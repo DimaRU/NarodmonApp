@@ -16,7 +16,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusView: StatusItemView!
     var myPopover: NSPopover?
     var sensorsViewController: SensorsViewController!
-    
+    public var sensorsViewOpened = false
+
     var appDataStore = AppDataStore()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -58,7 +59,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     // No defaults for display, add it
                     InitService.loadDefaultDevices()
                         .then {
-                            self.loadDevicesDefinitions()
+                            InitService.loadDevicesDefinitions()
+                        }
+                        .then { () -> Void in
+                            displaySensorData()
+                            InitService.startRefreshCycle()
                         }
                         .catch { (error) in
                             print(error)
@@ -66,22 +71,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     }
                 } else {
                     // All ok, start refresh cycle
-                    self.loadDevicesDefinitions()
+                    InitService.loadDevicesDefinitions()
+                        .then { () -> Void in
+                            displaySensorData()
+                            InitService.startRefreshCycle()
+                        }
+                        .catch { (error) in
+                            print(error)
+                            fatalError()
+                    }
                 }
+        }
+        
+        /// Refresh sensor data on status bar & sensors window
+        func displaySensorData() {
+            
         }
     }
 
-    func loadDevicesDefinitions() {
-        when(fulfilled: appDataStore.selectedDevices.map { deviceId -> Promise<SensorsOnDevice> in
-                NarProvider.shared.request(.sensorsOnDevice(id: deviceId)) } )
-            .then { devices in
-                self.appDataStore.devices = devices
-            }
-            .catch { error in
-                print(error)
-        }
-    }
-    
+   
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }

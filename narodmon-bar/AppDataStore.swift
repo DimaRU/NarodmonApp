@@ -12,7 +12,6 @@ final class AppDataStore {
     var selectedBarSensors: [Int] = []          // Selected bar sensors
     
     var devices: [SensorsOnDevice] = []
-    var sensors: [Sensor] = []
     
     var initData: AppInitData? = nil
     var logonData: UserLogon? = nil
