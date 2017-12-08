@@ -17,6 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var myPopover: NSPopover?
     var sensorsViewController: SensorsViewController!
     public var popoverShowed = false
+    var sensorsRefreshTimer: Timer? = nil
 
     var appDataStore = AppDataStore()
 

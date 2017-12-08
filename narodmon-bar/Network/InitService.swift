@@ -73,8 +73,43 @@ struct InitService {
         }
     }
     
+    static func refreshSensorsData() {
+        let app = (NSApp.delegate as! AppDelegate)
+        var sensors = app.appDataStore.selectedBarSensors
+        if app.popoverShowed {
+            sensors.append(contentsOf: app.appDataStore.selectedwindowSensors)
+        }
+        NarProvider.shared.request(.sensorsValues(sensorIds: sensors))
+            .then { (sensorsValues: SensorsValues) -> Void in
+                for i in 0..<app.appDataStore.devices.count {
+                    for j in 0..<app.appDataStore.devices[i].sensors.count {
+                        let id = app.appDataStore.devices[i].sensors[j].id
+                        if let sensorValue = sensorsValues.sensors.first(where: { $0.id == id }) {
+                            app.appDataStore.devices[i].sensors[j].value = sensorValue.value
+                            app.appDataStore.devices[i].sensors[j].time = sensorValue.time
+                            app.appDataStore.devices[i].sensors[j].changed = sensorValue.changed
+                            app.appDataStore.devices[i].sensors[j].trend = sensorValue.trend
+                        }
+                    }
+                }
+                
+                app.displaySensorData()
+            }
+            .catch { (error) in
+                // Just do nothing
+                print(error)
+        }
+    }
+    
     /// Load and display data every N min
     static func startRefreshCycle() {
-        
+        let app = (NSApp.delegate as! AppDelegate)
+        if let timer = app.sensorsRefreshTimer {
+            timer.invalidate()
+        }
+        app.sensorsRefreshTimer = Timer.scheduledTimer(withTimeInterval: REFRESH_TIME_INTERVAL, repeats: true) {_ in
+            
+        }
+
     }
 }

@@ -17,6 +17,6 @@ struct SensorsOnDevice: Codable {
     let time: Date?
     let lat: Double?
     let lng: Double?
-    let sensors: [Sensor]
+    var sensors: [Sensor]
 }
 

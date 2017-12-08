@@ -13,6 +13,7 @@
 		0A63DF971FCED92800C35607 /* HwUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF961FCED92800C35607 /* HwUUID.swift */; };
 		0A63DF991FCEDAED00C35607 /* InitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF981FCEDAED00C35607 /* InitService.swift */; };
 		0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */; };
+		0A68C0BB1FDAA1FB00E7ACD4 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */; };
 		0A6D89C41FC5C37100034A67 /* md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C31FC5C37100034A67 /* md5.swift */; };
 		0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */; };
 		0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E01FBB3CFC00D72378 /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 		0A63DF961FCED92800C35607 /* HwUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HwUUID.swift; sourceTree = "<group>"; };
 		0A63DF981FCEDAED00C35607 /* InitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitService.swift; sourceTree = "<group>"; };
 		0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorType.swift; sourceTree = "<group>"; };
+		0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		0A6D89C31FC5C37100034A67 /* md5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = md5.swift; sourceTree = "<group>"; };
 		0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemView.swift; sourceTree = "<group>"; };
 		0A9194D91FBB3CFC00D72378 /* narodmon-bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "narodmon-bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +196,7 @@
 				0A9194E21FBB3CFD00D72378 /* Main.storyboard */,
 				0A9194E51FBB3CFD00D72378 /* Info.plist */,
 				0A9194E61FBB3CFD00D72378 /* narodmon_bar.entitlements */,
+				0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */,
 			);
 			path = "narodmon-bar";
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				0A9195031FBB416000D72378 /* SensorsValues.swift in Sources */,
 				0AB385FC1FC6D6A5007F4EE5 /* KeychainService.swift in Sources */,
 				0A9195071FBB416000D72378 /* UserLogon.swift in Sources */,
+				0A68C0BB1FDAA1FB00E7ACD4 /* Globals.swift in Sources */,
 				0AB311881FD557D500ED680F /* SensorCellView.swift in Sources */,
 				0AB3DB881FBB7DC8002C0705 /* NarodNetworkError.swift in Sources */,
 				0A9195051FBB416000D72378 /* SensorsOnDevice.swift in Sources */,

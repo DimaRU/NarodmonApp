@@ -10,10 +10,10 @@ struct Sensor: Codable {
     let pub: Int?
     let type: Int
     let name: String?
-    let value: Double
+    var value: Double
     let unit: String?
-    let time: Date
-    let changed: Date?
-    let trend: Int
+    var time: Date
+    var changed: Date?
+    var trend: Int
 }
 
