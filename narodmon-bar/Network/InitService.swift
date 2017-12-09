@@ -73,6 +73,7 @@ struct InitService {
         }
     }
     
+    /// Load device data and start refreh
     static func refreshSensorsData() {
         let app = (NSApp.delegate as! AppDelegate)
         var sensors = app.dataStore.selectedBarSensors
@@ -81,18 +82,7 @@ struct InitService {
         }
         NarProvider.shared.request(.sensorsValues(sensorIds: sensors))
             .then { (sensorsValues: SensorsValues) -> Void in
-                for i in 0..<app.dataStore.devices.count {
-                    for j in 0..<app.dataStore.devices[i].sensors.count {
-                        let id = app.dataStore.devices[i].sensors[j].id
-                        if let sensorValue = sensorsValues.sensors.first(where: { $0.id == id }) {
-                            app.dataStore.devices[i].sensors[j].value = sensorValue.value
-                            app.dataStore.devices[i].sensors[j].time = sensorValue.time
-                            app.dataStore.devices[i].sensors[j].changed = sensorValue.changed
-                            app.dataStore.devices[i].sensors[j].trend = sensorValue.trend
-                        }
-                    }
-                }
-                
+                app.dataStore.sensors = sensorsValues.sensors
                 app.displaySensorData()
             }
             .catch { (error) in
@@ -108,7 +98,7 @@ struct InitService {
             timer.invalidate()
         }
         app.sensorsRefreshTimer = Timer.scheduledTimer(withTimeInterval: REFRESH_TIME_INTERVAL, repeats: true) {_ in
-            
+            self.refreshSensorsData()
         }
 
     }

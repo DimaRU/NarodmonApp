@@ -13,13 +13,12 @@ final class StatusItemView: NSView {
 
     private static let tinyText = [ NSAttributedStringKey.font: NSFont.boldSystemFont(ofSize: 9),
                                       NSAttributedStringKey.foregroundColor: NSColor.controlTextColor ]
-
     private static let normalText = [ NSAttributedStringKey.font: NSFont.systemFont(ofSize: 14),
                                       NSAttributedStringKey.foregroundColor: NSColor.controlTextColor ]
-    
     static private let padding: CGFloat = 3.0
 
-    var sensorLabels: [String] = ["16℃", "18%", "22℃" ]
+    var dataStore: AppDataStore!
+    var sensorLabels: [String] = []
     var darkMode = false
 
     var isTinyText = true {
@@ -44,9 +43,10 @@ final class StatusItemView: NSView {
 		}
 	}
 
-    init(statusItem: NSStatusItem,callback: @escaping Completion) {
+    init(statusItem: NSStatusItem, dataStore: AppDataStore, callback: @escaping Completion) {
         self.statusItem = statusItem
 		tappedCallback = callback
+        self.dataStore = dataStore
 
         super.init(frame: NSZeroRect)
         self.statusItem.view = self
@@ -60,15 +60,28 @@ final class StatusItemView: NSView {
 		tappedCallback()
 	}
     
-//    override func mouseMoved(with event: NSEvent) {
-//        tappedCallback()
-//    }
-    override func mouseEntered(with event: NSEvent) {
-        tappedCallback()
-    }
+    private func formatedSensorLabels() -> [String] {
+        var labels: [String] = []
 
+        for id in dataStore.selectedwindowSensors {
+            guard let (value, unit) = dataStore.sensorData(for: id) else { continue }
+            let label = String.init(format: "%.1f", value) + unit
+            labels.append(label)
+        }
+        return labels.isEmpty ? ["Loading..."] : labels
+    }
+    
+    public func dataRefreshed() {
+        let newSensorLabels = formatedSensorLabels()
+        if sensorLabels == newSensorLabels {
+            return
+        }
+        sensorLabels = newSensorLabels
+        sizeToFit()
+    }
+    
     /// Calc and set status bar item frame size
-	func sizeToFit() {
+	private func sizeToFit() {
         let textAttributes = isTinyText ? StatusItemView.tinyText : StatusItemView.normalText
 
         var offset: CGFloat = 0

@@ -25,10 +25,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Defaults.appStart()
 
         let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        statusView = StatusItemView(statusItem: statusItem) {
+        statusView = StatusItemView(statusItem: statusItem, dataStore: dataStore) {
             self.showPopover()
             }
-        statusView.sizeToFit()
+        statusView.dataRefreshed()
       
         initPopover()
 
@@ -63,7 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             InitService.loadDevicesDefinitions()
                         }
                         .then { () -> Void in
-                            self.displaySensorData()
+                            InitService.refreshSensorsData()
                             InitService.startRefreshCycle()
                         }
                         .catch { (error) in
@@ -74,7 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     // All ok, start refresh cycle
                     InitService.loadDevicesDefinitions()
                         .then { () -> Void in
-                            self.displaySensorData()
+                            InitService.refreshSensorsData()
                             InitService.startRefreshCycle()
                         }
                         .catch { (error) in
@@ -88,7 +88,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     /// Refresh sensor data on status bar & sensors window
     func displaySensorData() {
-        
+        statusView.dataRefreshed()
     }
     
     func setPopoverState(showed: Bool) {

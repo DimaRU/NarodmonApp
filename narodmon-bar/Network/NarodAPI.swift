@@ -116,7 +116,7 @@ extension NarodAPI {
         case .sensorsValues(let sensorIds):
             parameters = [
                 "cmd" : "sensorsValues",
-                "sensors" : [sensorIds]
+                "sensors" : sensorIds
             ]
         case .sensorsHistory(let id, let period, let offset):
             parameters = [
