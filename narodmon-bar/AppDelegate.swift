@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     public var popoverShowed = false
     var sensorsRefreshTimer: Timer? = nil
 
-    var appDataStore = AppDataStore()
+    var dataStore = AppDataStore()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         Defaults.appStart()
@@ -34,11 +34,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         InitService.appInit()
             .then { (initData: AppInitData) -> Promise<UserLogon?> in
-                self.appDataStore.initData = initData
+                self.dataStore.initData = initData
                 return InitService.appLogin()
             }
             .then { (logonData: UserLogon?) -> Void in
-                self.appDataStore.logonData = logonData
+                self.dataStore.logonData = logonData
                 if logonData != nil {
                     print("Logged in")
                 }
@@ -56,7 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             }
             .always {
-                if self.appDataStore.devices.count == 0 && self.appDataStore.selectedBarSensors.count == 0 {
+                if self.dataStore.devices.count == 0 && self.dataStore.selectedBarSensors.count == 0 {
                     // No defaults for display, add it
                     InitService.loadDefaultDevices()
                         .then {
