@@ -32,6 +32,11 @@
 		0A9195251FBB463F00D72378 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195171FBB463E00D72378 /* APIKeys.swift */; };
 		0A9AF9FB1FD000C200F5B5BB /* AppDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9AF9FA1FD000C200F5B5BB /* AppDataStore.swift */; };
 		0A9AFA011FD00F1C00F5B5BB /* PopoverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */; };
+		0AA40A3D1FE295780089585B /* PrefsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA40A381FE295770089585B /* PrefsCell.swift */; };
+		0AA40A3E1FE295780089585B /* SensorSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA40A391FE295770089585B /* SensorSettingsViewController.swift */; };
+		0AA40A3F1FE295780089585B /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA40A3A1FE295780089585B /* PreferencesViewController.swift */; };
+		0AA40A401FE295780089585B /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA40A3B1FE295780089585B /* GeneralSettingsViewController.swift */; };
+		0AA40A411FE295780089585B /* SelectTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA40A3C1FE295780089585B /* SelectTableView.swift */; };
 		0AB311881FD557D500ED680F /* SensorCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB311871FD557D500ED680F /* SensorCellView.swift */; };
 		0AB3118A1FD557E600ED680F /* DeviceCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB311891FD557E600ED680F /* DeviceCellView.swift */; };
 		0AB385FC1FC6D6A5007F4EE5 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */; };
@@ -88,6 +93,11 @@
 		0A9195171FBB463E00D72378 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		0A9AF9FA1FD000C200F5B5BB /* AppDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataStore.swift; sourceTree = "<group>"; };
 		0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverDelegate.swift; sourceTree = "<group>"; };
+		0AA40A381FE295770089585B /* PrefsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefsCell.swift; sourceTree = "<group>"; };
+		0AA40A391FE295770089585B /* SensorSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorSettingsViewController.swift; sourceTree = "<group>"; };
+		0AA40A3A1FE295780089585B /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		0AA40A3B1FE295780089585B /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
+		0AA40A3C1FE295780089585B /* SelectTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTableView.swift; sourceTree = "<group>"; };
 		0AB311871FD557D500ED680F /* SensorCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorCellView.swift; sourceTree = "<group>"; };
 		0AB311891FD557E600ED680F /* DeviceCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCellView.swift; sourceTree = "<group>"; };
 		0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
@@ -149,6 +159,11 @@
 		0A6D89C51FC5CC9000034A67 /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
+				0AA40A3B1FE295780089585B /* GeneralSettingsViewController.swift */,
+				0AA40A3A1FE295780089585B /* PreferencesViewController.swift */,
+				0AA40A381FE295770089585B /* PrefsCell.swift */,
+				0AA40A3C1FE295780089585B /* SelectTableView.swift */,
+				0AA40A391FE295770089585B /* SensorSettingsViewController.swift */,
 				0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */,
 				0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */,
 				0AB311871FD557D500ED680F /* SensorCellView.swift */,
@@ -189,7 +204,6 @@
 				0A9194FA1FBB3FB600D72378 /* Model */,
 				0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */,
 				0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */,
-				0A9AF9FA1FD000C200F5B5BB /* AppDataStore.swift */,
 				0A4C61511FC83FAD009F7B51 /* Settings.swift */,
 				0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */,
 				0A9194E01FBB3CFC00D72378 /* Assets.xcassets */,
@@ -213,6 +227,7 @@
 		0A9194FA1FBB3FB600D72378 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0A9AF9FA1FD000C200F5B5BB /* AppDataStore.swift */,
 				0A9195021FBB416000D72378 /* AppInitData.swift */,
 				0A9194FC1FBB416000D72378 /* SensorsHistory.swift */,
 				0A9194FE1FBB416000D72378 /* SensorsNearby.swift */,
@@ -310,6 +325,11 @@
 					0A9194D81FBB3CFC00D72378 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					0A9194EA1FBB3CFD00D72378 = {
 						CreatedOnToolsVersion = 9.1;
@@ -430,13 +450,16 @@
 				0A6D89C41FC5C37100034A67 /* md5.swift in Sources */,
 				0AC4EAEE1FCE0526001573C8 /* SensorsViewController.swift in Sources */,
 				0A9195091FBB416000D72378 /* UserLogout.swift in Sources */,
+				0AA40A401FE295780089585B /* GeneralSettingsViewController.swift in Sources */,
 				0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */,
 				0A9195081FBB416000D72378 /* UserFavorites.swift in Sources */,
 				0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */,
+				0AA40A411FE295780089585B /* SelectTableView.swift in Sources */,
 				0AB3118A1FD557E600ED680F /* DeviceCellView.swift in Sources */,
 				0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */,
 				0A63DF971FCED92800C35607 /* HwUUID.swift in Sources */,
 				0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */,
+				0AA40A3D1FE295780089585B /* PrefsCell.swift in Sources */,
 				0A9195231FBB463F00D72378 /* NarodAPI.swift in Sources */,
 				0A91950C1FBB41AE00D72378 /* Sensor.swift in Sources */,
 				0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */,
@@ -445,6 +468,7 @@
 				0A9AFA011FD00F1C00F5B5BB /* PopoverDelegate.swift in Sources */,
 				0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */,
 				0A9195041FBB416000D72378 /* SensorsHistory.swift in Sources */,
+				0AA40A3F1FE295780089585B /* PreferencesViewController.swift in Sources */,
 				0ABEA4CD1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift in Sources */,
 				0A9AF9FB1FD000C200F5B5BB /* AppDataStore.swift in Sources */,
 				0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */,
@@ -453,6 +477,7 @@
 				0AB385FC1FC6D6A5007F4EE5 /* KeychainService.swift in Sources */,
 				0A9195071FBB416000D72378 /* UserLogon.swift in Sources */,
 				0A68C0BB1FDAA1FB00E7ACD4 /* Globals.swift in Sources */,
+				0AA40A3E1FE295780089585B /* SensorSettingsViewController.swift in Sources */,
 				0AB311881FD557D500ED680F /* SensorCellView.swift in Sources */,
 				0AB3DB881FBB7DC8002C0705 /* NarodNetworkError.swift in Sources */,
 				0A9195051FBB416000D72378 /* SensorsOnDevice.swift in Sources */,
