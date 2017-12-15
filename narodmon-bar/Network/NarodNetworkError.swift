@@ -25,7 +25,7 @@ enum NarodNetworkError: Error {
     case disconnectedError(message: String)
     case responceSyntaxError(message: String)
     case serverError(message: String)
-    case statusError(message: String)
+    case networkFailure(message: String)
     
     func message() -> String {
         switch self {
@@ -37,10 +37,37 @@ enum NarodNetworkError: Error {
              .frequentRequestError(let message),
              .disconnectedError(let message),
              .responceSyntaxError(let message),
-             .serverError(let message),
-             .statusError(let message):
+             .networkFailure(let message),
+             .serverError(let message):
             return message
         }
     }
 }
 
+extension NarodNetworkError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .requestSyntaxError:
+            return NSLocalizedString("Request syntax error", comment: "")
+        case .authorizationNeed:
+            return NSLocalizedString("Unsucessful authorisation", comment: "")
+        case .accessDenied:
+            return NSLocalizedString("Access denied", comment: "")
+        case .notFound:
+            return NSLocalizedString("Resource not found", comment: "")
+        case .apiKeyBlocked:
+            return NSLocalizedString("API key blocked", comment: "")
+        case .frequentRequestError:
+            return NSLocalizedString("Too frequent requests", comment: "")
+        case .disconnectedError:
+            return NSLocalizedString("Object disconnected", comment: "")
+        case .responceSyntaxError:
+            return NSLocalizedString("Responce syntax error", comment: "")
+        case .serverError:
+            return NSLocalizedString("Server error", comment: "")
+        case .networkFailure:
+            return NSLocalizedString("Network unreachable", comment: "")
+        }
+    }
+
+}

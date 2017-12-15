@@ -82,7 +82,7 @@ extension NarProvider {
                     success(data)
                 }
             default:
-                let APIError = NarodNetworkError.statusError(message: "Responce status code: \(statusCode)")
+                let APIError = NarodNetworkError.serverError(message: "Responce status code: \(statusCode)")
                 failure(APIError)
             }
             
@@ -134,9 +134,8 @@ extension NarProvider {
 //                     - 434 - искомый объект отключен;
                 case 434: return NarodNetworkError.disconnectedError(message: message)
 //                     - 503 - сервер временно не обрабатывает запросы по техническим причинам.
-                case 503: return NarodNetworkError.serverError(message: "Server error")
-                    
-                default: return NarodNetworkError.responceSyntaxError(message: "Unknown code: \(errno) \(message)")
+                case 503: return NarodNetworkError.serverError(message: message)
+                default: return NarodNetworkError.responceSyntaxError(message: "Responce code: \(errno) \(message)")
                 }
             }
         } catch {
@@ -156,7 +155,8 @@ extension NarProvider {
             resolve(jsonAble)
         } catch {
             print(error)
-            reject(error)
+            let message = error.localizedDescription
+            reject(NarodNetworkError.responceSyntaxError(message: message))
         }
     }
     
@@ -171,7 +171,8 @@ extension NarProvider {
                 self.APIRequest(target, success: success, failure: failure)
             }
         } else {
-            failure(error)
+            let message = error.localizedDescription
+            failure(NarodNetworkError.networkFailure(message: message))
         }
     }
     
