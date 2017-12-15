@@ -20,7 +20,8 @@ struct InitService {
         guard let login = KeychainService.shared[.login], let password = KeychainService.shared[.password] else {
             return Promise { fulfill, reject in fulfill(nil) }
         }
-        return NarProvider.shared.request(.userLogon(login: login, password: password))
+        let promise: Promise<UserLogon>  = NarProvider.shared.request(.userLogon(login: login, password: password))
+        return promise
     }
 
     static func loadDefaultDevices() -> Promise<Void> {

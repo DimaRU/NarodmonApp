@@ -23,7 +23,7 @@ class KeychainService {
         // Init keychain access
         let bundle = Bundle.main
         let bundleId = bundle.bundleIdentifier!
-        keychain = Keychain(service: bundleId).synchronizable(true)
+        keychain = Keychain(service: bundleId)
     }
     
     subscript(key: KeychainKeys) -> String? {
