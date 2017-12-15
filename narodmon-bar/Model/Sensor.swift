@@ -14,6 +14,6 @@ struct Sensor: Codable {
     let unit: String?
     var time: Date
     var changed: Date?
-    var trend: Int
+    var trend: Int?
 }
 

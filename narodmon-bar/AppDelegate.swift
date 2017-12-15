@@ -33,15 +33,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         initPopover()
 
         InitService.appInit()
-            .then { (initData: AppInitData) -> Promise<UserLogon?> in
+            .then { (initData: AppInitData) -> Promise<Void> in
                 self.dataStore.initData = initData
                 return InitService.appLogin()
-            }
-            .then { (logonData: UserLogon?) -> Void in
-                self.dataStore.logonData = logonData
-                if logonData != nil {
-                    print("Logged in")
-                }
             }
             .catch { (error) in
                 guard let error = error as? NarodNetworkError else { fatalError() }

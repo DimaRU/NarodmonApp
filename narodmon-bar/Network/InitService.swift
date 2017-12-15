@@ -16,12 +16,18 @@ struct InitService {
         return NarProvider.shared.request(.appInit(version: version, platform: platform, model: model, timeZone: utc))
     }
     
-    static func appLogin() -> Promise<UserLogon?> {
+    static func appLogin() -> Promise<Void> {
         guard let login = KeychainService.shared[.login], let password = KeychainService.shared[.password] else {
-            return Promise { fulfill, reject in fulfill(nil) }
+            return Promise<Void> { fulfill, reject in
+                fulfill(())
+            }
         }
-        let promise: Promise<UserLogon>  = NarProvider.shared.request(.userLogon(login: login, password: password))
-        return promise
+        return NarProvider.shared.request(.userLogon(login: login, password: password))
+            .then { (logonData: UserLogon) -> Void in
+                let app = (NSApp.delegate as! AppDelegate)
+                app.dataStore.logonData = logonData
+                print("Logged in \(logonData.login)")
+        }
     }
 
     static func loadDefaultDevices() -> Promise<Void> {

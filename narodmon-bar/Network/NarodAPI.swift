@@ -170,7 +170,8 @@ extension NarodAPI {
 
 
 func passwordHash(_ password: String) -> String {
-    return (Defaults[.MachineUUID] ?? "" + password.md5()).md5()
+    let hashSting = Defaults[.MachineUUID]! + password.md5()
+    return hashSting.md5()
 }
 
 // MARK: - Provider support
