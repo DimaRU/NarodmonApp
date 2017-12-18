@@ -17,8 +17,8 @@ class SensorCellView: NSTableCellView {
         super.draw(dirtyRect)
     }
     
-    func setContent(sensor: Sensor) {
-        sensorNameLabel.stringValue = sensor.name!
-        sensorValueLabel.stringValue = "\(sensor.value)\(sensor.unit!)"
+    func setContent(sensor: Sensor, value: Double, unit: String) {
+        sensorNameLabel.stringValue = sensor.name
+        sensorValueLabel.stringValue = "\(value)\(unit)"
     }
 }

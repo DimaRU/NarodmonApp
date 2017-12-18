@@ -12,7 +12,7 @@ final class AppDataStore {
     var selectedBarSensors: [Int] = []          // Selected bar sensors
     
     var devices: [SensorsOnDevice] = []
-    var sensors: [Sensor] = []
+    var sensorValue: [SensorValue] = []
     
     var initData: AppInitData? = nil
     var logonData: UserLogon? = nil
@@ -28,8 +28,21 @@ final class AppDataStore {
     }
     
     func sensorData(for id: Int) -> (value: Double, unit: String)? {
-        guard let sensor = (sensors.first { $0.id == id }) else { return nil }
+        guard let sensor = (sensorValue.first { $0.id == id }) else { return nil }
         let type = initData!.types.first { $0.type == sensor.type}!
         return (sensor.value, type.unit)
     }
+    
+    func windowSelectionsList() -> [Any] {
+        var list: [Any] = []
+        for device in devices {
+            let sensorsList = device.sensors.filter{ selectedwindowSensors.contains($0.id) }
+            if !sensorsList.isEmpty {
+                list.append(device)
+                list.append(sensorsList)
+            }
+        }
+        return list
+    }
+    
 }

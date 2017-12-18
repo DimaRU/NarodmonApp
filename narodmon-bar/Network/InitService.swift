@@ -89,7 +89,7 @@ struct InitService {
         }
         NarProvider.shared.request(.sensorsValues(sensorIds: sensors))
             .then { (sensorsValues: SensorsValues) -> Void in
-                app.dataStore.sensors = sensorsValues.sensors
+                app.dataStore.sensorValue = sensorsValues.sensors
                 app.displaySensorData()
             }
             .catch { (error) in

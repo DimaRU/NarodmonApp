@@ -9,6 +9,9 @@
 import Cocoa
 
 class SensorsViewController: NSViewController {
+    
+    var devicesSensorsList: [Any] = []
+    var dataStore = (NSApp.delegate as! AppDelegate).dataStore
 
     @IBOutlet weak var toolbar: NSBox!
     @IBOutlet var settingsMenu: NSMenu!
@@ -38,27 +41,34 @@ class SensorsViewController: NSViewController {
         view.setFrameSize(size)
     }
 
+    func reloadData() {
+        devicesSensorsList = dataStore.windowSelectionsList()
+        sensorsTableView.reloadData()
+    }
 }
 
 
 extension SensorsViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 12
+        return devicesSensorsList.count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        if row % 2 == 0 {
-            guard let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DeviceCell"), owner: self) as? DeviceCellView
+        switch devicesSensorsList[row] {
+        case let device as SensorsOnDevice:
+            guard let deviceCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DeviceCell"), owner: self) as? DeviceCellView
                 else { return nil }
-            cell.deviceLocationLabel.stringValue = "Location"
-            cell.deviceNameLabel.stringValue = "ID_0000"
-            return cell
-        } else {
-            guard let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? SensorCellView
+            deviceCell.setContent(device: device)
+            return deviceCell
+        case let sensor as Sensor:
+            guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? SensorCellView
                 else { return nil }
-            cell.sensorNameLabel.stringValue = "Temp"
-            cell.sensorValueLabel.stringValue = "33℃"
-            return cell
+            if let (value, unit) = dataStore.sensorData(for: sensor.id) {
+            sensorCell.setContent(sensor: sensor, value: value, unit: unit)
+            return sensorCell
+            }
+            return nil
+        default: fatalError()
         }
     }
 }

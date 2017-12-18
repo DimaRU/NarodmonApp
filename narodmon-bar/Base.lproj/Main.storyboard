@@ -871,7 +871,7 @@
         <!--Tab View Controller-->
         <scene sceneID="lAD-kE-HWV">
             <objects>
-                <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" id="nTa-00-8bE" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="1" tabStyle="toolbar" id="nTa-00-8bE" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem image="NSPreferencesGeneral" id="3dh-Lr-3Pe"/>
                         <tabViewItem image="NSAdvanced" id="Mdi-CH-PrB"/>
@@ -1035,6 +1035,10 @@
                                                             </prototypeCellViews>
                                                         </tableColumn>
                                                     </tableColumns>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="dl9-43-ndJ" id="yPz-ak-r82"/>
+                                                        <outlet property="delegate" destination="dl9-43-ndJ" id="Hf0-Mv-ZZe"/>
+                                                    </connections>
                                                 </tableView>
                                             </subviews>
                                         </clipView>
@@ -1095,6 +1099,10 @@
                                                             </prototypeCellViews>
                                                         </tableColumn>
                                                     </tableColumns>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="dl9-43-ndJ" id="V2B-ZB-z1C"/>
+                                                        <outlet property="delegate" destination="dl9-43-ndJ" id="BM3-zv-NFM"/>
+                                                    </connections>
                                                 </tableView>
                                             </subviews>
                                         </clipView>
