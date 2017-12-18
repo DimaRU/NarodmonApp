@@ -83,6 +83,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// Refresh sensor data on status bar & sensors window
     func displaySensorData() {
         statusView.dataRefreshed()
+        if popoverShowed {
+            sensorsViewController.reloadData()
+        }
     }
     
     func setPopoverState(showed: Bool) {
@@ -90,6 +93,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if showed {
             InitService.startRefreshCycle()     // restart refresh cycle
+            InitService.refreshSensorsData()
         }
     }
 

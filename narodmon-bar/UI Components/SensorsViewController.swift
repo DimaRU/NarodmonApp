@@ -27,6 +27,7 @@ class SensorsViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        reloadData()
         setViewSizeOnContent()
     }
     

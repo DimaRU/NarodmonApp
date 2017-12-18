@@ -5,5 +5,12 @@
 import Foundation
 
 struct UserFavorites: Codable {
-    let sensors: [Sensor]
+    struct FavoriteSensor: Codable {
+        let id: Int
+        let type: Int
+        let name: String
+        let value: Double
+        let time: Date
+    }
+    let sensors: [FavoriteSensor]
 }

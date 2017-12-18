@@ -36,10 +36,10 @@ final class AppDataStore {
     func windowSelectionsList() -> [Any] {
         var list: [Any] = []
         for device in devices {
-            let sensorsList = device.sensors.filter{ selectedwindowSensors.contains($0.id) }
+            let sensorsList: [Any] = device.sensors.filter{ selectedwindowSensors.contains($0.id) }
             if !sensorsList.isEmpty {
                 list.append(device)
-                list.append(sensorsList)
+                list.append(contentsOf: sensorsList)
             }
         }
         return list
