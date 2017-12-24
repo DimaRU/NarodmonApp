@@ -11,7 +11,7 @@ import Cocoa
 class SensorsViewController: NSViewController {
     
     var devicesSensorsList: [Any] = []
-    var dataStore = (NSApp.delegate as! AppDelegate).dataStore
+    lazy var dataStore = (NSApp.delegate as! AppDelegate).dataStore
 
     @IBOutlet weak var toolbar: NSBox!
     @IBOutlet var settingsMenu: NSMenu!
@@ -52,6 +52,10 @@ class SensorsViewController: NSViewController {
 extension SensorsViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return devicesSensorsList.count
+    }
+    
+    func tableView(_ tableView: NSTableView, isGroupRow row: Int) -> Bool {
+        return devicesSensorsList[row] is SensorsOnDevice
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {

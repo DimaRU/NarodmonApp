@@ -13,10 +13,6 @@ class DeviceCellView: NSTableCellView {
     @IBOutlet weak var deviceLocationLabel: NSTextField!
     @IBOutlet weak var deviceNameLabel: NSTextField!
     
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-    }
-    
     func setContent(device: SensorsOnDevice) {
         deviceLocationLabel.stringValue = device.location
         deviceNameLabel.stringValue = device.name
