@@ -1046,7 +1046,7 @@
                                                                         <outlet property="deviceNameLabel" destination="DdW-oT-VYt" id="Gfw-lC-YAd"/>
                                                                     </connections>
                                                                 </tableCellView>
-                                                                <tableCellView identifier="SensorCell" id="CSa-Cz-ZRW" customClass="PrefsCell" customModule="narodmon_bar" customModuleProvider="target">
+                                                                <tableCellView identifier="SensorCell" id="CSa-Cz-ZRW" customClass="PrefsCellView" customModule="narodmon_bar" customModuleProvider="target">
                                                                     <rect key="frame" x="1" y="20" width="227" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
@@ -1157,7 +1157,7 @@
                                                                         <constraint firstItem="CHY-H7-JMk" firstAttribute="centerY" secondItem="OXg-9o-cHm" secondAttribute="centerY" id="w20-ar-FHh"/>
                                                                     </constraints>
                                                                 </tableCellView>
-                                                                <tableCellView identifier="SensorCell" id="XSC-Bh-LVW" customClass="PrefsCell" customModule="narodmon_bar" customModuleProvider="target">
+                                                                <tableCellView identifier="SensorCell" id="XSC-Bh-LVW" customClass="PrefsCellView" customModule="narodmon_bar" customModuleProvider="target">
                                                                     <rect key="frame" x="1" y="20" width="229" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>

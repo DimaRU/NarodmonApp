@@ -1,5 +1,5 @@
 //
-//  PrefsCell.swift
+//  PrefsCellView.swift
 //  TestTabView
 //
 //  Created by Dmitriy Borovikov on 14.12.2017.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class PrefsCell: NSTableCellView {
+class PrefsCellView: NSTableCellView {
 
     @IBOutlet weak var checkBox: NSButton?
     @IBOutlet weak var sensorNameLabel: NSTextField!

@@ -32,7 +32,7 @@
 		0A9195251FBB463F00D72378 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195171FBB463E00D72378 /* APIKeys.swift */; };
 		0A9AF9FB1FD000C200F5B5BB /* AppDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9AF9FA1FD000C200F5B5BB /* AppDataStore.swift */; };
 		0A9AFA011FD00F1C00F5B5BB /* PopoverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */; };
-		0AA40A3D1FE295780089585B /* PrefsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA40A381FE295770089585B /* PrefsCell.swift */; };
+		0AA40A3D1FE295780089585B /* PrefsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA40A381FE295770089585B /* PrefsCellView.swift */; };
 		0AA40A3E1FE295780089585B /* SensorSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA40A391FE295770089585B /* SensorSettingsViewController.swift */; };
 		0AA40A3F1FE295780089585B /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA40A3A1FE295780089585B /* PreferencesViewController.swift */; };
 		0AA40A401FE295780089585B /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA40A3B1FE295780089585B /* GeneralSettingsViewController.swift */; };
@@ -93,7 +93,7 @@
 		0A9195171FBB463E00D72378 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		0A9AF9FA1FD000C200F5B5BB /* AppDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataStore.swift; sourceTree = "<group>"; };
 		0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverDelegate.swift; sourceTree = "<group>"; };
-		0AA40A381FE295770089585B /* PrefsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefsCell.swift; sourceTree = "<group>"; };
+		0AA40A381FE295770089585B /* PrefsCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefsCellView.swift; sourceTree = "<group>"; };
 		0AA40A391FE295770089585B /* SensorSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorSettingsViewController.swift; sourceTree = "<group>"; };
 		0AA40A3A1FE295780089585B /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		0AA40A3B1FE295780089585B /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 			children = (
 				0AA40A3B1FE295780089585B /* GeneralSettingsViewController.swift */,
 				0AA40A3A1FE295780089585B /* PreferencesViewController.swift */,
-				0AA40A381FE295770089585B /* PrefsCell.swift */,
+				0AA40A381FE295770089585B /* PrefsCellView.swift */,
 				0AA40A3C1FE295780089585B /* SelectTableView.swift */,
 				0AA40A391FE295770089585B /* SensorSettingsViewController.swift */,
 				0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */,
@@ -459,7 +459,7 @@
 				0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */,
 				0A63DF971FCED92800C35607 /* HwUUID.swift in Sources */,
 				0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */,
-				0AA40A3D1FE295780089585B /* PrefsCell.swift in Sources */,
+				0AA40A3D1FE295780089585B /* PrefsCellView.swift in Sources */,
 				0A9195231FBB463F00D72378 /* NarodAPI.swift in Sources */,
 				0A91950C1FBB41AE00D72378 /* Sensor.swift in Sources */,
 				0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */,

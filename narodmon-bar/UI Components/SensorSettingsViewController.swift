@@ -64,7 +64,7 @@ class SensorSettingsViewController: NSViewController, NSTableViewDelegate, NSTab
                 deviceCell.setContent(device: device)
                 return deviceCell
             case let sensor as Sensor:
-                guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? PrefsCell
+                guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? PrefsCellView
                     else { return nil }
                 sensorCell.setContent(sensor: sensor)
                 return sensorCell
@@ -78,7 +78,7 @@ class SensorSettingsViewController: NSViewController, NSTableViewDelegate, NSTab
             } else {
                 let listRow = targetDataArray[row-1]
                 guard let sensor = devicesSensorsList[listRow] as? Sensor else { return nil }
-                guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? PrefsCell
+                guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? PrefsCellView
                     else { return nil }
                 sensorCell.setContent(sensor: sensor)
                 return sensorCell
