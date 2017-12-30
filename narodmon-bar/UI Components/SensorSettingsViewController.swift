@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SwiftyUserDefaults
 
 class SensorSettingsViewController: NSViewController {
 
@@ -32,8 +33,39 @@ class SensorSettingsViewController: NSViewController {
         favoriteTableView.setDraggingSourceOperationMask([.move, .delete], forLocal: true)
     
         devicesSensorsList = dataStore.selectionsList()
+
+        selectedBarSensors = dataStore.selectedBarSensors
+        selectedWindowSensors = dataStore.selectedWindowSensors
     }
     
+    override func viewWillDisappear() {
+        saveSettings()
+        (NSApp.delegate as! AppDelegate).displaySensorData()
+    }
+    
+    func saveSettings() {
+        var selectedDevices: [Int] = []
+        for item in devicesSensorsList {
+            if let device = item as? SensorsOnDevice {
+                selectedDevices.append(device.id)
+            }
+        }
+        
+        dataStore.selectedDevices = selectedDevices
+        dataStore.selectedBarSensors = selectedBarSensors
+        dataStore.selectedWindowSensors = selectedWindowSensors
+        
+        Defaults[.SelectedDevices] = selectedDevices
+        Defaults[.SelectedBarSensors] = selectedBarSensors
+        Defaults[.SelectedWindowSensors] = selectedWindowSensors
+    }
+    
+}
+
+
+
+
+extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         switch tableView {
         case sensorsTableView:
