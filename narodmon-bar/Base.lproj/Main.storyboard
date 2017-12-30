@@ -1075,10 +1075,13 @@
                                                                                 <constraint firstAttribute="width" constant="18" id="dlu-9o-04p"/>
                                                                                 <constraint firstAttribute="height" constant="18" id="sUs-AS-THD"/>
                                                                             </constraints>
-                                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="eye_52" imagePosition="only" alignment="center" alternateImage="eye_53" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="5RR-Vd-JAR">
+                                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="eye_53" imagePosition="only" alignment="center" alternateImage="eye_52" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="5RR-Vd-JAR">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="system"/>
                                                                             </buttonCell>
+                                                                            <connections>
+                                                                                <action selector="checkBoxChanged:" target="CSa-Cz-ZRW" id="dYB-ra-ue1"/>
+                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                     <constraints>

@@ -18,7 +18,7 @@ class SensorSettingsViewController: NSViewController {
     @IBOutlet weak var favoriteTableView: SelectTableView!
     
     var selectedBarSensors: [Int] = []
-    var selectedWindowSensors: [Int] = []
+    var selectedWindowSensors: Set<Int> = []
 
 
     var devicesSensorsList: [Any] = []
@@ -35,7 +35,7 @@ class SensorSettingsViewController: NSViewController {
         devicesSensorsList = dataStore.devicesSensorsList()
 
         selectedBarSensors = dataStore.selectedBarSensors
-        selectedWindowSensors = dataStore.selectedWindowSensors
+        selectedWindowSensors = Set<Int>(dataStore.selectedWindowSensors)
     }
     
     override func viewWillDisappear() {
@@ -53,11 +53,11 @@ class SensorSettingsViewController: NSViewController {
         
         dataStore.selectedDevices = selectedDevices
         dataStore.selectedBarSensors = selectedBarSensors
-        dataStore.selectedWindowSensors = selectedWindowSensors
+        dataStore.selectedWindowSensors = Array<Int>(selectedWindowSensors)
         
         Defaults[.SelectedDevices] = selectedDevices
         Defaults[.SelectedBarSensors] = selectedBarSensors
-        Defaults[.SelectedWindowSensors] = selectedWindowSensors
+        Defaults[.SelectedWindowSensors] = Array<Int>(selectedWindowSensors)
     }
     
 }
@@ -100,7 +100,7 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
             case let sensor as Sensor:
                 guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? PrefsCellView
                     else { return nil }
-                sensorCell.setContent(sensor: sensor)
+                sensorCell.setContent(sensor: sensor, isChecked: selectedWindowSensors.contains(sensor.id))
                 return sensorCell
             default: fatalError()
             }
@@ -115,7 +115,7 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
                     if let sensor = element as? Sensor, sensor.id == id {
                         guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? PrefsCellView
                             else { return nil }
-                        sensorCell.setContent(sensor: sensor)
+                        sensorCell.setContent(sensor: sensor, isChecked: false)
                         return sensorCell
                     }
                 }

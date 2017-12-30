@@ -14,6 +14,11 @@ class PrefsCellView: NSTableCellView {
     @IBOutlet weak var sensorNameLabel: NSTextField!
     @IBOutlet weak var sensorValueLabel: NSTextField!
     
+    
+    @IBAction func checkBoxChanged(_ sender: NSButton) {
+        
+    }
+    
     override func resetCursorRects() {
         discardCursorRects()
         addCursorRect(frame, cursor: NSCursor.openHand)
@@ -22,8 +27,10 @@ class PrefsCellView: NSTableCellView {
         }
     }
     
-    func setContent(sensor: Sensor) {
+    func setContent(sensor: Sensor, isChecked: Bool) {
         sensorNameLabel.stringValue = sensor.name
         sensorValueLabel.stringValue = "\(sensor.value)\(sensor.unit)"
+        checkBox?.state = isChecked ? .on : .off
+        print(sensor.name, isChecked)
     }
 }
