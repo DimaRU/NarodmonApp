@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class SensorSettingsViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+class SensorSettingsViewController: NSViewController {
 
     var hasDraggedFavoriteItem = false
     var currentItemDragOperation: NSDragOperation = []
@@ -16,7 +16,7 @@ class SensorSettingsViewController: NSViewController, NSTableViewDelegate, NSTab
     @IBOutlet weak var sensorsTableView: SelectTableView!
     @IBOutlet weak var favoriteTableView: SelectTableView!
     
-    var targetDataArray: [Int] = []
+    var selectedBarSensors: [Int] = []
 
     var devicesSensorsList: [Any] = []
     lazy var dataStore = (NSApp.delegate as! AppDelegate).dataStore
@@ -37,7 +37,7 @@ class SensorSettingsViewController: NSViewController, NSTableViewDelegate, NSTab
         case sensorsTableView:
             return devicesSensorsList.count
         case favoriteTableView:
-            return targetDataArray.count + 1
+            return selectedBarSensors.count + 1
         default:
             return 0
         }
@@ -76,12 +76,15 @@ class SensorSettingsViewController: NSViewController, NSTableViewDelegate, NSTab
             if row == 0 {
                 return tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HeaderCell"), owner: self)
             } else {
-                let listRow = targetDataArray[row-1]
-                guard let sensor = devicesSensorsList[listRow] as? Sensor else { return nil }
-                guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? PrefsCellView
-                    else { return nil }
-                sensorCell.setContent(sensor: sensor)
-                return sensorCell
+                let id = selectedBarSensors[row-1]
+                for element in devicesSensorsList {
+                    if let sensor = element as? Sensor, sensor.id == id {
+                        guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? PrefsCellView
+                            else { return nil }
+                        sensorCell.setContent(sensor: sensor)
+                        return sensorCell
+                    }
+                }
             }
             
         default: fatalError()
@@ -105,7 +108,7 @@ class SensorSettingsViewController: NSViewController, NSTableViewDelegate, NSTab
             if devicesSensorsList[row] is SensorsOnDevice {
                 return false
             }
-            if targetDataArray.contains(row) {
+            if selectedBarSensors.contains(row) {
                 return false
             }
         case favoriteTableView:
@@ -136,7 +139,7 @@ class SensorSettingsViewController: NSViewController, NSTableViewDelegate, NSTab
     func tableView(_ tableView: NSTableView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation) {
         if tableView == favoriteTableView && (operation == .delete || currentItemDragOperation == .delete) {
             let row = dragRow(from: session.draggingPasteboard)
-            targetDataArray.remove(at: row-1)
+            selectedBarSensors.remove(at: row-1)
             NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
             favoriteTableView.reloadData()
         }
@@ -180,19 +183,20 @@ class SensorSettingsViewController: NSViewController, NSTableViewDelegate, NSTab
 
        switch info.draggingSource() as? NSTableView {
         case favoriteTableView?:
-            let value = targetDataArray[fromRow-1]
-            targetDataArray.remove(at: fromRow-1)
-            if (row-1) > targetDataArray.count {
-                targetDataArray.insert(value, at: row-2)
+            let value = selectedBarSensors[fromRow-1]
+            selectedBarSensors.remove(at: fromRow-1)
+            if (row-1) > selectedBarSensors.count {
+                selectedBarSensors.insert(value, at: row-2)
             }
             else {
-                targetDataArray.insert(value, at: row-1)
+                selectedBarSensors.insert(value, at: row-1)
             }
             favoriteTableView.reloadData()
             return true
             
         case sensorsTableView?:
-            targetDataArray.append(fromRow)
+            let fromSensor = devicesSensorsList[fromRow] as! Sensor
+            selectedBarSensors.append(fromSensor.id)
             favoriteTableView.reloadData()
             return true
             
