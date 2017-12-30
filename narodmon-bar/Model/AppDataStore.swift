@@ -45,7 +45,7 @@ final class AppDataStore {
         return list
     }
     
-    func selectionsList() -> [Any] {
+    func devicesSensorsList() -> [Any] {
         var list: [Any] = []
         for device in devices {
             list.append(device)

@@ -32,7 +32,7 @@ class SensorSettingsViewController: NSViewController {
         favoriteTableView.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
         favoriteTableView.setDraggingSourceOperationMask([.move, .delete], forLocal: true)
     
-        devicesSensorsList = dataStore.selectionsList()
+        devicesSensorsList = dataStore.devicesSensorsList()
 
         selectedBarSensors = dataStore.selectedBarSensors
         selectedWindowSensors = dataStore.selectedWindowSensors
@@ -179,13 +179,6 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
         }
     }
     
-//    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
-//        if dropOperation == .above {
-//            return .move
-//        }
-//        return .every
-//    }
-
     /// Determine valid drop target
     ///
     /// - Returns: operation
