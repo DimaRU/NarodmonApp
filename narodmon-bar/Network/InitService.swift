@@ -22,9 +22,18 @@ struct InitService {
                 fulfill(())
             }
         }
+        let app = (NSApp.delegate as! AppDelegate)
+        guard let initData = app.dataStore.initData else { fatalError("Login without initData") }
+        if Int(initData.uid) != 0 {
+            let logonData = UserLogon(vip: initData.vip, login: initData.login, uid: initData.uid)
+            app.dataStore.logonData = logonData
+            // Already logged in, skipp login
+            return Promise<Void> { fulfill, reject in
+                fulfill(())
+            }
+        }
         return NarProvider.shared.request(.userLogon(login: login, password: password))
             .then { (logonData: UserLogon) -> Void in
-                let app = (NSApp.delegate as! AppDelegate)
                 app.dataStore.logonData = logonData
                 print("Logged in \(logonData.login)")
         }
