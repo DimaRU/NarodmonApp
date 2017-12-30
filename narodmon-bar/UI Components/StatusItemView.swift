@@ -63,7 +63,7 @@ final class StatusItemView: NSView {
     private func formatedSensorLabels() -> [String] {
         var labels: [String] = []
 
-        for id in dataStore.selectedwindowSensors {
+        for id in dataStore.selectedBarSensors {
             guard let (value, unit) = dataStore.sensorData(for: id) else { continue }
             let label = String.init(format: "%.1f", value) + unit
             labels.append(label)

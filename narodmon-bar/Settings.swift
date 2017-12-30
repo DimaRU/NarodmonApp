@@ -9,7 +9,7 @@ extension DefaultsKeys {
     static let MachineUUID = DefaultsKey<String?>("MachineUUID")
     
     static let SelectedDevices = DefaultsKey<[Int]>("SelectedDevices")
-    static let SelectedwindowSensors = DefaultsKey<[Int]>("SelectedwindowSensors")
+    static let SelectedWindowSensors = DefaultsKey<[Int]>("SelectedWindowSensors")
     static let SelectedBarSensors = DefaultsKey<[Int]>("SelectedBarSensors")
     
     static let TinyFont = DefaultsKey<Bool>("TinyFont")

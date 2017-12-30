@@ -8,7 +8,7 @@ import SwiftyUserDefaults
 
 final class AppDataStore {
     var selectedDevices: [Int] = []             // Selected device ID list
-    var selectedwindowSensors: [Int] = []       // Selected popup window sensors
+    var selectedWindowSensors: [Int] = []       // Selected popup window sensors
     var selectedBarSensors: [Int] = []          // Selected bar sensors
     
     var devices: [SensorsOnDevice] = []
@@ -19,7 +19,7 @@ final class AppDataStore {
     
     init() {
         selectedDevices = Defaults[.SelectedDevices]
-        selectedwindowSensors = Defaults[.SelectedwindowSensors]
+        selectedWindowSensors = Defaults[.SelectedWindowSensors]
         selectedBarSensors = Defaults[.SelectedBarSensors]
     }
     
@@ -36,7 +36,7 @@ final class AppDataStore {
     func windowSelectionsList() -> [Any] {
         var list: [Any] = []
         for device in devices {
-            let sensorsList: [Any] = device.sensors.filter{ selectedwindowSensors.contains($0.id) }
+            let sensorsList: [Any] = device.sensors.filter{ selectedWindowSensors.contains($0.id) }
             if !sensorsList.isEmpty {
                 list.append(device)
                 list.append(contentsOf: sensorsList)

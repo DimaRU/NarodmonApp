@@ -56,7 +56,7 @@ struct InitService {
                         }
                     }
                     favorites.sensors.forEach { sensorsIds.append($0.id) }             // Add favorited sensors
-                    app.dataStore.selectedwindowSensors = sensorsIds
+                    app.dataStore.selectedWindowSensors = sensorsIds
                     app.dataStore.selectedBarSensors = [Int](sensorsIds.prefix(4))  // Only first 4
                 }
         } else {
@@ -70,7 +70,7 @@ struct InitService {
                         app.dataStore.selectedDevices.append(device.id)
                         device.sensors.forEach { sensorsIds.append($0.id) }
                     }
-                    app.dataStore.selectedwindowSensors = sensorsIds
+                    app.dataStore.selectedWindowSensors = sensorsIds
                     app.dataStore.selectedBarSensors = [Int](sensorsIds.prefix(4))  // Only first 4
                 }
         }
@@ -94,7 +94,7 @@ struct InitService {
         let app = (NSApp.delegate as! AppDelegate)
         var sensors = app.dataStore.selectedBarSensors
         if app.popoverShowed {
-            sensors.append(contentsOf: app.dataStore.selectedwindowSensors)
+            sensors.append(contentsOf: app.dataStore.selectedWindowSensors)
         }
         NarProvider.shared.request(.sensorsValues(sensorIds: sensors))
             .then { (sensorsValues: SensorsValues) -> Void in

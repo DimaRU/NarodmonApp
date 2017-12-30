@@ -17,6 +17,8 @@ class SensorSettingsViewController: NSViewController {
     @IBOutlet weak var favoriteTableView: SelectTableView!
     
     var selectedBarSensors: [Int] = []
+    var selectedWindowSensors: [Int] = []
+
 
     var devicesSensorsList: [Any] = []
     lazy var dataStore = (NSApp.delegate as! AppDelegate).dataStore
