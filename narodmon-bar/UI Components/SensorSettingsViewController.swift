@@ -11,29 +11,32 @@ import SwiftyUserDefaults
 
 class SensorSettingsViewController: NSViewController {
 
+    lazy var dataStore = (NSApp.delegate as! AppDelegate).dataStore
+    
+    private var selectedBarSensors: [Int] = []
+    private var selectedWindowSensors: Set<Int> = []
+    private var devicesSensorsList: [Any] = []
+
     var hasDraggedFavoriteItem = false
     var currentItemDragOperation: NSDragOperation = []
     
     @IBOutlet weak var sensorsTableView: SelectTableView!
     @IBOutlet weak var favoriteTableView: SelectTableView!
     
-    var selectedBarSensors: [Int] = []
-    var selectedWindowSensors: Set<Int> = []
-
-
-    var devicesSensorsList: [Any] = []
-    lazy var dataStore = (NSApp.delegate as! AppDelegate).dataStore
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         sensorsTableView.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
-        sensorsTableView.setDraggingSourceOperationMask(.move, forLocal: true)
+        sensorsTableView.setDraggingSourceOperationMask([.move, .delete], forLocal: true)
         favoriteTableView.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
         favoriteTableView.setDraggingSourceOperationMask([.move, .delete], forLocal: true)
-    
-        devicesSensorsList = dataStore.devicesSensorsList()
 
+        loadViewData()
+    }
+    
+    func loadViewData() {
+        devicesSensorsList = dataStore.devicesSensorsList()
         selectedBarSensors = dataStore.selectedBarSensors
         selectedWindowSensors = Set<Int>(dataStore.selectedWindowSensors)
     }
@@ -130,6 +133,9 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
         return false
     }
     
+    
+    // Mark: Drag-n-drop
+
     /// Start drag-n-drop
     ///
     /// - Returns: true if drag is allowed
@@ -140,9 +146,9 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
         case sensorsTableView:
             hasDraggedFavoriteItem = false
             if devicesSensorsList[row] is SensorsOnDevice {
-                return false
+                currentItemDragOperation = .delete
             }
-            if selectedBarSensors.contains(row) {
+            if devicesSensorsList[row] is Sensor && selectedBarSensors.contains(row) {
                 return false
             }
         case favoriteTableView:
@@ -171,11 +177,20 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
     ///  used for delete
     ///
     func tableView(_ tableView: NSTableView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation) {
-        if tableView == favoriteTableView && (operation == .delete || currentItemDragOperation == .delete) {
-            let row = dragRow(from: session.draggingPasteboard)
-            selectedBarSensors.remove(at: row-1)
-            NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
-            favoriteTableView.reloadData()
+        if operation == .delete || currentItemDragOperation == .delete {
+            let fromRow = dragRow(from: session.draggingPasteboard)
+            switch tableView {
+            case favoriteTableView:
+                selectedBarSensors.remove(at: fromRow-1)
+                NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
+                favoriteTableView.reloadData()
+            case sensorsTableView:
+                let device = devicesSensorsList[fromRow] as! SensorsOnDevice
+                let deviceId = device.id
+                print(deviceId)
+                NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
+            default: fatalError()
+            }
         }
     }
     
@@ -188,14 +203,21 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
         let draggingSource = info.draggingSource() as! SelectTableView
         
         if tableView == favoriteTableView {
-            tableView.setDropRow(toRow, dropOperation: .above)
             let fromRow = dragRow(from: info.draggingPasteboard())
             
             if draggingSource == favoriteTableView {
+                tableView.setDropRow(toRow, dropOperation: .above)
                 currentItemDragOperation = toRow < 1 || toRow == fromRow || toRow == fromRow + 1 ? [] : .move
             }
             else if draggingSource == sensorsTableView {
-                currentItemDragOperation = .copy
+                switch devicesSensorsList[fromRow] {
+                case is SensorsOnDevice:
+                    currentItemDragOperation = .delete
+                case is Sensor:
+                    tableView.setDropRow(toRow, dropOperation: .above)
+                    currentItemDragOperation = .copy
+                default: fatalError()
+                }
             }
         }
         return currentItemDragOperation
@@ -222,12 +244,15 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
             return true
             
         case sensorsTableView?:
-            let fromSensor = devicesSensorsList[fromRow] as! Sensor
-            selectedBarSensors.append(fromSensor.id)
-            favoriteTableView.reloadData()
-            return true
-            
-        default:
+            if let fromSensor = devicesSensorsList[fromRow] as? Sensor {
+                selectedBarSensors.append(fromSensor.id)
+                favoriteTableView.reloadData()
+                return true
+            }
+            else {
+                return false
+            }
+                default:
             return false
         }
         
