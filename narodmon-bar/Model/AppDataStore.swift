@@ -11,8 +11,8 @@ final class AppDataStore {
     var selectedWindowSensors: [Int] = []       // Selected popup window sensors
     var selectedBarSensors: [Int] = []          // Selected bar sensors
     
-    var devices: [SensorsOnDevice] = []
-    var sensorValue: [SensorValue] = []
+    var devices: [SensorsOnDevice] = []         // Discovered devices
+    var sensorValue: [SensorValue] = []         // Current sensors value
     
     var initData: AppInitData? = nil
     var logonData: UserLogon? = nil
@@ -21,6 +21,12 @@ final class AppDataStore {
         selectedDevices = Defaults[.SelectedDevices]
         selectedWindowSensors = Defaults[.SelectedWindowSensors]
         selectedBarSensors = Defaults[.SelectedBarSensors]
+    }
+    
+    func saveDefaults() {
+        Defaults[.SelectedDevices] = selectedDevices
+        Defaults[.SelectedBarSensors] = selectedBarSensors
+        Defaults[.SelectedWindowSensors] = Array<Int>(selectedWindowSensors)
     }
     
     func selectionExist() -> Bool {
@@ -47,7 +53,7 @@ final class AppDataStore {
     
     func devicesSensorsList() -> [Any] {
         var list: [Any] = []
-        for device in devices {
+        for device in devices where selectedDevices.contains(device.id) {
             list.append(device)
             let sensors: [Any] = device.sensors
             list.append(contentsOf: sensors)

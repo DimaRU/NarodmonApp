@@ -31,6 +31,6 @@ class PrefsCellView: NSTableCellView {
         sensorNameLabel.stringValue = sensor.name
         sensorValueLabel.stringValue = "\(sensor.value)\(sensor.unit)"
         checkBox?.state = isChecked ? .on : .off
-        print(sensor.name, isChecked)
+        //print(sensor.name, isChecked)
     }
 }

@@ -13,6 +13,7 @@ class SensorSettingsViewController: NSViewController {
 
     lazy var dataStore = (NSApp.delegate as! AppDelegate).dataStore
     
+    private var selectedDevices: [Int] = []
     private var selectedBarSensors: [Int] = []
     private var selectedWindowSensors: Set<Int> = []
     private var devicesSensorsList: [Any] = []
@@ -37,32 +38,38 @@ class SensorSettingsViewController: NSViewController {
     
     func loadViewData() {
         devicesSensorsList = dataStore.devicesSensorsList()
+        
+        selectedDevices = dataStore.selectedDevices
         selectedBarSensors = dataStore.selectedBarSensors
         selectedWindowSensors = Set<Int>(dataStore.selectedWindowSensors)
     }
     
     override func viewWillDisappear() {
         saveSettings()
+        dataStore.saveDefaults()
         (NSApp.delegate as! AppDelegate).displaySensorData()
     }
     
     func saveSettings() {
-        var selectedDevices: [Int] = []
-        for item in devicesSensorsList {
-            if let device = item as? SensorsOnDevice {
-                selectedDevices.append(device.id)
-            }
-        }
-        
         dataStore.selectedDevices = selectedDevices
         dataStore.selectedBarSensors = selectedBarSensors
         dataStore.selectedWindowSensors = Array<Int>(selectedWindowSensors)
-        
-        Defaults[.SelectedDevices] = selectedDevices
-        Defaults[.SelectedBarSensors] = selectedBarSensors
-        Defaults[.SelectedWindowSensors] = Array<Int>(selectedWindowSensors)
     }
-    
+
+    func remove(device: SensorsOnDevice) {
+        let sensorIds = Set<Int>(device.sensors.map { $0.id })
+        
+        selectedWindowSensors = selectedWindowSensors.filter { !sensorIds.contains($0) }
+        selectedBarSensors = selectedBarSensors.filter { !sensorIds.contains($0) }
+        selectedDevices = selectedDevices.filter{ $0 != device.id }
+        saveSettings()
+        
+        devicesSensorsList = dataStore.devicesSensorsList()
+
+        sensorsTableView.reloadData()
+        favoriteTableView.reloadData()
+    }
+
 }
 
 
@@ -186,8 +193,8 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
                 favoriteTableView.reloadData()
             case sensorsTableView:
                 let device = devicesSensorsList[fromRow] as! SensorsOnDevice
-                let deviceId = device.id
-                print(deviceId)
+                remove(device: device)
+                print("Removed:", device.id)
                 NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
             default: fatalError()
             }
