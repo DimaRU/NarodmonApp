@@ -140,15 +140,16 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
     ///
     /// - Returns: true if drag is allowed
     func tableView(_ tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pboard: NSPasteboard) -> Bool {
-        guard tableView == sensorsTableView || tableView == favoriteTableView else { return false }
         let row = rowIndexes.first!
+
         switch tableView {
         case sensorsTableView:
             hasDraggedFavoriteItem = false
             if devicesSensorsList[row] is SensorsOnDevice {
+                hasDraggedFavoriteItem = true
                 currentItemDragOperation = .delete
             }
-            if devicesSensorsList[row] is Sensor && selectedBarSensors.contains(row) {
+            if let sensor = devicesSensorsList[row] as? Sensor, selectedBarSensors.contains(sensor.id) {
                 return false
             }
         case favoriteTableView:
@@ -156,8 +157,7 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
                 return false
             }
             hasDraggedFavoriteItem = true
-        default:
-            return false
+        default: fatalError()
         }
 
         let data = NSKeyedArchiver.archivedData(withRootObject: rowIndexes)
@@ -212,7 +212,7 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
             else if draggingSource == sensorsTableView {
                 switch devicesSensorsList[fromRow] {
                 case is SensorsOnDevice:
-                    currentItemDragOperation = .delete
+                    currentItemDragOperation = []
                 case is Sensor:
                     tableView.setDropRow(toRow, dropOperation: .above)
                     currentItemDragOperation = .copy
