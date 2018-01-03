@@ -28,6 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusView = StatusItemView(statusItem: statusItem, dataStore: dataStore) {
             self.showPopover()
             }
+        statusView.isTinyText = Defaults[.TinyFont]
         statusView.dataRefreshed()
       
         initPopover()

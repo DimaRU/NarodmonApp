@@ -1080,7 +1080,7 @@
                                                                                 <font key="font" metaFont="system"/>
                                                                             </buttonCell>
                                                                             <connections>
-                                                                                <action selector="checkBoxChanged:" target="CSa-Cz-ZRW" id="dYB-ra-ue1"/>
+                                                                                <action selector="largeFontCheckBoxAction:" target="dl9-43-ndJ" id="a5j-OJ-Dvg"/>
                                                                             </connections>
                                                                         </button>
                                                                     </subviews>
@@ -1229,6 +1229,9 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="largeFontCheckBoxAction:" target="dl9-43-ndJ" id="gcG-9N-1BS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -1243,6 +1246,7 @@
                     </view>
                     <connections>
                         <outlet property="favoriteTableView" destination="DFs-Rr-z8q" id="UEZ-1O-1yf"/>
+                        <outlet property="largeFontCheckBox" destination="FME-CF-0UX" id="Vie-KT-avv"/>
                         <outlet property="sensorsTableView" destination="IdJ-rQ-Uq8" id="H7H-gQ-TBB"/>
                     </connections>
                 </viewController>

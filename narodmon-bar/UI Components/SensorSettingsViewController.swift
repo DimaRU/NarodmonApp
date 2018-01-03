@@ -23,8 +23,25 @@ class SensorSettingsViewController: NSViewController {
     
     @IBOutlet weak var sensorsTableView: SelectTableView!
     @IBOutlet weak var favoriteTableView: SelectTableView!
+    @IBOutlet weak var largeFontCheckBox: NSButton!
     
+    @IBAction func checkBoxSensorAction(_ sender: NSButton) {
+        let sensorId = sender.tag
+        if sender.state == .on {
+            selectedWindowSensors.insert(sensorId)
+        }
+        else {
+            selectedWindowSensors.remove(sensorId)
+        }
+    }
     
+    @IBAction func largeFontCheckBoxAction(_ sender: NSButton) {
+        let tinyFont: Bool = sender.state == .off
+        Defaults[.TinyFont] = tinyFont
+        let app = NSApp.delegate as! AppDelegate
+        app.statusView.isTinyText = tinyFont
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +59,7 @@ class SensorSettingsViewController: NSViewController {
         selectedDevices = dataStore.selectedDevices
         selectedBarSensors = dataStore.selectedBarSensors
         selectedWindowSensors = Set<Int>(dataStore.selectedWindowSensors)
+        largeFontCheckBox.state = Defaults[.TinyFont] ? .off : .on
     }
     
     override func viewWillDisappear() {

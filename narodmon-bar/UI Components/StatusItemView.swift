@@ -1,5 +1,5 @@
 ////
-///
+///  StatusItemView.swift
 //
 
 import Cocoa
@@ -23,7 +23,7 @@ final class StatusItemView: NSView {
 
     var isTinyText = true {
         didSet {
-            needsDisplay = true
+            sizeToFit()
         }
     }
     
@@ -65,7 +65,7 @@ final class StatusItemView: NSView {
 
         for id in dataStore.selectedBarSensors {
             guard let (value, unit) = dataStore.sensorData(for: id) else { continue }
-            let label = String.init(format: "%.1f", value) + unit
+            let label = String.init(format: "%.0f", value) + unit
             labels.append(label)
         }
         return labels.isEmpty ? ["Loading..."] : labels
