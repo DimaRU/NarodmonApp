@@ -9,7 +9,11 @@
 import Cocoa
 import SwiftyUserDefaults
 
-class SensorSettingsViewController: NSViewController {
+protocol DeviceIdDelegate {
+    func addDevice(id: Int)
+}
+
+class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
 
     lazy var dataStore = (NSApp.delegate as! AppDelegate).dataStore
     
@@ -41,7 +45,16 @@ class SensorSettingsViewController: NSViewController {
         let app = NSApp.delegate as! AppDelegate
         app.statusView.isTinyText = tinyFont
     }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        guard let viewController = segue.destinationController as? DeviceIDViewCotroller else { return }
+        viewController.delegate = self
+    }
 
+    func addDevice(id: Int) {
+        print("Add device:", id)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
