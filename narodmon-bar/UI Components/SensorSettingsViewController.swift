@@ -97,9 +97,15 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
         favoriteTableView.reloadData()
     }
     
-    
     func add(device id: Int) {
         print("Add device:", id)
+        guard !selectedDevices.contains(id) else {
+            let alert = NSAlert()
+            alert.messageText = NSLocalizedString("Add device", comment: "Add device")
+            alert.informativeText = NSLocalizedString("Device already added", comment: "Add device")
+            alert.runModal()
+            return
+        }
         
         NarProvider.shared.request(.sensorsOnDevice(id: id))
             .then { (device: SensorsOnDevice) -> Void in
