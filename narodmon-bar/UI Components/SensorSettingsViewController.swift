@@ -59,16 +59,16 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
         favoriteTableView.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
         favoriteTableView.setDraggingSourceOperationMask([.move, .delete], forLocal: true)
 
+        largeFontCheckBox.state = Defaults[.TinyFont] ? .off : .on
         loadViewData()
     }
     
     func loadViewData() {
         devicesSensorsList = dataStore.devicesSensorsList()
-        
+      
         selectedDevices = dataStore.selectedDevices
         selectedBarSensors = dataStore.selectedBarSensors
         selectedWindowSensors = Set<Int>(dataStore.selectedWindowSensors)
-        largeFontCheckBox.state = Defaults[.TinyFont] ? .off : .on
     }
     
     override func viewWillDisappear() {
@@ -100,6 +100,25 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
     
     func add(device id: Int) {
         print("Add device:", id)
+        
+        NarProvider.shared.request(.sensorsOnDevice(id: id))
+            .then { (device: SensorsOnDevice) -> Void in
+                self.dataStore.devices.append(device)
+                self.dataStore.selectedDevices.append(id)
+                let sensors: [Int] = device.sensors.map { $0.id }
+                self.dataStore.selectedWindowSensors.append(contentsOf: sensors)
+
+                self.loadViewData()
+                self.sensorsTableView.reloadData()
+                self.favoriteTableView.reloadData()
+            }
+            .catch { error in
+                guard let error = error as? NarodNetworkError else { fatalError() }
+                let alert = NSAlert()
+                alert.messageText = error.localizedDescription
+                alert.informativeText = error.message()
+                alert.runModal()
+        }
     }
 
 }
