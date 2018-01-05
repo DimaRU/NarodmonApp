@@ -37,6 +37,7 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
         else {
             selectedWindowSensors.remove(sensorId)
         }
+        print("Popup sensors:", selectedWindowSensors)
     }
     
     @IBAction func largeFontCheckBoxAction(_ sender: NSButton) {
@@ -86,13 +87,13 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
     func remove(device: SensorsOnDevice) {
         let sensorIds = Set<Int>(device.sensors.map { $0.id })
         
-        selectedWindowSensors = selectedWindowSensors.filter { !sensorIds.contains($0) }
-        selectedBarSensors = selectedBarSensors.filter { !sensorIds.contains($0) }
-        selectedDevices = selectedDevices.filter{ $0 != device.id }
-        saveSettings()
+        dataStore.selectedWindowSensors = selectedWindowSensors.filter { !sensorIds.contains($0) }
+        dataStore.selectedBarSensors = selectedBarSensors.filter { !sensorIds.contains($0) }
+        dataStore.selectedDevices = selectedDevices.filter{ $0 != device.id }
+        let index = dataStore.devices.index(where: {$0.id == device.id})!
+        dataStore.devices.remove(at: index)
         
-        devicesSensorsList = dataStore.devicesSensorsList()
-
+        loadViewData()
         sensorsTableView.reloadData()
         favoriteTableView.reloadData()
     }

@@ -1083,7 +1083,7 @@
                                                                                         <font key="font" metaFont="system"/>
                                                                                     </buttonCell>
                                                                                     <connections>
-                                                                                        <action selector="largeFontCheckBoxAction:" target="dl9-43-ndJ" id="a5j-OJ-Dvg"/>
+                                                                                        <action selector="checkBoxSensorAction:" target="dl9-43-ndJ" id="AmK-Rh-6Hm"/>
                                                                                     </connections>
                                                                                 </button>
                                                                             </subviews>
