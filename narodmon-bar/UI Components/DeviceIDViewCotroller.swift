@@ -16,11 +16,11 @@ class DeviceIDViewCotroller: NSViewController {
     
     @IBAction func okButtonPress(_ sender: NSButton) {
         if let id = Int(deviceIDfield.stringValue) {
-            delegate.addDevice(id: id)
+            delegate.add(device: id)
         }
         dismiss(sender)
     }
-    
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,7 +10,7 @@ import Cocoa
 import SwiftyUserDefaults
 
 protocol DeviceIdDelegate {
-    func addDevice(id: Int)
+    func add(device id: Int)
 }
 
 class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
@@ -51,10 +51,6 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
         viewController.delegate = self
     }
 
-    func addDevice(id: Int) {
-        print("Add device:", id)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -99,6 +95,11 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
 
         sensorsTableView.reloadData()
         favoriteTableView.reloadData()
+    }
+    
+    
+    func add(device id: Int) {
+        print("Add device:", id)
     }
 
 }
