@@ -101,7 +101,6 @@
 		0A9194E01FBB3CFC00D72378 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A9194E31FBB3CFD00D72378 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A9194E51FBB3CFD00D72378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A9194E61FBB3CFD00D72378 /* narodmon_bar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = narodmon_bar.entitlements; sourceTree = "<group>"; };
 		0A9194EB1FBB3CFD00D72378 /* narodmon-barTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "narodmon-barTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A9194EF1FBB3CFD00D72378 /* narodmon_barTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = narodmon_barTests.swift; sourceTree = "<group>"; };
 		0A9194F11FBB3CFD00D72378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -259,7 +258,6 @@
 				0A9194E01FBB3CFC00D72378 /* Assets.xcassets */,
 				0A9194E21FBB3CFD00D72378 /* Main.storyboard */,
 				0A9194E51FBB3CFD00D72378 /* Info.plist */,
-				0A9194E61FBB3CFD00D72378 /* narodmon_bar.entitlements */,
 				0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */,
 			);
 			path = "narodmon-bar";
