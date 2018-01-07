@@ -3,6 +3,7 @@
 //
 
 import Cocoa
+import SwiftyUserDefaults
 
 class GeneralSettingsViewController: NSViewController {
 
@@ -14,6 +15,12 @@ class GeneralSettingsViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
     }
+ 
+    @IBAction func launchSwichAction(_ sender: NSButton) {
+        let launchState = sender.state == .on
+        setLaunchOnLogin(state: launchState)
+        Defaults[.LaunchOnLogin] = launchState
+    }
     
     override func viewWillDisappear() {
         KeychainService.shared[.login] = email.stringValue == "" ? nil : email.stringValue
@@ -24,5 +31,6 @@ class GeneralSettingsViewController: NSViewController {
     override func viewWillAppear() {
         email.stringValue = KeychainService.shared[.login] ?? ""
         password.stringValue = KeychainService.shared[.password] ?? ""
+        launchSwitch.state = Defaults[.LaunchOnLogin] ? .on : .off
     }
 }

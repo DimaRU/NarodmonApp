@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E11FC03230006605DC /* CwlSysctl.swift */; };
 		0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E41FC048BC006605DC /* String+MD5.swift */; };
-		0A4C61521FC83FAD009F7B51 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C61511FC83FAD009F7B51 /* Settings.swift */; };
+		0A4C61521FC83FAD009F7B51 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C61511FC83FAD009F7B51 /* Defaults.swift */; };
 		0A63DF971FCED92800C35607 /* HwUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF961FCED92800C35607 /* HwUUID.swift */; };
 		0A63DF991FCEDAED00C35607 /* InitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF981FCEDAED00C35607 /* InitService.swift */; };
 		0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */; };
 		0A68C0BB1FDAA1FB00E7ACD4 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */; };
 		0A6D89C41FC5C37100034A67 /* md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C31FC5C37100034A67 /* md5.swift */; };
+		0A756277200246090033269C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A756276200246090033269C /* AppDelegate.swift */; };
+		0A756279200246090033269C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A756278200246090033269C /* Assets.xcassets */; };
+		0A756283200247930033269C /* NarodBarLauncherApp.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0A756274200246090033269C /* NarodBarLauncherApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0A75628520025BFA0033269C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A75628420025BFA0033269C /* main.swift */; };
+		0A756287200261490033269C /* LaunchOnLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A756286200261490033269C /* LaunchOnLogin.swift */; };
 		0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */; };
 		0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E01FBB3CFC00D72378 /* Assets.xcassets */; };
 		0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E21FBB3CFD00D72378 /* Main.storyboard */; };
@@ -60,17 +65,37 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0A7562822002476F0033269C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				0A756283200247930033269C /* NarodBarLauncherApp.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0A37C0E11FC03230006605DC /* CwlSysctl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CwlSysctl.swift; sourceTree = "<group>"; };
 		0A37C0E41FC048BC006605DC /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		0A3F22511FD2FC2C00D06A20 /* narodmon-bar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "narodmon-bar.entitlements"; sourceTree = "<group>"; };
-		0A4C61511FC83FAD009F7B51 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		0A4C61511FC83FAD009F7B51 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		0A63DF961FCED92800C35607 /* HwUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HwUUID.swift; sourceTree = "<group>"; };
 		0A63DF981FCEDAED00C35607 /* InitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitService.swift; sourceTree = "<group>"; };
 		0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorType.swift; sourceTree = "<group>"; };
 		0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		0A6D89C31FC5C37100034A67 /* md5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = md5.swift; sourceTree = "<group>"; };
 		0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemView.swift; sourceTree = "<group>"; };
+		0A756274200246090033269C /* NarodBarLauncherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NarodBarLauncherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A756276200246090033269C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0A756278200246090033269C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0A75627D200246090033269C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A75627E200246090033269C /* NarodBarLauncherApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NarodBarLauncherApp.entitlements; sourceTree = "<group>"; };
+		0A75628420025BFA0033269C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		0A756286200261490033269C /* LaunchOnLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchOnLogin.swift; sourceTree = "<group>"; };
 		0A9194D91FBB3CFC00D72378 /* narodmon-bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "narodmon-bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A9194E01FBB3CFC00D72378 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +138,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0A756271200246090033269C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0A9194D61FBB3CFC00D72378 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -154,6 +186,7 @@
 			children = (
 				0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */,
 				0A63DF961FCED92800C35607 /* HwUUID.swift */,
+				0A756286200261490033269C /* LaunchOnLogin.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -175,11 +208,24 @@
 			path = "UI Components";
 			sourceTree = "<group>";
 		};
+		0A756275200246090033269C /* NarodBarLauncherApp */ = {
+			isa = PBXGroup;
+			children = (
+				0A75628420025BFA0033269C /* main.swift */,
+				0A756276200246090033269C /* AppDelegate.swift */,
+				0A756278200246090033269C /* Assets.xcassets */,
+				0A75627D200246090033269C /* Info.plist */,
+				0A75627E200246090033269C /* NarodBarLauncherApp.entitlements */,
+			);
+			path = NarodBarLauncherApp;
+			sourceTree = "<group>";
+		};
 		0A9194D01FBB3CFC00D72378 = {
 			isa = PBXGroup;
 			children = (
 				0A9194DB1FBB3CFC00D72378 /* narodmon-bar */,
 				0A9194EE1FBB3CFD00D72378 /* narodmon-barTests */,
+				0A756275200246090033269C /* NarodBarLauncherApp */,
 				0A9194DA1FBB3CFC00D72378 /* Products */,
 				7FBB0C97F9628129CD0A26F5 /* Pods */,
 				8CB6DD74CF3C65ED3F8701C5 /* Frameworks */,
@@ -191,6 +237,7 @@
 			children = (
 				0A9194D91FBB3CFC00D72378 /* narodmon-bar.app */,
 				0A9194EB1FBB3CFD00D72378 /* narodmon-barTests.xctest */,
+				0A756274200246090033269C /* NarodBarLauncherApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,7 +254,7 @@
 				0A9194FA1FBB3FB600D72378 /* Model */,
 				0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */,
 				0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */,
-				0A4C61511FC83FAD009F7B51 /* Settings.swift */,
+				0A4C61511FC83FAD009F7B51 /* Defaults.swift */,
 				0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */,
 				0A9194E01FBB3CFC00D72378 /* Assets.xcassets */,
 				0A9194E21FBB3CFD00D72378 /* Main.storyboard */,
@@ -277,6 +324,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0A756273200246090033269C /* NarodBarLauncherApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A756281200246090033269C /* Build configuration list for PBXNativeTarget "NarodBarLauncherApp" */;
+			buildPhases = (
+				0A756270200246090033269C /* Sources */,
+				0A756271200246090033269C /* Frameworks */,
+				0A756272200246090033269C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NarodBarLauncherApp;
+			productName = NarodBarLauncherApp;
+			productReference = 0A756274200246090033269C /* NarodBarLauncherApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 		0A9194D81FBB3CFC00D72378 /* narodmon-bar */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A9194F41FBB3CFD00D72378 /* Build configuration list for PBXNativeTarget "narodmon-bar" */;
@@ -287,6 +351,7 @@
 				0A9194D71FBB3CFC00D72378 /* Resources */,
 				7472942CDF5703339BA8CC30 /* [CP] Embed Pods Frameworks */,
 				DBE5748875D0608ECCBFB0FC /* [CP] Copy Pods Resources */,
+				0A7562822002476F0033269C /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -321,10 +386,14 @@
 		0A9194D11FBB3CFC00D72378 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0910;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Dmitriy Borovikov";
 				TargetAttributes = {
+					0A756273200246090033269C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					0A9194D81FBB3CFC00D72378 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
@@ -356,11 +425,20 @@
 			targets = (
 				0A9194D81FBB3CFC00D72378 /* narodmon-bar */,
 				0A9194EA1FBB3CFD00D72378 /* narodmon-barTests */,
+				0A756273200246090033269C /* NarodBarLauncherApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0A756272200246090033269C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A756279200246090033269C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0A9194D71FBB3CFC00D72378 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -446,11 +524,21 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0A756270200246090033269C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A75628520025BFA0033269C /* main.swift in Sources */,
+				0A756277200246090033269C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0A9194D51FBB3CFC00D72378 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0A6D89C41FC5C37100034A67 /* md5.swift in Sources */,
+				0A756287200261490033269C /* LaunchOnLogin.swift in Sources */,
 				0AC4EAEE1FCE0526001573C8 /* SensorsViewController.swift in Sources */,
 				0A9195091FBB416000D72378 /* UserLogout.swift in Sources */,
 				0AA40A401FE295780089585B /* GeneralSettingsViewController.swift in Sources */,
@@ -486,7 +574,7 @@
 				0AB3DB881FBB7DC8002C0705 /* NarodNetworkError.swift in Sources */,
 				0A9195051FBB416000D72378 /* SensorsOnDevice.swift in Sources */,
 				0A91950A1FBB416000D72378 /* AppInitData.swift in Sources */,
-				0A4C61521FC83FAD009F7B51 /* Settings.swift in Sources */,
+				0A4C61521FC83FAD009F7B51 /* Defaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +608,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0A75627F200246090033269C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NarodBarLauncherApp/NarodBarLauncherApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9BEQ8V4XH9;
+				INFOPLIST_FILE = NarodBarLauncherApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.borovikov.NarodBarLauncherApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		0A756280200246090033269C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NarodBarLauncherApp/NarodBarLauncherApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9BEQ8V4XH9;
+				INFOPLIST_FILE = NarodBarLauncherApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.borovikov.NarodBarLauncherApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		0A9194F21FBB3CFD00D72378 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -701,6 +823,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0A756281200246090033269C /* Build configuration list for PBXNativeTarget "NarodBarLauncherApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A75627F200246090033269C /* Debug */,
+				0A756280200246090033269C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0A9194D41FBB3CFC00D72378 /* Build configuration list for PBXProject "narodmon-bar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

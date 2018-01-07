@@ -948,6 +948,9 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="launchSwichAction:" target="278-Yc-YEz" id="DKR-i5-N9e"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -969,7 +972,7 @@
                     </view>
                     <connections>
                         <outlet property="email" destination="3ZW-92-v8z" id="whf-hR-9Mm"/>
-                        <outlet property="launchSwitch" destination="dEG-sO-VPb" id="1hP-TT-jxZ"/>
+                        <outlet property="launchSwitch" destination="dEG-sO-VPb" id="vlN-WP-Cua"/>
                         <outlet property="password" destination="i2u-qO-JqM" id="Ot8-tI-cp7"/>
                     </connections>
                 </viewController>

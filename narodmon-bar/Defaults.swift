@@ -1,11 +1,12 @@
 ////
-///  Settings.swift
+///  Defaults.swift
 //
 
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
     static let Launchcount = DefaultsKey<Int>("LaunchCount")
+    static let LaunchOnLogin = DefaultsKey<Bool>("LaunchOnLogin")
     static let MachineUUID = DefaultsKey<String?>("MachineUUID")
     
     static let SelectedDevices = DefaultsKey<[Int]>("SelectedDevices")
@@ -27,6 +28,9 @@ extension UserDefaults {
             let uuid = getHwUUID().md5()!
             print(uuid)
             Defaults[.MachineUUID] = uuid
+
+            setLaunchOnLogin(state: true)
+            Defaults[.LaunchOnLogin] = true
         } else {
             // Not first start
             
