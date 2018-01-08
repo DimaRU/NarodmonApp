@@ -872,7 +872,7 @@
         <!--Tab View Controller-->
         <scene sceneID="lAD-kE-HWV">
             <objects>
-                <tabViewController selectedTabViewItemIndex="1" tabStyle="toolbar" id="nTa-00-8bE" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" id="nTa-00-8bE" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem image="NSPreferencesGeneral" id="3dh-Lr-3Pe"/>
                         <tabViewItem image="NSAdvanced" id="Mdi-CH-PrB"/>
@@ -971,9 +971,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="email" destination="3ZW-92-v8z" id="whf-hR-9Mm"/>
+                        <outlet property="emailTextField" destination="3ZW-92-v8z" id="whf-hR-9Mm"/>
                         <outlet property="launchSwitch" destination="dEG-sO-VPb" id="vlN-WP-Cua"/>
-                        <outlet property="password" destination="i2u-qO-JqM" id="Ot8-tI-cp7"/>
+                        <outlet property="passwordTextField" destination="i2u-qO-JqM" id="Ot8-tI-cp7"/>
                     </connections>
                 </viewController>
                 <customObject id="P2e-bB-SbK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

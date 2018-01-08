@@ -7,13 +7,12 @@ import SwiftyUserDefaults
 
 class GeneralSettingsViewController: NSViewController {
 
-    @IBOutlet weak var email: NSTextField!
-    @IBOutlet weak var password: NSSecureTextField!
+    @IBOutlet weak var emailTextField: NSTextField!
+    @IBOutlet weak var passwordTextField: NSSecureTextField!
     @IBOutlet weak var launchSwitch: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
     }
  
     @IBAction func launchSwichAction(_ sender: NSButton) {
@@ -23,14 +22,27 @@ class GeneralSettingsViewController: NSViewController {
     }
     
     override func viewWillDisappear() {
-        KeychainService.shared[.login] = email.stringValue == "" ? nil : email.stringValue
-        KeychainService.shared[.password] = password.stringValue == "" ? nil : password.stringValue
-        // TODO: Login and add own sensors
+        let newEmail = emailTextField.stringValue == "" ? nil : emailTextField.stringValue
+        let newPassword = passwordTextField.stringValue == "" ? nil : passwordTextField.stringValue
+        guard KeychainService.shared[.login] != newEmail || KeychainService.shared[.password] != newPassword else { return }
+        KeychainService.shared[.login] = emailTextField.stringValue == "" ? nil : emailTextField.stringValue
+        KeychainService.shared[.password] = passwordTextField.stringValue == "" ? nil : passwordTextField.stringValue
+        guard newEmail != nil && newPassword != nil else { return }
+        
+        InitService.appLoginDiscovery()
+            .catch { (error) in
+                print(error)
+                guard let error = error as? NarodNetworkError else { fatalError() }
+                let alert = NSAlert()
+                alert.messageText = error.localizedDescription
+                alert.informativeText = error.message()
+                alert.runModal()
+        }
     }
     
     override func viewWillAppear() {
-        email.stringValue = KeychainService.shared[.login] ?? ""
-        password.stringValue = KeychainService.shared[.password] ?? ""
+        emailTextField.stringValue = KeychainService.shared[.login] ?? ""
+        passwordTextField.stringValue = KeychainService.shared[.password] ?? ""
         launchSwitch.state = Defaults[.LaunchOnLogin] ? .on : .off
     }
 }

@@ -36,12 +36,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         InitService.appInit()
             .then { (initData: AppInitData) -> Promise<Void> in
                 self.dataStore.initData = initData
-                return InitService.appLogin()
+                if Int(initData.uid) == 0 {
+                    return InitService.appLogin()
+                }
+                let logonData = UserLogon(vip: initData.vip, login: initData.login, uid: initData.uid)
+                self.dataStore.logonData = logonData
+                return Promise<Void> { fulfill, reject in
+                    fulfill(())
+                }
             }
             .catch { (error) in
-                guard let error = error as? NarodNetworkError else { fatalError() }
                 switch(error) {
-                case .authorizationNeed(let message):
+                case NarodNetworkError.authorizationNeed(let message):
                     let alert = NSAlert()
                     alert.messageText = error.localizedDescription
                     alert.informativeText = message
