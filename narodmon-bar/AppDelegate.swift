@@ -10,7 +10,6 @@ import Cocoa
 import PromiseKit
 import SwiftyUserDefaults
 
-@NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var statusView: StatusItemView!
