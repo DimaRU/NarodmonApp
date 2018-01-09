@@ -847,19 +847,19 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <menu systemMenu="apple" id="R3s-R3-GGE">
                     <items>
-                        <menuItem title="О программе NarodmonBar" id="hRf-YU-pNR">
+                        <menuItem title="About NarodmonBar" id="hRf-YU-pNR">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="orderFrontStandardAboutPanel:" target="rPt-NT-nkU" id="xQ8-Te-TVl"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Настройки…" keyEquivalent="," id="5ZA-VM-9a6">
+                        <menuItem title="Preferences…" keyEquivalent="," id="5ZA-VM-9a6">
                             <connections>
                                 <segue destination="nTa-00-8bE" kind="show" id="puu-vY-9AJ"/>
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="PqL-Qc-l3I"/>
-                        <menuItem title="Закрыть NarodmonBar" keyEquivalent="q" id="eYi-Ed-a5W">
+                        <menuItem title="Quit NarodmonBar" keyEquivalent="q" id="eYi-Ed-a5W">
                             <connections>
                                 <action selector="terminate:" target="rPt-NT-nkU" id="56e-0Q-IEb"/>
                             </connections>
