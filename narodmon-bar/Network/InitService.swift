@@ -93,7 +93,7 @@ struct InitService {
             return NarProvider.shared.request(.sensorsNearby(my: false))
                 // get near
                 .then { (near: SensorsNearby) -> Void in
-                    guard !near.devices.isEmpty else { throw NarodNetworkError.responceSyntaxError(message: "SensorsNearby")}
+                    guard !near.devices.isEmpty else { throw NarodNetworkError.responceSyntaxError(message: "SensorsNearby is empty")}
                     let devices = near.devices.prefix(2)
                     var sensorsIds: [Int] = []
                     for device in devices {
