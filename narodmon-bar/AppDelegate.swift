@@ -87,14 +87,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
     }
 
-    /// Refresh sensor data on status bar & sensors window
-    func displaySensorData() {
-        statusView.dataRefreshed()
-        if popoverShowed {
-            sensorsViewController.reloadData()
-        }
-    }
-    
     func setPopoverState(showed: Bool) {
         popoverShowed = showed
         

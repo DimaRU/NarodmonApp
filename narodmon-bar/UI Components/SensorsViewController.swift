@@ -22,13 +22,26 @@ class SensorsViewController: NSViewController {
     @IBAction func settingsButtonPressed(_ sender: NSButton) {
         let p = NSPoint(x: 0, y: sender.frame.height)
         settingsMenu.popUp(positioning: nil, at: p, in: sender)
-
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         reloadData()
         setViewSizeOnContent()
+        addObservers()
+    }
+    
+    private func addObservers() {
+        let center = NotificationCenter.default
+        center.addObserver(forName: .dataChangedNotification, object: nil, queue: nil) { _ in
+            self.sensorsTableView.reloadData()
+        }
+        center.addObserver(forName: .deviceListChangedNotification, object: nil, queue: nil) { _ in
+            self.reloadData()
+        }
+        center.addObserver(forName: .popupSensorsChangedNotification, object: nil, queue: nil) { _ in
+            self.reloadData()
+        }
     }
     
     public func windowDidDetach() {
@@ -36,13 +49,13 @@ class SensorsViewController: NSViewController {
         print("On detach:", self.view.frame.size.height)
     }
 
-    func setViewSizeOnContent() {
+    private func setViewSizeOnContent() {
         var size = view.frame.size
         size.height = sensorsScrollView.documentView!.frame.size.height + toolbar.frame.size.height + 2
         view.setFrameSize(size)
     }
 
-    func reloadData() {
+    private func reloadData() {
         devicesSensorsList = dataStore.windowSelectionsList()
         sensorsTableView.reloadData()
     }

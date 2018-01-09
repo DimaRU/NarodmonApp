@@ -49,6 +49,7 @@
 		0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195161FBB463E00D72378 /* NarProvider.swift */; };
 		0ABEA4CD1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEA4CC1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift */; };
 		0AC4EAEE1FCE0526001573C8 /* SensorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */; };
+		0AE1E7002003F47400029333 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE1E6FF2003F47400029333 /* Notifications.swift */; };
 		0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */; };
 		0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */; };
 		0AECF54C1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */; };
@@ -129,6 +130,7 @@
 		0AB3DB871FBB7DC8002C0705 /* NarodNetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarodNetworkError.swift; sourceTree = "<group>"; };
 		0ABEA4CC1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedDecodingContainer.swift; sourceTree = "<group>"; };
 		0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorsViewController.swift; sourceTree = "<group>"; };
+		0AE1E6FF2003F47400029333 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeMethods.swift; sourceTree = "<group>"; };
 		0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceIDViewCotroller.swift; sourceTree = "<group>"; };
 		41ADBBDF1FF1AEBF42D54F9F /* Pods-narodmon-bar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-narodmon-bar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar.debug.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				0AB311871FD557D500ED680F /* SensorCellView.swift */,
 				0AB311891FD557E600ED680F /* DeviceCellView.swift */,
 				0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */,
+				0AE1E6FF2003F47400029333 /* Notifications.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				0A9195231FBB463F00D72378 /* NarodAPI.swift in Sources */,
 				0A91950C1FBB41AE00D72378 /* Sensor.swift in Sources */,
 				0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */,
+				0AE1E7002003F47400029333 /* Notifications.swift in Sources */,
 				0A9195061FBB416000D72378 /* SensorsNearby.swift in Sources */,
 				0A63DF991FCEDAED00C35607 /* InitService.swift in Sources */,
 				0A9AFA011FD00F1C00F5B5BB /* PopoverDelegate.swift in Sources */,

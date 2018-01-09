@@ -30,6 +30,9 @@ class GeneralSettingsViewController: NSViewController {
         guard newEmail != nil && newPassword != nil else { return }
         
         InitService.appLoginDiscovery()
+            .always {
+                NotificationCenter.default.post(name: .deviceListChangedNotification, object: nil)
+            }
             .catch { (error) in
                 print(error)
                 guard let error = error as? NarodNetworkError else { fatalError() }

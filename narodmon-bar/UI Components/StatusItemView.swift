@@ -50,6 +50,14 @@ final class StatusItemView: NSView {
 
         super.init(frame: NSZeroRect)
         self.statusItem.view = self
+        
+        let center = NotificationCenter.default
+        center.addObserver(forName: .dataChangedNotification, object: nil, queue: nil) { _ in
+            self.dataRefreshed()
+        }
+        center.addObserver(forName: .barSensorsChangedNotification, object: nil, queue: nil) { _ in
+            self.dataRefreshed()
+        }
 	}
 
 	required init?(coder: NSCoder) {
@@ -71,7 +79,7 @@ final class StatusItemView: NSView {
         return labels.isEmpty ? ["Loading..."] : labels
     }
     
-    public func dataRefreshed() {
+    func dataRefreshed() {
         let newSensorLabels = formatedSensorLabels()
         if sensorLabels == newSensorLabels {
             return
