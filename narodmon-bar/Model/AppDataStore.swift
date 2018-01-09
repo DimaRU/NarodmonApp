@@ -34,9 +34,19 @@ final class AppDataStore {
     }
     
     func sensorData(for id: Int) -> (value: Double, unit: String)? {
-        guard let sensor = (sensorValue.first { $0.id == id }) else { return nil }
-        let type = initData!.types.first { $0.type == sensor.type}!
-        return (sensor.value, type.unit)
+        if let sensor = (sensorValue.first { $0.id == id }) {
+            let type = initData!.types.first { $0.type == sensor.type}!
+            return (sensor.value, type.unit)
+        }
+        else {
+            for device in devices {
+                if let sensor = device.sensors.first(where: { $0.id == id }) {
+                    let type = initData!.types.first { $0.type == sensor.type}!
+                    return (sensor.value, type.unit)
+                }
+            }
+        }
+        return nil
     }
     
     func windowSelectionsList() -> [Any] {
