@@ -11,7 +11,7 @@ final class StatusItemView: NSView {
 	private let tappedCallback: Completion
     var statusItem: NSStatusItem!
 
-    private static let tinyText = [ NSAttributedStringKey.font: NSFont.boldSystemFont(ofSize: 9),
+    private static let tinyText = [ NSAttributedStringKey.font: NSFont.systemFont(ofSize: 9, weight: .semibold),
                                       NSAttributedStringKey.foregroundColor: NSColor.controlTextColor ]
     private static let normalText = [ NSAttributedStringKey.font: NSFont.systemFont(ofSize: 14),
                                       NSAttributedStringKey.foregroundColor: NSColor.controlTextColor ]
