@@ -87,7 +87,6 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
         dataStore.devices.remove(at: index)
         
         NotificationCenter.default.post(name: .deviceListChangedNotification, object: nil)
-        NotificationCenter.default.post(name: .barSensorsChangedNotification, object: nil)
     }
     
     func add(device id: Int) {

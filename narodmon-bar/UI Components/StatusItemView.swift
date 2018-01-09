@@ -52,6 +52,9 @@ final class StatusItemView: NSView {
         self.statusItem.view = self
         
         let center = NotificationCenter.default
+        center.addObserver(forName: .deviceListChangedNotification, object: nil, queue: nil) { _ in
+            self.dataRefreshed()
+        }
         center.addObserver(forName: .dataChangedNotification, object: nil, queue: nil) { _ in
             self.dataRefreshed()
         }
