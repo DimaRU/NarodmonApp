@@ -122,11 +122,13 @@ struct InitService {
     /// Load device data and start refreh
     static func refreshSensorsData() {
         let app = (NSApp.delegate as! AppDelegate)
-        var sensors = app.dataStore.selectedBarSensors
+        var sensors = Set<Int>(app.dataStore.selectedBarSensors)
         if app.popoverShowed {
-            sensors.append(contentsOf: app.dataStore.selectedWindowSensors)
+            sensors = sensors.union(app.dataStore.selectedWindowSensors)
         }
-        NarProvider.shared.request(.sensorsValues(sensorIds: sensors))
+        guard !sensors.isEmpty else { return }
+        
+        NarProvider.shared.request(.sensorsValues(sensorIds: Array<Int>(sensors)))
             .then { (sensorsValues: SensorsValues) -> Void in
                 app.dataStore.sensorValue = sensorsValues.sensors
                 NotificationCenter.default.post(name: .dataChangedNotification, object: nil)
