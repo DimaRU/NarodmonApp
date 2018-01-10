@@ -79,7 +79,7 @@ final class StatusItemView: NSView {
             let label = String.init(format: "%.0f", value) + unit
             labels.append(label)
         }
-        return labels.isEmpty ? ["Loading..."] : labels
+        return labels.isEmpty ? [NSLocalizedString("Loading...", comment: "Status bar message")] : labels
     }
     
     func dataRefreshed() {

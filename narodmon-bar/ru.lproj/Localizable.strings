@@ -10,6 +10,9 @@
 /* Add device */
 "Device already added" = "Устройство уже добавлено";
 
+/* Status bar message */
+"Loading..." = "Загрузка...";
+
 /* No comment provided by engineer. */
 "Network unreachable" = "Сеть не доступна";
 
