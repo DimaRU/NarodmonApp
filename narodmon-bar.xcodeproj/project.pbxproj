@@ -21,6 +21,8 @@
 		0A756283200247930033269C /* NarodBarLauncherApp.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0A756274200246090033269C /* NarodBarLauncherApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0A75628520025BFA0033269C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A75628420025BFA0033269C /* main.swift */; };
 		0A756287200261490033269C /* LaunchOnLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A756286200261490033269C /* LaunchOnLogin.swift */; };
+		0A7968CB20067ADF008F97D9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A7968CD20067ADF008F97D9 /* Localizable.strings */; };
+		0A7968D420067ED0008F97D9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A7968D620067ED0008F97D9 /* InfoPlist.strings */; };
 		0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */; };
 		0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E01FBB3CFC00D72378 /* Assets.xcassets */; };
 		0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E21FBB3CFD00D72378 /* Main.storyboard */; };
@@ -50,6 +52,7 @@
 		0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195161FBB463E00D72378 /* NarProvider.swift */; };
 		0ABEA4CD1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEA4CC1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift */; };
 		0AC4EAEE1FCE0526001573C8 /* SensorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */; };
+		0AC6CC4C200685A600F2DAE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AC6CC4E200685A600F2DAE0 /* InfoPlist.strings */; };
 		0AE1E7002003F47400029333 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE1E6FF2003F47400029333 /* Notifications.swift */; };
 		0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */; };
 		0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */; };
@@ -95,10 +98,13 @@
 		0A756274200246090033269C /* NarodBarLauncherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NarodBarLauncherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A756276200246090033269C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A756278200246090033269C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0A75627D200246090033269C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A75627E200246090033269C /* NarodBarLauncherApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NarodBarLauncherApp.entitlements; sourceTree = "<group>"; };
 		0A75628420025BFA0033269C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0A756286200261490033269C /* LaunchOnLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchOnLogin.swift; sourceTree = "<group>"; };
+		0A7968CE20067B03008F97D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0A7968CF20067B34008F97D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		0A7968D020067B35008F97D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0A7968D520067ED0008F97D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0A9194D91FBB3CFC00D72378 /* narodmon-bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "narodmon-bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A9194E01FBB3CFC00D72378 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,6 +138,8 @@
 		0AB3DB871FBB7DC8002C0705 /* NarodNetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarodNetworkError.swift; sourceTree = "<group>"; };
 		0ABEA4CC1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedDecodingContainer.swift; sourceTree = "<group>"; };
 		0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorsViewController.swift; sourceTree = "<group>"; };
+		0AC6CC48200683DF00F2DAE0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AC6CC4D200685A600F2DAE0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AE1E6FF2003F47400029333 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeMethods.swift; sourceTree = "<group>"; };
 		0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceIDViewCotroller.swift; sourceTree = "<group>"; };
@@ -215,10 +223,11 @@
 		0A756275200246090033269C /* NarodBarLauncherApp */ = {
 			isa = PBXGroup;
 			children = (
+				0AC6CC4E200685A600F2DAE0 /* InfoPlist.strings */,
 				0A75628420025BFA0033269C /* main.swift */,
 				0A756276200246090033269C /* AppDelegate.swift */,
 				0A756278200246090033269C /* Assets.xcassets */,
-				0A75627D200246090033269C /* Info.plist */,
+				0AC6CC48200683DF00F2DAE0 /* Info.plist */,
 				0A75627E200246090033269C /* NarodBarLauncherApp.entitlements */,
 			);
 			path = NarodBarLauncherApp;
@@ -249,6 +258,8 @@
 		0A9194DB1FBB3CFC00D72378 /* narodmon-bar */ = {
 			isa = PBXGroup;
 			children = (
+				0A7968D620067ED0008F97D9 /* InfoPlist.strings */,
+				0A7968CD20067ADF008F97D9 /* Localizable.strings */,
 				0A3F22511FD2FC2C00D06A20 /* narodmon-bar.entitlements */,
 				0A63DF951FCED8F600C35607 /* Utility */,
 				0A6D89C51FC5CC9000034A67 /* UI Components */,
@@ -421,6 +432,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 0A9194D01FBB3CFC00D72378;
 			productRefGroup = 0A9194DA1FBB3CFC00D72378 /* Products */;
@@ -439,6 +451,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AC6CC4C200685A600F2DAE0 /* InfoPlist.strings in Resources */,
 				0A756279200246090033269C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +461,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */,
+				0A7968D420067ED0008F97D9 /* InfoPlist.strings in Resources */,
+				0A7968CB20067ADF008F97D9 /* Localizable.strings in Resources */,
 				0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -603,12 +618,38 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0A7968CD20067ADF008F97D9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A7968CE20067B03008F97D9 /* Base */,
+				0A7968D020067B35008F97D9 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		0A7968D620067ED0008F97D9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A7968D520067ED0008F97D9 /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		0A9194E21FBB3CFD00D72378 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0A9194E31FBB3CFD00D72378 /* Base */,
+				0A7968CF20067B34008F97D9 /* ru */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0AC6CC4E200685A600F2DAE0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0AC6CC4D200685A600F2DAE0 /* ru */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -652,6 +693,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -709,6 +751,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

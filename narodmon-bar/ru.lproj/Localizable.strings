@@ -1,0 +1,36 @@
+/* No comment provided by engineer. */
+"API key blocked" = "Заблокирован ключ API";
+
+/* No comment provided by engineer. */
+"Access denied" = "Доступ запрещен";
+
+/* Add device */
+"Add device" = "Добавление устройства";
+
+/* Add device */
+"Device already added" = "Устройство уже добавлено";
+
+/* No comment provided by engineer. */
+"Network unreachable" = "Сеть не доступна";
+
+/* No comment provided by engineer. */
+"Object disconnected" = "Объект отключён";
+
+/* No comment provided by engineer. */
+"Request syntax error" = "Ошибочный формат запроса";
+
+/* No comment provided by engineer. */
+"Resource not found" = "Ресурс не найден";
+
+/* No comment provided by engineer. */
+"Responce syntax error" = "Ошибочный формат ответа";
+
+/* No comment provided by engineer. */
+"Server error" = "Ошибка сервера";
+
+/* No comment provided by engineer. */
+"Too frequent requests" = "Слишком частые запросы";
+
+/* No comment provided by engineer. */
+"Unsucessful authorisation" = "Авторизация не удалась";
+
