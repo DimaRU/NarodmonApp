@@ -218,7 +218,7 @@
         <!--Tab View Controller-->
         <scene sceneID="lAD-kE-HWV">
             <objects>
-                <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" id="nTa-00-8bE" sceneMemberID="viewController">
+                <tabViewController showSeguePresentationStyle="single" selectedTabViewItemIndex="0" tabStyle="toolbar" id="nTa-00-8bE" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem image="NSPreferencesGeneral" id="3dh-Lr-3Pe"/>
                         <tabViewItem image="NSAdvanced" id="Mdi-CH-PrB"/>
