@@ -45,7 +45,6 @@ class SensorsViewController: NSViewController {
     }
     
     public func windowDidDetach() {
-        print("Detach...")
         print("On detach:", self.view.frame.size.height)
     }
 

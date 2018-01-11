@@ -35,7 +35,6 @@ struct InitService {
         return NarProvider.shared.request(.userLogon(login: login, password: password))
             .then { (logonData: UserLogon) -> Void in
                 app.dataStore.logonData = logonData
-                print("Logged in \(logonData.login)")
         }
     }
 
@@ -46,20 +45,16 @@ struct InitService {
 
         return NarProvider.shared.request(.userLogout)
             .then { (logoutData: UserLogout) -> Promise<UserLogon> in
-                print("Logged out \(logoutData.login)")
                 return NarProvider.shared.request(.userLogon(login: login, password: password))
             }
             .then { (logonData: UserLogon) -> Promise<SensorsNearby> in
                 app.dataStore.logonData = logonData
-                print("Logged in \(logonData.login)")
                 return NarProvider.shared.request(.sensorsNearby(my: true))
             }
             .then { (near: SensorsNearby) -> Void in
-                print("Devices:", app.dataStore.selectedDevices)
                 for i in near.devices.indices {
                     let device = near.devices[i]
                     if !app.dataStore.selectedDevices.contains(device.id) {
-                        print("Add device id:", device.id)
                         app.dataStore.devices.insert(device, at: i)
                         app.dataStore.selectedDevices.insert(device.id, at: i)
                         let sensorsId = device.sensors.map { $0.id }

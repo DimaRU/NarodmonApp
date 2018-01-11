@@ -92,7 +92,6 @@ extension AppDelegate: NSPopoverDelegate {
     // Note: Invoked only if AppKit provides the window for this popover.
     // -------------------------------------------------------------------------------
     func popoverDidDetach(_ popover: NSPopover) {
-        print("popoverDidDetach")
         self.sensorsViewController.windowDidDetach()
     }
     
