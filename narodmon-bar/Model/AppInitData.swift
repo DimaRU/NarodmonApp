@@ -7,7 +7,7 @@ import Foundation
 struct AppInitData: Codable {
     let login: String
     let vip: Int
-    let uid: String
+    let uid: Int
     let lat: Double
     let lng: Double
     let addr: String
