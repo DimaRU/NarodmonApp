@@ -215,10 +215,10 @@
             </objects>
             <point key="canvasLocation" x="-32" y="289.5"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Settings Tab View Controller-->
         <scene sceneID="lAD-kE-HWV">
             <objects>
-                <tabViewController showSeguePresentationStyle="single" selectedTabViewItemIndex="0" tabStyle="toolbar" id="nTa-00-8bE" sceneMemberID="viewController">
+                <tabViewController showSeguePresentationStyle="single" selectedTabViewItemIndex="0" tabStyle="toolbar" id="nTa-00-8bE" customClass="SettingsTabViewController" customModule="narodmon_bar" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem image="NSPreferencesGeneral" id="3dh-Lr-3Pe"/>
                         <tabViewItem image="NSAdvanced" id="Mdi-CH-PrB"/>
