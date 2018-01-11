@@ -10,8 +10,8 @@ import Cocoa
 
 class SensorsViewController: NSViewController {
     
-    var devicesSensorsList: [Any] = []
-    lazy var dataStore = (NSApp.delegate as! AppDelegate).dataStore
+    private var devicesSensorsList: [Any] = []
+    var dataStore: AppDataStore!
 
     @IBOutlet weak var toolbar: NSBox!
     @IBOutlet var settingsMenu: NSMenu!
@@ -29,6 +29,13 @@ class SensorsViewController: NSViewController {
         reloadData()
         setViewSizeOnContent()
         addObservers()
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if let tabViewController = segue.destinationController as? SettingsTabViewController {
+            tabViewController.dataStore = dataStore
+        }
+        super.prepare(for: segue, sender: sender)
     }
     
     private func addObservers() {

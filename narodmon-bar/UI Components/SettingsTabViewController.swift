@@ -10,11 +10,20 @@ import Cocoa
 
 class SettingsTabViewController: NSTabViewController {
 
+    var dataStore: AppDataStore!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear() {
         view.window?.styleMask = [.titled, .closable]
+    }
+    
+    override func tabView(_ tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?) {
+        if let viewController = tabViewItem?.viewController as? SensorSettingsViewController {
+            viewController.dataStore = dataStore
+        }
+        super.tabView(tabView, willSelect: tabViewItem)
+
     }
 }

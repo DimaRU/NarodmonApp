@@ -15,7 +15,7 @@ protocol DeviceIdDelegate {
 
 class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
 
-    lazy var dataStore = (NSApp.delegate as! AppDelegate).dataStore
+    var dataStore: AppDataStore!
     
     private var devicesSensorsList: [Any] = []
 

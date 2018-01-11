@@ -9,7 +9,7 @@ extension AppDelegate: NSPopoverDelegate {
     
     public func initPopover() {
         sensorsViewController = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SensorsViewController")) as! SensorsViewController
-        
+        sensorsViewController.dataStore = self.dataStore
     }
     
     public func showPopover() {
