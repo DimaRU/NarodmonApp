@@ -90,7 +90,7 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="7WP-Uq-7Po">
-                                                                    <rect key="frame" x="0.0" y="2" width="188" height="15"/>
+                                                                    <rect key="frame" x="2" y="2" width="186" height="15"/>
                                                                     <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="left" title="Location" id="ld1-qb-FBH">
                                                                         <font key="font" size="12" name="Helvetica"/>
                                                                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
@@ -108,7 +108,7 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="bfu-vl-SUw" secondAttribute="trailing" constant="2" id="8dX-pm-ztR"/>
-                                                                <constraint firstItem="7WP-Uq-7Po" firstAttribute="leading" secondItem="bw7-fg-tDf" secondAttribute="leading" constant="2" id="D1V-r3-rLh"/>
+                                                                <constraint firstItem="7WP-Uq-7Po" firstAttribute="leading" secondItem="bw7-fg-tDf" secondAttribute="leading" constant="4" id="D1V-r3-rLh"/>
                                                                 <constraint firstItem="7WP-Uq-7Po" firstAttribute="top" secondItem="bw7-fg-tDf" secondAttribute="top" constant="2" id="KDD-hk-lfd"/>
                                                                 <constraint firstItem="bfu-vl-SUw" firstAttribute="centerY" secondItem="bw7-fg-tDf" secondAttribute="centerY" id="oNZ-be-PZz"/>
                                                                 <constraint firstItem="bfu-vl-SUw" firstAttribute="leading" secondItem="7WP-Uq-7Po" secondAttribute="trailing" constant="8" id="qab-bE-hqy"/>
@@ -124,7 +124,7 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="kbv-mD-KnV">
-                                                                    <rect key="frame" x="0.0" y="2" width="177" height="15"/>
+                                                                    <rect key="frame" x="6" y="2" width="171" height="15"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Name" id="bNO-EL-I2C">
                                                                         <font key="font" size="12" name="Helvetica"/>
                                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -145,7 +145,7 @@
                                                                 <constraint firstAttribute="bottom" secondItem="kbv-mD-KnV" secondAttribute="bottom" constant="2" id="3AE-kR-c1L"/>
                                                                 <constraint firstItem="kbv-mD-KnV" firstAttribute="top" secondItem="cQF-Gl-hUe" secondAttribute="top" constant="2" id="6ei-os-QUh"/>
                                                                 <constraint firstAttribute="trailing" secondItem="6bf-8T-I5B" secondAttribute="trailing" constant="2" id="UgE-BL-ZJ7"/>
-                                                                <constraint firstItem="kbv-mD-KnV" firstAttribute="leading" secondItem="cQF-Gl-hUe" secondAttribute="leading" constant="2" id="WHs-Si-6Ud"/>
+                                                                <constraint firstItem="kbv-mD-KnV" firstAttribute="leading" secondItem="cQF-Gl-hUe" secondAttribute="leading" constant="8" id="WHs-Si-6Ud"/>
                                                                 <constraint firstItem="6bf-8T-I5B" firstAttribute="leading" secondItem="kbv-mD-KnV" secondAttribute="trailing" constant="8" symbolic="YES" id="tsr-q0-u1g"/>
                                                             </constraints>
                                                             <connections>
