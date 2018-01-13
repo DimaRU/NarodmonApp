@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "glyphicons_52.pdf",
+      "filename" : "04-eye-white.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "04-eye-white@2x.png",
       "scale" : "2x"
     },
     {
