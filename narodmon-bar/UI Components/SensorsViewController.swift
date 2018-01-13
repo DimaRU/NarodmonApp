@@ -25,9 +25,7 @@ class SensorsViewController: NSViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        reloadData()
-        setViewSizeOnContent()
+        devicesSensorsList = dataStore.windowSelectionsList()
         addObservers()
     }
     
@@ -42,23 +40,30 @@ class SensorsViewController: NSViewController {
         let center = NotificationCenter.default
         center.addObserver(forName: .dataChangedNotification, object: nil, queue: nil) { _ in
             self.sensorsTableView.reloadData()
+            
         }
         center.addObserver(forName: .deviceListChangedNotification, object: nil, queue: nil) { _ in
             self.reloadData()
+            self.setViewSizeOnContent()
         }
         center.addObserver(forName: .popupSensorsChangedNotification, object: nil, queue: nil) { _ in
             self.reloadData()
+            self.setViewSizeOnContent()
         }
     }
     
-    public func windowDidDetach() {
-        print("On detach:", self.view.frame.size.height)
-    }
+    func setViewSizeOnContent() {
+        let dHeight = sensorsTableView.frame.size.height + toolbar.frame.size.height + 2 - view.frame.size.height
 
-    private func setViewSizeOnContent() {
+        guard dHeight != 0 else { return }
         var size = view.frame.size
-        size.height = sensorsScrollView.documentView!.frame.size.height + toolbar.frame.size.height + 2
+        size.height +=  dHeight
         view.setFrameSize(size)
+        
+        guard var windowFrame = view.window?.frame else { return }
+        windowFrame.size.height += dHeight
+        windowFrame.origin.y -= dHeight
+        view.window!.setFrame(windowFrame, display: false, animate: false)
     }
 
     private func reloadData() {
@@ -99,4 +104,7 @@ extension SensorsViewController: NSTableViewDataSource {
 
 extension SensorsViewController: NSTableViewDelegate {
     
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        return false
+    }
 }

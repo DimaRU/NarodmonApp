@@ -11,11 +11,11 @@
             <objects>
                 <viewController storyboardIdentifier="SensorsViewController" id="XfG-lQ-9wD" customClass="SensorsViewController" customModule="narodmon_bar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="222" height="190"/>
+                        <rect key="frame" x="0.0" y="0.0" width="222" height="88"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box boxType="custom" borderType="none" borderWidth="0.0" title="Narodmon" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="bXf-qs-qIa">
-                                <rect key="frame" x="0.0" y="165" width="222" height="25"/>
+                                <rect key="frame" x="0.0" y="63" width="222" height="25"/>
                                 <view key="contentView" id="44m-yj-Su6">
                                     <rect key="frame" x="0.0" y="0.0" width="222" height="25"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,17 +58,18 @@
                                 </constraints>
                                 <color key="fillColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                             </box>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="32" horizontalPageScroll="10" verticalLineScroll="32" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKn-RN-wXh">
-                                <rect key="frame" x="0.0" y="0.0" width="222" height="165"/>
-                                <clipView key="contentView" drawsBackground="NO" id="BtB-hD-3WG">
-                                    <rect key="frame" x="1" y="1" width="220" height="163"/>
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="21" horizontalPageScroll="10" verticalLineScroll="21" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKn-RN-wXh">
+                                <rect key="frame" x="0.0" y="0.0" width="222" height="63"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <clipView key="contentView" ambiguous="YES" drawsBackground="NO" id="BtB-hD-3WG">
+                                    <rect key="frame" x="1" y="1" width="220" height="61"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="30" usesAutomaticRowHeights="YES" viewBased="YES" id="gqo-vb-nZh">
-                                            <rect key="frame" x="0.0" y="0.0" width="220" height="163"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="19" usesAutomaticRowHeights="YES" viewBased="YES" floatsGroupRows="NO" id="gqo-vb-nZh">
+                                            <rect key="frame" x="0.0" y="0.0" width="220" height="61"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
-                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                                            <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
                                                 <tableColumn identifier="" width="217" minWidth="40" maxWidth="1000" id="l0U-7X-tZ7">
@@ -164,7 +165,7 @@
                                     <nil key="backgroundColor"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="d6P-RB-AKK">
-                                    <rect key="frame" x="1" y="335" width="220" height="16"/>
+                                    <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="ayu-kw-Sil">
@@ -174,13 +175,9 @@
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="hKn-RN-wXh" secondAttribute="bottom" id="PeM-ad-QxZ"/>
-                            <constraint firstAttribute="trailing" secondItem="hKn-RN-wXh" secondAttribute="trailing" id="Uh3-Bk-6HT"/>
                             <constraint firstItem="bXf-qs-qIa" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="axh-Mx-8rv"/>
-                            <constraint firstItem="hKn-RN-wXh" firstAttribute="top" secondItem="bXf-qs-qIa" secondAttribute="bottom" id="dkA-J4-eFa"/>
                             <constraint firstItem="bXf-qs-qIa" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="iAV-c6-QTj"/>
                             <constraint firstAttribute="trailing" secondItem="bXf-qs-qIa" secondAttribute="trailing" id="wmU-sk-Asy"/>
-                            <constraint firstItem="hKn-RN-wXh" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="xfJ-mh-QAR"/>
                         </constraints>
                     </view>
                     <connections>
@@ -213,7 +210,7 @@
                     </items>
                 </menu>
             </objects>
-            <point key="canvasLocation" x="-32" y="289.5"/>
+            <point key="canvasLocation" x="-32" y="238"/>
         </scene>
         <!--Settings Tab View Controller-->
         <scene sceneID="lAD-kE-HWV">

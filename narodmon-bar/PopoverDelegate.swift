@@ -45,6 +45,7 @@ extension AppDelegate: NSPopoverDelegate {
     func popoverWillShow(_ notification: Notification) {
         if notification.object != nil {
             setPopoverState(showed: true)
+            self.sensorsViewController.setViewSizeOnContent()
         }
     }
     
@@ -92,7 +93,6 @@ extension AppDelegate: NSPopoverDelegate {
     // Note: Invoked only if AppKit provides the window for this popover.
     // -------------------------------------------------------------------------------
     func popoverDidDetach(_ popover: NSPopover) {
-        self.sensorsViewController.windowDidDetach()
     }
     
     
