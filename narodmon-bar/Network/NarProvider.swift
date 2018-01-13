@@ -25,7 +25,7 @@ class NarProvider {
     }
     
     fileprivate static let instance = MoyaProvider<NarodAPI>(endpointClosure: NarProvider.endpointClosure
-                                                                   ,plugins: [NetworkLoggerPlugin(verbose: true)]
+//                                                                   ,plugins: [NetworkLoggerPlugin(verbose: true)]
                                                                   )
 
     // MARK: - Public
