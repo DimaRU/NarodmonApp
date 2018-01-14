@@ -263,7 +263,7 @@
 			children = (
 				0A7968D620067ED0008F97D9 /* InfoPlist.strings */,
 				0A7968CD20067ADF008F97D9 /* Localizable.strings */,
-				0A3F22511FD2FC2C00D06A20 /* narodmon-bar.entitlements */,
+				0A9907B3200BF4A5007EDA6D /* Support */,
 				0A63DF951FCED8F600C35607 /* Utility */,
 				0A6D89C51FC5CC9000034A67 /* UI Components */,
 				0A37C0E31FC04890006605DC /* Extension */,
@@ -277,7 +277,6 @@
 				0A9194E01FBB3CFC00D72378 /* Assets.xcassets */,
 				0A9194E21FBB3CFD00D72378 /* Main.storyboard */,
 				0A6A54742005129100F26B6E /* main.swift */,
-				0A9194E51FBB3CFD00D72378 /* Info.plist */,
 				0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */,
 			);
 			path = "narodmon-bar";
@@ -320,6 +319,15 @@
 				0A63DF981FCEDAED00C35607 /* InitService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		0A9907B3200BF4A5007EDA6D /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				0A3F22511FD2FC2C00D06A20 /* narodmon-bar.entitlements */,
+				0A9194E51FBB3CFD00D72378 /* Info.plist */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		7FBB0C97F9628129CD0A26F5 /* Pods */ = {
@@ -367,6 +375,7 @@
 				0A9194D51FBB3CFC00D72378 /* Sources */,
 				0A9194D61FBB3CFC00D72378 /* Frameworks */,
 				0A9194D71FBB3CFC00D72378 /* Resources */,
+				0A9907B2200BF2B8007EDA6D /* Set version information */,
 				7472942CDF5703339BA8CC30 /* [CP] Embed Pods Frameworks */,
 				DBE5748875D0608ECCBFB0FC /* [CP] Copy Pods Resources */,
 				0A7562822002476F0033269C /* CopyFiles */,
@@ -480,6 +489,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0A9907B2200BF2B8007EDA6D /* Set version information */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Set version information";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "git=$(sh /etc/profile; which git)\nnumber_of_commits=$(\"$git\" rev-list HEAD | wc -l | tr -d ' ')\n\nsource_plist=\"`pwd`/Support/Info.plist\"\ntarget_plist=\"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\ndsym_plist=\"$DWARF_DSYM_FOLDER_PATH/$DWARF_DSYM_FILE_NAME/Contents/Info.plist\"\n\nif [[ \"$CONFIGURATION\" == \"Release\" ]]; then\nsources=(\"$source_plist\" \"$target_plist\" \"$dsym_plist\")\nelse\nsources=(\"$target_plist\" \"$dsym_plist\")\nfi\n\nfor plist in ${sources[@]}; do\nif [ -f \"$plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $number_of_commits\" \"$plist\"\nfi\ndone";
+		};
 		5B17A6AAD56005F6F2365ABD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -806,12 +829,12 @@
 			baseConfigurationReference = 41ADBBDF1FF1AEBF42D54F9F /* Pods-narodmon-bar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "narodmon-bar/narodmon-bar.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "narodmon-bar/Support/narodmon-bar.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9BEQ8V4XH9;
-				INFOPLIST_FILE = "narodmon-bar/Info.plist";
+				INFOPLIST_FILE = "narodmon-bar/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.borovikov.narodmonbar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -825,12 +848,12 @@
 			baseConfigurationReference = 9658BA933280F1A52AD1BB56 /* Pods-narodmon-bar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "narodmon-bar/narodmon-bar.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "narodmon-bar/Support/narodmon-bar.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9BEQ8V4XH9;
-				INFOPLIST_FILE = "narodmon-bar/Info.plist";
+				INFOPLIST_FILE = "narodmon-bar/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.borovikov.narodmonbar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
