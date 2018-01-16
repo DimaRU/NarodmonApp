@@ -8,7 +8,10 @@ import PromiseKit
 struct InitService {
 
     static func appInit() -> Promise<AppInitData> {
-        let version = Bundle.main.bundleIdentifier!
+        let dictionary = Bundle.main.infoDictionary!
+        let bundleVersion = dictionary["CFBundleShortVersionString"] as! String
+        let bundleBuild = dictionary["CFBundleVersion"] as! String
+        let version = "Version \(bundleVersion) build \(bundleBuild)"
         let platform = ProcessInfo.processInfo.operatingSystemVersionString
         let model = Sysctl.model
         let utc = TimeZone.current.secondsFromGMT() / 3600
