@@ -14,7 +14,6 @@
 		0A63DF991FCEDAED00C35607 /* InitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF981FCEDAED00C35607 /* InitService.swift */; };
 		0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */; };
 		0A68C0BB1FDAA1FB00E7ACD4 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */; };
-		0A6A54752005129100F26B6E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6A54742005129100F26B6E /* main.swift */; };
 		0A6D89C41FC5C37100034A67 /* md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C31FC5C37100034A67 /* md5.swift */; };
 		0A756277200246090033269C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A756276200246090033269C /* AppDelegate.swift */; };
 		0A756279200246090033269C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A756278200246090033269C /* Assets.xcassets */; };
@@ -93,7 +92,6 @@
 		0A63DF981FCEDAED00C35607 /* InitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitService.swift; sourceTree = "<group>"; };
 		0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorType.swift; sourceTree = "<group>"; };
 		0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
-		0A6A54742005129100F26B6E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0A6D89C31FC5C37100034A67 /* md5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = md5.swift; sourceTree = "<group>"; };
 		0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemView.swift; sourceTree = "<group>"; };
 		0A756274200246090033269C /* NarodBarLauncherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NarodBarLauncherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,7 +274,6 @@
 				0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */,
 				0A9194E01FBB3CFC00D72378 /* Assets.xcassets */,
 				0A9194E21FBB3CFD00D72378 /* Main.storyboard */,
-				0A6A54742005129100F26B6E /* main.swift */,
 				0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */,
 			);
 			path = "narodmon-bar";
@@ -609,7 +606,6 @@
 				0A9195041FBB416000D72378 /* SensorsHistory.swift in Sources */,
 				0AA40A3F1FE295780089585B /* PreferencesViewController.swift in Sources */,
 				0ABEA4CD1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift in Sources */,
-				0A6A54752005129100F26B6E /* main.swift in Sources */,
 				0A9AF9FB1FD000C200F5B5BB /* AppDataStore.swift in Sources */,
 				0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */,
 				0A9195251FBB463F00D72378 /* APIKeys.swift in Sources */,
