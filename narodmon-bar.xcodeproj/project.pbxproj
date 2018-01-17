@@ -688,7 +688,7 @@
 				DEVELOPMENT_TEAM = 9BEQ8V4XH9;
 				INFOPLIST_FILE = NarodBarLauncherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.borovikov.NarodBarLauncherApp;
+				PRODUCT_BUNDLE_IDENTIFIER = me.borovikov.narodmonbar.LauncherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -705,7 +705,7 @@
 				DEVELOPMENT_TEAM = 9BEQ8V4XH9;
 				INFOPLIST_FILE = NarodBarLauncherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.borovikov.NarodBarLauncherApp;
+				PRODUCT_BUNDLE_IDENTIFIER = me.borovikov.narodmonbar.LauncherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;

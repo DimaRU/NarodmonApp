@@ -19,13 +19,15 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>87</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.weather</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>LSUIElement</key>
 	<true/>
 	<key>LauncherAppID</key>
-	<string>me.borovikov.NarodBarLauncherApp</string>
+	<string>me.borovikov.narodmonbar.LauncherApp</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2017 Dmitriy Borovikov. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>
