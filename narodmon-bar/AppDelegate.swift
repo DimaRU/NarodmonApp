@@ -23,6 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         Defaults.appStart()
+        initPopover()
 
         let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusView = StatusItemView(statusItem: statusItem, dataStore: dataStore) {
@@ -31,8 +32,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusView.isTinyText = Defaults[.TinyFont]
         statusView.dataRefreshed()
       
-        initPopover()
-
         InitService.appInit()
             .then { (initData: AppInitData) -> Promise<Void> in
                 self.dataStore.initData = initData
@@ -64,6 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             InitService.loadDevicesDefinitions()
                         }
                         .then { () -> Void in
+                            NotificationCenter.default.post(name: .deviceListChangedNotification, object: nil)
                             InitService.refreshSensorsData()
                             InitService.startRefreshCycle()
                         }
@@ -75,6 +75,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     // All ok, start refresh cycle
                     InitService.loadDevicesDefinitions()
                         .then { () -> Void in
+                            NotificationCenter.default.post(name: .deviceListChangedNotification, object: nil)
                             InitService.refreshSensorsData()
                             InitService.startRefreshCycle()
                         }
