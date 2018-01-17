@@ -11,8 +11,10 @@ struct InitService {
         let dictionary = Bundle.main.infoDictionary!
         let bundleVersion = dictionary["CFBundleShortVersionString"] as! String
         let bundleBuild = dictionary["CFBundleVersion"] as! String
-        let version = "Version \(bundleVersion) build \(bundleBuild)"
-        let platform = ProcessInfo.processInfo.operatingSystemVersionString
+        let version = "\(bundleVersion).\(bundleBuild)"
+        
+        let system = ProcessInfo.processInfo.operatingSystemVersion
+        let platform = "\(system.majorVersion).\(system.minorVersion).\(system.patchVersion)"
         let model = Sysctl.model
         let utc = TimeZone.current.secondsFromGMT() / 3600
         
