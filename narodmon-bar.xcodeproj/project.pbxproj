@@ -259,8 +259,7 @@
 		0A9194DB1FBB3CFC00D72378 /* narodmon-bar */ = {
 			isa = PBXGroup;
 			children = (
-				0A7968D620067ED0008F97D9 /* InfoPlist.strings */,
-				0A7968CD20067ADF008F97D9 /* Localizable.strings */,
+				0AB22DAB201895C40000EC30 /* Resource */,
 				0A9907B3200BF4A5007EDA6D /* Support */,
 				0A63DF951FCED8F600C35607 /* Utility */,
 				0A6D89C51FC5CC9000034A67 /* UI Components */,
@@ -272,8 +271,6 @@
 				0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */,
 				0A4C61511FC83FAD009F7B51 /* Defaults.swift */,
 				0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */,
-				0A9194E01FBB3CFC00D72378 /* Assets.xcassets */,
-				0A9194E21FBB3CFD00D72378 /* Main.storyboard */,
 				0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */,
 			);
 			path = "narodmon-bar";
@@ -325,6 +322,17 @@
 				0A9194E51FBB3CFD00D72378 /* Info.plist */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		0AB22DAB201895C40000EC30 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				0A7968D620067ED0008F97D9 /* InfoPlist.strings */,
+				0A7968CD20067ADF008F97D9 /* Localizable.strings */,
+				0A9194E01FBB3CFC00D72378 /* Assets.xcassets */,
+				0A9194E21FBB3CFD00D72378 /* Main.storyboard */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		7FBB0C97F9628129CD0A26F5 /* Pods */ = {
