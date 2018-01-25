@@ -668,7 +668,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="222" height="25"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="jpc-aW-R7V">
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="jpc-aW-R7V" userLabel="Settings Button">
                                             <rect key="frame" x="202" y="5" width="15" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="WY9-0V-wrf"/>
@@ -693,12 +693,28 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <button hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N3S-hB-Yac" userLabel="Close Button">
+                                            <rect key="frame" x="5" y="5" width="15" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="15" id="E76-zB-AJD"/>
+                                                <constraint firstAttribute="height" constant="15" id="dQM-wP-Ish"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSListViewTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Ouj-wi-bCx">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="closeButtonPressed:" target="XfG-lQ-9wD" id="1iq-f9-CHa"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="jpc-aW-R7V" secondAttribute="trailing" constant="5" id="4LY-cB-AD3"/>
                                         <constraint firstItem="Os7-8Z-brQ" firstAttribute="centerY" secondItem="44m-yj-Su6" secondAttribute="centerY" id="E8k-aR-e5B"/>
+                                        <constraint firstItem="N3S-hB-Yac" firstAttribute="top" secondItem="44m-yj-Su6" secondAttribute="top" constant="5" id="FXl-jE-g8K"/>
                                         <constraint firstItem="Os7-8Z-brQ" firstAttribute="centerX" secondItem="44m-yj-Su6" secondAttribute="centerX" id="UJR-CQ-eip"/>
                                         <constraint firstItem="jpc-aW-R7V" firstAttribute="top" secondItem="44m-yj-Su6" secondAttribute="top" constant="5" id="fua-n8-zrd"/>
+                                        <constraint firstItem="N3S-hB-Yac" firstAttribute="leading" secondItem="44m-yj-Su6" secondAttribute="leading" constant="5" id="hoQ-ip-SIe"/>
                                     </constraints>
                                 </view>
                                 <constraints>
@@ -832,6 +848,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="N3S-hB-Yac" id="PSN-vT-tWZ"/>
                         <outlet property="sensorsScrollView" destination="hKn-RN-wXh" id="SGr-9r-ljx"/>
                         <outlet property="sensorsTableView" destination="gqo-vb-nZh" id="mVg-Pl-Uui"/>
                         <outlet property="settingsMenu" destination="R3s-R3-GGE" id="Kx9-e8-F21"/>
@@ -1366,6 +1383,7 @@ Gw
         <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSAdvanced" width="32" height="32"/>
+        <image name="NSListViewTemplate" width="14" height="10"/>
         <image name="NSPreferencesGeneral" width="32" height="32"/>
     </resources>
 </document>

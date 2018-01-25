@@ -15,6 +15,7 @@ class SensorsViewController: NSViewController {
 
     @IBOutlet weak var toolbar: NSBox!
     @IBOutlet var settingsMenu: NSMenu!
+    @IBOutlet weak var closeButton: NSButton!
     
     @IBOutlet weak var sensorsTableView: NSTableView!
     @IBOutlet weak var sensorsScrollView: NSScrollView!
@@ -24,11 +25,24 @@ class SensorsViewController: NSViewController {
         settingsMenu.popUp(positioning: nil, at: p, in: sender)
     }
     
+    @IBAction func closeButtonPressed(_ sender: NSButton) {
+        closeButton.isHidden = true
+        let app = (NSApp.delegate as! AppDelegate)
+        app.detachedWindow?.close()
+        app.detachedWindow?.contentViewController = nil
+    }
+    
     override func viewDidLoad() {
         devicesSensorsList = dataStore.windowSelectionsList()
         addObservers()
     }
-    
+
+    public func windowDidDetach() {
+        print("Detach...")
+        closeButton.isHidden = false
+        setViewSizeOnContent()
+    }
+
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if let tabViewController = segue.destinationController as? SettingsTabViewController {
             tabViewController.dataStore = dataStore

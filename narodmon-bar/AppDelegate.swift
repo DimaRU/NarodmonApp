@@ -16,6 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusView: StatusItemView!
     var myPopover: NSPopover?
     var sensorsViewController: SensorsViewController!
+    var detachedWindow: DetachedWindow?
     public var popoverShowed = false
     var sensorsRefreshTimer: Timer? = nil
 
@@ -24,6 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         Defaults.appStart()
         initPopover()
+        initDetachedWindow()
 
         let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusView = StatusItemView(statusItem: statusItem, dataStore: dataStore) {

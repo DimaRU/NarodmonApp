@@ -10,13 +10,28 @@ extension AppDelegate: NSPopoverDelegate {
     public func initPopover() {
         sensorsViewController = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SensorsViewController")) as! SensorsViewController
         sensorsViewController.dataStore = self.dataStore
+        
+        detachedWindow = DetachedWindow(frame: sensorsViewController.view.bounds)
+    }
+    
+    public func initDetachedWindow() {
+//        let sensorsViewController1 = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SensorsViewController")) as! SensorsViewController
+//        sensorsViewController1.dataStore = self.dataStore
+        
+
     }
     
     public func showPopover() {
+        if detachedWindow?.isVisible ?? false {
+            // popover is already detached to a separate window, so select its window instead
+            NSApp.activate(ignoringOtherApps: true)
+            detachedWindow?.makeKeyAndOrderFront(self)
+            return
+        }
+        
         createPopover()
         let targetButton = statusView.statusItem.button
         
-        // configure the preferred position of the popover
         myPopover?.show(relativeTo: targetButton?.bounds ?? NSRect(), of: statusView, preferredEdge: .minY)
     }
     
@@ -54,6 +69,7 @@ extension AppDelegate: NSPopoverDelegate {
     // This method will also be invoked on the popover.
     // -------------------------------------------------------------------------------
     func popoverDidShow(_ notification: Notification) {
+        print("Did show")
     }
     
     // -------------------------------------------------------------------------------
@@ -63,9 +79,13 @@ extension AppDelegate: NSPopoverDelegate {
     
     func popoverWillClose(_ notification: Notification) {
         guard let closeReason = notification.userInfo![NSPopover.closeReasonUserInfoKey] as? NSPopover.CloseReason else { return }
+        print("WillClose", closeReason)
             // closeReason can be:
             //      NSPopoverCloseReasonStandard
             //      NSPopoverCloseReasonDetachToWindow
+        if closeReason == NSPopover.CloseReason.detachToWindow {
+            detachedWindow?.contentViewController = sensorsViewController
+        }
         if closeReason == NSPopover.CloseReason.standard {
             setPopoverState(showed: false)
         }
@@ -76,8 +96,16 @@ extension AppDelegate: NSPopoverDelegate {
     // This method will also be invoked on the popover.
     // -------------------------------------------------------------------------------
     func popoverDidClose(_ notification: Notification) {
-        
+        guard let closeReason = notification.userInfo![NSPopover.closeReasonUserInfoKey] as? NSPopover.CloseReason else { return }
+        print("DidClose", closeReason)
+        // closeReason can be:
+        //      NSPopoverCloseReasonStandard
+        //      NSPopoverCloseReasonDetachToWindow
+        if closeReason == NSPopover.CloseReason.detachToWindow {
+            self.sensorsViewController.windowDidDetach()
+        }
         // release our popover since it closed
+        print("popoverDidClose")
         myPopover = nil
     }
     
@@ -85,6 +113,7 @@ extension AppDelegate: NSPopoverDelegate {
     // Invoked on the delegate to give permission to detach popover as a separate window.
     // -------------------------------------------------------------------------------
     func popoverShouldDetach(_ popover: NSPopover) -> Bool {
+        print("popoverShouldDetach")
         return true
     }
     
@@ -94,6 +123,14 @@ extension AppDelegate: NSPopoverDelegate {
     // -------------------------------------------------------------------------------
     func popoverDidDetach(_ popover: NSPopover) {
     }
-    
+
+    // -------------------------------------------------------------------------------
+    // Invoked on the delegate asked for the detachable window for the popover.
+    // -------------------------------------------------------------------------------
+    func detachableWindow(for popover: NSPopover) -> NSWindow? {
+        print("detachableWindow")
+        return detachedWindow
+    }
+
     
 }
