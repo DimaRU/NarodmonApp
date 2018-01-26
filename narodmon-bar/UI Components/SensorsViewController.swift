@@ -92,9 +92,9 @@ extension SensorsViewController: NSTableViewDataSource {
         return devicesSensorsList.count
     }
     
-    func tableView(_ tableView: NSTableView, isGroupRow row: Int) -> Bool {
-        return devicesSensorsList[row] is SensorsOnDevice
-    }
+//    func tableView(_ tableView: NSTableView, isGroupRow row: Int) -> Bool {
+//        return devicesSensorsList[row] is SensorsOnDevice
+//    }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         switch devicesSensorsList[row] {

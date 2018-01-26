@@ -669,12 +669,12 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="jpc-aW-R7V" userLabel="Settings Button">
-                                            <rect key="frame" x="202" y="5" width="15" height="15"/>
+                                            <rect key="frame" x="201" y="4" width="16" height="16"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="15" id="WY9-0V-wrf"/>
-                                                <constraint firstAttribute="width" constant="15" id="niE-Jd-6hN"/>
+                                                <constraint firstAttribute="height" constant="16" id="WY9-0V-wrf"/>
+                                                <constraint firstAttribute="width" constant="16" id="niE-Jd-6hN"/>
                                             </constraints>
-                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSActionTemplate" imagePosition="only" alignment="center" continuous="YES" imageScaling="proportionallyUpOrDown" inset="2" id="0qI-n8-tRy">
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="gear" imagePosition="only" alignment="center" alternateImage="gear" continuous="YES" imageScaling="proportionallyUpOrDown" inset="2" id="0qI-n8-tRy">
                                                 <behavior key="behavior" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                                 <string key="keyEquivalent">p</string>
@@ -687,10 +687,10 @@
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Os7-8Z-brQ">
                                             <rect key="frame" x="69" y="4" width="85" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="NarodmonBar" id="ALI-Le-Znm">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="NarodmonBar" drawsBackground="YES" id="ALI-Le-Znm">
                                                 <font key="font" size="13" name="Helvetica"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                             </textFieldCell>
                                         </textField>
                                         <button hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N3S-hB-Yac" userLabel="Close Button">
@@ -699,7 +699,7 @@
                                                 <constraint firstAttribute="width" constant="15" id="E76-zB-AJD"/>
                                                 <constraint firstAttribute="height" constant="15" id="dQM-wP-Ish"/>
                                             </constraints>
-                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSListViewTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Ouj-wi-bCx">
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="close-x" imagePosition="only" alignment="center" alternateImage="close-x" imageScaling="proportionallyUpOrDown" inset="2" id="Ouj-wi-bCx">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -754,19 +754,19 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="7WP-Uq-7Po">
-                                                                    <rect key="frame" x="2" y="2" width="186" height="15"/>
-                                                                    <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="left" title="Location" id="ld1-qb-FBH">
+                                                                    <rect key="frame" x="4" y="2" width="178" height="15"/>
+                                                                    <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="left" title="Location" drawsBackground="YES" id="ld1-qb-FBH">
                                                                         <font key="font" size="12" name="Helvetica"/>
                                                                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="755" translatesAutoresizingMaskIntoConstraints="NO" id="bfu-vl-SUw">
-                                                                    <rect key="frame" x="192" y="4" width="25" height="11"/>
+                                                                    <rect key="frame" x="190" y="4" width="25" height="11"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="40" id="Ux7-9O-7EI"/>
                                                                     </constraints>
-                                                                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="name" id="rLw-bv-mf7">
+                                                                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="name" drawsBackground="YES" id="rLw-bv-mf7">
                                                                         <font key="font" size="8" name="Helvetica"/>
                                                                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -1380,10 +1380,10 @@ Gw
     <resources>
         <image name="04-eye" width="20" height="13"/>
         <image name="04-eye-white" width="20" height="13"/>
-        <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSAdvanced" width="32" height="32"/>
-        <image name="NSListViewTemplate" width="14" height="10"/>
         <image name="NSPreferencesGeneral" width="32" height="32"/>
+        <image name="close-x" width="1000" height="1000"/>
+        <image name="gear" width="1000" height="1000"/>
     </resources>
 </document>

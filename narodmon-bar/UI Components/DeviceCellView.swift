@@ -10,6 +10,8 @@ import Cocoa
 
 class DeviceCellView: NSTableCellView {
 
+    let bgColor = NSColor(white: 1, alpha: 0.3)
+    
     @IBOutlet weak var deviceLocationLabel: NSTextField!
     @IBOutlet weak var deviceNameLabel: NSTextField!
     
@@ -17,4 +19,11 @@ class DeviceCellView: NSTableCellView {
         deviceLocationLabel.stringValue = device.location
         deviceNameLabel.stringValue = device.name
     }
+    
+    required init?(coder decoder: NSCoder) {
+        super.init(coder: decoder)
+        self.wantsLayer = true
+        self.layer?.backgroundColor = bgColor.cgColor
+    }
+    
 }

@@ -14,13 +14,6 @@ extension AppDelegate: NSPopoverDelegate {
         detachedWindow = DetachedWindow(frame: sensorsViewController.view.bounds)
     }
     
-    public func initDetachedWindow() {
-//        let sensorsViewController1 = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SensorsViewController")) as! SensorsViewController
-//        sensorsViewController1.dataStore = self.dataStore
-        
-
-    }
-    
     public func showPopover() {
         if detachedWindow?.isVisible ?? false {
             // popover is already detached to a separate window, so select its window instead
@@ -42,7 +35,7 @@ extension AppDelegate: NSPopoverDelegate {
         // the popover retains us and we retain the popover,
         // we drop the popover whenever it is closed to avoid a cycle
         myPopover?.contentViewController = sensorsViewController
-        myPopover?.appearance = NSAppearance(named: .aqua)
+        myPopover?.appearance = NSAppearance(named: .vibrantLight)
         
         myPopover?.animates = true
         // AppKit will close the popover when the user interacts with a user interface element outside the popover.
