@@ -67,7 +67,7 @@ class SensorsViewController: NSViewController {
     }
     
     func setViewSizeOnContent() {
-        let dHeight = sensorsTableView.frame.size.height + toolbar.frame.size.height + 2 - view.frame.size.height
+        let dHeight = sensorsTableView.frame.size.height + toolbar.frame.size.height - view.frame.size.height
 
         guard dHeight != 0 else { return }
         var size = view.frame.size
