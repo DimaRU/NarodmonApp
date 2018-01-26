@@ -19,6 +19,7 @@ class SensorsViewController: NSViewController {
     
     @IBOutlet weak var sensorsTableView: NSTableView!
     @IBOutlet weak var sensorsScrollView: NSScrollView!
+    @IBOutlet weak var visualEffectView: NSVisualEffectView!
     
     @IBAction func settingsButtonPressed(_ sender: NSButton) {
         let p = NSPoint(x: 0, y: sender.frame.height)
@@ -29,7 +30,9 @@ class SensorsViewController: NSViewController {
         closeButton.isHidden = true
         let app = (NSApp.delegate as! AppDelegate)
         app.detachedWindow?.close()
+        visualEffectView.isHidden = true
         app.detachedWindow?.contentViewController = nil
+        
     }
     
     override func viewDidLoad() {
@@ -40,6 +43,10 @@ class SensorsViewController: NSViewController {
     public func windowDidDetach() {
         print("Detach...")
         closeButton.isHidden = false
+        visualEffectView.frame = view.frame
+        visualEffectView.isHidden = false
+        visualEffectView.layer?.cornerRadius = 5
+        visualEffectView.layer?.masksToBounds = true
         setViewSizeOnContent()
     }
 

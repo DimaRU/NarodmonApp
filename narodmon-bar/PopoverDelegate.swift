@@ -77,7 +77,6 @@ extension AppDelegate: NSPopoverDelegate {
             //      NSPopoverCloseReasonStandard
             //      NSPopoverCloseReasonDetachToWindow
         if closeReason == NSPopover.CloseReason.detachToWindow {
-            detachedWindow?.contentViewController = sensorsViewController
         }
         if closeReason == NSPopover.CloseReason.standard {
             setPopoverState(showed: false)
@@ -95,6 +94,7 @@ extension AppDelegate: NSPopoverDelegate {
         //      NSPopoverCloseReasonStandard
         //      NSPopoverCloseReasonDetachToWindow
         if closeReason == NSPopover.CloseReason.detachToWindow {
+            detachedWindow?.contentViewController = sensorsViewController
             self.sensorsViewController.windowDidDetach()
         }
         // release our popover since it closed
