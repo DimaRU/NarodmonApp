@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -662,70 +661,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="222" height="88"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView hidden="YES" appearanceType="vibrantLight" fixedFrame="YES" blendingMode="behindWindow" material="appearanceBased" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="3AV-tb-455">
+                            <visualEffectView hidden="YES" appearanceType="vibrantLight" fixedFrame="YES" blendingMode="behindWindow" material="light" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="3AV-tb-455">
                                 <rect key="frame" x="0.0" y="0.0" width="222" height="88"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </visualEffectView>
-                            <box boxType="custom" borderType="none" borderWidth="0.0" title="Narodmon" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="bXf-qs-qIa">
+                            <view translatesAutoresizingMaskIntoConstraints="NO" id="PMc-DI-Hgb" userLabel="ToolbarView">
                                 <rect key="frame" x="0.0" y="63" width="222" height="25"/>
-                                <view key="contentView" id="44m-yj-Su6">
-                                    <rect key="frame" x="0.0" y="0.0" width="222" height="25"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="jpc-aW-R7V" userLabel="Settings Button">
-                                            <rect key="frame" x="201" y="4" width="16" height="16"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="16" id="WY9-0V-wrf"/>
-                                                <constraint firstAttribute="width" constant="16" id="niE-Jd-6hN"/>
-                                            </constraints>
-                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="gear" imagePosition="only" alignment="center" alternateImage="gear" continuous="YES" imageScaling="proportionallyUpOrDown" inset="2" id="0qI-n8-tRy">
-                                                <behavior key="behavior" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                                <string key="keyEquivalent">p</string>
-                                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="settingsButtonPressed:" target="XfG-lQ-9wD" id="z0k-Zg-nHW"/>
-                                                <outlet property="menu" destination="R3s-R3-GGE" id="cBk-XQ-76A"/>
-                                            </connections>
-                                        </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Os7-8Z-brQ">
-                                            <rect key="frame" x="69" y="4" width="85" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="NarodmonBar" drawsBackground="YES" id="ALI-Le-Znm">
-                                                <font key="font" size="13" name="Helvetica"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <button hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N3S-hB-Yac" userLabel="Close Button">
-                                            <rect key="frame" x="5" y="5" width="15" height="15"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="15" id="E76-zB-AJD"/>
-                                                <constraint firstAttribute="height" constant="15" id="dQM-wP-Ish"/>
-                                            </constraints>
-                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="close-x" imagePosition="only" alignment="center" alternateImage="close-x" imageScaling="proportionallyUpOrDown" inset="2" id="Ouj-wi-bCx">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="closeButtonPressed:" target="XfG-lQ-9wD" id="1iq-f9-CHa"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="jpc-aW-R7V" secondAttribute="trailing" constant="5" id="4LY-cB-AD3"/>
-                                        <constraint firstItem="Os7-8Z-brQ" firstAttribute="centerY" secondItem="44m-yj-Su6" secondAttribute="centerY" id="E8k-aR-e5B"/>
-                                        <constraint firstItem="N3S-hB-Yac" firstAttribute="top" secondItem="44m-yj-Su6" secondAttribute="top" constant="5" id="FXl-jE-g8K"/>
-                                        <constraint firstItem="Os7-8Z-brQ" firstAttribute="centerX" secondItem="44m-yj-Su6" secondAttribute="centerX" id="UJR-CQ-eip"/>
-                                        <constraint firstItem="jpc-aW-R7V" firstAttribute="top" secondItem="44m-yj-Su6" secondAttribute="top" constant="5" id="fua-n8-zrd"/>
-                                        <constraint firstItem="N3S-hB-Yac" firstAttribute="leading" secondItem="44m-yj-Su6" secondAttribute="leading" constant="5" id="hoQ-ip-SIe"/>
-                                    </constraints>
-                                </view>
+                                <subviews>
+                                    <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="9Ad-eJ-VoE" userLabel="Settings Button">
+                                        <rect key="frame" x="201" y="4" width="16" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="NlB-e4-ZlI"/>
+                                            <constraint firstAttribute="height" constant="16" id="nxA-dm-5Om"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="gear" imagePosition="only" alignment="center" alternateImage="gear" continuous="YES" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="jkZ-ku-ta3">
+                                            <behavior key="behavior" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent">p</string>
+                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="settingsButtonPressed:" target="XfG-lQ-9wD" id="set-8k-rpE"/>
+                                            <outlet property="menu" destination="R3s-R3-GGE" id="FjC-63-5qt"/>
+                                        </connections>
+                                    </button>
+                                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZAN-Yb-h32">
+                                        <rect key="frame" x="69" y="4" width="85" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" focusRingType="none" title="NarodmonBar" id="vkA-ay-i1Q">
+                                            <font key="font" size="13" name="Helvetica"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button hidden="YES" focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="hJ3-h8-YWz" userLabel="Close Button">
+                                        <rect key="frame" x="5" y="5" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="CIm-hK-zKo"/>
+                                            <constraint firstAttribute="height" constant="15" id="Jia-Rb-Fud"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="close-x" imagePosition="only" alignment="center" alternateImage="close-x" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="3KE-gb-hs9">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="closeButtonPressed:" target="XfG-lQ-9wD" id="uNt-Z3-PZR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="IfQ-8t-oAF"/>
+                                    <constraint firstItem="ZAN-Yb-h32" firstAttribute="centerX" secondItem="PMc-DI-Hgb" secondAttribute="centerX" id="44E-yw-wvE"/>
+                                    <constraint firstItem="ZAN-Yb-h32" firstAttribute="centerY" secondItem="PMc-DI-Hgb" secondAttribute="centerY" id="9bd-LS-Puy"/>
+                                    <constraint firstItem="hJ3-h8-YWz" firstAttribute="top" secondItem="PMc-DI-Hgb" secondAttribute="top" constant="5" id="Kur-uI-aRq"/>
+                                    <constraint firstItem="9Ad-eJ-VoE" firstAttribute="top" secondItem="PMc-DI-Hgb" secondAttribute="top" constant="5" id="Tuu-d3-MzP"/>
+                                    <constraint firstItem="hJ3-h8-YWz" firstAttribute="leading" secondItem="PMc-DI-Hgb" secondAttribute="leading" constant="5" id="ZlA-9a-mG9"/>
+                                    <constraint firstAttribute="height" constant="25" id="cmx-o2-Szf"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Ad-eJ-VoE" secondAttribute="trailing" constant="5" id="eUh-96-eS2"/>
                                 </constraints>
-                                <color key="fillColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
-                            </box>
+                            </view>
                             <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="21" horizontalPageScroll="10" verticalLineScroll="21" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKn-RN-wXh">
                                 <rect key="frame" x="0.0" y="0.0" width="222" height="63"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -846,17 +838,17 @@
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="bXf-qs-qIa" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="axh-Mx-8rv"/>
-                            <constraint firstItem="bXf-qs-qIa" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="iAV-c6-QTj"/>
-                            <constraint firstAttribute="trailing" secondItem="bXf-qs-qIa" secondAttribute="trailing" id="wmU-sk-Asy"/>
+                            <constraint firstItem="PMc-DI-Hgb" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="5bs-LQ-zmT"/>
+                            <constraint firstAttribute="trailing" secondItem="PMc-DI-Hgb" secondAttribute="trailing" id="QZg-io-6a7"/>
+                            <constraint firstItem="PMc-DI-Hgb" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="udc-xV-Ynl"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="closeButton" destination="N3S-hB-Yac" id="PSN-vT-tWZ"/>
+                        <outlet property="closeButton" destination="hJ3-h8-YWz" id="3KX-0U-OLt"/>
                         <outlet property="sensorsScrollView" destination="hKn-RN-wXh" id="SGr-9r-ljx"/>
                         <outlet property="sensorsTableView" destination="gqo-vb-nZh" id="mVg-Pl-Uui"/>
                         <outlet property="settingsMenu" destination="R3s-R3-GGE" id="Kx9-e8-F21"/>
-                        <outlet property="toolbar" destination="bXf-qs-qIa" id="nbN-pg-rkR"/>
+                        <outlet property="toolbar" destination="PMc-DI-Hgb" id="NYs-Jl-irK"/>
                         <outlet property="visualEffectView" destination="3AV-tb-455" id="LGN-KJ-GR6"/>
                     </connections>
                 </viewController>

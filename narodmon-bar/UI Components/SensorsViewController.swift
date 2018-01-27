@@ -13,7 +13,7 @@ class SensorsViewController: NSViewController {
     private var devicesSensorsList: [Any] = []
     var dataStore: AppDataStore!
 
-    @IBOutlet weak var toolbar: NSBox!
+    @IBOutlet weak var toolbar: NSView!
     @IBOutlet var settingsMenu: NSMenu!
     @IBOutlet weak var closeButton: NSButton!
     
@@ -37,18 +37,16 @@ class SensorsViewController: NSViewController {
     
     override func viewDidLoad() {
         devicesSensorsList = dataStore.windowSelectionsList()
+        visualEffectView.wantsLayer = true
+        visualEffectView.layer?.cornerRadius = 5
+        visualEffectView.layer?.masksToBounds = true
         addObservers()
     }
 
     public func windowDidDetach() {
-        print("Detach...")
         closeButton.isHidden = false
-        view.layer?.cornerRadius = 5
-        view.layer?.masksToBounds = true
         visualEffectView.frame = view.frame
         visualEffectView.isHidden = false
-        visualEffectView.layer?.cornerRadius = 5
-        visualEffectView.layer?.masksToBounds = true
         setViewSizeOnContent()
     }
 
@@ -100,10 +98,6 @@ extension SensorsViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return devicesSensorsList.count
     }
-    
-//    func tableView(_ tableView: NSTableView, isGroupRow row: Int) -> Bool {
-//        return devicesSensorsList[row] is SensorsOnDevice
-//    }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         switch devicesSensorsList[row] {
