@@ -43,6 +43,8 @@ class SensorsViewController: NSViewController {
     public func windowDidDetach() {
         print("Detach...")
         closeButton.isHidden = false
+        view.layer?.cornerRadius = 5
+        view.layer?.masksToBounds = true
         visualEffectView.frame = view.frame
         visualEffectView.isHidden = false
         visualEffectView.layer?.cornerRadius = 5

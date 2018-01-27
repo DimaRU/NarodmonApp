@@ -662,7 +662,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="222" height="88"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView hidden="YES" appearanceType="vibrantLight" fixedFrame="YES" blendingMode="behindWindow" material="light" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="3AV-tb-455">
+                            <visualEffectView hidden="YES" appearanceType="vibrantLight" fixedFrame="YES" blendingMode="behindWindow" material="appearanceBased" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="3AV-tb-455">
                                 <rect key="frame" x="0.0" y="0.0" width="222" height="88"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </visualEffectView>

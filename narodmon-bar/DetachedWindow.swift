@@ -22,6 +22,7 @@ class DetachedWindow: NSWindow {
         self.isMovableByWindowBackground = true
         self.isOpaque = false
         self.backgroundColor = .clear
+        self.hasShadow = true
     }
 
 }
