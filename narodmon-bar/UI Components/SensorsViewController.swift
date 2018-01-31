@@ -13,22 +13,42 @@ class SensorsViewController: NSViewController {
     private var devicesSensorsList: [Any] = []
     var dataStore: AppDataStore!
 
-    @IBOutlet weak var toolbar: NSBox!
+    @IBOutlet weak var toolbar: NSView!
     @IBOutlet var settingsMenu: NSMenu!
+    @IBOutlet weak var closeButton: NSButton!
     
     @IBOutlet weak var sensorsTableView: NSTableView!
     @IBOutlet weak var sensorsScrollView: NSScrollView!
+    @IBOutlet weak var visualEffectView: NSVisualEffectView!
     
     @IBAction func settingsButtonPressed(_ sender: NSButton) {
         let p = NSPoint(x: 0, y: sender.frame.height)
         settingsMenu.popUp(positioning: nil, at: p, in: sender)
     }
     
-    override func viewDidLoad() {
-        devicesSensorsList = dataStore.windowSelectionsList()
-        addObservers()
+    @IBAction func closeButtonPressed(_ sender: NSButton) {
+        closeButton.isHidden = true
+        let app = (NSApp.delegate as! AppDelegate)
+        app.detachedWindow?.close()
+        visualEffectView.isHidden = true
+        app.detachedWindow = nil
     }
     
+    override func viewDidLoad() {
+        devicesSensorsList = dataStore.windowSelectionsList()
+        visualEffectView.wantsLayer = true
+        visualEffectView.layer?.cornerRadius = 5
+        visualEffectView.layer?.masksToBounds = true
+        addObservers()
+    }
+
+    public func windowDidDetach() {
+        closeButton.isHidden = false
+        visualEffectView.frame = view.frame
+        visualEffectView.isHidden = false
+        setViewSizeOnContent()
+    }
+
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if let tabViewController = segue.destinationController as? SettingsTabViewController {
             tabViewController.dataStore = dataStore
@@ -53,7 +73,7 @@ class SensorsViewController: NSViewController {
     }
     
     func setViewSizeOnContent() {
-        let dHeight = sensorsTableView.frame.size.height + toolbar.frame.size.height + 2 - view.frame.size.height
+        let dHeight = sensorsTableView.frame.size.height + toolbar.frame.size.height - view.frame.size.height
 
         guard dHeight != 0 else { return }
         var size = view.frame.size
@@ -76,10 +96,6 @@ class SensorsViewController: NSViewController {
 extension SensorsViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return devicesSensorsList.count
-    }
-    
-    func tableView(_ tableView: NSTableView, isGroupRow row: Int) -> Bool {
-        return devicesSensorsList[row] is SensorsOnDevice
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {

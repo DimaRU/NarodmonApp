@@ -16,6 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusView: StatusItemView!
     var myPopover: NSPopover?
     var sensorsViewController: SensorsViewController!
+    var detachedWindow: DetachedWindow?
     public var popoverShowed = false
     var sensorsRefreshTimer: Timer? = nil
 
@@ -45,14 +46,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             }
             .catch { (error) in
-                switch(error) {
-                case NarodNetworkError.authorizationNeed(let message):
-                    let alert = NSAlert()
-                    alert.messageText = error.localizedDescription
-                    alert.informativeText = message
-                    alert.runModal()
-                default:
-                    fatalError()
+                if let e = error as? NarodNetworkError {
+                    e.displayAlert()
+                    switch e {
+                    case .authorizationNeed:
+                        break
+                    default:
+                        e.sendFatalReport()
+                    }
+                } else {
+                    error.sendFatalReport()
                 }
             }
             .always {
@@ -68,8 +71,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             InitService.startRefreshCycle()
                         }
                         .catch { (error) in
-                            print(error)
-                            fatalError()
+                            if let e = error as? NarodNetworkError {
+                                e.displayAlert()
+                                switch e {
+                                case .authorizationNeed:
+                                    break
+                                default:
+                                    e.sendFatalReport()
+                                }
+                            } else {
+                                error.sendFatalReport()
+                            }
                     }
                 } else {
                     // All ok, start refresh cycle
@@ -80,8 +92,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             InitService.startRefreshCycle()
                         }
                         .catch { (error) in
-                            print(error)
-                            fatalError()
+                            if let e = error as? NarodNetworkError {
+                                e.displayAlert()
+                                switch e {
+                                case .authorizationNeed:
+                                    break
+                                default:
+                                    e.sendFatalReport()
+                                }
+                            } else {
+                                error.sendFatalReport()
+                            }
                     }
                 }
         }

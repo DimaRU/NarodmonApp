@@ -34,12 +34,8 @@ class GeneralSettingsViewController: NSViewController {
                 NotificationCenter.default.post(name: .deviceListChangedNotification, object: nil)
             }
             .catch { (error) in
-                print(error)
-                guard let error = error as? NarodNetworkError else { fatalError() }
-                let alert = NSAlert()
-                alert.messageText = error.localizedDescription
-                alert.informativeText = error.message()
-                alert.runModal()
+                guard let e = error as? NarodNetworkError else { error.sendFatalReport() }
+                e.displayAlert()
         }
     }
     

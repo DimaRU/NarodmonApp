@@ -31,6 +31,7 @@ public enum NarodAPI: TargetType {
     case sensorsValues(sensorIds: [Int])
     case sensorsHistory(id: Int, period: HistoryPeriod, offset: Int)
     case sensorsNearby(my: Bool)
+    case sendReport(message: String, logs: String)
     
     var mappingType: Decodable.Type {
         switch self {
@@ -50,6 +51,8 @@ public enum NarodAPI: TargetType {
             return SensorsHistory.self
         case .sensorsNearby:
             return SensorsNearby.self
+        case .sendReport:
+            return RequestResult.self
         }
     }
 }
@@ -129,6 +132,13 @@ extension NarodAPI {
             parameters = [
                 "cmd" : "sensorsNearby",
                 "my" : my
+            ]
+        case .sendReport(let message, let logs):
+            parameters = [
+                "cmd" : "sendReport",
+                "time" : Date().timeIntervalSince1970,
+                "mess" : message,
+                "logs" : logs
             ]
         }
         parameters["api_key"] = APIKeys.shared.apiKey
