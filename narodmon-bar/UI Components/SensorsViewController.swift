@@ -31,8 +31,7 @@ class SensorsViewController: NSViewController {
         let app = (NSApp.delegate as! AppDelegate)
         app.detachedWindow?.close()
         visualEffectView.isHidden = true
-        app.detachedWindow?.contentViewController = nil
-        
+        app.detachedWindow = nil
     }
     
     override func viewDidLoad() {

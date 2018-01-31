@@ -10,8 +10,7 @@ extension AppDelegate: NSPopoverDelegate {
     public func initPopover() {
         sensorsViewController = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SensorsViewController")) as! SensorsViewController
         sensorsViewController.dataStore = self.dataStore
-        
-        detachedWindow = DetachedWindow(frame: sensorsViewController.view.bounds)
+        _ = sensorsViewController.view.bounds       // Early get bounds. !!! hack for proper size on first popup view
     }
     
     public func showPopover() {
@@ -23,9 +22,7 @@ extension AppDelegate: NSPopoverDelegate {
         }
         
         createPopover()
-        let targetButton = statusView.statusItem.button
-        
-        myPopover?.show(relativeTo: targetButton?.bounds ?? NSRect(), of: statusView, preferredEdge: .minY)
+        myPopover?.show(relativeTo: statusView.bounds, of: statusView, preferredEdge: .minY)
     }
     
     func createPopover() {
@@ -40,6 +37,9 @@ extension AppDelegate: NSPopoverDelegate {
         myPopover?.animates = true
         myPopover?.behavior = .transient
         myPopover?.delegate = self
+        if detachedWindow == nil {
+            detachedWindow = DetachedWindow(frame: sensorsViewController.view.bounds)
+        }
     }
 
     // MARK: - NSPopoverDelegate
