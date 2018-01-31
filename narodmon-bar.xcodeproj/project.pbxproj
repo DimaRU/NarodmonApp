@@ -10,6 +10,8 @@
 		0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E11FC03230006605DC /* CwlSysctl.swift */; };
 		0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E41FC048BC006605DC /* String+MD5.swift */; };
 		0A4C61521FC83FAD009F7B51 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C61511FC83FAD009F7B51 /* Defaults.swift */; };
+		0A5F1DC1201F5B8B00B00A54 /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F1DC0201F5B8B00B00A54 /* RequestResult.swift */; };
+		0A5F1DC3201F69C600B00A54 /* ErrorReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F1DC2201F69C600B00A54 /* ErrorReport.swift */; };
 		0A63DF971FCED92800C35607 /* HwUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF961FCED92800C35607 /* HwUUID.swift */; };
 		0A63DF991FCEDAED00C35607 /* InitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF981FCEDAED00C35607 /* InitService.swift */; };
 		0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */; };
@@ -89,6 +91,8 @@
 		0A37C0E41FC048BC006605DC /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		0A3F22511FD2FC2C00D06A20 /* narodmon-bar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "narodmon-bar.entitlements"; sourceTree = "<group>"; };
 		0A4C61511FC83FAD009F7B51 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		0A5F1DC0201F5B8B00B00A54 /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
+		0A5F1DC2201F69C600B00A54 /* ErrorReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorReport.swift; sourceTree = "<group>"; };
 		0A63DF961FCED92800C35607 /* HwUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HwUUID.swift; sourceTree = "<group>"; };
 		0A63DF981FCEDAED00C35607 /* InitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitService.swift; sourceTree = "<group>"; };
 		0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorType.swift; sourceTree = "<group>"; };
@@ -302,6 +306,8 @@
 				0A9195011FBB416000D72378 /* UserLogout.swift */,
 				0A91950B1FBB41AE00D72378 /* Sensor.swift */,
 				0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */,
+				0A5F1DC0201F5B8B00B00A54 /* RequestResult.swift */,
+				0A5F1DC2201F69C600B00A54 /* ErrorReport.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 				0A756287200261490033269C /* LaunchOnLogin.swift in Sources */,
 				0AC4EAEE1FCE0526001573C8 /* SensorsViewController.swift in Sources */,
 				0A9195091FBB416000D72378 /* UserLogout.swift in Sources */,
+				0A5F1DC1201F5B8B00B00A54 /* RequestResult.swift in Sources */,
 				0AA40A401FE295780089585B /* GeneralSettingsViewController.swift in Sources */,
 				0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */,
 				0A9195081FBB416000D72378 /* UserFavorites.swift in Sources */,
@@ -616,6 +623,7 @@
 				0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */,
 				0A9195041FBB416000D72378 /* SensorsHistory.swift in Sources */,
 				0AA40A3F1FE295780089585B /* PreferencesViewController.swift in Sources */,
+				0A5F1DC3201F69C600B00A54 /* ErrorReport.swift in Sources */,
 				0ABEA4CD1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift in Sources */,
 				0A9AF9FB1FD000C200F5B5BB /* AppDataStore.swift in Sources */,
 				0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */,

@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import Cocoa
 
 /*
 - 400 - ошибка синтаксиса в запросе к API;
@@ -70,4 +71,14 @@ extension NarodNetworkError: LocalizedError {
         }
     }
 
+}
+
+extension NarodNetworkError {
+
+    func displayAlert() {
+        let alert = NSAlert()
+        alert.messageText = self.localizedDescription
+        alert.informativeText = self.message()
+        alert.runModal()
+    }
 }
