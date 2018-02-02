@@ -14,5 +14,5 @@ struct SensorValue: Codable {
     var value: Double
     var time: Date
     var changed: Date
-    var trend: Int
+    var trend: Double
 }
