@@ -41,15 +41,39 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
                 let logonData = UserLogon(vip: initData.vip, login: initData.login, uid: initData.uid)
                 self.dataStore.logonData = logonData
-                return Promise<Void> { fulfill, reject in
-                    fulfill(())
+                return Promise.resolved()
+            }
+            .recover { (error) -> Void in
+                if case NarodNetworkError.authorizationNeed = error {
+                    let e = error as! NarodNetworkError
+                    e.displayAlert()
+                    return
                 }
+                throw error
+            }
+            .then {
+                if self.dataStore.devices.count == 0 || self.dataStore.selectedBarSensors.count == 0 {
+                    // No devices for display, discovery it
+                    return InitService.loadDefaultDevices()
+                } else {
+                    return Promise.resolved()
+                }
+            }
+            .then {
+                InitService.loadDevicesDefinitions()
+            }
+            .then { () -> Void in
+                // todo: check consistency
+                NotificationCenter.default.post(name: .deviceListChangedNotification, object: nil)
+                InitService.refreshSensorsData()
+                InitService.startRefreshCycle()
             }
             .catch { (error) in
                 if let e = error as? NarodNetworkError {
                     e.displayAlert()
                     switch e {
-                    case .authorizationNeed:
+                    case .authorizationNeed,
+                         .accessDenied:
                         break
                     default:
                         e.sendFatalReport()
@@ -57,55 +81,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 } else {
                     error.sendFatalReport()
                 }
-            }
-            .always {
-                if self.dataStore.devices.count == 0 && self.dataStore.selectedBarSensors.count == 0 {
-                    // No defaults for display, add it
-                    InitService.loadDefaultDevices()
-                        .then {
-                            InitService.loadDevicesDefinitions()
-                        }
-                        .then { () -> Void in
-                            NotificationCenter.default.post(name: .deviceListChangedNotification, object: nil)
-                            InitService.refreshSensorsData()
-                            InitService.startRefreshCycle()
-                        }
-                        .catch { (error) in
-                            if let e = error as? NarodNetworkError {
-                                e.displayAlert()
-                                switch e {
-                                case .authorizationNeed:
-                                    break
-                                default:
-                                    e.sendFatalReport()
-                                }
-                            } else {
-                                error.sendFatalReport()
-                            }
-                    }
-                } else {
-                    // All ok, start refresh cycle
-                    InitService.loadDevicesDefinitions()
-                        .then { () -> Void in
-                            NotificationCenter.default.post(name: .deviceListChangedNotification, object: nil)
-                            InitService.refreshSensorsData()
-                            InitService.startRefreshCycle()
-                        }
-                        .catch { (error) in
-                            if let e = error as? NarodNetworkError {
-                                e.displayAlert()
-                                switch e {
-                                case .authorizationNeed:
-                                    break
-                                default:
-                                    e.sendFatalReport()
-                                }
-                            } else {
-                                error.sendFatalReport()
-                            }
-                    }
-                }
         }
+        
         
     }
 

@@ -23,9 +23,7 @@ struct InitService {
     
     static func appLogin() -> Promise<Void> {
         guard let login = KeychainService.shared[.login], let password = KeychainService.shared[.password] else {
-            return Promise<Void> { fulfill, reject in
-                fulfill(())
-            }
+            return Promise.resolved()
         }
         let app = (NSApp.delegate as! AppDelegate)
         let initData = app.dataStore.initData!
@@ -33,9 +31,7 @@ struct InitService {
             let logonData = UserLogon(vip: initData.vip, login: initData.login, uid: initData.uid)
             app.dataStore.logonData = logonData
             // Already logged in, skip login
-            return Promise<Void> { fulfill, reject in
-                fulfill(())
-            }
+            return Promise.resolved()
         }
         return NarProvider.shared.request(.userLogon(login: login, password: password))
             .then { (logonData: UserLogon) -> Void in
@@ -93,7 +89,7 @@ struct InitService {
             return NarProvider.shared.request(.sensorsNearby(my: false))
                 // get near
                 .then { (near: SensorsNearby) -> Void in
-                    guard !near.devices.isEmpty else { throw NarodNetworkError.responceSyntaxError(message: "SensorsNearby is empty")}
+                    guard !near.devices.isEmpty else { return }
                     let devices = near.devices.prefix(2)
                     var sensorsIds: [Int] = []
                     for device in devices {

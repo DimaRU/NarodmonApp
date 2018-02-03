@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A2BD37A20264E840058AAEC /* Promise+resolved.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2BD37920264E840058AAEC /* Promise+resolved.swift */; };
 		0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E11FC03230006605DC /* CwlSysctl.swift */; };
 		0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E41FC048BC006605DC /* String+MD5.swift */; };
 		0A4C61521FC83FAD009F7B51 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C61511FC83FAD009F7B51 /* Defaults.swift */; };
@@ -88,6 +89,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A2BD37920264E840058AAEC /* Promise+resolved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+resolved.swift"; sourceTree = "<group>"; };
 		0A37C0E11FC03230006605DC /* CwlSysctl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CwlSysctl.swift; sourceTree = "<group>"; };
 		0A37C0E41FC048BC006605DC /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		0A3F22511FD2FC2C00D06A20 /* narodmon-bar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "narodmon-bar.entitlements"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				0AE1E6FF2003F47400029333 /* Notifications.swift */,
 				0A37C0E41FC048BC006605DC /* String+MD5.swift */,
 				0ABEA4CC1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift */,
+				0A2BD37920264E840058AAEC /* Promise+resolved.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */,
 				0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */,
 				0AA22B84201A176C0081D5FE /* DetachedWindow.swift */,
+				0A5F1DC2201F69C600B00A54 /* ErrorReport.swift */,
 				0A4C61511FC83FAD009F7B51 /* Defaults.swift */,
 				0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */,
 				0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */,
@@ -310,7 +314,6 @@
 				0A91950B1FBB41AE00D72378 /* Sensor.swift */,
 				0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */,
 				0A5F1DC0201F5B8B00B00A54 /* RequestResult.swift */,
-				0A5F1DC2201F69C600B00A54 /* ErrorReport.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				0AC4EAEE1FCE0526001573C8 /* SensorsViewController.swift in Sources */,
 				0A9195091FBB416000D72378 /* UserLogout.swift in Sources */,
 				0A5F1DC1201F5B8B00B00A54 /* RequestResult.swift in Sources */,
+				0A2BD37A20264E840058AAEC /* Promise+resolved.swift in Sources */,
 				0AA40A401FE295780089585B /* GeneralSettingsViewController.swift in Sources */,
 				0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */,
 				0A9195081FBB416000D72378 /* UserFavorites.swift in Sources */,
