@@ -13,6 +13,12 @@
 /* Status bar message */
 "Loading..." = "Загрузка...";
 
+/* Empty status bar message part1 */
+"No" = "Нет";
+
+/* Empty status bar message part2 */
+"sensors" = "сенсоров";
+
 /* No comment provided by engineer. */
 "Network unreachable" = "Сеть не доступна";
 

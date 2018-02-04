@@ -816,6 +816,30 @@
                                                                 <outlet property="sensorValueLabel" destination="6bf-8T-I5B" id="qRT-nr-jyx"/>
                                                             </connections>
                                                         </tableCellView>
+                                                        <tableCellView identifier="MessageCell" id="j6x-pI-eGp" userLabel="Message Cell View">
+                                                            <rect key="frame" x="1" y="43" width="219" height="19"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="zN4-xJ-8Jk">
+                                                                    <rect key="frame" x="6" y="2" width="207" height="15"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="No sensors defined" id="hAx-IK-3LD">
+                                                                        <font key="font" size="12" name="Helvetica"/>
+                                                                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" red="0.23137254900000001" green="0.59999999999999998" blue="0.98823529409999999" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="zN4-xJ-8Jk" firstAttribute="leading" secondItem="j6x-pI-eGp" secondAttribute="leading" constant="8" id="4Gb-5b-Og2"/>
+                                                                <constraint firstAttribute="bottom" secondItem="zN4-xJ-8Jk" secondAttribute="bottom" constant="2" id="COQ-bf-leb"/>
+                                                                <constraint firstAttribute="trailing" secondItem="zN4-xJ-8Jk" secondAttribute="trailing" constant="8" id="DlP-BB-CX2"/>
+                                                                <constraint firstItem="zN4-xJ-8Jk" firstAttribute="top" secondItem="j6x-pI-eGp" secondAttribute="top" constant="2" id="IpK-fd-vd9"/>
+                                                                <constraint firstItem="zN4-xJ-8Jk" firstAttribute="centerY" secondItem="j6x-pI-eGp" secondAttribute="centerY" id="SAz-81-5ZB"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="textField" destination="zN4-xJ-8Jk" id="rYq-yz-fLa"/>
+                                                            </connections>
+                                                        </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>

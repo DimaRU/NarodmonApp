@@ -82,7 +82,7 @@ final class StatusItemView: NSView {
             labels.append(label)
         }
         return labels.isEmpty ? [
-            NSLocalizedString("Add", comment: "Empty status bar message part1"),
+            NSLocalizedString("No", comment: "Empty status bar message part1"),
             NSLocalizedString("sensors", comment: "Empty status bar message part2")
             ] : labels
     }

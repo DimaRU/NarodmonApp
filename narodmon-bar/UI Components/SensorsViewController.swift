@@ -95,10 +95,13 @@ class SensorsViewController: NSViewController {
 
 extension SensorsViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return devicesSensorsList.count
+        return devicesSensorsList.isEmpty ? 1 : devicesSensorsList.count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        guard !devicesSensorsList.isEmpty else {
+            return tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MessageCell"), owner: self)
+        }
         switch devicesSensorsList[row] {
         case let device as SensorsOnDevice:
             guard let deviceCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DeviceCell"), owner: self) as? DeviceCellView

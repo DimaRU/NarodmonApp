@@ -16,9 +16,6 @@
 /* Class = "NSTextFieldCell"; title = "Value"; ObjectID = "ACH-pe-0Ki"; */
 "ACH-pe-0Ki.title" = "Value";
 
-/* Class = "NSTextFieldCell"; title = "NarodmonBar"; ObjectID = "ALI-Le-Znm"; */
-"ALI-Le-Znm.title" = "NarodmonBar";
-
 /* Class = "NSTextFieldCell"; title = "Password:"; ObjectID = "Ayp-ob-PDT"; */
 "Ayp-ob-PDT.title" = "Пароль:";
 
@@ -43,14 +40,11 @@
 /* Class = "NSTextFieldCell"; title = "Value"; ObjectID = "aRA-Jg-PJw"; */
 "aRA-Jg-PJw.title" = "Value";
 
-/* Class = "NSTextFieldCell"; title = "name"; ObjectID = "bL6-KL-N3b"; */
+/* Class = "NSTextFieldCell"; title = "id"; ObjectID = "bL6-KL-N3b"; */
 "bL6-KL-N3b.title" = "name";
 
 /* Class = "NSTextFieldCell"; title = "Name"; ObjectID = "bNO-EL-I2C"; */
 "bNO-EL-I2C.title" = "Name";
-
-/* Class = "NSBox"; title = "Narodmon"; ObjectID = "bXf-qs-qIa"; */
-"bXf-qs-qIa.title" = "Narodmon";
 
 /* Class = "NSViewController"; title = "Sensors"; ObjectID = "dl9-43-ndJ"; */
 "dl9-43-ndJ.title" = "Сенсоры меню";
@@ -60,6 +54,9 @@
 
 /* Class = "NSTextFieldCell"; title = "Menu bar sensors"; ObjectID = "emB-DY-BPc"; */
 "emB-DY-BPc.title" = "Сенсоры в строке меню";
+
+/* Class = "NSTextFieldCell"; title = "No sensors defined"; ObjectID = "hAx-IK-3LD"; */
+"hAx-IK-3LD.title" = "Сенсоры не определены";
 
 /* Class = "NSMenuItem"; title = "About NarodmonBar"; ObjectID = "hRf-YU-pNR"; */
 "hRf-YU-pNR.title" = "О программе NarodmonBar";
