@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.showPopover()
             }
         statusView.isTinyText = Defaults[.TinyFont]
-        statusView.dataRefreshed()
+        statusView.sizeToFit()
       
         InitService.appInit()
             .then { (initData: AppInitData) -> Promise<Void> in

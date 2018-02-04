@@ -61,6 +61,8 @@ final class StatusItemView: NSView {
         center.addObserver(forName: .barSensorsChangedNotification, object: nil, queue: nil) { _ in
             self.dataRefreshed()
         }
+        
+        sensorLabels = [NSLocalizedString("Loading...", comment: "Status bar message")]
 	}
 
 	required init?(coder: NSCoder) {
@@ -79,7 +81,10 @@ final class StatusItemView: NSView {
             let label = String.init(format: "%.0f", value) + unit
             labels.append(label)
         }
-        return labels.isEmpty ? [NSLocalizedString("Loading...", comment: "Status bar message")] : labels
+        return labels.isEmpty ? [
+            NSLocalizedString("Add", comment: "Empty status bar message part1"),
+            NSLocalizedString("sensors", comment: "Empty status bar message part2")
+            ] : labels
     }
     
     func dataRefreshed() {
@@ -92,7 +97,7 @@ final class StatusItemView: NSView {
     }
     
     /// Calc and set status bar item frame size
-	private func sizeToFit() {
+	public func sizeToFit() {
         let textAttributes = isTinyText ? StatusItemView.tinyText : StatusItemView.normalText
 
         var offset: CGFloat = 0
