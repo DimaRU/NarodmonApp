@@ -77,13 +77,13 @@ extension NarProvider {
             switch statusCode {
             case 200:
                 if let APIError = checkResponce(data: data) {
-                    failure(APIError)
+                    checkFatal(error: APIError, failure: failure)
                 } else {
                     success(data)
                 }
             default:
                 let APIError = NarodNetworkError.serverError(message: "Responce status code: \(statusCode)")
-                failure(APIError)
+                checkFatal(error: APIError, failure: failure)
             }
             
         case let .failure(error):
@@ -102,6 +102,7 @@ extension NarProvider {
              .notFound,
              .apiKeyBlocked,
              .responceSyntaxError:
+            error.displayAlert()
             error.sendFatalReport()
         default:
             failure(error)

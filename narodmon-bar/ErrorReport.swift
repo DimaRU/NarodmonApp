@@ -18,6 +18,13 @@ extension Error {
         
         if case let e as NarodNetworkError = self {
             errorDetail = e.message()
+            switch e {
+            case .serverError,
+                 .apiKeyBlocked:
+                NSApp.terminate(nil)    // Just terminate
+            default:
+                break
+            }
         } else {
             errorDetail = ""
         }

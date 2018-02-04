@@ -74,8 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 if let e = error as? NarodNetworkError {
                     e.displayAlert()
                     switch e {
-                    case .authorizationNeed,
-                         .accessDenied:
+                    case .authorizationNeed:
                         break
                     default:
                         e.sendFatalReport()
