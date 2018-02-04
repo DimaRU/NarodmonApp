@@ -237,7 +237,7 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
                 NotificationCenter.default.post(name: .barSensorsChangedNotification, object: nil)
                 favoriteTableView.reloadData()
             case sensorsTableView:
-                let device = devicesSensorsList[fromRow] as! SensorsOnDevice
+                guard let device = devicesSensorsList[fromRow] as? SensorsOnDevice else { break }
                 remove(device: device)
                 NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
             default: fatalError()

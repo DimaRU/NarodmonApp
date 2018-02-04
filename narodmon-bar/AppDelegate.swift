@@ -52,7 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 throw error
             }
             .then {
-                if self.dataStore.devices.count == 0 || self.dataStore.selectedBarSensors.count == 0 {
+                if self.dataStore.selectedDevices.count == 0 {
                     // No devices for display, discovery it
                     return InitService.loadDefaultDevices()
                 } else {
@@ -63,7 +63,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 InitService.loadDevicesDefinitions()
             }
             .then { () -> Void in
-                // todo: check consistency
+                self.dataStore.checkConsistency()
+                self.dataStore.saveDefaults()
+                
                 NotificationCenter.default.post(name: .deviceListChangedNotification, object: nil)
                 InitService.refreshSensorsData()
                 InitService.startRefreshCycle()

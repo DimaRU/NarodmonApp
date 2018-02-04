@@ -105,14 +105,30 @@ struct InitService {
     /// Load device and sensors definitions (location, name, etc)
     ///
     /// - Returns: void Promise
-    static func loadDevicesDefinitions() -> Promise<Void>{
+    static func loadDevicesDefinitions() -> Promise<Void> {
         let app = (NSApp.delegate as! AppDelegate)
-        let promises = app.dataStore.selectedDevices.map { deviceId -> Promise<SensorsOnDevice> in
-            NarProvider.shared.request(.sensorsOnDevice(id: deviceId)) }
-        return when(fulfilled: promises)
-            .then { devices in
-                app.dataStore.devices = devices
+        let selectedDevices = app.dataStore.selectedDevices
+        var promises: [Promise<Void>] = []
+        
+        for deviceId in selectedDevices {
+            promises.append(
+                NarProvider.shared.request(.sensorsOnDevice(id: deviceId))
+                    .then { (device: SensorsOnDevice) -> Promise<Void> in
+                        app.dataStore.devices.append(device)
+                        print("Add device:", device.id)
+                        return Promise.resolved()
+                    }
+                    .recover { (error) -> Promise<Void> in
+                        if case NarodNetworkError.accessDenied = error {
+                            let e = error as! NarodNetworkError
+                            e.displayAlert()
+                            return Promise.resolved()
+                        }
+                        throw error
+                }
+            )
         }
+        return when(fulfilled: promises)
     }
     
     /// Load device data and start refreh

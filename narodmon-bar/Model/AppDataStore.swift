@@ -70,5 +70,18 @@ final class AppDataStore {
         }
         return list
     }
+    
+    func checkConsistency() {
+        var discoveredDevices: Set<Int> = []
+        var discoveredSensors: Set<Int> = []
+        
+        for device in devices {
+            discoveredDevices.insert(device.id)
+            device.sensors.forEach { discoveredSensors.insert($0.id) }
+        }
+        selectedDevices = selectedDevices.filter { discoveredDevices.contains($0) }
+        selectedWindowSensors = selectedWindowSensors.filter { discoveredSensors.contains($0) }
+        selectedBarSensors = selectedBarSensors.filter { discoveredSensors.contains($0) }
+    }
 
 }
