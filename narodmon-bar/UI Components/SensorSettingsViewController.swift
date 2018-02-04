@@ -90,7 +90,6 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
     }
     
     func add(device id: Int) {
-        print("Add device:", id)
         guard !dataStore.selectedDevices.contains(id) else {
             let alert = NSAlert()
             alert.messageText = NSLocalizedString("Add device", comment: "Add device")

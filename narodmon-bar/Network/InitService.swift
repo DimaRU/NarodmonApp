@@ -115,7 +115,6 @@ struct InitService {
                 NarProvider.shared.request(.sensorsOnDevice(id: deviceId))
                     .then { (device: SensorsOnDevice) -> Promise<Void> in
                         app.dataStore.devices.append(device)
-                        print("Add device:", device.id)
                         return Promise.resolved()
                     }
                     .recover { (error) -> Promise<Void> in
