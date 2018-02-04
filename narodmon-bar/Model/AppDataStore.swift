@@ -12,7 +12,7 @@ final class AppDataStore {
     var selectedBarSensors: [Int] = []          // Selected bar sensors
     
     var devices: [SensorsOnDevice] = []         // Discovered devices
-    var sensorValue: [SensorValue] = []         // Current sensors value
+    var sensorValues: [SensorValue] = []         // Current sensors value
     
     var initData: AppInitData? = nil
     var logonData: UserLogon? = nil
@@ -34,16 +34,13 @@ final class AppDataStore {
     }
     
     func sensorData(for id: Int) -> (value: Double, unit: String)? {
-        if let sensor = (sensorValue.first { $0.id == id }) {
-            let type = initData!.types.first { $0.type == sensor.type}!
-            return (sensor.value, type.unit)
-        }
-        else {
-            for device in devices {
-                if let sensor = device.sensors.first(where: { $0.id == id }) {
-                    let type = initData!.types.first { $0.type == sensor.type}!
-                    return (sensor.value, type.unit)
+        for device in devices {
+            if let sensor = device.sensors.first(where: { $0.id == id }) {
+                let unit = sensor.unit
+                if let sensorValue = (sensorValues.first { $0.id == id }) {
+                    return (sensorValue.value, unit)
                 }
+                return (sensor.value, unit)
             }
         }
         return nil
