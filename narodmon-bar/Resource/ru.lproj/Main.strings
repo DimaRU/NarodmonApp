@@ -26,7 +26,7 @@
 "LC6-3P-QLC.title" = "Отменить";
 
 /* Class = "NSButtonCell"; title = "Launch on startup"; ObjectID = "M2h-dB-msm"; */
-"M2h-dB-msm.title" = "Запускать NarodmonBar при старте системы";
+"M2h-dB-msm.title" = "Запускать Народный мониторинг при старте системы";
 
 /* Class = "NSTextFieldCell"; title = "Value"; ObjectID = "MwQ-Zu-NJM"; */
 "MwQ-Zu-NJM.title" = "Value";
@@ -50,7 +50,7 @@
 "dl9-43-ndJ.title" = "Сенсоры меню";
 
 /* Class = "NSMenuItem"; title = "Quit NarodmonBar"; ObjectID = "eYi-Ed-a5W"; */
-"eYi-Ed-a5W.title" = "Закрыть NarodmonBar";
+"eYi-Ed-a5W.title" = "Закрыть Народный мониторинг";
 
 /* Class = "NSTextFieldCell"; title = "Menu bar sensors"; ObjectID = "emB-DY-BPc"; */
 "emB-DY-BPc.title" = "Сенсоры в строке меню";
@@ -59,7 +59,7 @@
 "hAx-IK-3LD.title" = "Сенсоры не определены";
 
 /* Class = "NSMenuItem"; title = "About NarodmonBar"; ObjectID = "hRf-YU-pNR"; */
-"hRf-YU-pNR.title" = "О программе NarodmonBar";
+"hRf-YU-pNR.title" = "О программе Народный мониторинг";
 
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "iqT-MI-4tF"; */
 "iqT-MI-4tF.title" = "Text Cell";

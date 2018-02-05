@@ -14,6 +14,7 @@ class SensorsViewController: NSViewController {
     var dataStore: AppDataStore!
 
     @IBOutlet weak var toolbar: NSView!
+    @IBOutlet weak var toolbarTitle: NSTextField!
     @IBOutlet var settingsMenu: NSMenu!
     @IBOutlet weak var closeButton: NSButton!
     
@@ -36,6 +37,7 @@ class SensorsViewController: NSViewController {
     
     override func viewDidLoad() {
         devicesSensorsList = dataStore.windowSelectionsList()
+        toolbarTitle.stringValue = Bundle.main.localizedInfoDictionary!["CFBundleName"] as! String
         visualEffectView.wantsLayer = true
         visualEffectView.layer?.cornerRadius = 5
         visualEffectView.layer?.masksToBounds = true
