@@ -37,7 +37,8 @@ class SensorsViewController: NSViewController {
     
     override func viewDidLoad() {
         devicesSensorsList = dataStore.windowSelectionsList()
-        toolbarTitle.stringValue = Bundle.main.localizedInfoDictionary!["CFBundleName"] as! String
+        let bundleName = Bundle.main.localizedInfoDictionary?["CFBundleName"] as? String
+        toolbarTitle.stringValue = bundleName ?? Bundle.main.infoDictionary!["CFBundleName"] as! String
         visualEffectView.wantsLayer = true
         visualEffectView.layer?.cornerRadius = 5
         visualEffectView.layer?.masksToBounds = true
