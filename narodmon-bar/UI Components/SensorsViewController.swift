@@ -76,17 +76,11 @@ class SensorsViewController: NSViewController {
     }
     
     func setViewSizeOnContent() {
-        let dHeight = sensorsTableView.frame.size.height + toolbar.frame.size.height - view.frame.size.height
-
-        guard dHeight != 0 else { return }
-        var size = view.frame.size
-        size.height +=  dHeight
-        view.setFrameSize(size)
-        
-        guard var windowFrame = view.window?.frame else { return }
-        windowFrame.size.height += dHeight
-        windowFrame.origin.y -= dHeight
-        view.window!.setFrame(windowFrame, display: false, animate: false)
+        nextTick {
+            print(self.sensorsTableView.fittingSize.height, self.sensorsTableView.frame.size.height)
+            let size = CGSize(width: self.view.frame.size.width, height: self.sensorsTableView.fittingSize.height + self.toolbar.frame.size.height)
+            self.preferredContentSize = size
+        }
     }
 
     private func reloadData() {
