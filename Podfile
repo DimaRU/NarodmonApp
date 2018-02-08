@@ -13,7 +13,7 @@ target 'NarodmonApp' do
   pod 'SwiftyUserDefaults'
 
 plugin 'cocoapods-keys', {
-    :project => 'narodmon-bar',
+    :project => 'NarodmonApp',
     :keys => [
     'ApiKey'
   ]
