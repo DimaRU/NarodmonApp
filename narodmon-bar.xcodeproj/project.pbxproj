@@ -62,7 +62,7 @@
 		0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */; };
 		0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */; };
 		0AECF54C1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */; };
-		3749CA25DD1EAE736FF5C8D8 /* Pods_narodmon_bar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2A21095F6891B048060AB8 /* Pods_narodmon_bar.framework */; };
+		19C60B7AF6611009CE8F3D82 /* Pods_NarodmonApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56217F9C540BE073E62D427B /* Pods_NarodmonApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,9 +153,9 @@
 		0AE1E6FF2003F47400029333 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeMethods.swift; sourceTree = "<group>"; };
 		0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceIDViewCotroller.swift; sourceTree = "<group>"; };
-		41ADBBDF1FF1AEBF42D54F9F /* Pods-narodmon-bar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-narodmon-bar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar.debug.xcconfig"; sourceTree = "<group>"; };
-		8E2A21095F6891B048060AB8 /* Pods_narodmon_bar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_narodmon_bar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9658BA933280F1A52AD1BB56 /* Pods-narodmon-bar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-narodmon-bar.release.xcconfig"; path = "Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar.release.xcconfig"; sourceTree = "<group>"; };
+		56217F9C540BE073E62D427B /* Pods_NarodmonApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NarodmonApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8B543A8137D8E5233766A48 /* Pods-NarodmonApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NarodmonApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E9DF986F5280E900F407CC88 /* Pods-NarodmonApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NarodmonApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3749CA25DD1EAE736FF5C8D8 /* Pods_narodmon_bar.framework in Frameworks */,
+				19C60B7AF6611009CE8F3D82 /* Pods_NarodmonApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,8 +263,8 @@
 				0A9194EE1FBB3CFD00D72378 /* narodmon-barTests */,
 				0A756275200246090033269C /* NarodBarLauncherApp */,
 				0A9194DA1FBB3CFC00D72378 /* Products */,
-				7FBB0C97F9628129CD0A26F5 /* Pods */,
-				8CB6DD74CF3C65ED3F8701C5 /* Frameworks */,
+				CC13861C298AD1AC9DC6B105 /* Pods */,
+				E784154F73251E22D3C20EDB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -350,19 +350,19 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		7FBB0C97F9628129CD0A26F5 /* Pods */ = {
+		CC13861C298AD1AC9DC6B105 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				41ADBBDF1FF1AEBF42D54F9F /* Pods-narodmon-bar.debug.xcconfig */,
-				9658BA933280F1A52AD1BB56 /* Pods-narodmon-bar.release.xcconfig */,
+				E8B543A8137D8E5233766A48 /* Pods-NarodmonApp.debug.xcconfig */,
+				E9DF986F5280E900F407CC88 /* Pods-NarodmonApp.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		8CB6DD74CF3C65ED3F8701C5 /* Frameworks */ = {
+		E784154F73251E22D3C20EDB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8E2A21095F6891B048060AB8 /* Pods_narodmon_bar.framework */,
+				56217F9C540BE073E62D427B /* Pods_NarodmonApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -391,14 +391,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A9194F41FBB3CFD00D72378 /* Build configuration list for PBXNativeTarget "NarodmonApp" */;
 			buildPhases = (
-				5B17A6AAD56005F6F2365ABD /* [CP] Check Pods Manifest.lock */,
+				9CA40144DF03D318D1511CCD /* [CP] Check Pods Manifest.lock */,
 				0A9194D51FBB3CFC00D72378 /* Sources */,
 				0A9194D61FBB3CFC00D72378 /* Frameworks */,
 				0A9194D71FBB3CFC00D72378 /* Resources */,
 				0A9907B2200BF2B8007EDA6D /* Set version information */,
-				7472942CDF5703339BA8CC30 /* [CP] Embed Pods Frameworks */,
-				DBE5748875D0608ECCBFB0FC /* [CP] Copy Pods Resources */,
 				0A7562822002476F0033269C /* CopyFiles */,
+				84AF0B37CDE742283E617514 /* [CP] Embed Pods Frameworks */,
+				B0A3E9165FBD56BD96F01832 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -523,31 +523,13 @@
 			shellPath = /bin/sh;
 			shellScript = "git=$(sh /etc/profile; which git)\nnumber_of_commits=$(\"$git\" rev-list HEAD | wc -l | tr -d ' ')\n\nsource_plist=\"`pwd`/Support/Info.plist\"\ntarget_plist=\"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\ndsym_plist=\"$DWARF_DSYM_FOLDER_PATH/$DWARF_DSYM_FILE_NAME/Contents/Info.plist\"\n\nif [[ \"$CONFIGURATION\" == \"Release\" ]]; then\nsources=(\"$source_plist\" \"$target_plist\" \"$dsym_plist\")\nelse\nsources=(\"$target_plist\" \"$dsym_plist\")\nfi\n\nfor plist in ${sources[@]}; do\nif [ -f \"$plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $number_of_commits\" \"$plist\"\nfi\ndone";
 		};
-		5B17A6AAD56005F6F2365ABD /* [CP] Check Pods Manifest.lock */ = {
+		84AF0B37CDE742283E617514 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-narodmon-bar-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7472942CDF5703339BA8CC30 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Keys/Keys.framework",
@@ -568,10 +550,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DBE5748875D0608ECCBFB0FC /* [CP] Copy Pods Resources */ = {
+		9CA40144DF03D318D1511CCD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NarodmonApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0A3E9165FBD56BD96F01832 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -583,7 +583,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -850,7 +850,7 @@
 		};
 		0A9194F51FBB3CFD00D72378 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41ADBBDF1FF1AEBF42D54F9F /* Pods-narodmon-bar.debug.xcconfig */;
+			baseConfigurationReference = E8B543A8137D8E5233766A48 /* Pods-NarodmonApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Support/NarodmonApp.entitlements;
@@ -869,7 +869,7 @@
 		};
 		0A9194F61FBB3CFD00D72378 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9658BA933280F1A52AD1BB56 /* Pods-narodmon-bar.release.xcconfig */;
+			baseConfigurationReference = E9DF986F5280E900F407CC88 /* Pods-NarodmonApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Support/NarodmonApp.entitlements;
