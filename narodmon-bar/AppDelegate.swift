@@ -14,9 +14,9 @@ import SwiftyUserDefaults
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var statusView: StatusItemView!
-    var myPopover: NSPopover?
+    var popover: NSPopover?
     var sensorsViewController: SensorsViewController!
-    var detachedWindow: DetachedWindow?
+    var proxyWindow: ProxyWindow?
     public var popoverShowed = false
     var sensorsRefreshTimer: Timer? = nil
 

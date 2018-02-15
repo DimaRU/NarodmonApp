@@ -20,35 +20,28 @@ class SensorsViewController: NSViewController {
     
     @IBOutlet weak var sensorsTableView: NSTableView!
     @IBOutlet weak var sensorsScrollView: NSScrollView!
-    @IBOutlet weak var visualEffectView: NSVisualEffectView!
     
     @IBAction func settingsButtonPressed(_ sender: NSButton) {
         let p = NSPoint(x: 0, y: sender.frame.height)
         settingsMenu.popUp(positioning: nil, at: p, in: sender)
+        print(view.window!.level)
     }
     
     @IBAction func closeButtonPressed(_ sender: NSButton) {
         closeButton.isHidden = true
         let app = (NSApp.delegate as! AppDelegate)
-        app.detachedWindow?.close()
-        visualEffectView.isHidden = true
-        app.detachedWindow = nil
+        app.popover?.close()
     }
     
     override func viewDidLoad() {
         devicesSensorsList = dataStore.windowSelectionsList()
         let bundleName = Bundle.main.localizedInfoDictionary?["CFBundleName"] as? String
         toolbarTitle.stringValue = bundleName ?? Bundle.main.infoDictionary!["CFBundleName"] as! String
-        visualEffectView.wantsLayer = true
-        visualEffectView.layer?.cornerRadius = 5
-        visualEffectView.layer?.masksToBounds = true
         addObservers()
     }
 
     public func windowDidDetach() {
         closeButton.isHidden = false
-        visualEffectView.frame = view.frame
-        visualEffectView.isHidden = false
         setViewSizeOnContent()
     }
 
@@ -63,7 +56,6 @@ class SensorsViewController: NSViewController {
         let center = NotificationCenter.default
         center.addObserver(forName: .dataChangedNotification, object: nil, queue: nil) { _ in
             self.sensorsTableView.reloadData()
-            
         }
         center.addObserver(forName: .deviceListChangedNotification, object: nil, queue: nil) { _ in
             self.reloadData()
@@ -75,9 +67,13 @@ class SensorsViewController: NSViewController {
         }
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        print("SensorsViewController deinit")
+    }
+    
     func setViewSizeOnContent() {
         nextTick {
-            print(self.sensorsTableView.fittingSize.height, self.sensorsTableView.frame.size.height)
             let size = CGSize(width: self.view.frame.size.width, height: self.sensorsTableView.fittingSize.height + self.toolbar.frame.size.height)
             self.preferredContentSize = size
         }
@@ -88,7 +84,6 @@ class SensorsViewController: NSViewController {
         sensorsTableView.reloadData()
     }
 }
-
 
 extension SensorsViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {

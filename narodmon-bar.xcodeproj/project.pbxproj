@@ -43,7 +43,7 @@
 		0A9195251FBB463F00D72378 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195171FBB463E00D72378 /* APIKeys.swift */; };
 		0A9AF9FB1FD000C200F5B5BB /* AppDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9AF9FA1FD000C200F5B5BB /* AppDataStore.swift */; };
 		0A9AFA011FD00F1C00F5B5BB /* PopoverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */; };
-		0AA22B85201A176C0081D5FE /* DetachedWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA22B84201A176C0081D5FE /* DetachedWindow.swift */; };
+		0AA22B85201A176C0081D5FE /* ProxyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA22B84201A176C0081D5FE /* ProxyWindow.swift */; };
 		0AA40A3D1FE295780089585B /* PrefsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA40A381FE295770089585B /* PrefsCellView.swift */; };
 		0AA40A3E1FE295780089585B /* SensorSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA40A391FE295770089585B /* SensorSettingsViewController.swift */; };
 		0AA40A3F1FE295780089585B /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA40A3A1FE295780089585B /* PreferencesViewController.swift */; };
@@ -135,7 +135,7 @@
 		0A9195171FBB463E00D72378 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		0A9AF9FA1FD000C200F5B5BB /* AppDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataStore.swift; sourceTree = "<group>"; };
 		0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverDelegate.swift; sourceTree = "<group>"; };
-		0AA22B84201A176C0081D5FE /* DetachedWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetachedWindow.swift; sourceTree = "<group>"; };
+		0AA22B84201A176C0081D5FE /* ProxyWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyWindow.swift; sourceTree = "<group>"; };
 		0AA40A381FE295770089585B /* PrefsCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefsCellView.swift; sourceTree = "<group>"; };
 		0AA40A391FE295770089585B /* SensorSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorSettingsViewController.swift; sourceTree = "<group>"; };
 		0AA40A3A1FE295780089585B /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
@@ -290,7 +290,7 @@
 				0A9194FA1FBB3FB600D72378 /* Model */,
 				0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */,
 				0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */,
-				0AA22B84201A176C0081D5FE /* DetachedWindow.swift */,
+				0AA22B84201A176C0081D5FE /* ProxyWindow.swift */,
 				0A5F1DC2201F69C600B00A54 /* ErrorReport.swift */,
 				0A4C61511FC83FAD009F7B51 /* Defaults.swift */,
 				0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */,
@@ -637,7 +637,7 @@
 				0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */,
 				0A9195251FBB463F00D72378 /* APIKeys.swift in Sources */,
 				0A9195031FBB416000D72378 /* SensorsValues.swift in Sources */,
-				0AA22B85201A176C0081D5FE /* DetachedWindow.swift in Sources */,
+				0AA22B85201A176C0081D5FE /* ProxyWindow.swift in Sources */,
 				0AB385FC1FC6D6A5007F4EE5 /* KeychainService.swift in Sources */,
 				0A9195071FBB416000D72378 /* UserLogon.swift in Sources */,
 				0A68C0BB1FDAA1FB00E7ACD4 /* Globals.swift in Sources */,

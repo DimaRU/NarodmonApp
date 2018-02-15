@@ -167,10 +167,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="222" height="88"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView hidden="YES" appearanceType="vibrantLight" fixedFrame="YES" blendingMode="behindWindow" material="light" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="3AV-tb-455">
-                                <rect key="frame" x="0.0" y="0.0" width="222" height="88"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </visualEffectView>
                             <view translatesAutoresizingMaskIntoConstraints="NO" id="PMc-DI-Hgb" userLabel="ToolbarView">
                                 <rect key="frame" x="0.0" y="63" width="222" height="25"/>
                                 <subviews>
@@ -256,19 +252,19 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="7WP-Uq-7Po">
-                                                                    <rect key="frame" x="4" y="2" width="180" height="15"/>
-                                                                    <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="left" title="Location" drawsBackground="YES" id="ld1-qb-FBH">
+                                                                    <rect key="frame" x="2" y="2" width="188" height="15"/>
+                                                                    <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="left" title="Location" id="ld1-qb-FBH">
                                                                         <font key="font" size="12" name="Helvetica"/>
                                                                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="755" translatesAutoresizingMaskIntoConstraints="NO" id="bfu-vl-SUw">
-                                                                    <rect key="frame" x="192" y="4" width="25" height="11"/>
+                                                                    <rect key="frame" x="194" y="4" width="25" height="11"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="40" id="Ux7-9O-7EI"/>
                                                                     </constraints>
-                                                                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="name" drawsBackground="YES" id="rLw-bv-mf7">
+                                                                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="name" id="rLw-bv-mf7">
                                                                         <font key="font" size="8" name="Helvetica"/>
                                                                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -380,7 +376,6 @@
                         <outlet property="settingsMenu" destination="R3s-R3-GGE" id="Kx9-e8-F21"/>
                         <outlet property="toolbar" destination="PMc-DI-Hgb" id="NYs-Jl-irK"/>
                         <outlet property="toolbarTitle" destination="ZAN-Yb-h32" id="Gps-wq-roP"/>
-                        <outlet property="visualEffectView" destination="3AV-tb-455" id="LGN-KJ-GR6"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
