@@ -11,7 +11,7 @@ import Cocoa
 class SensorsViewController: NSViewController {
     
     private var devicesSensorsList: [Any] = []
-    var dataStore: AppDataStore!
+    weak var dataStore: AppDataStore!
 
     @IBOutlet weak var toolbar: NSView!
     @IBOutlet weak var toolbarTitle: NSTextField!
@@ -22,9 +22,10 @@ class SensorsViewController: NSViewController {
     @IBOutlet weak var sensorsScrollView: NSScrollView!
     
     @IBAction func settingsButtonPressed(_ sender: NSButton) {
-        let p = NSPoint(x: 0, y: sender.frame.height)
-        settingsMenu.popUp(positioning: nil, at: p, in: sender)
-        print(view.window!.level)
+        let p = NSPoint(x: sender.frame.width/2, y: sender.frame.height/2+4)
+        nextTick {
+            self.settingsMenu.popUp(positioning: nil, at: p, in: sender)
+        }
     }
     
     @IBAction func closeButtonPressed(_ sender: NSButton) {

@@ -177,7 +177,7 @@
                                             <constraint firstAttribute="height" constant="16" id="nxA-dm-5Om"/>
                                         </constraints>
                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="gear" imagePosition="only" alignment="center" alternateImage="gear" continuous="YES" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="jkZ-ku-ta3">
-                                            <behavior key="behavior" lightByContents="YES"/>
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                             <string key="keyEquivalent">p</string>
                                             <modifierMask key="keyEquivalentModifierMask" command="YES"/>
@@ -354,7 +354,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="deviceWhite"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="d6P-RB-AKK">
-                                    <rect key="frame" x="0.0" y="-16" width="0.0" height="16"/>
+                                    <rect key="frame" x="0.0" y="-15" width="0.0" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="ayu-kw-Sil">

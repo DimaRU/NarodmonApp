@@ -17,7 +17,6 @@ class ProxyWindow: NSWindow {
         let styleMask: NSWindow.StyleMask = [NSWindow.StyleMask.borderless]
         let rect = window.frame
         let windowFrame = NSRect(x: rect.minX, y: rect.minY, width: rect.width, height: 1)
-        print(rect, windowFrame)
         let contentRect = NSWindow.contentRect(forFrameRect: windowFrame, styleMask: styleMask)
         
         super.init(contentRect: contentRect, styleMask: styleMask, backing: .buffered, defer: true)
