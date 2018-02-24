@@ -18,7 +18,8 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
     var dataStore: AppDataStore!
     
     private var devicesSensorsList: [Any] = []
-
+    private var observer: NotificationObserver?
+    
     var hasDraggedFavoriteItem = false
     var currentItemDragOperation: NSDragOperation = []
     
@@ -35,7 +36,7 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
             let index = dataStore.selectedWindowSensors.index(where: {$0 == sensorId})!
             dataStore.selectedWindowSensors.remove(at: index)
         }
-        NotificationCenter.default.post(name: .popupSensorsChangedNotification, object: nil)
+        postNotification(name: .popupSensorsChangedNotification)
     }
     
     @IBAction func largeFontCheckBoxAction(_ sender: NSButton) {
@@ -60,23 +61,17 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
 
         largeFontCheckBox.state = Defaults[.TinyFont] ? .off : .on
         devicesSensorsList = dataStore.devicesSensorsList()
-        addObservers()
-    }
-    
-    override func viewWillDisappear() {
-        dataStore.saveDefaults()
-    }
-    
-    func addObservers() {
-        let center = NotificationCenter.default
-        center.addObserver(forName: .deviceListChangedNotification, object: nil, queue: nil) {_ in
+        observer = NotificationObserver(forName: .deviceListChangedNotification) {
             self.devicesSensorsList = self.dataStore.devicesSensorsList()
             self.sensorsTableView.reloadData()
             self.favoriteTableView.reloadData()
         }
     }
     
-    
+    override func viewWillDisappear() {
+        dataStore.saveDefaults()
+    }
+        
     func remove(device: SensorsOnDevice) {
         let sensorIds = Set<Int>(device.sensors.map { $0.id })
         
@@ -86,7 +81,7 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
         let index = dataStore.devices.index(where: {$0.id == device.id})!
         dataStore.devices.remove(at: index)
         
-        NotificationCenter.default.post(name: .deviceListChangedNotification, object: nil)
+        postNotification(name: .deviceListChangedNotification)
     }
     
     func add(device id: Int) {
@@ -105,7 +100,7 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
                 let sensors: [Int] = device.sensors.map { $0.id }
                 self.dataStore.selectedWindowSensors.append(contentsOf: sensors)
 
-                NotificationCenter.default.post(name: .deviceListChangedNotification, object: nil)
+                postNotification(name: .deviceListChangedNotification)
             }
             .catch { error in
                 guard let e = error as? NarodNetworkError else { error.sendFatalReport() }
@@ -233,7 +228,7 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
             case favoriteTableView:
                 dataStore.selectedBarSensors.remove(at: fromRow-1)
                 NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
-                NotificationCenter.default.post(name: .barSensorsChangedNotification, object: nil)
+                postNotification(name: .barSensorsChangedNotification)
                 favoriteTableView.reloadData()
             case sensorsTableView:
                 guard let device = devicesSensorsList[fromRow] as? SensorsOnDevice else { break }
@@ -290,14 +285,14 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
             else {
                 dataStore.selectedBarSensors.insert(value, at: row-1)
             }
-            NotificationCenter.default.post(name: .barSensorsChangedNotification, object: nil)
+            postNotification(name: .barSensorsChangedNotification)
             favoriteTableView.reloadData()
             return true
             
         case sensorsTableView?:
             guard let fromSensor = devicesSensorsList[fromRow] as? Sensor else { return false }
                 dataStore.selectedBarSensors.append(fromSensor.id)
-                NotificationCenter.default.post(name: .barSensorsChangedNotification, object: nil)
+                postNotification(name: .barSensorsChangedNotification)
                 favoriteTableView.reloadData()
                 return true
         default:

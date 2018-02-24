@@ -11,6 +11,10 @@ import Cocoa
 class SensorsViewController: NSViewController {
     
     private var devicesSensorsList: [Any] = []
+    private var deviceListObserver: NotificationObserver?
+    private var dataObserver: NotificationObserver?
+    private var popupSensorsObserver: NotificationObserver?
+    
     weak var dataStore: AppDataStore!
 
     @IBOutlet weak var toolbar: NSView!
@@ -35,6 +39,7 @@ class SensorsViewController: NSViewController {
     }
     
     override func viewDidLoad() {
+        print("SensorsViewController viewDidLoad")
         devicesSensorsList = dataStore.windowSelectionsList()
         let bundleName = Bundle.main.localizedInfoDictionary?["CFBundleName"] as? String
         toolbarTitle.stringValue = bundleName ?? Bundle.main.infoDictionary!["CFBundleName"] as! String
@@ -45,6 +50,12 @@ class SensorsViewController: NSViewController {
         closeButton.isHidden = false
         setViewSizeOnContent()
     }
+    
+    public func windowWillClose() {
+        deviceListObserver = nil
+        dataObserver = nil
+        popupSensorsObserver = nil
+    }
 
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if let tabViewController = segue.destinationController as? SettingsTabViewController {
@@ -54,22 +65,21 @@ class SensorsViewController: NSViewController {
     }
     
     private func addObservers() {
-        let center = NotificationCenter.default
-        center.addObserver(forName: .dataChangedNotification, object: nil, queue: nil) { _ in
+        dataObserver = NotificationObserver(forName: .dataChangedNotification) {
             self.sensorsTableView.reloadData()
         }
-        center.addObserver(forName: .deviceListChangedNotification, object: nil, queue: nil) { _ in
+        deviceListObserver = NotificationObserver(forName: .deviceListChangedNotification) {
             self.reloadData()
             self.setViewSizeOnContent()
         }
-        center.addObserver(forName: .popupSensorsChangedNotification, object: nil, queue: nil) { _ in
+        popupSensorsObserver = NotificationObserver(forName: .popupSensorsChangedNotification) {
             self.reloadData()
             self.setViewSizeOnContent()
         }
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self)
+        devicesSensorsList = []
         print("SensorsViewController deinit")
     }
     

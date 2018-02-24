@@ -59,9 +59,6 @@
 		0AC6CC4C200685A600F2DAE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AC6CC4E200685A600F2DAE0 /* InfoPlist.strings */; };
 		0AC6CC522007E5E100F2DAE0 /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */; };
 		0AD867A720403C06001C5577 /* TypedNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD867A620403C06001C5577 /* TypedNotifications.swift */; };
-		0AD867C120403FA9001C5577 /* BoxType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD867BE20403FA9001C5577 /* BoxType.swift */; };
-		0AD867C220403FA9001C5577 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD867BF20403FA9001C5577 /* Box.swift */; };
-		0AD867C320403FA9001C5577 /* MutableBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD867C020403FA9001C5577 /* MutableBox.swift */; };
 		0AE1E7002003F47400029333 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE1E6FF2003F47400029333 /* Notifications.swift */; };
 		0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */; };
 		0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */; };
@@ -155,9 +152,6 @@
 		0AC6CC4D200685A600F2DAE0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
 		0AD867A620403C06001C5577 /* TypedNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedNotifications.swift; sourceTree = "<group>"; };
-		0AD867BE20403FA9001C5577 /* BoxType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxType.swift; sourceTree = "<group>"; };
-		0AD867BF20403FA9001C5577 /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		0AD867C020403FA9001C5577 /* MutableBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableBox.swift; sourceTree = "<group>"; };
 		0AE1E6FF2003F47400029333 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeMethods.swift; sourceTree = "<group>"; };
 		0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceIDViewCotroller.swift; sourceTree = "<group>"; };
@@ -224,7 +218,6 @@
 		0A63DF951FCED8F600C35607 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				0AD867BC20403FA9001C5577 /* Box */,
 				0AD867A620403C06001C5577 /* TypedNotifications.swift */,
 				0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */,
 				0A63DF961FCED92800C35607 /* HwUUID.swift */,
@@ -358,16 +351,6 @@
 				0A9194E21FBB3CFD00D72378 /* Main.storyboard */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		0AD867BC20403FA9001C5577 /* Box */ = {
-			isa = PBXGroup;
-			children = (
-				0AD867BE20403FA9001C5577 /* BoxType.swift */,
-				0AD867BF20403FA9001C5577 /* Box.swift */,
-				0AD867C020403FA9001C5577 /* MutableBox.swift */,
-			);
-			path = Box;
 			sourceTree = "<group>";
 		};
 		CC13861C298AD1AC9DC6B105 /* Pods */ = {
@@ -637,13 +620,11 @@
 				0AB3118A1FD557E600ED680F /* DeviceCellView.swift in Sources */,
 				0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */,
 				0AC6CC522007E5E100F2DAE0 /* SettingsTabViewController.swift in Sources */,
-				0AD867C120403FA9001C5577 /* BoxType.swift in Sources */,
 				0A63DF971FCED92800C35607 /* HwUUID.swift in Sources */,
 				0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */,
 				0AA40A3D1FE295780089585B /* PrefsCellView.swift in Sources */,
 				0A9195231FBB463F00D72378 /* NarodAPI.swift in Sources */,
 				0A4DB18220234F73007E4281 /* UserDefaultsBarStyle.swift in Sources */,
-				0AD867C320403FA9001C5577 /* MutableBox.swift in Sources */,
 				0A91950C1FBB41AE00D72378 /* Sensor.swift in Sources */,
 				0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */,
 				0AE1E7002003F47400029333 /* Notifications.swift in Sources */,
@@ -668,7 +649,6 @@
 				0AB311881FD557D500ED680F /* SensorCellView.swift in Sources */,
 				0AB3DB881FBB7DC8002C0705 /* NarodNetworkError.swift in Sources */,
 				0A9195051FBB416000D72378 /* SensorsOnDevice.swift in Sources */,
-				0AD867C220403FA9001C5577 /* Box.swift in Sources */,
 				0A91950A1FBB416000D72378 /* AppInitData.swift in Sources */,
 				0A4C61521FC83FAD009F7B51 /* Defaults.swift in Sources */,
 			);

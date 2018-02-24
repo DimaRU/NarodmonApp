@@ -15,7 +15,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var statusView: StatusItemView!
     var popover: NSPopover?
-    var sensorsViewController: SensorsViewController!
     var proxyWindow: ProxyWindow?
     public var popoverShowed = false
     var sensorsRefreshTimer: Timer? = nil
@@ -24,7 +23,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         Defaults.appStart()
-        initPopover()
 
         let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusView = StatusItemView(statusItem: statusItem, dataStore: dataStore) {
@@ -66,7 +64,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.dataStore.checkConsistency()
                 self.dataStore.saveDefaults()
                 
-                NotificationCenter.default.post(name: .deviceListChangedNotification, object: nil)
+                postNotification(name: .deviceListChangedNotification)
                 InitService.refreshSensorsData()
                 InitService.startRefreshCycle()
             }

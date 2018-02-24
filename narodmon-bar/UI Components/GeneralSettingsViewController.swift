@@ -31,7 +31,7 @@ class GeneralSettingsViewController: NSViewController {
         
         InitService.appLoginDiscovery()
             .always {
-                NotificationCenter.default.post(name: .deviceListChangedNotification, object: nil)
+                postNotification(name: .deviceListChangedNotification)
             }
             .catch { (error) in
                 guard let e = error as? NarodNetworkError else { error.sendFatalReport() }

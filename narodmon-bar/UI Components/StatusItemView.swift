@@ -9,6 +9,10 @@ typealias Completion = () -> Void
 final class StatusItemView: NSView {
 
 	private let tappedCallback: Completion
+    private var deviceListObserver: NotificationObserver?
+    private var dataObserver: NotificationObserver?
+    private var barSensorsObserver: NotificationObserver?
+    
     var statusItem: NSStatusItem!
 
     private static let tinyText = [ NSAttributedStringKey.font: NSFont.systemFont(ofSize: 9, weight: .semibold),
@@ -50,18 +54,17 @@ final class StatusItemView: NSView {
 
         super.init(frame: NSZeroRect)
         self.statusItem.view = self
-        
-        let center = NotificationCenter.default
-        center.addObserver(forName: .deviceListChangedNotification, object: nil, queue: nil) { _ in
+
+        deviceListObserver = NotificationObserver(forName: .deviceListChangedNotification) {
             self.dataRefreshed()
         }
-        center.addObserver(forName: .dataChangedNotification, object: nil, queue: nil) { _ in
+        dataObserver = NotificationObserver(forName: .dataChangedNotification) {
             self.dataRefreshed()
         }
-        center.addObserver(forName: .barSensorsChangedNotification, object: nil, queue: nil) { _ in
+        barSensorsObserver = NotificationObserver(forName: .barSensorsChangedNotification) {
             self.dataRefreshed()
         }
-        
+
         sensorLabels = [NSLocalizedString("Loading...", comment: "Status bar message")]
 	}
 

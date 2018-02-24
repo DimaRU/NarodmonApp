@@ -142,7 +142,7 @@ struct InitService {
         NarProvider.shared.request(.sensorsValues(sensorIds: Array<Int>(sensors)))
             .then { (sensorsValues: SensorsValues) -> Void in
                 app.dataStore.sensorValues = sensorsValues.sensors
-                NotificationCenter.default.post(name: .dataChangedNotification, object: nil)
+                postNotification(name: .dataChangedNotification)
             }
             .catch { (error) in
                 // Just do nothing
