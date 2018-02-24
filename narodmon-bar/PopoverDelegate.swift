@@ -7,6 +7,12 @@ import SwiftyUserDefaults
 
 extension AppDelegate: NSPopoverDelegate {
     
+    func createContentViewController() {
+        sensorsViewController = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SensorsViewController")) as! SensorsViewController
+        sensorsViewController.dataStore = self.dataStore
+        _ = sensorsViewController.view.bounds       // Early get bounds. !!! hack for proper size on first popup view
+    }
+    
     public func showPopover() {
         if let myPopover = popover {
             guard myPopover.isShown, myPopover.isDetached else { return }
@@ -25,11 +31,8 @@ extension AppDelegate: NSPopoverDelegate {
         popover = NSPopover()
         // the popover retains us and we retain the popover,
         // we drop the popover whenever it is closed to avoid a cycle
-        let sensorsViewController = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SensorsViewController")) as! SensorsViewController
-        sensorsViewController.dataStore = self.dataStore
-        _ = sensorsViewController.view.bounds       // Early get bounds. !!! hack for proper size on first popup view
         popover?.contentViewController = sensorsViewController
-        
+
         popover?.animates = true
         popover?.behavior = .transient
         popover?.delegate = self
@@ -47,8 +50,7 @@ extension AppDelegate: NSPopoverDelegate {
     func popoverWillShow(_ notification: Notification) {
         if notification.object != nil {
             setPopoverState(showed: true)
-            let sensorsViewController = popover?.contentViewController as? SensorsViewController
-            sensorsViewController?.setViewSizeOnContent()
+            sensorsViewController.windowWillShow()
         }
     }
     
@@ -71,8 +73,7 @@ extension AppDelegate: NSPopoverDelegate {
         if closeReason == NSPopover.CloseReason.detachToWindow {
         }
         if closeReason == NSPopover.CloseReason.standard {
-            let sensorsViewController = popover?.contentViewController as? SensorsViewController
-            sensorsViewController?.windowWillClose()
+            sensorsViewController.windowWillClose()
             setPopoverState(showed: false)
         }
     }

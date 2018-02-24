@@ -43,11 +43,16 @@ class SensorsViewController: NSViewController {
         devicesSensorsList = dataStore.windowSelectionsList()
         let bundleName = Bundle.main.localizedInfoDictionary?["CFBundleName"] as? String
         toolbarTitle.stringValue = bundleName ?? Bundle.main.infoDictionary!["CFBundleName"] as! String
-        addObservers()
     }
 
     public func windowDidDetach() {
         closeButton.isHidden = false
+        setViewSizeOnContent()
+    }
+
+    public func windowWillShow() {
+        addObservers()
+        reloadData()
         setViewSizeOnContent()
     }
     
@@ -79,7 +84,6 @@ class SensorsViewController: NSViewController {
     }
     
     deinit {
-        devicesSensorsList = []
         print("SensorsViewController deinit")
     }
     

@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var statusView: StatusItemView!
     var popover: NSPopover?
+    var sensorsViewController: SensorsViewController!
     var proxyWindow: ProxyWindow?
     public var popoverShowed = false
     var sensorsRefreshTimer: Timer? = nil
@@ -23,7 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         Defaults.appStart()
-
+        createContentViewController()
         let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusView = StatusItemView(statusItem: statusItem, dataStore: dataStore) {
             self.showPopover()

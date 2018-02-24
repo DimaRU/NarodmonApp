@@ -18,7 +18,6 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
     var dataStore: AppDataStore!
     
     private var devicesSensorsList: [Any] = []
-    private var observer: NotificationObserver?
     
     var hasDraggedFavoriteItem = false
     var currentItemDragOperation: NSDragOperation = []
@@ -61,11 +60,17 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
 
         largeFontCheckBox.state = Defaults[.TinyFont] ? .off : .on
         devicesSensorsList = dataStore.devicesSensorsList()
-        observer = NotificationObserver(forName: .deviceListChangedNotification) {
-            self.devicesSensorsList = self.dataStore.devicesSensorsList()
-            self.sensorsTableView.reloadData()
-            self.favoriteTableView.reloadData()
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: .deviceListChangedNotification, object: nil)
+    }
+    
+    @objc func refreshData() {
+        devicesSensorsList = dataStore.devicesSensorsList()
+        sensorsTableView.reloadData()
+        favoriteTableView.reloadData()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .deviceListChangedNotification, object: nil)
     }
     
     override func viewWillDisappear() {
