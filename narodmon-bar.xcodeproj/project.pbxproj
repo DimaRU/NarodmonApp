@@ -58,6 +58,7 @@
 		0AC4EAEE1FCE0526001573C8 /* SensorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */; };
 		0AC6CC4C200685A600F2DAE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AC6CC4E200685A600F2DAE0 /* InfoPlist.strings */; };
 		0AC6CC522007E5E100F2DAE0 /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */; };
+		0AC775A12041904100455100 /* IDETemplateMacros.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC775A02041904000455100 /* IDETemplateMacros.plist */; };
 		0AD867A720403C06001C5577 /* TypedNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD867A620403C06001C5577 /* TypedNotifications.swift */; };
 		0AE1E7002003F47400029333 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE1E6FF2003F47400029333 /* Notifications.swift */; };
 		0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */; };
@@ -151,6 +152,7 @@
 		0AC6CC48200683DF00F2DAE0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AC6CC4D200685A600F2DAE0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
+		0AC775A02041904000455100 /* IDETemplateMacros.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = IDETemplateMacros.plist; sourceTree = "<group>"; };
 		0AD867A620403C06001C5577 /* TypedNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedNotifications.swift; sourceTree = "<group>"; };
 		0AE1E6FF2003F47400029333 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeMethods.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 		0A9194D01FBB3CFC00D72378 = {
 			isa = PBXGroup;
 			children = (
+				0AC775A02041904000455100 /* IDETemplateMacros.plist */,
 				0A62254E2029A0E50056AEEE /* Support */,
 				0A9194DB1FBB3CFC00D72378 /* narodmon-bar */,
 				0A9194EE1FBB3CFD00D72378 /* narodmon-barTests */,
@@ -497,6 +500,7 @@
 			files = (
 				0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */,
 				0A7968D420067ED0008F97D9 /* InfoPlist.strings in Resources */,
+				0AC775A12041904100455100 /* IDETemplateMacros.plist in Resources */,
 				0A7968CB20067ADF008F97D9 /* Localizable.strings in Resources */,
 				0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */,
 			);
