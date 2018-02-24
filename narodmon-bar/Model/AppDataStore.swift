@@ -12,7 +12,7 @@ final class AppDataStore {
     var selectedBarSensors: [Int] = []          // Selected bar sensors
     
     var devices: [SensorsOnDevice] = []         // Discovered devices
-    var sensorValues: [SensorValue] = []         // Current sensors value
+    var sensorValues: [SensorValue] = []        // Current sensors value
     
     var initData: AppInitData? = nil
     var logonData: UserLogon? = nil
@@ -68,6 +68,23 @@ final class AppDataStore {
         return list
     }
     
+    func remove(device: SensorsOnDevice) {
+        let sensorIds = Set<Int>(device.sensors.map { $0.id })
+        
+        selectedWindowSensors = selectedWindowSensors.filter { !sensorIds.contains($0) }
+        selectedBarSensors = selectedBarSensors.filter { !sensorIds.contains($0) }
+        selectedDevices = selectedDevices.filter{ $0 != device.id }
+        let index = devices.index(where: {$0.id == device.id})!
+        devices.remove(at: index)
+    }
+    
+    func add(device: SensorsOnDevice) {
+        devices.append(device)
+        selectedDevices.append(device.id)
+        let sensors: [Int] = device.sensors.map { $0.id }
+        selectedWindowSensors.append(contentsOf: sensors)
+    }
+
     func checkConsistency() {
         var discoveredDevices: Set<Int> = []
         var discoveredSensors: Set<Int> = []

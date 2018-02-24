@@ -77,18 +77,6 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
         dataStore.saveDefaults()
     }
         
-    func remove(device: SensorsOnDevice) {
-        let sensorIds = Set<Int>(device.sensors.map { $0.id })
-        
-        dataStore.selectedWindowSensors = dataStore.selectedWindowSensors.filter { !sensorIds.contains($0) }
-        dataStore.selectedBarSensors = dataStore.selectedBarSensors.filter { !sensorIds.contains($0) }
-        dataStore.selectedDevices = dataStore.selectedDevices.filter{ $0 != device.id }
-        let index = dataStore.devices.index(where: {$0.id == device.id})!
-        dataStore.devices.remove(at: index)
-        
-        postNotification(name: .deviceListChangedNotification)
-    }
-    
     func add(device id: Int) {
         guard !dataStore.selectedDevices.contains(id) else {
             let alert = NSAlert()
@@ -100,11 +88,7 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
         
         NarProvider.shared.request(.sensorsOnDevice(id: id))
             .then { (device: SensorsOnDevice) -> Void in
-                self.dataStore.devices.append(device)
-                self.dataStore.selectedDevices.append(id)
-                let sensors: [Int] = device.sensors.map { $0.id }
-                self.dataStore.selectedWindowSensors.append(contentsOf: sensors)
-
+                self.dataStore.add(device: device)
                 postNotification(name: .deviceListChangedNotification)
             }
             .catch { error in
@@ -237,7 +221,8 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
                 favoriteTableView.reloadData()
             case sensorsTableView:
                 guard let device = devicesSensorsList[fromRow] as? SensorsOnDevice else { break }
-                remove(device: device)
+                dataStore.remove(device: device)
+                postNotification(name: .deviceListChangedNotification)
                 NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
             default: fatalError()
             }
