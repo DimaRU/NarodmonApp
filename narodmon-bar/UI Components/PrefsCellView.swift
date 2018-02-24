@@ -16,12 +16,13 @@ class PrefsCellView: NSTableCellView {
     
     override func resetCursorRects() {
         discardCursorRects()
-        addCursorRect(frame, cursor: NSCursor.openHand)
         if let checkBox = checkBox {
             addCursorRect(checkBox.frame, cursor: NSCursor.pointingHand)
+        } else {
+            addCursorRect(frame, cursor: NSCursor.openHand)
         }
     }
-    
+   
     func setContent(sensor: Sensor, isChecked: Bool) {
         sensorNameLabel.stringValue = sensor.name
         sensorValueLabel.stringValue = "\(sensor.value)\(sensor.unit)"

@@ -18,7 +18,9 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
     var dataStore: AppDataStore!
     
     private var devicesSensorsList: [Any] = []
-    
+    private var deviceCellStyle = 0
+    private let deviceCellId = ["DeviceCell1", "DeviceCell2", "DeviceCell3"]
+
     var hasDraggedFavoriteItem = false
     var currentItemDragOperation: NSDragOperation = []
     
@@ -130,7 +132,8 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
         case sensorsTableView:
             switch devicesSensorsList[row] {
             case let device as SensorsOnDevice:
-                guard let deviceCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DeviceCell"), owner: self) as? DeviceCellView
+                let cellId = deviceCellId[deviceCellStyle]
+                guard let deviceCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), owner: self) as? DeviceCellView
                     else { return nil }
                 deviceCell.setContent(device: device)
                 return deviceCell
@@ -164,6 +167,10 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        if tableView == sensorsTableView, devicesSensorsList[row] is SensorsOnDevice {
+            deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
+            tableView.reloadData()
+        }
         return false
     }
     

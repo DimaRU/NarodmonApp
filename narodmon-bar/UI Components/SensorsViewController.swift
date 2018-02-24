@@ -14,6 +14,8 @@ class SensorsViewController: NSViewController {
     private var deviceListObserver: NotificationObserver?
     private var dataObserver: NotificationObserver?
     private var popupSensorsObserver: NotificationObserver?
+    var deviceCellStyle = 0
+    private let deviceCellId = ["DeviceCell1", "DeviceCell2", "DeviceCell3"]
     
     weak var dataStore: AppDataStore!
 
@@ -122,7 +124,8 @@ extension SensorsViewController: NSTableViewDataSource {
         }
         switch devicesSensorsList[row] {
         case let device as SensorsOnDevice:
-            guard let deviceCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DeviceCell"), owner: self) as? DeviceCellView
+            let cellId = deviceCellId[deviceCellStyle]
+            guard let deviceCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), owner: self) as? DeviceCellView
                 else { return nil }
             deviceCell.setContent(device: device)
             return deviceCell
@@ -142,6 +145,11 @@ extension SensorsViewController: NSTableViewDataSource {
 extension SensorsViewController: NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        if devicesSensorsList[row] is SensorsOnDevice {
+            deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
+            sensorsTableView.reloadData()
+            setViewSizeOnContent()
+        }
         return false
     }
 }
