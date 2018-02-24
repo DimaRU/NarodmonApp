@@ -46,6 +46,23 @@ final class AppDataStore {
         return nil
     }
     
+    func lastUpdate() -> Date {
+        var lastTime = devices[0].sensors[0].time
+        for device in devices {
+            for sensor in device.sensors{
+                if lastTime < sensor.time {
+                    lastTime = sensor.time
+                }
+                if let sensor = sensorValues.first(where: { $0.id == sensor.id }) {
+                    if lastTime < sensor.time {
+                        lastTime = sensor.time
+                    }
+                }
+            }
+        }
+        return lastTime
+    }
+    
     func windowSelectionsList() -> [Any] {
         var list: [Any] = []
         for device in devices {

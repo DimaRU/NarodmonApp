@@ -43,3 +43,6 @@
 /* No comment provided by engineer. */
 "Unsucessful authorisation" = "Ошибка авторизации";
 
+/* last update in title bar */
+"Last update: " = "Обновлено: ";
+

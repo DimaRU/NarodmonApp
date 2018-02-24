@@ -39,10 +39,8 @@ class SensorsViewController: NSViewController {
     }
     
     override func viewDidLoad() {
-        print("SensorsViewController viewDidLoad")
         devicesSensorsList = dataStore.windowSelectionsList()
-        let bundleName = Bundle.main.localizedInfoDictionary?["CFBundleName"] as? String
-        toolbarTitle.stringValue = bundleName ?? Bundle.main.infoDictionary!["CFBundleName"] as! String
+        setToolbarTitle()
     }
 
     public func windowDidDetach() {
@@ -72,19 +70,32 @@ class SensorsViewController: NSViewController {
     private func addObservers() {
         dataObserver = NotificationObserver(forName: .dataChangedNotification) {
             self.sensorsTableView.reloadData()
+            self.setToolbarTitle()
+            print("Update data")
         }
         deviceListObserver = NotificationObserver(forName: .deviceListChangedNotification) {
             self.reloadData()
+            self.setToolbarTitle()
             self.setViewSizeOnContent()
         }
         popupSensorsObserver = NotificationObserver(forName: .popupSensorsChangedNotification) {
             self.reloadData()
+            self.setToolbarTitle()
             self.setViewSizeOnContent()
         }
     }
     
-    deinit {
-        print("SensorsViewController deinit")
+    private func setToolbarTitle() {
+        guard !devicesSensorsList.isEmpty else {
+            let bundleName = Bundle.main.localizedInfoDictionary?["CFBundleName"] as? String
+            toolbarTitle.stringValue = bundleName ?? Bundle.main.infoDictionary!["CFBundleName"] as! String
+            return
+        }
+        let lastUpdateTime = dataStore.lastUpdate()
+        let interval = -Int(lastUpdateTime.timeIntervalSinceNow)
+        print(lastUpdateTime, interval)
+        let updateString = NSLocalizedString("Last update: ", comment: "last update in title bar")
+        toolbarTitle.stringValue = updateString + DateFormatter.localizedString(from: lastUpdateTime, dateStyle: .none, timeStyle: .short)
     }
     
     func setViewSizeOnContent() {
