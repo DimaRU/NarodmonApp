@@ -74,5 +74,6 @@ class PrefsCellView: NSTableCellView, NSTextFieldDelegate {
             print(textField)
             fatalError()
         }
+        postNotification(name: .dataChangedNotification)
     }
 }
