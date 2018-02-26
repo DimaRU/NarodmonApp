@@ -12,7 +12,9 @@ extension DefaultsKeys {
     static let SelectedDevices = DefaultsKey<[Int]>("SelectedDevices")
     static let SelectedWindowSensors = DefaultsKey<[Int]>("SelectedWindowSensors")
     static let SelectedBarSensors = DefaultsKey<[Int]>("SelectedBarSensors")
-    
+    static let SensorsMin = DefaultsKey<[String: Any]>("SensorsMin")
+    static let SensorsMax = DefaultsKey<[String: Any]>("SensorsMax")
+
     static let TinyFont = DefaultsKey<Bool>("TinyFont")
 }
 

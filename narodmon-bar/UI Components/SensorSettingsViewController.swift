@@ -20,6 +20,8 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
     private var devicesSensorsList: [Any] = []
     private var deviceCellStyle = 0
     private let deviceCellId = ["DeviceCell1", "DeviceCell2", "DeviceCell3"]
+    private var sensorCellStyle = 0
+    private let sensorCellId = ["SensorCell1", "SensorCell2"]
 
     var hasDraggedFavoriteItem = false
     var currentItemDragOperation: NSDragOperation = []
@@ -27,19 +29,7 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
     @IBOutlet weak var sensorsTableView: SelectTableView!
     @IBOutlet weak var favoriteTableView: SelectTableView!
     @IBOutlet weak var largeFontCheckBox: NSButton!
-    
-    @IBAction func checkBoxSensorAction(_ sender: NSButton) {
-        let sensorId = sender.tag
-        if sender.state == .on {
-            dataStore.selectedWindowSensors.append(sensorId)
-        }
-        else {
-            let index = dataStore.selectedWindowSensors.index(where: {$0 == sensorId})!
-            dataStore.selectedWindowSensors.remove(at: index)
-        }
-        postNotification(name: .popupSensorsChangedNotification)
-    }
-    
+ 
     @IBAction func largeFontCheckBoxAction(_ sender: NSButton) {
         let tinyFont: Bool = sender.state == .off
         Defaults[.TinyFont] = tinyFont
@@ -138,9 +128,10 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
                 deviceCell.setContent(device: device)
                 return deviceCell
             case let sensor as Sensor:
-                guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? PrefsCellView
+                let cellId = sensorCellId[sensorCellStyle]
+                guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), owner: self) as? PrefsCellView
                     else { return nil }
-                sensorCell.setContent(sensor: sensor, isChecked: dataStore.selectedWindowSensors.contains(sensor.id))
+                sensorCell.setContent(sensor: sensor, dataStore: dataStore)
                 return sensorCell
             default: fatalError()
             }
@@ -155,7 +146,7 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
                     if let sensor = element as? Sensor, sensor.id == id {
                         guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? PrefsCellView
                             else { return nil }
-                        sensorCell.setContent(sensor: sensor, isChecked: false)
+                        sensorCell.setContent(sensor: sensor, dataStore: dataStore)
                         return sensorCell
                     }
                 }
@@ -167,8 +158,14 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        if tableView == sensorsTableView, devicesSensorsList[row] is SensorsOnDevice {
-            deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
+        if tableView == sensorsTableView {
+            switch devicesSensorsList[row] {
+            case is SensorsOnDevice:
+                deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
+            case is Sensor:
+                sensorCellStyle = sensorCellId.nextIndex(sensorCellStyle)
+            default: fatalError()
+            }
             tableView.reloadData()
         }
         return false

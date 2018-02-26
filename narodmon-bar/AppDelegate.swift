@@ -95,10 +95,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+    @IBAction func openMapAction(_ sender: Any) {
+        let url = NSLocalizedString("http://narodmon.com", comment: "Open map URL")
+        NSWorkspace.shared.open(URL(string: url)!)
     }
+    
+
 }
 
 
