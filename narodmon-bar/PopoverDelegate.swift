@@ -14,13 +14,13 @@ extension AppDelegate: NSPopoverDelegate {
     }
     
     public func showPopover() {
-        if let myPopover = popover {
-            guard myPopover.isShown, myPopover.isDetached else { return }
+        if let popover = popover {
+            guard popover.isShown, popover.isDetached else { return }
             NSApp.activate(ignoringOtherApps: true)
-            let sensorsViewController = myPopover.contentViewController as! SensorsViewController
             sensorsViewController.view.window?.makeKeyAndOrderFront(nil)
         } else {
             createPopover()
+            statusView.highlighted = true
             popover?.show(relativeTo: NSRect.zero, of: proxyWindow!.contentView!, preferredEdge: .minY)
         }
     }
@@ -76,6 +76,7 @@ extension AppDelegate: NSPopoverDelegate {
             sensorsViewController.windowWillClose()
             setPopoverState(showed: false)
         }
+        statusView.highlighted = false
     }
     
     // Invoked on the delegate when the NSPopoverDidCloseNotification notification is sent.
@@ -104,6 +105,7 @@ extension AppDelegate: NSPopoverDelegate {
     // Note: Invoked only if AppKit provides the window for this popover.
     func popoverDidDetach(_ popover: NSPopover) {
         proxyWindow?.level = .normal
+        statusView.highlighted = false
     }
     
 }

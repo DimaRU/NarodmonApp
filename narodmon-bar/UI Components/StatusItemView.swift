@@ -19,11 +19,10 @@ final class StatusItemView: NSView {
                                       NSAttributedStringKey.foregroundColor: NSColor.controlTextColor ]
     private static let normalText = [ NSAttributedStringKey.font: NSFont.systemFont(ofSize: 14),
                                       NSAttributedStringKey.foregroundColor: NSColor.controlTextColor ]
-    static private let padding: CGFloat = 3.0
+    static private let padding: CGFloat = 4.0
 
     var dataStore: AppDataStore!
     var sensorLabels: [(String, NSColor?)] = []
-    var darkMode = false
 
     var isTinyText = true {
         didSet {
@@ -31,14 +30,6 @@ final class StatusItemView: NSView {
         }
     }
     
-	var grayOut = false {
-		didSet {
-			if grayOut != oldValue {
-				needsDisplay = true
-			}
-		}
-	}
-
 	var highlighted = false {
 		didSet {
 			if highlighted != oldValue {
@@ -103,7 +94,7 @@ final class StatusItemView: NSView {
 	public func sizeToFit() {
         let textAttributes = isTinyText ? StatusItemView.tinyText : StatusItemView.normalText
 
-        var offset: CGFloat = 0
+        var offset: CGFloat = StatusItemView.padding
         var prevWidth: CGFloat = 0
         for (i, (sensorLabel, _)) in sensorLabels.enumerated() {
             let width = round(sensorLabel.size(withAttributes: textAttributes).width)
@@ -131,25 +122,14 @@ final class StatusItemView: NSView {
 
         let textAttributes = isTinyText ? StatusItemView.tinyText : StatusItemView.normalText
 		var countAttributes = textAttributes
-		var foregroundColor: NSColor = NSColor.controlTextColor
 
-		if highlighted {
-			foregroundColor = .selectedMenuItemTextColor
-		} else if darkMode {
-			foregroundColor = .selectedMenuItemTextColor
-        }
-
-		if grayOut {
-            foregroundColor = NSColor.disabledControlTextColor
-		}
-
-        var offset: CGFloat = 0
+        var offset: CGFloat = StatusItemView.padding
         var prevWidth: CGFloat = 0
         var width: CGFloat
         for (i, (sensorLabel, color)) in sensorLabels.enumerated() {
             var drawPoint: NSPoint
 
-            countAttributes[NSAttributedStringKey.foregroundColor] = color ?? foregroundColor
+            countAttributes[NSAttributedStringKey.foregroundColor] = color ?? NSColor.controlTextColor
             let attributed = NSMutableAttributedString(string: sensorLabel, attributes: countAttributes)
 
             width = round(sensorLabel.size(withAttributes: textAttributes).width)
