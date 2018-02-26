@@ -444,6 +444,12 @@
                                 <action selector="openMapAction:" target="rPt-NT-nkU" id="6Q6-3d-5GK"/>
                             </connections>
                         </menuItem>
+                        <menuItem title="Always on top" tag="1" identifier="AlwaysOnTop" id="bVj-Su-Kqo">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="alwaysOnTopToggle:" target="rPt-NT-nkU" id="s2e-vg-Al4"/>
+                            </connections>
+                        </menuItem>
                         <menuItem isSeparatorItem="YES" id="PqL-Qc-l3I"/>
                         <menuItem title="Quit NarodmonApp" keyEquivalent="q" id="eYi-Ed-a5W">
                             <connections>

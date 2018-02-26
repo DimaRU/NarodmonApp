@@ -104,7 +104,7 @@ extension AppDelegate: NSPopoverDelegate {
     // Invoked on the delegate to when the popover was detached.
     // Note: Invoked only if AppKit provides the window for this popover.
     func popoverDidDetach(_ popover: NSPopover) {
-        proxyWindow?.level = .normal
+        proxyWindow?.level = Defaults[.AlwaysOnTop] ? NSWindow.Level.statusBar : .normal
         statusView.highlighted = false
     }
     
