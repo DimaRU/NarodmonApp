@@ -31,9 +31,12 @@ class PrefsCellView: NSTableCellView, NSTextFieldDelegate {
     func setContent(sensor: Sensor, dataStore: AppDataStore) {
         self.dataStore = dataStore
         sensorId = sensor.id
-        sensorNameLabel.stringValue = sensor.name
-        sensorValueLabel?.stringValue = "\(sensor.value)\(sensor.unit)"
-        checkBox?.state = dataStore.selectedWindowSensors.contains(sensor.id) ? .on : .off
+        if let (value, unit, color) = dataStore.sensorData(for: sensorId) {
+            sensorNameLabel.stringValue = sensor.name
+            sensorValueLabel?.stringValue = "\(value)\(unit)"
+            sensorValueLabel?.textColor = color ?? .controlTextColor
+        }
+        checkBox?.state = dataStore.selectedWindowSensors.contains(sensorId) ? .on : .off
         sensorMinTextField?.delegate = self
         sensorMaxTextField?.delegate = self
         let formater = NumberFormatter()
