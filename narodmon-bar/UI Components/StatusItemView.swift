@@ -22,7 +22,7 @@ final class StatusItemView: NSView {
     static private let padding: CGFloat = 3.0
 
     var dataStore: AppDataStore!
-    var sensorLabels: [String] = []
+    var sensorLabels: [(String, NSColor?)] = []
     var darkMode = false
 
     var isTinyText = true {
@@ -65,7 +65,7 @@ final class StatusItemView: NSView {
             self.dataRefreshed()
         }
 
-        sensorLabels = [NSLocalizedString("Loading...", comment: "Status bar message")]
+        sensorLabels = [(NSLocalizedString("Loading...", comment: "Status bar message"), nil)]
 	}
 
 	required init?(coder: NSCoder) {
@@ -76,25 +76,25 @@ final class StatusItemView: NSView {
 		tappedCallback()
 	}
     
-    private func formatedSensorLabels() -> [String] {
-        var labels: [String] = []
+    private func formatedSensorLabels() -> [(String, NSColor?)] {
+        var labels: [(String, NSColor?)] = []
 
         for id in dataStore.selectedBarSensors {
-            guard let (value, unit) = dataStore.sensorData(for: id) else { continue }
+            guard let (value, unit, color) = dataStore.sensorData(for: id) else { continue }
             let label = String.init(format: "%.0f", value) + unit
-            labels.append(label)
+            labels.append((label, color))
         }
         return labels.isEmpty ? [
-            NSLocalizedString("No", comment: "Empty status bar message part1"),
-            NSLocalizedString("sensors", comment: "Empty status bar message part2")
+            (NSLocalizedString("No", comment: "Empty status bar message part1"), nil),
+            (NSLocalizedString("sensors", comment: "Empty status bar message part2"), nil)
             ] : labels
     }
     
     func dataRefreshed() {
         let newSensorLabels = formatedSensorLabels()
-        if sensorLabels == newSensorLabels {
-            return
-        }
+//        if sensorLabels == newSensorLabels {
+//            return
+//        }
         sensorLabels = newSensorLabels
         sizeToFit()
     }
@@ -105,7 +105,7 @@ final class StatusItemView: NSView {
 
         var offset: CGFloat = 0
         var prevWidth: CGFloat = 0
-        for (i, sensorLabel) in sensorLabels.enumerated() {
+        for (i, (sensorLabel, _)) in sensorLabels.enumerated() {
             let width = round(sensorLabel.size(withAttributes: textAttributes).width)
             if isTinyText {
                 if i % 2 == 0 {
@@ -131,30 +131,27 @@ final class StatusItemView: NSView {
 
         let textAttributes = isTinyText ? StatusItemView.tinyText : StatusItemView.normalText
 		var countAttributes = textAttributes
-		var foreground: NSColor
+		var foregroundColor: NSColor = NSColor.controlTextColor
 
 		if highlighted {
-			foreground = .selectedMenuItemTextColor
-			countAttributes[NSAttributedStringKey.foregroundColor] = foreground
+			foregroundColor = .selectedMenuItemTextColor
 		} else if darkMode {
-			foreground = .selectedMenuItemTextColor
-			if countAttributes[NSAttributedStringKey.foregroundColor] as! NSColor == NSColor.controlTextColor {
-				countAttributes[NSAttributedStringKey.foregroundColor] = foreground
-			}
-		} else {
-			foreground = .controlTextColor
-		}
+			foregroundColor = .selectedMenuItemTextColor
+        }
 
 		if grayOut {
-			countAttributes[NSAttributedStringKey.foregroundColor] = NSColor.disabledControlTextColor
+            foregroundColor = NSColor.disabledControlTextColor
 		}
 
         var offset: CGFloat = 0
         var prevWidth: CGFloat = 0
         var width: CGFloat
-        for (i, sensorLabel) in sensorLabels.enumerated() {
+        for (i, (sensorLabel, color)) in sensorLabels.enumerated() {
             var drawPoint: NSPoint
+
+            countAttributes[NSAttributedStringKey.foregroundColor] = color ?? foregroundColor
             let attributed = NSMutableAttributedString(string: sensorLabel, attributes: countAttributes)
+
             width = round(sensorLabel.size(withAttributes: textAttributes).width)
             if isTinyText {
                 if i % 2 == 0 {

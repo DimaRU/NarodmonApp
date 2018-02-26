@@ -59,14 +59,22 @@ final class AppDataStore {
         return !selectedDevices.isEmpty && !selectedBarSensors.isEmpty
     }
     
-    func sensorData(for id: Int) -> (value: Double, unit: String)? {
+    func sensorData(for id: Int) -> (value: Double, unit: String, color: NSColor?)? {
         for device in devices {
             if let sensor = device.sensors.first(where: { $0.id == id }) {
                 let unit = sensor.unit
+                var value = sensor.value
                 if let sensorValue = (sensorValues.first { $0.id == id }) {
-                    return (sensorValue.value, unit)
+                    value = sensorValue.value
                 }
-                return (sensor.value, unit)
+                var color: NSColor? = nil
+                if let min = sensorsMin[id], value < min {
+                    color = colorMin
+                }
+                if let max = sensorsMax[id], value > max {
+                    color = colorMax
+                }
+                return (sensor.value, unit, color)
             }
         }
         return nil

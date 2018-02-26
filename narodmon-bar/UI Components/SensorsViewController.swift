@@ -132,8 +132,8 @@ extension SensorsViewController: NSTableViewDataSource {
         case let sensor as Sensor:
             guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? SensorCellView
                 else { return nil }
-            if let (value, unit) = dataStore.sensorData(for: sensor.id) {
-                sensorCell.setContent(sensor: sensor, value: value, unit: unit)
+            if let (value, unit, color) = dataStore.sensorData(for: sensor.id) {
+                sensorCell.setContent(sensor: sensor, value: value, unit: unit, color: color)
                 return sensorCell
             }
             return nil

@@ -13,8 +13,9 @@ class SensorCellView: NSTableCellView {
     @IBOutlet weak var sensorNameLabel: NSTextField!
     @IBOutlet weak var sensorValueLabel: NSTextField!
     
-    func setContent(sensor: Sensor, value: Double, unit: String) {
+    func setContent(sensor: Sensor, value: Double, unit: String, color: NSColor?) {
         sensorNameLabel.stringValue = sensor.name
         sensorValueLabel.stringValue = "\(value)\(unit)"
+        sensorValueLabel.textColor = color ?? NSColor.controlTextColor
     }
 }
