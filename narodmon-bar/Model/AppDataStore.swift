@@ -74,7 +74,7 @@ final class AppDataStore {
                 if let max = sensorsMax[id], value > max {
                     color = colorMax
                 }
-                return (sensor.value, unit, color)
+                return (value, unit, color)
             }
         }
         return nil
