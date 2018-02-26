@@ -40,17 +40,12 @@ final class AppDataStore {
         Defaults[.SelectedDevices] = selectedDevices
         Defaults[.SelectedBarSensors] = selectedBarSensors
         Defaults[.SelectedWindowSensors] = Array<Int>(selectedWindowSensors)
-        var dict: [String:Double] = [:]
-        for (key, Value) in sensorsMin {
-            dict[String(key)] = Value
-        }
-        Defaults[.SensorsMin] = dict
-        dict = [:]
-        for (key, Value) in sensorsMax {
-            dict[String(key)] = Value
-        }
-        Defaults[.SensorsMax] = dict
-        
+
+        let minArray = sensorsMin.map { (String($0), $1) }
+        Defaults[.SensorsMin] = Dictionary.init(uniqueKeysWithValues: minArray)
+        let maxArray = sensorsMax.map { (String($0), $1) }
+        Defaults[.SensorsMax] = Dictionary.init(uniqueKeysWithValues: maxArray)
+
         Defaults[.ColorMin] = colorMin
         Defaults[.ColorMax] = colorMax
     }
