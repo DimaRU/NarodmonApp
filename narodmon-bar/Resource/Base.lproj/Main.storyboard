@@ -538,6 +538,34 @@
                                     <action selector="launchSwichAction:" target="278-Yc-YEz" id="DKR-i5-N9e"/>
                                 </connections>
                             </button>
+                            <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f4v-U9-7A3">
+                                <rect key="frame" x="167" y="181" width="44" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </colorWell>
+                            <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C7e-Jx-sJ0">
+                                <rect key="frame" x="167" y="150" width="44" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </colorWell>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jpd-zH-VPO">
+                                <rect key="frame" x="18" y="184" width="102" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Low value color:" id="S9n-iM-h7r">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zAZ-B1-LjC">
+                                <rect key="frame" x="18" y="153" width="106" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="High value color:" id="Z9L-YK-LHX">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dEG-sO-VPb" secondAttribute="trailing" constant="20" symbolic="YES" id="3dA-Hk-Wv9"/>
@@ -557,6 +585,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="colorMax" destination="C7e-Jx-sJ0" id="ZMq-U4-cgE"/>
+                        <outlet property="colorMin" destination="f4v-U9-7A3" id="zia-z8-DPO"/>
                         <outlet property="emailTextField" destination="3ZW-92-v8z" id="whf-hR-9Mm"/>
                         <outlet property="launchSwitch" destination="dEG-sO-VPb" id="vlN-WP-Cua"/>
                         <outlet property="passwordTextField" destination="i2u-qO-JqM" id="Ot8-tI-cp7"/>

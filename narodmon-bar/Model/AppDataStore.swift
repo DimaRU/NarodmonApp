@@ -12,7 +12,10 @@ final class AppDataStore {
     var selectedBarSensors: [Int] = []          // Selected bar sensors
     var sensorsMin: [Int:Double] = [:]
     var sensorsMax: [Int:Double] = [:]
-
+    
+    var colorMin: NSColor!
+    var colorMax: NSColor!
+    
     var devices: [SensorsOnDevice] = []         // Discovered devices
     var sensorValues: [SensorValue] = []        // Current sensors value
     
@@ -29,6 +32,8 @@ final class AppDataStore {
         for (key,value) in Defaults[.SensorsMax] {
             sensorsMax[Int(key)!] = value as? Double
         }
+        colorMin = Defaults[.ColorMin] ?? .blue
+        colorMax = Defaults[.ColorMax] ?? .red
     }
     
     func saveDefaults() {
@@ -45,6 +50,9 @@ final class AppDataStore {
             dict[String(key)] = Value
         }
         Defaults[.SensorsMax] = dict
+        
+        Defaults[.ColorMin] = colorMin
+        Defaults[.ColorMax] = colorMax
     }
     
     func selectionExist() -> Bool {

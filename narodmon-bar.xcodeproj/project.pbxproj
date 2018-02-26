@@ -238,11 +238,11 @@
 		0A6D89C51FC5CC9000034A67 /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
-				0AA40A3B1FE295780089585B /* GeneralSettingsViewController.swift */,
 				0AA40A3A1FE295780089585B /* PreferencesViewController.swift */,
+				0AA40A3B1FE295780089585B /* GeneralSettingsViewController.swift */,
+				0AA40A391FE295770089585B /* SensorSettingsViewController.swift */,
 				0AA40A381FE295770089585B /* PrefsCellView.swift */,
 				0AA40A3C1FE295780089585B /* SelectTableView.swift */,
-				0AA40A391FE295770089585B /* SensorSettingsViewController.swift */,
 				0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */,
 				0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */,
 				0AB311871FD557D500ED680F /* SensorCellView.swift */,

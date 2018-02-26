@@ -4,6 +4,13 @@
 
 import SwiftyUserDefaults
 
+extension UserDefaults {
+    subscript(key: DefaultsKey<NSColor?>) -> NSColor? {
+        get { return unarchive(key) }
+        set { archive(key, newValue) }
+    }
+}
+
 extension DefaultsKeys {
     static let Launchcount = DefaultsKey<Int>("LaunchCount")
     static let LaunchOnLogin = DefaultsKey<Bool>("LaunchOnLogin")
@@ -14,7 +21,8 @@ extension DefaultsKeys {
     static let SelectedBarSensors = DefaultsKey<[Int]>("SelectedBarSensors")
     static let SensorsMin = DefaultsKey<[String: Any]>("SensorsMin")
     static let SensorsMax = DefaultsKey<[String: Any]>("SensorsMax")
-
+    static let ColorMin = DefaultsKey<NSColor?>("ColorMin")
+    static let ColorMax = DefaultsKey<NSColor?>("ColorMax")
     static let TinyFont = DefaultsKey<Bool>("TinyFont")
 }
 

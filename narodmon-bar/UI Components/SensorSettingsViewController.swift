@@ -15,7 +15,7 @@ protocol DeviceIdDelegate {
 
 class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
 
-    var dataStore: AppDataStore!
+    weak var dataStore: AppDataStore!
     
     private var devicesSensorsList: [Any] = []
     private var deviceCellStyle = 0
