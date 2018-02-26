@@ -237,9 +237,11 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
     ///
     /// - Returns: operation
     func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
+        guard let draggingSource = info.draggingSource() as? SelectTableView else {
+            return []
+        }
         currentItemDragOperation = []
         let toRow = row
-        let draggingSource = info.draggingSource() as! SelectTableView
         
         if tableView == favoriteTableView {
             let fromRow = dragRow(from: info.draggingPasteboard())
