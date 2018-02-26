@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SwiftyUserDefaults
 
 class SensorsViewController: NSViewController {
     
@@ -14,7 +15,7 @@ class SensorsViewController: NSViewController {
     private var deviceListObserver: NotificationObserver?
     private var dataObserver: NotificationObserver?
     private var popupSensorsObserver: NotificationObserver?
-    var deviceCellStyle = 0
+    private var deviceCellStyle = 0
     private let deviceCellId = ["DeviceCell1", "DeviceCell2", "DeviceCell3"]
     
     weak var dataStore: AppDataStore!
@@ -41,15 +42,19 @@ class SensorsViewController: NSViewController {
     }
     
     override func viewDidLoad() {
+        deviceCellStyle = Defaults[.DeviceCellStyle]
+        if deviceCellStyle >= deviceCellId.count {
+            deviceCellStyle = 0
+        }
         devicesSensorsList = dataStore.windowSelectionsList()
         setToolbarTitle()
     }
 
-    public func windowDidDetach() {
-        closeButton.isHidden = false
-        setViewSizeOnContent()
-    }
-
+//    public func windowDidDetach() {
+//        closeButton.isHidden = false
+//        setViewSizeOnContent()
+//    }
+//
     public func windowWillShow() {
         addObservers()
         reloadData()
@@ -147,6 +152,7 @@ extension SensorsViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
         if devicesSensorsList[row] is SensorsOnDevice {
             deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
+            Defaults[.DeviceCellStyle] = deviceCellStyle
             sensorsTableView.reloadData()
             setViewSizeOnContent()
         }

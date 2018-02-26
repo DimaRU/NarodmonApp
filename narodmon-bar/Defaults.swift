@@ -24,6 +24,7 @@ extension DefaultsKeys {
     static let ColorMin = DefaultsKey<NSColor?>("ColorMin")
     static let ColorMax = DefaultsKey<NSColor?>("ColorMax")
     static let TinyFont = DefaultsKey<Bool>("TinyFont")
+    static let DeviceCellStyle = DefaultsKey<Int>("DeviceCellStyle")
 }
 
 
