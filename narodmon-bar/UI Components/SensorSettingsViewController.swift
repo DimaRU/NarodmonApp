@@ -13,9 +13,10 @@ protocol DeviceIdDelegate {
     func add(device id: Int)
 }
 
-class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
+class SensorSettingsViewController: NSViewController {
 
     weak var dataStore: AppDataStore!
+    weak var mapViewController: NSViewController? = nil
     
     private var devicesSensorsList: [Any] = []
     private var deviceCellStyle = 0
@@ -38,8 +39,15 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let viewController = segue.destinationController as? DeviceIDViewCotroller else { return }
-        viewController.delegate = self
+        switch segue.destinationController {
+        case let viewController as DeviceIDViewCotroller:
+            viewController.delegate = self
+        case let viewController as MapViewController:
+            viewController.delegate = self
+            mapViewController = viewController
+        default:
+            break
+        }
     }
 
     override func viewDidLoad() {
@@ -55,20 +63,25 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: .deviceListChangedNotification, object: nil)
     }
     
-    @objc func refreshData() {
-        devicesSensorsList = dataStore.devicesSensorsList()
-        sensorsTableView.reloadData()
-        favoriteTableView.reloadData()
-    }
-    
     deinit {
         NotificationCenter.default.removeObserver(self, name: .deviceListChangedNotification, object: nil)
     }
     
     override func viewWillDisappear() {
         dataStore.saveDefaults()
+        mapViewController?.view.window?.performClose(nil)
     }
         
+    @objc func refreshData() {
+        devicesSensorsList = dataStore.devicesSensorsList()
+        sensorsTableView.reloadData()
+        favoriteTableView.reloadData()
+    }
+    
+
+}
+
+extension SensorSettingsViewController: DeviceIdDelegate {
     func add(device id: Int) {
         guard !dataStore.selectedDevices.contains(id) else {
             let alert = NSAlert()
@@ -88,11 +101,7 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
                 e.displayAlert()
         }
     }
-
 }
-
-
-
 
 extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {

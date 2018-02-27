@@ -74,7 +74,6 @@ class PrefsCellView: NSTableCellView, NSTextFieldDelegate {
         case sensorMaxTextField!:
             dataStore.sensorsMax[sensorId] = value
         default:
-            print(textField)
             fatalError()
         }
         postNotification(name: .dataChangedNotification)

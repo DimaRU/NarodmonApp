@@ -602,29 +602,87 @@
             </objects>
             <point key="canvasLocation" x="1045.5" y="172.5"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="gzn-p1-haJ">
+            <objects>
+                <viewController showSeguePresentationStyle="single" id="3Wn-v6-ltx" customClass="MapViewController" customModule="NarodmonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Goj-c5-gH8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="660-AV-PrG">
+                                <rect key="frame" x="18" y="8" width="157" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose device and press" id="rTq-uA-RiC">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="rHC-Am-RJR">
+                                <rect key="frame" x="0.0" y="33" width="600" height="467"/>
+                            </customView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MSX-44-PFF">
+                                <rect key="frame" x="177" y="8" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="Rac-cL-dIA"/>
+                                    <constraint firstAttribute="height" constant="16" id="ueg-d6-gd6"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="chain" id="f9m-Vg-aLx"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iQx-PC-Nyh">
+                                <rect key="frame" x="195" y="8" width="30" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="icon" id="OS2-lp-qew">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="660-AV-PrG" secondAttribute="bottom" constant="8" id="0LS-2g-qdH"/>
+                            <constraint firstItem="660-AV-PrG" firstAttribute="top" secondItem="rHC-Am-RJR" secondAttribute="bottom" constant="8" id="3BM-oT-hJ4"/>
+                            <constraint firstItem="rHC-Am-RJR" firstAttribute="top" secondItem="Goj-c5-gH8" secondAttribute="top" id="5wi-4B-5wD"/>
+                            <constraint firstItem="iQx-PC-Nyh" firstAttribute="leading" secondItem="MSX-44-PFF" secondAttribute="trailing" constant="4" id="A97-KU-fJb"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iQx-PC-Nyh" secondAttribute="trailing" constant="20" symbolic="YES" id="B7D-aj-mIR"/>
+                            <constraint firstItem="MSX-44-PFF" firstAttribute="centerY" secondItem="660-AV-PrG" secondAttribute="centerY" id="NV5-Zt-vwo"/>
+                            <constraint firstItem="rHC-Am-RJR" firstAttribute="leading" secondItem="Goj-c5-gH8" secondAttribute="leading" id="PmD-Me-j3F"/>
+                            <constraint firstAttribute="trailing" secondItem="rHC-Am-RJR" secondAttribute="trailing" id="Z13-Ze-KLI"/>
+                            <constraint firstItem="iQx-PC-Nyh" firstAttribute="centerY" secondItem="660-AV-PrG" secondAttribute="centerY" id="pDr-dc-YS5"/>
+                            <constraint firstItem="MSX-44-PFF" firstAttribute="leading" secondItem="660-AV-PrG" secondAttribute="trailing" constant="4" id="uIb-vo-c0o"/>
+                            <constraint firstItem="660-AV-PrG" firstAttribute="leading" secondItem="Goj-c5-gH8" secondAttribute="leading" constant="20" symbolic="YES" id="yPm-t7-4Ua"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="rHC-Am-RJR" id="VQb-Up-dSF"/>
+                    </connections>
+                </viewController>
+                <customObject id="b99-He-nWd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="322" y="828"/>
+        </scene>
         <!--Sensors-->
         <scene sceneID="KEA-Ky-VSa">
             <objects>
                 <viewController title="Sensors" id="dl9-43-ndJ" customClass="SensorSettingsViewController" customModule="NarodmonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="rJE-2d-CWI">
-                        <rect key="frame" x="0.0" y="0.0" width="516" height="444"/>
+                        <rect key="frame" x="0.0" y="0.0" width="516" height="454"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <splitView arrangesAllSubviews="NO" dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fmb-oA-Vgi">
-                                <rect key="frame" x="20" y="52" width="476" height="372"/>
+                                <rect key="frame" x="20" y="53" width="476" height="381"/>
                                 <subviews>
                                     <customView id="caX-Jv-B36">
-                                        <rect key="frame" x="0.0" y="0.0" width="233" height="372"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="233" height="381"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <scrollView autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ouf-Wb-QPg">
-                                                <rect key="frame" x="0.0" y="21" width="233" height="351"/>
+                                                <rect key="frame" x="0.0" y="21" width="233" height="360"/>
                                                 <clipView key="contentView" id="17z-qV-Hsm">
-                                                    <rect key="frame" x="1" y="1" width="231" height="349"/>
+                                                    <rect key="frame" x="1" y="1" width="231" height="358"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="18" viewBased="YES" id="IdJ-rQ-Uq8" customClass="SelectTableView" customModule="NarodmonApp" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="231" height="349"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="231" height="358"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <size key="intercellSpacing" width="3" height="2"/>
                                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -649,7 +707,7 @@
                                                                             <subviews>
                                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="qFy-Ym-zvw">
                                                                                     <rect key="frame" x="0.0" y="2" width="214" height="14"/>
-                                                                                    <textFieldCell key="cell" controlSize="mini" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Location" id="mmY-hU-axc">
+                                                                                    <textFieldCell key="cell" controlSize="mini" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" alignment="left" title="Location" id="mmY-hU-axc">
                                                                                         <font key="font" size="11" name="Helvetica"/>
                                                                                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                         <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
@@ -665,7 +723,7 @@
                                                                                 </textField>
                                                                             </subviews>
                                                                             <constraints>
-                                                                                <constraint firstItem="qFy-Ym-zvw" firstAttribute="leading" relation="lessThanOrEqual" secondItem="bEr-IN-eq7" secondAttribute="leading" constant="2" id="06l-ov-k8z"/>
+                                                                                <constraint firstItem="qFy-Ym-zvw" firstAttribute="leading" secondItem="bEr-IN-eq7" secondAttribute="leading" constant="2" id="06l-ov-k8z"/>
                                                                                 <constraint firstItem="qFy-Ym-zvw" firstAttribute="top" secondItem="bEr-IN-eq7" secondAttribute="top" constant="2" id="FR8-tJ-vDU"/>
                                                                                 <constraint firstItem="DdW-oT-VYt" firstAttribute="centerY" secondItem="bEr-IN-eq7" secondAttribute="centerY" id="SsU-gp-HVv"/>
                                                                                 <constraint firstAttribute="bottom" secondItem="qFy-Ym-zvw" secondAttribute="bottom" constant="2" id="VH7-Mb-47G"/>
@@ -703,7 +761,7 @@
                                                                             </subviews>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="bottom" secondItem="ah5-DM-xci" secondAttribute="bottom" constant="2" id="7Vx-AN-W4A"/>
-                                                                                <constraint firstItem="ah5-DM-xci" firstAttribute="leading" relation="lessThanOrEqual" secondItem="v1I-OJ-Usk" secondAttribute="leading" constant="2" id="H78-NW-n3v"/>
+                                                                                <constraint firstItem="ah5-DM-xci" firstAttribute="leading" secondItem="v1I-OJ-Usk" secondAttribute="leading" constant="2" id="H78-NW-n3v"/>
                                                                                 <constraint firstItem="0E1-nx-dn5" firstAttribute="centerY" secondItem="v1I-OJ-Usk" secondAttribute="centerY" id="P7O-cs-Z0C"/>
                                                                                 <constraint firstItem="ah5-DM-xci" firstAttribute="top" secondItem="v1I-OJ-Usk" secondAttribute="top" constant="2" id="Z1z-66-vVp"/>
                                                                                 <constraint firstItem="0E1-nx-dn5" firstAttribute="leading" secondItem="ah5-DM-xci" secondAttribute="trailing" constant="4" id="pzZ-Rn-cFW"/>
@@ -800,11 +858,11 @@
                                                                                     </textFieldCell>
                                                                                 </textField>
                                                                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XvV-wV-djG" userLabel="min">
-                                                                                    <rect key="frame" x="128" y="-2" width="50" height="22"/>
+                                                                                    <rect key="frame" x="128" y="1" width="50" height="17"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="50" id="nxo-D2-ALn"/>
                                                                                     </constraints>
-                                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="low" drawsBackground="YES" id="yUU-jE-lV7">
+                                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" placeholderString="low" drawsBackground="YES" id="yUU-jE-lV7">
                                                                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="7MH-Cw-pJk"/>
                                                                                         <font key="font" metaFont="system"/>
                                                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -812,11 +870,11 @@
                                                                                     </textFieldCell>
                                                                                 </textField>
                                                                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RKb-m6-OF1" userLabel="max">
-                                                                                    <rect key="frame" x="178" y="-2" width="50" height="22"/>
+                                                                                    <rect key="frame" x="178" y="1" width="50" height="17"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="50" id="0on-v1-y25"/>
                                                                                     </constraints>
-                                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="high" drawsBackground="YES" id="AHh-gL-W6s">
+                                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" placeholderString="high" drawsBackground="YES" id="AHh-gL-W6s">
                                                                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="2MU-vD-1Y5"/>
                                                                                         <font key="font" metaFont="system"/>
                                                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -894,14 +952,14 @@
                                         </constraints>
                                     </customView>
                                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="ngb-f1-r4i">
-                                        <rect key="frame" x="243" y="0.0" width="233" height="372"/>
+                                        <rect key="frame" x="243" y="0.0" width="233" height="381"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <clipView key="contentView" id="FV1-7I-PNz">
-                                            <rect key="frame" x="1" y="1" width="231" height="370"/>
+                                            <rect key="frame" x="1" y="1" width="231" height="379"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="18" viewBased="YES" id="DFs-Rr-z8q" customClass="SelectTableView" customModule="NarodmonApp" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="231" height="370"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="231" height="379"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1007,25 +1065,25 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BPl-IR-caR">
-                                <rect key="frame" x="14" y="6" width="103" height="32"/>
-                                <buttonCell key="cell" type="push" title="Open map" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ooL-Uw-O6r">
+                                <rect key="frame" x="14" y="9" width="128" height="32"/>
+                                <buttonCell key="cell" type="push" title="Pick from map" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ooL-Uw-O6r">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="openMapAction:" target="1sc-v7-6id" id="jvC-Jn-5xE"/>
+                                    <segue destination="3Wn-v6-ltx" kind="show" id="pCs-PS-O18"/>
                                 </connections>
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="FME-CF-0UX" firstAttribute="top" secondItem="fmb-oA-Vgi" secondAttribute="bottom" constant="18" id="A3b-xf-NNj"/>
-                            <constraint firstItem="BPl-IR-caR" firstAttribute="top" secondItem="fmb-oA-Vgi" secondAttribute="bottom" constant="18" id="PlY-T6-l6r"/>
+                            <constraint firstItem="BPl-IR-caR" firstAttribute="top" secondItem="fmb-oA-Vgi" secondAttribute="bottom" constant="16" id="PlY-T6-l6r"/>
                             <constraint firstAttribute="trailing" secondItem="fmb-oA-Vgi" secondAttribute="trailing" constant="20" symbolic="YES" id="SXt-TS-gAL"/>
                             <constraint firstItem="fmb-oA-Vgi" firstAttribute="leading" secondItem="rJE-2d-CWI" secondAttribute="leading" constant="20" symbolic="YES" id="TqM-gM-Jpz"/>
                             <constraint firstItem="fmb-oA-Vgi" firstAttribute="top" secondItem="rJE-2d-CWI" secondAttribute="top" constant="20" symbolic="YES" id="ZVc-pa-Pf3"/>
+                            <constraint firstItem="FME-CF-0UX" firstAttribute="centerY" secondItem="BPl-IR-caR" secondAttribute="centerY" id="aTz-jS-mPJ"/>
                             <constraint firstItem="FME-CF-0UX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BPl-IR-caR" secondAttribute="trailing" constant="8" id="b2Z-L5-uBB"/>
                             <constraint firstAttribute="trailing" secondItem="FME-CF-0UX" secondAttribute="trailing" constant="20" symbolic="YES" id="eOu-Q5-gDh"/>
-                            <constraint firstAttribute="bottom" secondItem="FME-CF-0UX" secondAttribute="bottom" constant="20" symbolic="YES" id="nsQ-ko-A9i"/>
+                            <constraint firstAttribute="bottom" secondItem="BPl-IR-caR" secondAttribute="bottom" constant="16" id="qzU-Up-gvR"/>
                             <constraint firstItem="BPl-IR-caR" firstAttribute="leading" secondItem="rJE-2d-CWI" secondAttribute="leading" constant="20" symbolic="YES" id="rCT-41-KUh"/>
                         </constraints>
                     </view>
@@ -1037,12 +1095,12 @@
                 </viewController>
                 <customObject id="1sc-v7-6id" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1046" y="629"/>
+            <point key="canvasLocation" x="1046" y="634"/>
         </scene>
-        <!--Enter device ID-->
+        <!--Add monitoring device-->
         <scene sceneID="GUn-kL-9Q0">
             <objects>
-                <viewController title="Enter device ID" id="R4a-uh-vxc" customClass="DeviceIDViewCotroller" customModule="NarodmonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add monitoring device" id="R4a-uh-vxc" customClass="DeviceIDViewCotroller" customModule="NarodmonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="2iB-yj-2Ob">
                         <rect key="frame" x="0.0" y="0.0" width="241" height="153"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1113,6 +1171,7 @@ Gw
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSAdvanced" width="32" height="32"/>
         <image name="NSPreferencesGeneral" width="32" height="32"/>
+        <image name="chain" width="16" height="16"/>
         <image name="close-x" width="1000" height="1000"/>
         <image name="gear" width="1000" height="1000"/>
     </resources>

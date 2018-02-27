@@ -78,7 +78,6 @@ class SensorsViewController: NSViewController {
         dataObserver = NotificationObserver(forName: .dataChangedNotification) {
             self.sensorsTableView.reloadData()
             self.setToolbarTitle()
-            print("Update data")
         }
         deviceListObserver = NotificationObserver(forName: .deviceListChangedNotification) {
             self.reloadData()
@@ -99,8 +98,7 @@ class SensorsViewController: NSViewController {
             return
         }
         let lastUpdateTime = dataStore.lastUpdate()
-        let interval = -Int(lastUpdateTime.timeIntervalSinceNow)
-        print(lastUpdateTime, interval)
+        //let interval = -Int(lastUpdateTime.timeIntervalSinceNow)
         let updateString = NSLocalizedString("Last update: ", comment: "last update in title bar")
         toolbarTitle.stringValue = updateString + DateFormatter.localizedString(from: lastUpdateTime, dateStyle: .none, timeStyle: .short)
     }

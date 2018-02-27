@@ -10,13 +10,13 @@ import Cocoa
 
 class DeviceIDViewCotroller: NSViewController {
     
-    var delegate: DeviceIdDelegate!
+    var delegate: DeviceIdDelegate? = nil
 
     @IBOutlet weak var deviceIDfield: NSTextField!
     
     @IBAction func okButtonPress(_ sender: NSButton) {
         if let id = Int(deviceIDfield.stringValue) {
-            delegate.add(device: id)
+            delegate?.add(device: id)
         }
         dismiss(sender)
     }

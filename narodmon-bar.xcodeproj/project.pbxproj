@@ -28,6 +28,7 @@
 		0A756287200261490033269C /* LaunchOnLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A756286200261490033269C /* LaunchOnLogin.swift */; };
 		0A7968CB20067ADF008F97D9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A7968CD20067ADF008F97D9 /* Localizable.strings */; };
 		0A7968D420067ED0008F97D9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A7968D620067ED0008F97D9 /* InfoPlist.strings */; };
+		0A8AFE1320457F96001A2DBF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AFE1220457F96001A2DBF /* MapViewController.swift */; };
 		0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */; };
 		0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E01FBB3CFC00D72378 /* Assets.xcassets */; };
 		0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E21FBB3CFD00D72378 /* Main.storyboard */; };
@@ -119,6 +120,7 @@
 		0A7968CF20067B34008F97D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		0A7968D020067B35008F97D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0A7968D520067ED0008F97D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0A8AFE1220457F96001A2DBF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		0A9194D91FBB3CFC00D72378 /* NarodmonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NarodmonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A9194E01FBB3CFC00D72378 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 		0A6D89C51FC5CC9000034A67 /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
+				0A8AFE1220457F96001A2DBF /* MapViewController.swift */,
 				0AA40A3A1FE295780089585B /* PreferencesViewController.swift */,
 				0AA40A3B1FE295780089585B /* GeneralSettingsViewController.swift */,
 				0AA40A391FE295770089585B /* SensorSettingsViewController.swift */,
@@ -649,6 +652,7 @@
 				0A5F1DC3201F69C600B00A54 /* ErrorReport.swift in Sources */,
 				0ABEA4CD1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift in Sources */,
 				0A9AF9FB1FD000C200F5B5BB /* AppDataStore.swift in Sources */,
+				0A8AFE1320457F96001A2DBF /* MapViewController.swift in Sources */,
 				0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */,
 				0A9195251FBB463F00D72378 /* APIKeys.swift in Sources */,
 				0A9195031FBB416000D72378 /* SensorsValues.swift in Sources */,
