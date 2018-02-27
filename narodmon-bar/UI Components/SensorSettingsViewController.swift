@@ -83,6 +83,8 @@ class SensorSettingsViewController: NSViewController {
 
 extension SensorSettingsViewController: DeviceIdDelegate {
     func add(device id: Int) {
+        parent?.view.window?.makeKeyAndOrderFront(nil)
+        
         guard !dataStore.selectedDevices.contains(id) else {
             let alert = NSAlert()
             alert.messageText = NSLocalizedString("Add device", comment: "Add device")
