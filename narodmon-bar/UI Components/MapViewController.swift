@@ -14,8 +14,8 @@ import JavaScriptCore
 class MapViewController: NSViewController, WKUIDelegate, WKScriptMessageHandler {
 
     var delegate: DeviceIdDelegate? = nil
-    @IBOutlet weak var mapView: NSView!
-    
+
+    var titlebarViewController: NSTitlebarAccessoryViewController!
     var webView: WKWebView!
     let url = URL(string: NSLocalizedString("https://narodmon.ru", comment: "Map View url"))!
     let handlerName = "narodmonbarHandler"
@@ -32,15 +32,19 @@ function whenPageFullyLoaded(e) {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
+        titlebarViewController = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "MapTitlebarViewController")) as! NSTitlebarAccessoryViewController
+        titlebarViewController.layoutAttribute = .left
 
         let request = URLRequest(url: url)
         webView.load(request)
-      
     }
     
     override func viewWillAppear() {
-        view.window?.title = url.absoluteString
-        view.window?.styleMask = [.titled, .closable, .resizable, .unifiedTitleAndToolbar]
+        guard let window = view.window else { return }
+        window.styleMask = [.titled, .closable, .resizable, .unifiedTitleAndToolbar]
+        //window.titlebarAppearsTransparent = true
+        window.title = ""
+        view.window?.addTitlebarAccessoryViewController(titlebarViewController)
     }
 
     func setupWebView() {
@@ -57,11 +61,11 @@ function whenPageFullyLoaded(e) {
         webView.uiDelegate = self
 
         webView.translatesAutoresizingMaskIntoConstraints = false
-        mapView.addSubview(webView)
-        webView.leadingAnchor.constraint(equalTo: mapView.leadingAnchor).isActive = true
-        webView.trailingAnchor.constraint(equalTo: mapView.trailingAnchor).isActive = true
-        webView.topAnchor.constraint(equalTo: mapView.topAnchor).isActive = true
-        webView.bottomAnchor.constraint(equalTo: mapView.bottomAnchor).isActive = true
+        view.addSubview(webView)
+        webView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        webView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        webView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        webView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {

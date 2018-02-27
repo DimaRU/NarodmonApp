@@ -609,56 +609,59 @@
                     <view key="view" id="Goj-c5-gH8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="b99-He-nWd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="322" y="828"/>
+        </scene>
+        <!--Map Titlebar Accessory View Controller-->
+        <scene sceneID="Iq2-c1-mJP">
+            <objects>
+                <viewController storyboardIdentifier="MapTitlebarViewController" id="QIe-zJ-Of3" userLabel="Map Titlebar Accessory View Controller" customClass="NSTitlebarAccessoryViewController" sceneMemberID="viewController">
+                    <view key="view" id="NzM-a9-VOo">
+                        <rect key="frame" x="0.0" y="0.0" width="356" height="21"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="660-AV-PrG">
-                                <rect key="frame" x="18" y="8" width="157" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose device and press" id="rTq-uA-RiC">
-                                    <font key="font" metaFont="system"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Bs-YL-87j">
+                                <rect key="frame" x="18" y="2" width="165" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose device and press" id="Cpx-Fm-F6Q">
+                                    <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="rHC-Am-RJR">
-                                <rect key="frame" x="0.0" y="33" width="600" height="467"/>
-                            </customView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MSX-44-PFF">
-                                <rect key="frame" x="177" y="8" width="16" height="16"/>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ex1-F3-bYo">
+                                <rect key="frame" x="185" y="2" width="16" height="16"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="16" id="Rac-cL-dIA"/>
-                                    <constraint firstAttribute="height" constant="16" id="ueg-d6-gd6"/>
+                                    <constraint firstAttribute="width" constant="16" id="7bZ-uy-Ohd"/>
+                                    <constraint firstAttribute="height" constant="16" id="pqj-8a-psL"/>
                                 </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="chain" id="f9m-Vg-aLx"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="chain" id="Lrn-B6-7zt"/>
                             </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iQx-PC-Nyh">
-                                <rect key="frame" x="195" y="8" width="30" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="icon" id="OS2-lp-qew">
-                                    <font key="font" metaFont="system"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="epo-GO-tOB">
+                                <rect key="frame" x="203" y="2" width="32" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="icon" id="shb-yb-Qcb">
+                                    <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="660-AV-PrG" secondAttribute="bottom" constant="8" id="0LS-2g-qdH"/>
-                            <constraint firstItem="660-AV-PrG" firstAttribute="top" secondItem="rHC-Am-RJR" secondAttribute="bottom" constant="8" id="3BM-oT-hJ4"/>
-                            <constraint firstItem="rHC-Am-RJR" firstAttribute="top" secondItem="Goj-c5-gH8" secondAttribute="top" id="5wi-4B-5wD"/>
-                            <constraint firstItem="iQx-PC-Nyh" firstAttribute="leading" secondItem="MSX-44-PFF" secondAttribute="trailing" constant="4" id="A97-KU-fJb"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iQx-PC-Nyh" secondAttribute="trailing" constant="20" symbolic="YES" id="B7D-aj-mIR"/>
-                            <constraint firstItem="MSX-44-PFF" firstAttribute="centerY" secondItem="660-AV-PrG" secondAttribute="centerY" id="NV5-Zt-vwo"/>
-                            <constraint firstItem="rHC-Am-RJR" firstAttribute="leading" secondItem="Goj-c5-gH8" secondAttribute="leading" id="PmD-Me-j3F"/>
-                            <constraint firstAttribute="trailing" secondItem="rHC-Am-RJR" secondAttribute="trailing" id="Z13-Ze-KLI"/>
-                            <constraint firstItem="iQx-PC-Nyh" firstAttribute="centerY" secondItem="660-AV-PrG" secondAttribute="centerY" id="pDr-dc-YS5"/>
-                            <constraint firstItem="MSX-44-PFF" firstAttribute="leading" secondItem="660-AV-PrG" secondAttribute="trailing" constant="4" id="uIb-vo-c0o"/>
-                            <constraint firstItem="660-AV-PrG" firstAttribute="leading" secondItem="Goj-c5-gH8" secondAttribute="leading" constant="20" symbolic="YES" id="yPm-t7-4Ua"/>
+                            <constraint firstItem="ex1-F3-bYo" firstAttribute="centerY" secondItem="4Bs-YL-87j" secondAttribute="centerY" id="2pD-Ve-QUN"/>
+                            <constraint firstItem="epo-GO-tOB" firstAttribute="leading" secondItem="ex1-F3-bYo" secondAttribute="trailing" constant="4" id="RyR-sg-cbA"/>
+                            <constraint firstItem="epo-GO-tOB" firstAttribute="centerY" secondItem="4Bs-YL-87j" secondAttribute="centerY" id="Y5g-ty-13k"/>
+                            <constraint firstItem="4Bs-YL-87j" firstAttribute="leading" secondItem="NzM-a9-VOo" secondAttribute="leading" constant="20" symbolic="YES" id="aKg-sh-yqF"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="epo-GO-tOB" secondAttribute="trailing" constant="20" symbolic="YES" id="dWb-Qj-oZV"/>
+                            <constraint firstItem="4Bs-YL-87j" firstAttribute="centerY" secondItem="NzM-a9-VOo" secondAttribute="centerY" id="g7T-uZ-5wl"/>
+                            <constraint firstItem="ex1-F3-bYo" firstAttribute="leading" secondItem="4Bs-YL-87j" secondAttribute="trailing" constant="4" id="vMJ-lR-6Mc"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="mapView" destination="rHC-Am-RJR" id="VQb-Up-dSF"/>
-                    </connections>
                 </viewController>
-                <customObject id="b99-He-nWd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="7Tc-xW-J9t" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="322" y="828"/>
+            <point key="canvasLocation" x="-177" y="588.5"/>
         </scene>
         <!--Sensors-->
         <scene sceneID="KEA-Ky-VSa">
