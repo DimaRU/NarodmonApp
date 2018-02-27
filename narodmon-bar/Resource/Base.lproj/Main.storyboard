@@ -804,7 +804,7 @@
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="50" id="nxo-D2-ALn"/>
                                                                                     </constraints>
-                                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="min" drawsBackground="YES" id="yUU-jE-lV7">
+                                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="low" drawsBackground="YES" id="yUU-jE-lV7">
                                                                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="7MH-Cw-pJk"/>
                                                                                         <font key="font" metaFont="system"/>
                                                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -816,7 +816,7 @@
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="50" id="0on-v1-y25"/>
                                                                                     </constraints>
-                                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="max" drawsBackground="YES" id="AHh-gL-W6s">
+                                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="high" drawsBackground="YES" id="AHh-gL-W6s">
                                                                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="2MU-vD-1Y5"/>
                                                                                         <font key="font" metaFont="system"/>
                                                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
