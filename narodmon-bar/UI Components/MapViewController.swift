@@ -17,7 +17,7 @@ class MapViewController: NSViewController, WKUIDelegate, WKScriptMessageHandler 
 
     var titlebarViewController: NSTitlebarAccessoryViewController!
     var webView: WKWebView!
-    let url = URL(string: NSLocalizedString("https://narodmon.ru", comment: "Map View url"))!
+    let url = URL(string: NSLocalizedString("https://narodmon.com", comment: "Map View url"))!
     let handlerName = "narodmonbarHandler"
     let shareScript: String = """
 window.addEventListener("load", whenPageFullyLoaded, false);

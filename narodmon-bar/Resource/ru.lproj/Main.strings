@@ -16,8 +16,14 @@
 /* Class = "NSTextFieldCell"; title = "Value"; ObjectID = "ACH-pe-0Ki"; */
 "ACH-pe-0Ki.title" = "Value";
 
+/* Class = "NSTextFieldCell"; placeholderString = "high"; ObjectID = "AHh-gL-W6s"; */
+"AHh-gL-W6s.placeholderString" = "верхний";
+
 /* Class = "NSTextFieldCell"; title = "Password:"; ObjectID = "Ayp-ob-PDT"; */
 "Ayp-ob-PDT.title" = "Пароль:";
+
+/* Class = "NSTextFieldCell"; title = "Choose device and press"; ObjectID = "Cpx-Fm-F6Q"; */
+"Cpx-Fm-F6Q.title" = "Выберите устройство и нажмите";
 
 /* Class = "NSButtonCell"; title = "Use larger font"; ObjectID = "Gj0-0D-VU2"; */
 "Gj0-0D-VU2.title" = "Использовать большой шрифт";
@@ -31,16 +37,22 @@
 /* Class = "NSTextFieldCell"; title = "Value"; ObjectID = "MwQ-Zu-NJM"; */
 "MwQ-Zu-NJM.title" = "Value";
 
-/* Class = "NSViewController"; title = "Enter device ID"; ObjectID = "R4a-uh-vxc"; */
+/* Class = "NSViewController"; title = "Add monitoring device"; ObjectID = "R4a-uh-vxc"; */
 "R4a-uh-vxc.title" = "Введите ID устройства";
 
 /* Class = "NSButtonCell"; title = "Ok"; ObjectID = "RGA-kC-Frr"; */
 "RGA-kC-Frr.title" = "Ok";
 
+/* Class = "NSTextFieldCell"; title = "Low value color:"; ObjectID = "S9n-iM-h7r"; */
+"S9n-iM-h7r.title" = "Цвет нижнего порога:";
+
+/* Class = "NSTextFieldCell"; title = "High value color:"; ObjectID = "Z9L-YK-LHX"; */
+"Z9L-YK-LHX.title" = "Цвет верхнего порога:";
+
 /* Class = "NSTextFieldCell"; title = "Value"; ObjectID = "aRA-Jg-PJw"; */
 "aRA-Jg-PJw.title" = "Value";
 
-/* Class = "NSTextFieldCell"; title = "id"; ObjectID = "bL6-KL-N3b"; */
+/* Class = "NSTextFieldCell"; title = "Id"; ObjectID = "bL6-KL-N3b"; */
 "bL6-KL-N3b.title" = "name";
 
 /* Class = "NSTextFieldCell"; title = "Name"; ObjectID = "bNO-EL-I2C"; */
@@ -49,7 +61,7 @@
 /* Class = "NSViewController"; title = "Sensors"; ObjectID = "dl9-43-ndJ"; */
 "dl9-43-ndJ.title" = "Сенсоры меню";
 
-/* Class = "NSMenuItem"; title = "Quit NarodmonBar"; ObjectID = "eYi-Ed-a5W"; */
+/* Class = "NSMenuItem"; title = "Quit NarodmonApp"; ObjectID = "eYi-Ed-a5W"; */
 "eYi-Ed-a5W.title" = "Закрыть Народный мониторинг";
 
 /* Class = "NSTextFieldCell"; title = "Menu bar sensors"; ObjectID = "emB-DY-BPc"; */
@@ -58,8 +70,11 @@
 /* Class = "NSTextFieldCell"; title = "No sensors defined"; ObjectID = "hAx-IK-3LD"; */
 "hAx-IK-3LD.title" = "Сенсоры не определены";
 
-/* Class = "NSMenuItem"; title = "About NarodmonBar"; ObjectID = "hRf-YU-pNR"; */
+/* Class = "NSMenuItem"; title = "About NarodmonApp"; ObjectID = "hRf-YU-pNR"; */
 "hRf-YU-pNR.title" = "О программе Народный мониторинг";
+
+/* Class = "NSMenuItem"; title = "Open map"; ObjectID = "in2-bJ-Dwd"; */
+"in2-bJ-Dwd.title" = "Открыть карту";
 
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "iqT-MI-4tF"; */
 "iqT-MI-4tF.title" = "Text Cell";
@@ -79,6 +94,15 @@
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "oc6-7d-rJB"; */
 "oc6-7d-rJB.title" = "Text Cell";
 
+/* Class = "NSButtonCell"; title = "Pick from map"; ObjectID = "ooL-Uw-O6r"; */
+"ooL-Uw-O6r.title" = "Выбрать на карте";
+
 /* Class = "NSTextFieldCell"; title = "name"; ObjectID = "rLw-bv-mf7"; */
 "rLw-bv-mf7.title" = "name";
+
+/* Class = "NSTextFieldCell"; title = "icon"; ObjectID = "shb-yb-Qcb"; */
+"shb-yb-Qcb.title" = "";
+
+/* Class = "NSTextFieldCell"; placeholderString = "low"; ObjectID = "yUU-jE-lV7"; */
+"yUU-jE-lV7.placeholderString" = "нижний";
 

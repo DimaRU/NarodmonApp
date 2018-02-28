@@ -96,7 +96,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @IBAction func openMapAction(_ sender: Any) {
-        let url = NSLocalizedString("http://narodmon.com", comment: "Open map URL")
+        let url = NSLocalizedString("https://narodmon.com", comment: "Open map URL")
         NSWorkspace.shared.open(URL(string: url)!)
     }
     
