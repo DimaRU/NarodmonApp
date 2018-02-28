@@ -1,3 +1,4 @@
+
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "0V6-QT-IhP"; */
 "0V6-QT-IhP.title" = "Text Cell";
 
@@ -106,3 +107,116 @@
 /* Class = "NSTextFieldCell"; placeholderString = "low"; ObjectID = "yUU-jE-lV7"; */
 "yUU-jE-lV7.placeholderString" = "нижний";
 
+/* Class = "NSMenuItem"; title = "narodmon-bar"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "";
+
+/* Class = "NSTextFieldCell"; title = "name"; ObjectID = "3LG-tT-CSf"; */
+"3LG-tT-CSf.title" = "";
+
+/* Class = "NSMenuItem"; title = "Enter Full Screen"; ObjectID = "4J7-dP-txa"; */
+"4J7-dP-txa.title" = "";
+
+/* Class = "NSMenuItem"; title = "Quit narodmon-bar"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "5QF-Oa-p0T"; */
+"5QF-Oa-p0T.title" = "";
+
+/* Class = "NSMenuItem"; title = "About narodmon-bar"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "";
+
+/* Class = "NSMenuItem"; title = "Redo"; ObjectID = "6dh-zS-Vam"; */
+"6dh-zS-Vam.title" = "";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW"; */
+"BOF-NM-1cW.title" = "";
+
+/* Class = "NSTextFieldCell"; title = "Location"; ObjectID = "D5j-qd-a9V"; */
+"D5j-qd-a9V.title" = "";
+
+/* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
+"F2S-fz-NVQ.title" = "";
+
+/* Class = "NSMenuItem"; title = "narodmon-bar Help"; ObjectID = "FKE-Sm-Kum"; */
+"FKE-Sm-Kum.title" = "";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "";
+
+/* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "LE2-aR-0XJ"; */
+"LE2-aR-0XJ.title" = "";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
+"NMo-om-nkz.title" = "";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "";
+
+/* Class = "NSMenuItem"; title = "Hide narodmon-bar"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "";
+
+/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
+"R4o-n2-Eq4.title" = "";
+
+/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "Ruw-6m-B2m"; */
+"Ruw-6m-B2m.title" = "";
+
+/* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
+"Td7-aD-5lo.title" = "";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "";
+
+/* Class = "NSMenu"; title = "Edit"; ObjectID = "W48-6f-4Dl"; */
+"W48-6f-4Dl.title" = "";
+
+/* Class = "NSMenuItem"; title = "Paste and Match Style"; ObjectID = "WeT-3V-zwk"; */
+"WeT-3V-zwk.title" = "";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
+"aUF-d1-5bR.title" = "";
+
+/* Class = "NSMenuItem"; title = "Always on top"; ObjectID = "bVj-Su-Kqo"; */
+"bVj-Su-Kqo.title" = " Поверх всех окон";
+
+/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "dRJ-4n-Yzg"; */
+"dRJ-4n-Yzg.title" = "";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "gVA-U4-sdL"; */
+"gVA-U4-sdL.title" = "";
+
+/* Class = "NSTextFieldCell"; title = "Name"; ObjectID = "ggb-QY-qJA"; */
+"ggb-QY-qJA.title" = "";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
+"hz9-B4-Xy5.title" = "";
+
+/* Class = "NSTextFieldCell"; title = "Name"; ObjectID = "l0R-Io-jg4"; */
+"l0R-Io-jg4.title" = "";
+
+/* Class = "NSTextFieldCell"; title = "Location"; ObjectID = "pPU-zA-0K9"; */
+"pPU-zA-0K9.title" = "";
+
+/* Class = "NSMenuItem"; title = "Delete"; ObjectID = "pa3-QI-u2k"; */
+"pa3-QI-u2k.title" = "";
+
+/* Class = "NSMenu"; title = "narodmon-bar"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "uRl-iY-unG"; */
+"uRl-iY-unG.title" = "";
+
+/* Class = "NSTextFieldCell"; title = "NarodmonBar"; ObjectID = "vkA-ay-i1Q"; */
+"vkA-ay-i1Q.title" = "";
+
+/* Class = "NSTextFieldCell"; title = "Location"; ObjectID = "wcV-NB-AW6"; */
+"wcV-NB-AW6.title" = "";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
+"wpr-3q-Mcd.title" = "";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "x3v-GG-iWU"; */
+"x3v-GG-iWU.title" = "";
