@@ -50,15 +50,13 @@ class SensorsViewController: NSViewController {
         setToolbarTitle()
     }
 
-//    public func windowDidDetach() {
-//        closeButton.isHidden = false
-//        setViewSizeOnContent()
-//    }
-//
+    public func windowDidDetach() {
+        closeButton.isHidden = false
+    }
+
     public func windowWillShow() {
         addObservers()
         reloadData()
-        setViewSizeOnContent()
     }
     
     public func windowWillClose() {
@@ -81,13 +79,9 @@ class SensorsViewController: NSViewController {
         }
         deviceListObserver = NotificationObserver(forName: .deviceListChangedNotification) {
             self.reloadData()
-            self.setToolbarTitle()
-            self.setViewSizeOnContent()
         }
         popupSensorsObserver = NotificationObserver(forName: .popupSensorsChangedNotification) {
             self.reloadData()
-            self.setToolbarTitle()
-            self.setViewSizeOnContent()
         }
     }
     
@@ -104,15 +98,17 @@ class SensorsViewController: NSViewController {
     }
     
     func setViewSizeOnContent() {
+        sensorsScrollView.hasVerticalScroller = false
         nextTick {
-            let size = CGSize(width: self.view.frame.size.width, height: self.sensorsTableView.fittingSize.height + self.toolbar.frame.size.height)
-            self.preferredContentSize = size
+            let heigh = self.sensorsTableView.fittingSize.height + self.toolbar.frame.size.height
+            self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: heigh)
         }
     }
 
     private func reloadData() {
         devicesSensorsList = dataStore.windowSelectionsList()
         sensorsTableView.reloadData()
+        setToolbarTitle()
     }
 }
 
@@ -122,6 +118,11 @@ extension SensorsViewController: NSTableViewDataSource {
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        if devicesSensorsList.isEmpty || row == devicesSensorsList.count - 1 {
+            // last row
+            setViewSizeOnContent()
+        }
+        
         guard !devicesSensorsList.isEmpty else {
             return tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MessageCell"), owner: self)
         }
@@ -152,7 +153,6 @@ extension SensorsViewController: NSTableViewDelegate {
             deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
             Defaults[.DeviceCellStyle] = deviceCellStyle
             sensorsTableView.reloadData()
-            setViewSizeOnContent()
         }
         return false
     }
