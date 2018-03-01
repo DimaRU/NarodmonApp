@@ -221,15 +221,14 @@
                                     <constraint firstAttribute="trailing" secondItem="9Ad-eJ-VoE" secondAttribute="trailing" constant="6" id="eUh-96-eS2"/>
                                 </constraints>
                             </view>
-                            <scrollView focusRingType="none" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="21" horizontalPageScroll="10" verticalLineScroll="21" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKn-RN-wXh">
-                                <rect key="frame" x="0.0" y="0.0" width="222" height="136"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="BtB-hD-3WG">
-                                    <rect key="frame" x="0.0" y="0.0" width="222" height="136"/>
+                            <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="21" horizontalPageScroll="10" verticalLineScroll="21" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKn-RN-wXh">
+                                <rect key="frame" x="0.0" y="5" width="222" height="131"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="BtB-hD-3WG">
+                                    <rect key="frame" x="0.0" y="0.0" width="222" height="131"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="19" usesAutomaticRowHeights="YES" viewBased="YES" floatsGroupRows="NO" id="gqo-vb-nZh">
-                                            <rect key="frame" x="0.0" y="0.0" width="222" height="136"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="222" height="131"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -416,7 +415,7 @@
                                                             </connections>
                                                         </tableCellView>
                                                         <tableCellView identifier="SensorCell" id="cQF-Gl-hUe" userLabel="Sensor Cell View" customClass="SensorCellView" customModule="NarodmonApp" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="66" width="219" height="17"/>
+                                                            <rect key="frame" x="1" y="67" width="219" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="kbv-mD-KnV">
@@ -450,7 +449,7 @@
                                                             </connections>
                                                         </tableCellView>
                                                         <tableCellView identifier="MessageCell" id="j6x-pI-eGp" userLabel="Message Cell View">
-                                                            <rect key="frame" x="1" y="85" width="219" height="19"/>
+                                                            <rect key="frame" x="1" y="86" width="219" height="19"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="zN4-xJ-8Jk">
@@ -485,7 +484,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="deviceWhite"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="d6P-RB-AKK">
-                                    <rect key="frame" x="0.0" y="-15" width="0.0" height="15"/>
+                                    <rect key="frame" x="0.0" y="-16" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="ayu-kw-Sil">
@@ -496,11 +495,16 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="PMc-DI-Hgb" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="5bs-LQ-zmT"/>
+                            <constraint firstAttribute="bottom" secondItem="hKn-RN-wXh" secondAttribute="bottom" constant="5" id="HqN-cu-Yag"/>
                             <constraint firstAttribute="trailing" secondItem="PMc-DI-Hgb" secondAttribute="trailing" id="QZg-io-6a7"/>
+                            <constraint firstItem="hKn-RN-wXh" firstAttribute="top" secondItem="PMc-DI-Hgb" secondAttribute="bottom" id="btw-0L-gQ4"/>
+                            <constraint firstAttribute="trailing" secondItem="hKn-RN-wXh" secondAttribute="trailing" id="etr-ba-pgL"/>
+                            <constraint firstItem="hKn-RN-wXh" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="qCG-rX-pDA"/>
                             <constraint firstItem="PMc-DI-Hgb" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="udc-xV-Ynl"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomPadConstraint" destination="HqN-cu-Yag" id="4df-as-XId"/>
                         <outlet property="closeButton" destination="hJ3-h8-YWz" id="3KX-0U-OLt"/>
                         <outlet property="sensorsScrollView" destination="hKn-RN-wXh" id="SGr-9r-ljx"/>
                         <outlet property="sensorsTableView" destination="gqo-vb-nZh" id="mVg-Pl-Uui"/>

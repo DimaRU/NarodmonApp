@@ -27,6 +27,7 @@ class SensorsViewController: NSViewController {
     
     @IBOutlet weak var sensorsTableView: NSTableView!
     @IBOutlet weak var sensorsScrollView: NSScrollView!
+    @IBOutlet weak var bottomPadConstraint: NSLayoutConstraint!
     
     @IBAction func settingsButtonPressed(_ sender: NSButton) {
         let p = NSPoint(x: sender.frame.width/2, y: sender.frame.height/2+4)
@@ -100,7 +101,7 @@ class SensorsViewController: NSViewController {
     func setViewSizeOnContent() {
         sensorsScrollView.hasVerticalScroller = false
         nextTick {
-            let heigh = self.sensorsTableView.fittingSize.height + self.toolbar.frame.size.height
+            let heigh = self.sensorsTableView.fittingSize.height + self.toolbar.frame.size.height + self.bottomPadConstraint.constant
             self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: heigh)
         }
     }
