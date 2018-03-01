@@ -172,10 +172,10 @@
                                 <rect key="frame" x="0.0" y="136" width="222" height="25"/>
                                 <subviews>
                                     <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="9Ad-eJ-VoE" userLabel="Settings Button">
-                                        <rect key="frame" x="203" y="6" width="13" height="13"/>
+                                        <rect key="frame" x="201" y="5" width="15" height="15"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="13" id="NlB-e4-ZlI"/>
-                                            <constraint firstAttribute="height" constant="13" id="nxA-dm-5Om"/>
+                                            <constraint firstAttribute="width" constant="15" id="NlB-e4-ZlI"/>
+                                            <constraint firstAttribute="height" constant="15" id="nxA-dm-5Om"/>
                                         </constraints>
                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="gear" imagePosition="only" alignment="center" alternateImage="gear" continuous="YES" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="jkZ-ku-ta3">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -215,7 +215,7 @@
                                     <constraint firstItem="ZAN-Yb-h32" firstAttribute="centerX" secondItem="PMc-DI-Hgb" secondAttribute="centerX" id="44E-yw-wvE"/>
                                     <constraint firstItem="ZAN-Yb-h32" firstAttribute="centerY" secondItem="PMc-DI-Hgb" secondAttribute="centerY" id="9bd-LS-Puy"/>
                                     <constraint firstItem="hJ3-h8-YWz" firstAttribute="top" secondItem="PMc-DI-Hgb" secondAttribute="top" constant="6" id="Kur-uI-aRq"/>
-                                    <constraint firstItem="9Ad-eJ-VoE" firstAttribute="top" secondItem="PMc-DI-Hgb" secondAttribute="top" constant="6" id="Tuu-d3-MzP"/>
+                                    <constraint firstItem="9Ad-eJ-VoE" firstAttribute="top" secondItem="PMc-DI-Hgb" secondAttribute="top" constant="5" id="Tuu-d3-MzP"/>
                                     <constraint firstItem="hJ3-h8-YWz" firstAttribute="leading" secondItem="PMc-DI-Hgb" secondAttribute="leading" constant="6" id="ZlA-9a-mG9"/>
                                     <constraint firstAttribute="height" constant="25" id="cmx-o2-Szf"/>
                                     <constraint firstAttribute="trailing" secondItem="9Ad-eJ-VoE" secondAttribute="trailing" constant="6" id="eUh-96-eS2"/>
@@ -249,11 +249,33 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="DeviceCell1" id="bw7-fg-tDf" userLabel="Device Cell View1" customClass="DeviceCellView" customModule="NarodmonApp" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="1" width="219" height="19"/>
+                                                            <rect key="frame" x="1" y="1" width="219" height="20"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
+                                                                <box focusRingType="none" boxType="custom" borderType="none" borderWidth="0.0" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="t9T-qx-oGX" userLabel="Top Separator">
+                                                                    <rect key="frame" x="8" y="19" width="203" height="1"/>
+                                                                    <view key="contentView" id="63B-GQ-KL1">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="203" height="1"/>
+                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    </view>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="1" id="DLn-1w-8kN"/>
+                                                                    </constraints>
+                                                                    <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                                </box>
+                                                                <box focusRingType="none" boxType="custom" borderType="none" borderWidth="0.0" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="8Dq-v1-4EY" userLabel="Bottom Separator">
+                                                                    <rect key="frame" x="8" y="0.0" width="203" height="1"/>
+                                                                    <view key="contentView" id="VIO-xj-8D0">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="203" height="1"/>
+                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    </view>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="1" id="XHo-E0-Sxb"/>
+                                                                    </constraints>
+                                                                    <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                                </box>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="7WP-Uq-7Po">
-                                                                    <rect key="frame" x="6" y="2" width="182" height="15"/>
+                                                                    <rect key="frame" x="6" y="3" width="182" height="15"/>
                                                                     <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="left" title="Location" id="ld1-qb-FBH">
                                                                         <font key="font" size="12" name="Helvetica"/>
                                                                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
@@ -261,9 +283,9 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="755" translatesAutoresizingMaskIntoConstraints="NO" id="bfu-vl-SUw">
-                                                                    <rect key="frame" x="188" y="4" width="25" height="11"/>
+                                                                    <rect key="frame" x="188" y="5" width="25" height="11"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="40" id="Ux7-9O-7EI"/>
+                                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="Ux7-9O-7EI"/>
                                                                     </constraints>
                                                                     <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="name" id="rLw-bv-mf7">
                                                                         <font key="font" size="8" name="Helvetica"/>
@@ -276,9 +298,15 @@
                                                                 <constraint firstAttribute="trailing" secondItem="bfu-vl-SUw" secondAttribute="trailing" constant="8" id="8dX-pm-ztR"/>
                                                                 <constraint firstItem="7WP-Uq-7Po" firstAttribute="leading" secondItem="bw7-fg-tDf" secondAttribute="leading" constant="8" id="D1V-r3-rLh"/>
                                                                 <constraint firstItem="7WP-Uq-7Po" firstAttribute="top" secondItem="bw7-fg-tDf" secondAttribute="top" constant="2" id="KDD-hk-lfd"/>
+                                                                <constraint firstAttribute="bottom" secondItem="8Dq-v1-4EY" secondAttribute="bottom" id="LP6-hU-Pow"/>
+                                                                <constraint firstItem="8Dq-v1-4EY" firstAttribute="top" secondItem="7WP-Uq-7Po" secondAttribute="bottom" constant="2" id="MOM-rY-OpV"/>
+                                                                <constraint firstItem="t9T-qx-oGX" firstAttribute="top" secondItem="bw7-fg-tDf" secondAttribute="top" id="TJ1-kX-VhR"/>
+                                                                <constraint firstAttribute="trailing" secondItem="8Dq-v1-4EY" secondAttribute="trailing" constant="8" id="WJX-Nl-EWn"/>
+                                                                <constraint firstItem="8Dq-v1-4EY" firstAttribute="leading" secondItem="bw7-fg-tDf" secondAttribute="leading" constant="8" id="Xi5-kW-3NN"/>
+                                                                <constraint firstItem="t9T-qx-oGX" firstAttribute="leading" secondItem="bw7-fg-tDf" secondAttribute="leading" constant="8" id="g1y-n2-RxC"/>
+                                                                <constraint firstAttribute="trailing" secondItem="t9T-qx-oGX" secondAttribute="trailing" constant="8" id="iVp-O1-Bz0"/>
                                                                 <constraint firstItem="bfu-vl-SUw" firstAttribute="centerY" secondItem="bw7-fg-tDf" secondAttribute="centerY" id="oNZ-be-PZz"/>
                                                                 <constraint firstItem="bfu-vl-SUw" firstAttribute="leading" secondItem="7WP-Uq-7Po" secondAttribute="trailing" constant="4" id="qab-bE-hqy"/>
-                                                                <constraint firstAttribute="bottom" secondItem="7WP-Uq-7Po" secondAttribute="bottom" constant="2" id="sLt-6M-m1D"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="deviceLocationLabel" destination="7WP-Uq-7Po" id="FrS-bV-xlK"/>
@@ -286,7 +314,7 @@
                                                             </connections>
                                                         </tableCellView>
                                                         <tableCellView identifier="DeviceCell2" id="Xiu-2x-6tl" userLabel="Device Cell View2" customClass="DeviceCellView" customModule="NarodmonApp" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="22" width="219" height="20"/>
+                                                            <rect key="frame" x="1" y="23" width="219" height="20"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="RBb-6W-T5l">
@@ -297,7 +325,7 @@
                                                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </textFieldCell>
                                                                 </textField>
-                                                                <box focusRingType="none" boxType="custom" borderType="none" borderWidth="0.0" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="bLe-zL-2Kb" userLabel="Separator">
+                                                                <box focusRingType="none" boxType="custom" borderType="none" borderWidth="0.0" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="bLe-zL-2Kb" userLabel="Top Separator">
                                                                     <rect key="frame" x="8" y="19" width="203" height="1"/>
                                                                     <view key="contentView" id="Gcp-q1-x4V">
                                                                         <rect key="frame" x="0.0" y="0.0" width="203" height="1"/>
@@ -308,8 +336,8 @@
                                                                     </constraints>
                                                                     <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                 </box>
-                                                                <box focusRingType="none" boxType="custom" borderType="none" borderWidth="0.0" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="pP4-dF-Oek" userLabel="Separator B">
-                                                                    <rect key="frame" x="8" y="1" width="203" height="1"/>
+                                                                <box focusRingType="none" boxType="custom" borderType="none" borderWidth="0.0" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="pP4-dF-Oek" userLabel="Bottom Separator">
+                                                                    <rect key="frame" x="8" y="0.0" width="203" height="1"/>
                                                                     <view key="contentView" id="WLV-MD-3eT">
                                                                         <rect key="frame" x="0.0" y="0.0" width="203" height="1"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -322,13 +350,13 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="RBb-6W-T5l" firstAttribute="top" secondItem="Xiu-2x-6tl" secondAttribute="top" constant="2" id="3Ny-WL-bQp"/>
+                                                                <constraint firstItem="pP4-dF-Oek" firstAttribute="top" secondItem="RBb-6W-T5l" secondAttribute="bottom" constant="2" id="QZk-0e-tQg"/>
                                                                 <constraint firstItem="RBb-6W-T5l" firstAttribute="leading" secondItem="Xiu-2x-6tl" secondAttribute="leading" constant="8" id="RMF-zq-Y6p"/>
                                                                 <constraint firstItem="pP4-dF-Oek" firstAttribute="leading" secondItem="Xiu-2x-6tl" secondAttribute="leading" constant="8" id="VeX-SE-ldi"/>
-                                                                <constraint firstAttribute="bottom" secondItem="RBb-6W-T5l" secondAttribute="bottom" constant="3" id="Xad-xT-bCg"/>
                                                                 <constraint firstItem="bLe-zL-2Kb" firstAttribute="top" secondItem="Xiu-2x-6tl" secondAttribute="top" id="dzv-Ba-wPs"/>
                                                                 <constraint firstItem="bLe-zL-2Kb" firstAttribute="leading" secondItem="Xiu-2x-6tl" secondAttribute="leading" constant="8" id="fqM-yc-Knp"/>
                                                                 <constraint firstAttribute="trailing" secondItem="pP4-dF-Oek" secondAttribute="trailing" constant="8" id="hcF-X6-Dei"/>
-                                                                <constraint firstAttribute="bottom" secondItem="pP4-dF-Oek" secondAttribute="bottom" constant="1" id="mNS-QY-JPX"/>
+                                                                <constraint firstAttribute="bottom" secondItem="pP4-dF-Oek" secondAttribute="bottom" id="mNS-QY-JPX"/>
                                                                 <constraint firstAttribute="trailing" secondItem="bLe-zL-2Kb" secondAttribute="trailing" constant="8" id="oKj-wA-VkP"/>
                                                                 <constraint firstAttribute="trailing" secondItem="RBb-6W-T5l" secondAttribute="trailing" constant="8" id="tD2-lD-mn1"/>
                                                             </constraints>
@@ -337,30 +365,58 @@
                                                             </connections>
                                                         </tableCellView>
                                                         <tableCellView identifier="DeviceCell3" id="PrL-MF-kal" userLabel="Device Cell View3" customClass="DeviceCellView" customModule="NarodmonApp" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="43" width="219" height="19"/>
+                                                            <rect key="frame" x="1" y="45" width="219" height="20"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="755" translatesAutoresizingMaskIntoConstraints="NO" id="7bX-Mq-qmO">
-                                                                    <rect key="frame" x="6" y="2" width="207" height="15"/>
+                                                                    <rect key="frame" x="6" y="3" width="207" height="15"/>
                                                                     <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="name" id="3LG-tT-CSf">
                                                                         <font key="font" size="12" name="Helvetica"/>
                                                                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                                                     </textFieldCell>
                                                                 </textField>
+                                                                <box focusRingType="none" boxType="custom" borderType="none" borderWidth="0.0" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="pgA-7z-Tb4" userLabel="Top Separator">
+                                                                    <rect key="frame" x="8" y="19" width="203" height="1"/>
+                                                                    <view key="contentView" id="lSA-dJ-fXT">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="203" height="1"/>
+                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    </view>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="1" id="0Oz-5h-V7s"/>
+                                                                    </constraints>
+                                                                    <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                                </box>
+                                                                <box focusRingType="none" boxType="custom" borderType="none" borderWidth="0.0" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="YkL-wb-xCU" userLabel="Bottom Separator">
+                                                                    <rect key="frame" x="8" y="0.0" width="203" height="1"/>
+                                                                    <view key="contentView" id="82g-Rm-YOK">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="203" height="1"/>
+                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    </view>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="1" id="Bo9-QK-Rwz"/>
+                                                                    </constraints>
+                                                                    <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                                </box>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstItem="YkL-wb-xCU" firstAttribute="top" secondItem="7bX-Mq-qmO" secondAttribute="bottom" constant="2" id="1tJ-AC-CR4"/>
+                                                                <constraint firstItem="pgA-7z-Tb4" firstAttribute="top" secondItem="PrL-MF-kal" secondAttribute="top" id="9gO-l4-Z9F"/>
                                                                 <constraint firstItem="7bX-Mq-qmO" firstAttribute="leading" secondItem="PrL-MF-kal" secondAttribute="leading" constant="8" id="Jd8-YI-iA7"/>
+                                                                <constraint firstAttribute="trailing" secondItem="pgA-7z-Tb4" secondAttribute="trailing" constant="8" id="Kvv-Fv-Hdd"/>
+                                                                <constraint firstAttribute="bottom" secondItem="YkL-wb-xCU" secondAttribute="bottom" id="NtL-KX-xnm"/>
                                                                 <constraint firstItem="7bX-Mq-qmO" firstAttribute="top" secondItem="PrL-MF-kal" secondAttribute="top" constant="2" id="RLU-VE-4ay"/>
                                                                 <constraint firstAttribute="trailing" secondItem="7bX-Mq-qmO" secondAttribute="trailing" constant="8" id="aFB-m0-abx"/>
-                                                                <constraint firstAttribute="bottom" secondItem="7bX-Mq-qmO" secondAttribute="bottom" constant="2" id="atF-jd-pPg"/>
+                                                                <constraint firstItem="YkL-wb-xCU" firstAttribute="leading" secondItem="PrL-MF-kal" secondAttribute="leading" constant="8" id="aUO-RQ-KJT"/>
+                                                                <constraint firstAttribute="trailing" secondItem="YkL-wb-xCU" secondAttribute="trailing" constant="8" id="k0F-tf-BhW"/>
+                                                                <constraint firstItem="pgA-7z-Tb4" firstAttribute="leading" secondItem="PrL-MF-kal" secondAttribute="leading" constant="8" id="sJN-EI-LhB"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="deviceNameLabel" destination="7bX-Mq-qmO" id="m6J-n9-fBM"/>
                                                             </connections>
                                                         </tableCellView>
                                                         <tableCellView identifier="SensorCell" id="cQF-Gl-hUe" userLabel="Sensor Cell View" customClass="SensorCellView" customModule="NarodmonApp" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="64" width="219" height="17"/>
+                                                            <rect key="frame" x="1" y="66" width="219" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="kbv-mD-KnV">
@@ -429,7 +485,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="deviceWhite"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="d6P-RB-AKK">
-                                    <rect key="frame" x="0.0" y="-16" width="0.0" height="16"/>
+                                    <rect key="frame" x="0.0" y="-15" width="0.0" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="ayu-kw-Sil">
