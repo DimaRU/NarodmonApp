@@ -32,8 +32,8 @@ final class AppDataStore {
         for (key,value) in Defaults[.SensorsMax] {
             sensorsMax[Int(key)!] = value as? Double
         }
-        colorMin = Defaults[.ColorMin] ?? .blue
-        colorMax = Defaults[.ColorMax] ?? .red
+        colorMin = Defaults[.ColorMin] ?? .systemBlue
+        colorMax = Defaults[.ColorMax] ?? .systemRed
     }
     
     func saveDefaults() {
