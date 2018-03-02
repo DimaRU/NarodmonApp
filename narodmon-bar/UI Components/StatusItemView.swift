@@ -129,7 +129,7 @@ final class StatusItemView: NSView {
         for (i, (sensorLabel, color)) in sensorLabels.enumerated() {
             var drawPoint: NSPoint
 
-            countAttributes[NSAttributedStringKey.foregroundColor] = color ?? NSColor.controlTextColor
+            countAttributes[NSAttributedStringKey.foregroundColor] = color ?? (highlighted ? .selectedMenuItemTextColor : .controlTextColor)
             let attributed = NSMutableAttributedString(string: sensorLabel, attributes: countAttributes)
 
             width = round(sensorLabel.size(withAttributes: textAttributes).width)
