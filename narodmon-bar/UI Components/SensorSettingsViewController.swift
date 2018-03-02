@@ -58,6 +58,7 @@ class SensorSettingsViewController: NSViewController {
         favoriteTableView.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
         favoriteTableView.setDraggingSourceOperationMask([.move, .delete], forLocal: true)
 
+        sensorsTableView.doubleAction = #selector(cellDobleClicked)
         largeFontCheckBox.state = Defaults[.TinyFont] ? .off : .on
         devicesSensorsList = dataStore.devicesSensorsList()
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: .deviceListChangedNotification, object: nil)
@@ -102,6 +103,17 @@ extension SensorSettingsViewController: DeviceIdDelegate {
                 guard let e = error as? NarodNetworkError else { error.sendFatalReport() }
                 e.displayAlert()
         }
+    }
+    
+    @objc private func cellDobleClicked(_ sender: Any) {
+        switch devicesSensorsList[sensorsTableView.clickedRow] {
+        case is SensorsOnDevice:
+            deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
+        case is Sensor:
+            sensorCellStyle = sensorCellId.nextIndex(sensorCellStyle)
+        default: fatalError()
+        }
+        sensorsTableView.reloadData()
     }
 }
 
@@ -169,16 +181,6 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        if tableView == sensorsTableView {
-            switch devicesSensorsList[row] {
-            case is SensorsOnDevice:
-                deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
-            case is Sensor:
-                sensorCellStyle = sensorCellId.nextIndex(sensorCellStyle)
-            default: fatalError()
-            }
-            tableView.reloadData()
-        }
         return false
     }
     

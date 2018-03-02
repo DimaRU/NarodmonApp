@@ -49,6 +49,7 @@ class SensorsViewController: NSViewController {
         }
         devicesSensorsList = dataStore.windowSelectionsList()
         setToolbarTitle()
+        sensorsTableView.doubleAction = #selector(cellDobleClicked)
     }
 
     public func windowDidDetach() {
@@ -111,6 +112,14 @@ class SensorsViewController: NSViewController {
         sensorsTableView.reloadData()
         setToolbarTitle()
     }
+    
+    @objc private func cellDobleClicked(_ sender: Any) {
+        if devicesSensorsList[sensorsTableView.clickedRow] is SensorsOnDevice {
+            deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
+            Defaults[.DeviceCellStyle] = deviceCellStyle
+            sensorsTableView.reloadData()
+        }
+    }
 }
 
 extension SensorsViewController: NSTableViewDataSource {
@@ -150,11 +159,6 @@ extension SensorsViewController: NSTableViewDataSource {
 extension SensorsViewController: NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        if devicesSensorsList[row] is SensorsOnDevice {
-            deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
-            Defaults[.DeviceCellStyle] = deviceCellStyle
-            sensorsTableView.reloadData()
-        }
         return false
     }
 }
