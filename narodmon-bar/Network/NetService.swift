@@ -5,7 +5,7 @@
 import Cocoa
 import PromiseKit
 
-struct InitService {
+struct NetService {
 
     static func appInit() -> Promise<AppInitData> {
         let dictionary = Bundle.main.infoDictionary!
@@ -108,8 +108,10 @@ struct InitService {
     static func loadDevicesDefinitions() -> Promise<Void> {
         let app = (NSApp.delegate as! AppDelegate)
         let selectedDevices = app.dataStore.selectedDevices
-        var promises: [Promise<Void>] = []
+        app.lastRequestTime = Date()
+        app.dataStore.sensorValues = []    // Invalidate
         
+        var promises: [Promise<Void>] = []
         for deviceId in selectedDevices {
             promises.append(
                 NarProvider.shared.request(.sensorsOnDevice(id: deviceId))
@@ -130,14 +132,16 @@ struct InitService {
         return when(fulfilled: promises)
     }
     
-    /// Load device data and start refreh
-    static func refreshSensorsData() {
+    /// Load device data and send notification
+    static func loadSensorsData() {
         let app = (NSApp.delegate as! AppDelegate)
         var sensors = Set<Int>(app.dataStore.selectedBarSensors)
         if app.popoverShowed {
             sensors = sensors.union(app.dataStore.selectedWindowSensors)
         }
         guard !sensors.isEmpty else { return }
+        
+        app.lastRequestTime = Date()
         
         NarProvider.shared.request(.sensorsValues(sensorIds: Array<Int>(sensors)))
             .then { (sensorsValues: SensorsValues) -> Void in
@@ -150,15 +154,4 @@ struct InitService {
         }
     }
     
-    /// Load and display data every N min
-    static func startRefreshCycle() {
-        let app = (NSApp.delegate as! AppDelegate)
-        if let timer = app.sensorsRefreshTimer {
-            timer.invalidate()
-        }
-        app.sensorsRefreshTimer = Timer.scheduledTimer(withTimeInterval: REFRESH_TIME_INTERVAL, repeats: true) {_ in
-            self.refreshSensorsData()
-        }
-
-    }
 }

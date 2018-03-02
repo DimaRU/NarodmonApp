@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1B864320496A1100DECB10 /* AppDelegateActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1B864220496A1100DECB10 /* AppDelegateActions.swift */; };
 		0A2BD37A20264E840058AAEC /* Promise+resolved.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2BD37920264E840058AAEC /* Promise+resolved.swift */; };
 		0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E11FC03230006605DC /* CwlSysctl.swift */; };
 		0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E41FC048BC006605DC /* String+MD5.swift */; };
@@ -17,7 +18,7 @@
 		0A5F1DC1201F5B8B00B00A54 /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F1DC0201F5B8B00B00A54 /* RequestResult.swift */; };
 		0A5F1DC3201F69C600B00A54 /* ErrorReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F1DC2201F69C600B00A54 /* ErrorReport.swift */; };
 		0A63DF971FCED92800C35607 /* HwUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF961FCED92800C35607 /* HwUUID.swift */; };
-		0A63DF991FCEDAED00C35607 /* InitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF981FCEDAED00C35607 /* InitService.swift */; };
+		0A63DF991FCEDAED00C35607 /* NetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF981FCEDAED00C35607 /* NetService.swift */; };
 		0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */; };
 		0A68C0BB1FDAA1FB00E7ACD4 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */; };
 		0A6D89C41FC5C37100034A67 /* md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C31FC5C37100034A67 /* md5.swift */; };
@@ -94,6 +95,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A1B864220496A1100DECB10 /* AppDelegateActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateActions.swift; sourceTree = "<group>"; };
 		0A2BD37920264E840058AAEC /* Promise+resolved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+resolved.swift"; sourceTree = "<group>"; };
 		0A37C0E11FC03230006605DC /* CwlSysctl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CwlSysctl.swift; sourceTree = "<group>"; };
 		0A37C0E41FC048BC006605DC /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
@@ -105,7 +107,7 @@
 		0A5F1DC0201F5B8B00B00A54 /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
 		0A5F1DC2201F69C600B00A54 /* ErrorReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorReport.swift; sourceTree = "<group>"; };
 		0A63DF961FCED92800C35607 /* HwUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HwUUID.swift; sourceTree = "<group>"; };
-		0A63DF981FCEDAED00C35607 /* InitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitService.swift; sourceTree = "<group>"; };
+		0A63DF981FCEDAED00C35607 /* NetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetService.swift; sourceTree = "<group>"; };
 		0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorType.swift; sourceTree = "<group>"; };
 		0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		0A6D89C31FC5C37100034A67 /* md5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = md5.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				0A4C61511FC83FAD009F7B51 /* Defaults.swift */,
 				0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */,
 				0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */,
+				0A1B864220496A1100DECB10 /* AppDelegateActions.swift */,
 			);
 			path = "narodmon-bar";
 			sourceTree = "<group>";
@@ -348,7 +351,7 @@
 				0A9195151FBB463E00D72378 /* NarodAPI.swift */,
 				0AB3DB871FBB7DC8002C0705 /* NarodNetworkError.swift */,
 				0A9195161FBB463E00D72378 /* NarProvider.swift */,
-				0A63DF981FCEDAED00C35607 /* InitService.swift */,
+				0A63DF981FCEDAED00C35607 /* NetService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */,
 				0AA40A411FE295780089585B /* SelectTableView.swift in Sources */,
 				0AB3118A1FD557E600ED680F /* DeviceCellView.swift in Sources */,
+				0A1B864320496A1100DECB10 /* AppDelegateActions.swift in Sources */,
 				0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */,
 				0AC6CC522007E5E100F2DAE0 /* SettingsTabViewController.swift in Sources */,
 				0A63DF971FCED92800C35607 /* HwUUID.swift in Sources */,
@@ -642,7 +646,7 @@
 				0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */,
 				0AE1E7002003F47400029333 /* Notifications.swift in Sources */,
 				0A9195061FBB416000D72378 /* SensorsNearby.swift in Sources */,
-				0A63DF991FCEDAED00C35607 /* InitService.swift in Sources */,
+				0A63DF991FCEDAED00C35607 /* NetService.swift in Sources */,
 				0A9AFA011FD00F1C00F5B5BB /* PopoverDelegate.swift in Sources */,
 				0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */,
 				0AD867A720403C06001C5577 /* TypedNotifications.swift in Sources */,

@@ -37,7 +37,7 @@ class GeneralSettingsViewController: NSViewController {
         KeychainService.shared[.password] = passwordTextField.stringValue == "" ? nil : passwordTextField.stringValue
         guard newEmail != nil && newPassword != nil else { return }
         
-        InitService.appLoginDiscovery()
+        NetService.appLoginDiscovery()
             .always {
                 postNotification(name: .deviceListChangedNotification)
             }

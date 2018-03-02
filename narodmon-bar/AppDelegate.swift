@@ -18,6 +18,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var sensorsViewController: SensorsViewController!
     var proxyWindow: ProxyWindow?
     public var popoverShowed = false
+    var lastRequestTime = Date() {
+        didSet {
+            print("lastRequestTime:", lastRequestTime)
+        }
+    }
     var sensorsRefreshTimer: Timer? = nil
 
     var dataStore = AppDataStore()
@@ -32,11 +37,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusView.isTinyText = Defaults[.TinyFont]
         statusView.sizeToFit()
       
-        InitService.appInit()
+        NetService.appInit()
             .then { (initData: AppInitData) -> Promise<Void> in
                 self.dataStore.initData = initData
                 if Int(initData.uid) == 0 {
-                    return InitService.appLogin()
+                    return NetService.appLogin()
                 }
                 let logonData = UserLogon(vip: initData.vip, login: initData.login, uid: initData.uid)
                 self.dataStore.logonData = logonData
@@ -53,21 +58,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .then {
                 if self.dataStore.selectedDevices.count == 0 {
                     // No devices for display, discovery it
-                    return InitService.loadDefaultDevices()
+                    return NetService.loadDefaultDevices()
                 } else {
                     return Promise.resolved()
                 }
             }
             .then {
-                InitService.loadDevicesDefinitions()
+                NetService.loadDevicesDefinitions()
             }
             .then { () -> Void in
                 self.dataStore.checkConsistency()
                 self.dataStore.saveDefaults()
                 
                 postNotification(name: .deviceListChangedNotification)
-                InitService.refreshSensorsData()
-                InitService.startRefreshCycle()
+                self.startRefreshCycle()
             }
             .catch { (error) in
                 if let e = error as? NarodNetworkError {
@@ -90,32 +94,32 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popoverShowed = showed
         
         if showed {
-            InitService.startRefreshCycle()     // restart refresh cycle
-            InitService.refreshSensorsData()
+            refreshDataNow()
         }
     }
 
-    @IBAction func openMapAction(_ sender: Any) {
-        let url = NSLocalizedString("https://narodmon.com", comment: "Open map URL")
-        NSWorkspace.shared.open(URL(string: url)!)
+    func refreshDataNow() {
+        let timeInterval = -lastRequestTime.timeIntervalSinceNow
+        print("refreshDataNow timeInterval:", timeInterval)
+        if timeInterval > MIN_REFRESH_TIME_INTERVAL {
+            NetService.loadSensorsData()
+        }
     }
     
-    @IBAction func alwaysOnTopToggle(_ sender: Any) {
-        Defaults[.AlwaysOnTop].toogle()
-        proxyWindow?.level = Defaults[.AlwaysOnTop] ? NSWindow.Level.statusBar : .normal
-        if let menuItem = sender as? NSMenuItem {
-            menuItem.state = Defaults[.AlwaysOnTop] ? .on : .off
-        }
-        
-    }
+    /// Load and display data every N min
+    @objc func startRefreshCycle() {
 
-    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        if menuItem.identifier!.rawValue == "AlwaysOnTop" {
-            menuItem.state = Defaults[.AlwaysOnTop] ? .on : .off
+        sensorsRefreshTimer = Timer.scheduledTimer(withTimeInterval: REFRESH_TIME_INTERVAL, repeats: true) { _ in
+            self.refreshDataNow()
         }
-        return true
+    }
+    
+    func applicationWillTerminate(_ notification: Notification) {
+        if let timer = sensorsRefreshTimer {
+            timer.invalidate()
+        }
+
     }
 }
-
 
 
