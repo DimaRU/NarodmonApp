@@ -17,6 +17,7 @@ class SensorsViewController: NSViewController {
     private var popupSensorsObserver: NotificationObserver?
     private var deviceCellStyle = 0
     private let deviceCellId = ["DeviceCell1", "DeviceCell2", "DeviceCell3"]
+    private var chartPopover: NSPopover? = nil
     
     weak var dataStore: AppDataStore!
 
@@ -114,10 +115,23 @@ class SensorsViewController: NSViewController {
     }
     
     @objc private func cellDobleClicked(_ sender: Any) {
-        if devicesSensorsList[sensorsTableView.clickedRow] is SensorsOnDevice {
+        switch devicesSensorsList[sensorsTableView.clickedRow] {
+        case is SensorsOnDevice:
             deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
             Defaults[.DeviceCellStyle] = deviceCellStyle
             sensorsTableView.reloadData()
+        case is Sensor:
+            sensorsTableView.selectRowIndexes(IndexSet(integer: sensorsTableView.clickedRow), byExtendingSelection: false)
+            let cellView = sensorsTableView.view(atColumn: 0, row: sensorsTableView.clickedRow, makeIfNecessary: false)!
+            chartPopover = NSPopover()
+            let chartViewController = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ChartViewController")) as? NSViewController
+            chartPopover?.contentViewController = chartViewController
+            chartPopover?.animates = true
+            chartPopover?.behavior = .transient
+            chartPopover?.show(relativeTo: .zero, of: cellView, preferredEdge: .minX)
+//            chartPopover?.delegate = self
+
+        default: fatalError()
         }
     }
 }
