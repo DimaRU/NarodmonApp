@@ -269,13 +269,20 @@ class ChartViewController: NSViewController {
             .then { history -> Void in
                 self.history = history
                 if history.isEmpty {
+                    self.chartView.noDataText = NSLocalizedString("No history data for that period", comment: "Chart view")
                     self.chartView.data = nil
                 } else {
                     self.setupChart(sensor: self.sensor)
                 }
                 self.chartView.animate(xAxisDuration: 1, easingOption: .linear)
             }.catch { error in
-                print(error)
+                self.chartView.data = nil
+                if let error = error as? NarodNetworkError {
+                    error.displayAlert()
+                } else {
+                    fatalError(error.localizedDescription)
+                }
+                
         }
     }
 }
