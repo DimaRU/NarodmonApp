@@ -152,8 +152,19 @@ extension NarProvider {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .secondsSince1970
         do {
-            let jsonAble = try decoder.decode(T.self, from: data as! Data)
-            resolve(jsonAble)
+            let data = data as! Data
+            if T.self == SensorHistory.self {
+                // Fuckin backend develpers!
+                // Bugfix empty reply is "[]"
+                if data.count == 2, data[0] == UInt8(ascii: "["), data[1] == UInt8(ascii: "]") {
+                    let sensorHistoryData: [SensorHistoryData] = []
+                    let sensorHistory = SensorHistory(data: sensorHistoryData)
+                    resolve(sensorHistory as! T)
+                    return
+                }
+            }
+            let jsonable = try decoder.decode(T.self, from: data)
+            resolve(jsonable)
         } catch {
             print(error)
             let message = error.localizedDescription

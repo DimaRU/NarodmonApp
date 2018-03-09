@@ -123,8 +123,9 @@ class SensorsViewController: NSViewController {
         case let sensor as Sensor:
             sensorsTableView.selectRowIndexes(IndexSet(integer: sensorsTableView.clickedRow), byExtendingSelection: false)
             let cellView = sensorsTableView.view(atColumn: 0, row: sensorsTableView.clickedRow, makeIfNecessary: false)!
-            let chartViewController = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ChartViewController")) as! ChartViewController
+            let chartViewController = ChartViewController.instance()
             chartViewController.sensor = sensor
+            chartViewController.location = dataStore.device(for: sensor.id)?.location ?? ""
             presentViewController(chartViewController, asPopoverRelativeTo: .zero, of: cellView, preferredEdge: .minX, behavior: .transient)
 
         default: fatalError()

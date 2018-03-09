@@ -26,6 +26,7 @@ class ChartViewController: NSViewController {
     private var historyOffset: Int = 0
     private var history: [SensorHistoryData] = []
     var sensor: Sensor!
+    var location: String!
     
     @IBAction func chartRangeSwitch(_ sender: NSButton) {
         let parentView = sender.cell?.controlView?.superview
@@ -56,6 +57,10 @@ class ChartViewController: NSViewController {
         redrawChart()
     }
 
+    public class func instance() -> ChartViewController {
+        return NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ChartViewController")) as! ChartViewController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // setup radioButtons
@@ -74,14 +79,15 @@ class ChartViewController: NSViewController {
         if historyOffset == 0 {
             nextButton.isEnabled = false
         }
+        chartView.noDataText = NSLocalizedString("No history data for that period", comment: "Chart view")
     }
     
     func prepareDataSet(history: [SensorHistoryData], sensor: Sensor) -> LineChartDataSet {
-        var dataEntries: [ChartDataEntry] = []
         var min = history.first!.value
         var max = history.first!.value
         var sum: Double = 0.0
         
+        var dataEntries: [ChartDataEntry] = []
         for (i, data) in history.enumerated() {
             let dataEntry = ChartDataEntry(x: data.time.timeIntervalSince1970, y: data.value, data: i as AnyObject)
             dataEntries.append(dataEntry)
@@ -210,8 +216,26 @@ class ChartViewController: NSViewController {
         yValueFormater.formatter?.positiveSuffix = sensor.unit
         yValueFormater.formatter?.negativeSuffix = sensor.unit
         leftAxis.valueFormatter = yValueFormater
-
         chartView.rightAxis.enabled = false
+
+        let description = Description()
+        description.font = textFont
+        description.textColor = .systemYellow
+        description.text = location
+        chartView.chartDescription = description
+
+        chartView.dragEnabled = true
+        chartView.scaleXEnabled = true
+        chartView.scaleYEnabled = false
+        chartView.pinchZoomEnabled = false
+        chartView.doubleTapToZoomEnabled = true
+        
+        chartView.legend.yOffset = 2
+        chartView.legend.enabled = true
+        chartView.legend.textColor = textColor
+        chartView.setExtraOffsets(left: 0, top: 0, right: 0, bottom: 12)
+
+        chartView.delegate = self
 
         let chartDataSet = prepareDataSet(history: history, sensor: sensor)
         
@@ -232,29 +256,8 @@ class ChartViewController: NSViewController {
         chartDataSet.highlightColor = NSUIColor.selectedControlColor
         chartDataSet.highlightEnabled = true
         
-        let description = Description()
-        description.font = textFont
-        description.textColor = .systemYellow
-        description.text = "Москва"
-        chartView.chartDescription = description
-
-        chartView.noDataText = NSLocalizedString("No history data for period", comment: "Chart view")
-        
-        chartView.dragEnabled = true
-        chartView.scaleXEnabled = true
-        chartView.scaleYEnabled = false
-        chartView.pinchZoomEnabled = false
-        chartView.doubleTapToZoomEnabled = true
-        
-        chartView.legend.yOffset = 2
-        chartView.legend.enabled = true
-        chartView.legend.textColor = textColor
-        chartView.setExtraOffsets(left: 0, top: 0, right: 0, bottom: 12)
-
-        chartView.delegate = self
         chartView.data = LineChartData(dataSet: chartDataSet)
     }
-    
 
     override func viewDidAppear() {
         redrawChart()
@@ -265,7 +268,11 @@ class ChartViewController: NSViewController {
         NetService.loadSensorHistory(id: sensor.id, period: historyPeriod, offset: historyOffset)
             .then { history -> Void in
                 self.history = history
-                self.setupChart(sensor: self.sensor)
+                if history.isEmpty {
+                    self.chartView.data = nil
+                } else {
+                    self.setupChart(sensor: self.sensor)
+                }
                 self.chartView.animate(xAxisDuration: 1, easingOption: .linear)
             }.catch { error in
                 print(error)
