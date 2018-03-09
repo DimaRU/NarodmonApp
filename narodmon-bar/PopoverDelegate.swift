@@ -10,7 +10,7 @@ extension AppDelegate: NSPopoverDelegate {
     func createContentViewController() {
         sensorsViewController = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SensorsViewController")) as! SensorsViewController
         sensorsViewController.dataStore = self.dataStore
-//        _ = sensorsViewController.view.bounds       // Early get bounds. !!! hack for proper size on first popup view
+        _ = sensorsViewController.view.bounds       // Early get bounds. !!! hack for proper size on first popup view
     }
     
     public func showPopover() {

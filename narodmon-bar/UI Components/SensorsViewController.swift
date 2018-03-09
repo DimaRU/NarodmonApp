@@ -123,13 +123,14 @@ class SensorsViewController: NSViewController {
         case is Sensor:
             sensorsTableView.selectRowIndexes(IndexSet(integer: sensorsTableView.clickedRow), byExtendingSelection: false)
             let cellView = sensorsTableView.view(atColumn: 0, row: sensorsTableView.clickedRow, makeIfNecessary: false)!
-            chartPopover = NSPopover()
-            let chartViewController = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ChartViewController")) as? NSViewController
-            chartPopover?.contentViewController = chartViewController
-            chartPopover?.animates = true
-            chartPopover?.behavior = .transient
-            chartPopover?.show(relativeTo: .zero, of: cellView, preferredEdge: .minX)
-//            chartPopover?.delegate = self
+            let chartViewController = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ChartViewController")) as! NSViewController
+            presentViewController(chartViewController, asPopoverRelativeTo: .zero, of: cellView, preferredEdge: .minX, behavior: .transient)
+//            chartPopover = NSPopover()
+//            chartPopover?.contentViewController = chartViewController
+//            chartPopover?.animates = true
+//            chartPopover?.behavior = .transient
+//            chartPopover?.show(relativeTo: .zero, of: cellView, preferredEdge: .minX)
+////            chartPopover?.delegate = self
 
         default: fatalError()
         }
