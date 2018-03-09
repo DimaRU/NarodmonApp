@@ -4,6 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -227,7 +228,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="19" usesAutomaticRowHeights="YES" viewBased="YES" floatsGroupRows="NO" id="gqo-vb-nZh">
-                                            <rect key="frame" x="0.0" y="0.0" width="222" height="204"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="222" height="131"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                             <size key="intercellSpacing" width="0.0" height="2"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -549,18 +550,152 @@
             </objects>
             <point key="canvasLocation" x="-32" y="274.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Chart View Controller-->
         <scene sceneID="s7Z-qt-ySl">
             <objects>
-                <viewController storyboardIdentifier="ChartViewController" id="bxu-cx-26A" sceneMemberID="viewController">
-                    <view key="view" id="V8z-hW-xtH">
-                        <rect key="frame" x="0.0" y="0.0" width="598" height="319"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                <viewController storyboardIdentifier="ChartViewController" id="bxu-cx-26A" customClass="ChartViewController" customModule="NarodmonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Wyp-QJ-9K2">
+                        <rect key="frame" x="0.0" y="0.0" width="710" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="q4Y-Na-Pp2" customClass="FixLineChartView" customModule="NarodmonApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="710" height="374"/>
+                            </customView>
+                            <stackView focusRingType="none" distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="1" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="baV-jf-nza">
+                                <rect key="frame" x="368" y="374" width="342" height="26"/>
+                                <subviews>
+                                    <button focusRingType="none" verticalHuggingPriority="750" tag="5" translatesAutoresizingMaskIntoConstraints="NO" id="a4T-bL-wb9">
+                                        <rect key="frame" x="4" y="3" width="66" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="66" id="Nz4-c8-6Hj"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="roundTextured" title="Year" bezelStyle="texturedRounded" alignment="center" controlSize="small" state="on" borderStyle="border" focusRingType="none" inset="2" id="eWP-VT-GWE">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                            <font key="font" metaFont="smallSystem"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="chartRangeSwitch:" target="bxu-cx-26A" id="tYY-7D-vvb"/>
+                                        </connections>
+                                    </button>
+                                    <button focusRingType="none" verticalHuggingPriority="750" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="NDh-1n-ZLe">
+                                        <rect key="frame" x="71" y="3" width="66" height="19"/>
+                                        <buttonCell key="cell" type="roundTextured" title="Month" bezelStyle="texturedRounded" alignment="center" controlSize="small" state="on" borderStyle="border" focusRingType="none" inset="2" id="GIz-mC-zYj">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                            <font key="font" metaFont="smallSystem"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="chartRangeSwitch:" target="bxu-cx-26A" id="JFF-ib-a9h"/>
+                                        </connections>
+                                    </button>
+                                    <button focusRingType="none" verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="5CC-e0-Ov4">
+                                        <rect key="frame" x="138" y="3" width="66" height="19"/>
+                                        <buttonCell key="cell" type="roundTextured" title="Week" bezelStyle="texturedRounded" alignment="center" controlSize="small" state="on" borderStyle="border" focusRingType="none" inset="2" id="fCu-rN-5TX">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                            <font key="font" metaFont="smallSystem"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="chartRangeSwitch:" target="bxu-cx-26A" id="L8g-oT-dGK"/>
+                                        </connections>
+                                    </button>
+                                    <button focusRingType="none" verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="tmt-rh-f07">
+                                        <rect key="frame" x="205" y="3" width="66" height="19"/>
+                                        <buttonCell key="cell" type="roundTextured" title="Day" bezelStyle="texturedRounded" alignment="center" controlSize="small" enabled="NO" borderStyle="border" focusRingType="none" inset="2" id="9BT-pB-MuV">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                            <font key="font" metaFont="smallSystem"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="chartRangeSwitch:" target="bxu-cx-26A" id="J3b-zj-uIu"/>
+                                        </connections>
+                                    </button>
+                                    <button focusRingType="none" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="yKb-K3-S7G">
+                                        <rect key="frame" x="272" y="3" width="66" height="19"/>
+                                        <buttonCell key="cell" type="roundTextured" title="Hour" bezelStyle="texturedRounded" alignment="center" controlSize="small" state="on" borderStyle="border" focusRingType="none" inset="2" id="W0W-q2-knP">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                            <font key="font" metaFont="smallSystem"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="chartRangeSwitch:" target="bxu-cx-26A" id="hrp-ou-Ti6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <edgeInsets key="edgeInsets" left="4" right="4" top="4" bottom="4"/>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W7a-sK-wOa">
+                                <rect key="frame" x="33" y="379" width="141" height="17"/>
+                                <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="28/12/2018 12:00 28,4" id="eo2-wW-N6m">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5ww-Lm-tIh">
+                                <rect key="frame" x="289" y="377" width="35" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="yis-VE-Bs9"/>
+                                </constraints>
+                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSLeftFacingTriangleTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="O4b-zV-F2e">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="smallSystem"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="prevButtonPress:" target="bxu-cx-26A" id="n14-q6-ozf"/>
+                                </connections>
+                            </button>
+                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kb5-Ml-4Gb">
+                                <rect key="frame" x="325" y="377" width="35" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="8S1-e1-6e0"/>
+                                </constraints>
+                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSRightFacingTriangleTemplate" imagePosition="only" alignment="center" controlSize="small" enabled="NO" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="WOW-C3-Rcd">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="smallSystem"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="nextButtonPress:" target="bxu-cx-26A" id="XUm-WI-geK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="q4Y-Na-Pp2" secondAttribute="bottom" id="6QK-dm-CZr"/>
+                            <constraint firstItem="baV-jf-nza" firstAttribute="leading" secondItem="Kb5-Ml-4Gb" secondAttribute="trailing" constant="8" symbolic="YES" id="9y6-nl-WFS"/>
+                            <constraint firstItem="baV-jf-nza" firstAttribute="top" secondItem="Wyp-QJ-9K2" secondAttribute="top" id="AUP-hs-LHI"/>
+                            <constraint firstItem="q4Y-Na-Pp2" firstAttribute="top" secondItem="baV-jf-nza" secondAttribute="bottom" id="JWY-Hv-AVI"/>
+                            <constraint firstItem="W7a-sK-wOa" firstAttribute="leading" secondItem="Wyp-QJ-9K2" secondAttribute="leading" constant="35" id="QHP-AO-rWT"/>
+                            <constraint firstItem="5ww-Lm-tIh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W7a-sK-wOa" secondAttribute="trailing" constant="4" id="XMl-Uv-mCb"/>
+                            <constraint firstItem="W7a-sK-wOa" firstAttribute="centerY" secondItem="5ww-Lm-tIh" secondAttribute="centerY" id="alS-oS-5Hv"/>
+                            <constraint firstItem="Kb5-Ml-4Gb" firstAttribute="leading" secondItem="5ww-Lm-tIh" secondAttribute="trailing" constant="1" id="bIY-AA-Gg9"/>
+                            <constraint firstItem="baV-jf-nza" firstAttribute="centerY" secondItem="Kb5-Ml-4Gb" secondAttribute="centerY" id="hwO-63-9YX"/>
+                            <constraint firstItem="q4Y-Na-Pp2" firstAttribute="leading" secondItem="Wyp-QJ-9K2" secondAttribute="leading" id="iaz-9A-tCp"/>
+                            <constraint firstAttribute="trailing" secondItem="q4Y-Na-Pp2" secondAttribute="trailing" id="jag-Fp-W92"/>
+                            <constraint firstItem="baV-jf-nza" firstAttribute="centerY" secondItem="5ww-Lm-tIh" secondAttribute="centerY" id="nax-vs-qeO"/>
+                            <constraint firstItem="baV-jf-nza" firstAttribute="trailing" secondItem="q4Y-Na-Pp2" secondAttribute="trailing" id="z95-gV-ZPO"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chartView" destination="q4Y-Na-Pp2" id="age-y2-a5q"/>
+                        <outlet property="currentDataLabel" destination="W7a-sK-wOa" id="yg0-S8-aty"/>
+                        <outlet property="nextButton" destination="Kb5-Ml-4Gb" id="PRP-b3-hXh"/>
+                        <outlet property="prevButton" destination="5ww-Lm-tIh" id="ct5-hq-qqb"/>
+                        <outlet property="radioButtonsView" destination="baV-jf-nza" id="k40-7U-DIj"/>
+                    </connections>
                 </viewController>
                 <customObject id="EU1-53-fNl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="462" y="-193.5"/>
+            <point key="canvasLocation" x="363" y="-265"/>
         </scene>
         <!--Settings Tab View Controller-->
         <scene sceneID="lAD-kE-HWV">
@@ -1274,7 +1409,9 @@ Gw
         <image name="04-eye-white" width="20" height="13"/>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSAdvanced" width="32" height="32"/>
+        <image name="NSLeftFacingTriangleTemplate" width="9" height="12"/>
         <image name="NSPreferencesGeneral" width="32" height="32"/>
+        <image name="NSRightFacingTriangleTemplate" width="9" height="12"/>
         <image name="chain" width="16" height="16"/>
         <image name="close-x" width="1000" height="1000"/>
         <image name="gear" width="1000" height="1000"/>

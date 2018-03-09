@@ -120,17 +120,12 @@ class SensorsViewController: NSViewController {
             deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
             Defaults[.DeviceCellStyle] = deviceCellStyle
             sensorsTableView.reloadData()
-        case is Sensor:
+        case let sensor as Sensor:
             sensorsTableView.selectRowIndexes(IndexSet(integer: sensorsTableView.clickedRow), byExtendingSelection: false)
             let cellView = sensorsTableView.view(atColumn: 0, row: sensorsTableView.clickedRow, makeIfNecessary: false)!
-            let chartViewController = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ChartViewController")) as! NSViewController
+            let chartViewController = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ChartViewController")) as! ChartViewController
+            chartViewController.sensor = sensor
             presentViewController(chartViewController, asPopoverRelativeTo: .zero, of: cellView, preferredEdge: .minX, behavior: .transient)
-//            chartPopover = NSPopover()
-//            chartPopover?.contentViewController = chartViewController
-//            chartPopover?.animates = true
-//            chartPopover?.behavior = .transient
-//            chartPopover?.show(relativeTo: .zero, of: cellView, preferredEdge: .minX)
-////            chartPopover?.delegate = self
 
         default: fatalError()
         }

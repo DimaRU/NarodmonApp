@@ -154,4 +154,11 @@ struct NetService {
         }
     }
     
+    /// Load sensor history
+    static func loadSensorHistory(id: Int, period: HistoryPeriod, offset: Int) -> Promise<[SensorHistoryData]> {
+        return NarProvider.shared.request(.sensorHistory(id: id, period: period, offset: offset))
+            .then { (sensorHistory: SensorHistory) -> [SensorHistoryData] in
+                return sensorHistory.data
+        }
+    }
 }
