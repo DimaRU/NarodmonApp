@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0A1B864320496A1100DECB10 /* AppDelegateActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1B864220496A1100DECB10 /* AppDelegateActions.swift */; };
 		0A2BD37A20264E840058AAEC /* Promise+resolved.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2BD37920264E840058AAEC /* Promise+resolved.swift */; };
+		0A36F8DB205304640084B503 /* FixLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36F8D8205304630084B503 /* FixLineChartView.swift */; };
+		0A36F8DC205304640084B503 /* DateAxisValueFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36F8D9205304630084B503 /* DateAxisValueFormater.swift */; };
+		0A36F8DD205304640084B503 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36F8DA205304640084B503 /* ChartViewController.swift */; };
 		0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E11FC03230006605DC /* CwlSysctl.swift */; };
 		0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E41FC048BC006605DC /* String+MD5.swift */; };
 		0A4C61521FC83FAD009F7B51 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C61511FC83FAD009F7B51 /* Defaults.swift */; };
@@ -64,6 +67,7 @@
 		0AC6CC522007E5E100F2DAE0 /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */; };
 		0AC775A12041904100455100 /* IDETemplateMacros.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC775A02041904000455100 /* IDETemplateMacros.plist */; };
 		0AD867A720403C06001C5577 /* TypedNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD867A620403C06001C5577 /* TypedNotifications.swift */; };
+		0ADE148E204DEB9600E46192 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADE148D204DEB9500E46192 /* MenuButton.swift */; };
 		0AE1E7002003F47400029333 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE1E6FF2003F47400029333 /* Notifications.swift */; };
 		0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */; };
 		0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */; };
@@ -97,6 +101,9 @@
 /* Begin PBXFileReference section */
 		0A1B864220496A1100DECB10 /* AppDelegateActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateActions.swift; sourceTree = "<group>"; };
 		0A2BD37920264E840058AAEC /* Promise+resolved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+resolved.swift"; sourceTree = "<group>"; };
+		0A36F8D8205304630084B503 /* FixLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixLineChartView.swift; sourceTree = "<group>"; };
+		0A36F8D9205304630084B503 /* DateAxisValueFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAxisValueFormater.swift; sourceTree = "<group>"; };
+		0A36F8DA205304640084B503 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		0A37C0E11FC03230006605DC /* CwlSysctl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CwlSysctl.swift; sourceTree = "<group>"; };
 		0A37C0E41FC048BC006605DC /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		0A3F22511FD2FC2C00D06A20 /* NarodmonApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NarodmonApp.entitlements; sourceTree = "<group>"; };
@@ -161,6 +168,7 @@
 		0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
 		0AC775A02041904000455100 /* IDETemplateMacros.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = IDETemplateMacros.plist; sourceTree = "<group>"; };
 		0AD867A620403C06001C5577 /* TypedNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedNotifications.swift; sourceTree = "<group>"; };
+		0ADE148D204DEB9500E46192 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		0AE1E6FF2003F47400029333 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeMethods.swift; sourceTree = "<group>"; };
 		0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceIDViewCotroller.swift; sourceTree = "<group>"; };
@@ -253,6 +261,10 @@
 				0AB311891FD557E600ED680F /* DeviceCellView.swift */,
 				0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */,
 				0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */,
+				0ADE148D204DEB9500E46192 /* MenuButton.swift */,
+				0A36F8DA205304640084B503 /* ChartViewController.swift */,
+				0A36F8D9205304630084B503 /* DateAxisValueFormater.swift */,
+				0A36F8D8205304630084B503 /* FixLineChartView.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -549,6 +561,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Keys/Keys.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -559,6 +572,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keys.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -625,6 +639,7 @@
 				0A756287200261490033269C /* LaunchOnLogin.swift in Sources */,
 				0AC4EAEE1FCE0526001573C8 /* SensorsViewController.swift in Sources */,
 				0A9195091FBB416000D72378 /* UserLogout.swift in Sources */,
+				0A36F8DD205304640084B503 /* ChartViewController.swift in Sources */,
 				0A5F1DC1201F5B8B00B00A54 /* RequestResult.swift in Sources */,
 				0A2BD37A20264E840058AAEC /* Promise+resolved.swift in Sources */,
 				0AA40A401FE295780089585B /* GeneralSettingsViewController.swift in Sources */,
@@ -633,6 +648,7 @@
 				0AECF54C1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift in Sources */,
 				0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */,
 				0AA40A411FE295780089585B /* SelectTableView.swift in Sources */,
+				0A36F8DC205304640084B503 /* DateAxisValueFormater.swift in Sources */,
 				0AB3118A1FD557E600ED680F /* DeviceCellView.swift in Sources */,
 				0A1B864320496A1100DECB10 /* AppDelegateActions.swift in Sources */,
 				0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */,
@@ -641,11 +657,13 @@
 				0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */,
 				0AA40A3D1FE295780089585B /* PrefsCellView.swift in Sources */,
 				0A9195231FBB463F00D72378 /* NarodAPI.swift in Sources */,
+				0A36F8DB205304640084B503 /* FixLineChartView.swift in Sources */,
 				0A4DB18220234F73007E4281 /* UserDefaultsBarStyle.swift in Sources */,
 				0A91950C1FBB41AE00D72378 /* Sensor.swift in Sources */,
 				0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */,
 				0AE1E7002003F47400029333 /* Notifications.swift in Sources */,
 				0A9195061FBB416000D72378 /* SensorsNearby.swift in Sources */,
+				0ADE148E204DEB9600E46192 /* MenuButton.swift in Sources */,
 				0A63DF991FCEDAED00C35607 /* NetService.swift in Sources */,
 				0A9AFA011FD00F1C00F5B5BB /* PopoverDelegate.swift in Sources */,
 				0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */,

@@ -17,7 +17,7 @@ public enum HistoryPeriod: String {
     case hour
     case day
     case week
-    case mounth
+    case month
     case year
 }
 // MARK: - Provider support
@@ -29,7 +29,7 @@ public enum NarodAPI: TargetType {
     case userFavorites
     case sensorsOnDevice(id: Int)
     case sensorsValues(sensorIds: [Int])
-    case sensorsHistory(id: Int, period: HistoryPeriod, offset: Int)
+    case sensorHistory(id: Int, period: HistoryPeriod, offset: Int)
     case sensorsNearby(my: Bool)
     case sendReport(message: String, logs: String)
     
@@ -47,8 +47,8 @@ public enum NarodAPI: TargetType {
             return SensorsOnDevice.self
         case .sensorsValues:
             return SensorsValues.self
-        case .sensorsHistory:
-            return SensorsHistory.self
+        case .sensorHistory:
+            return SensorHistory.self
         case .sensorsNearby:
             return SensorsNearby.self
         case .sendReport:
@@ -121,7 +121,7 @@ extension NarodAPI {
                 "cmd" : "sensorsValues",
                 "sensors" : sensorIds
             ]
-        case .sensorsHistory(let id, let period, let offset):
+        case .sensorHistory(let id, let period, let offset):
             parameters = [
                 "cmd" : "sensorsHistory",
                 "id" : id,

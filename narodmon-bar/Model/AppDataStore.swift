@@ -143,5 +143,14 @@ final class AppDataStore {
         selectedWindowSensors = selectedWindowSensors.filter { discoveredSensors.contains($0) }
         selectedBarSensors = selectedBarSensors.filter { discoveredSensors.contains($0) }
     }
+    
+    func device(for sensorId: Int) -> SensorsOnDevice? {
+        for device in devices {
+            if device.sensors.first(where: { $0.id == sensorId }) != nil {
+                return device
+            }
+        }
+        return nil
+    }
 
 }
