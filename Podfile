@@ -11,6 +11,7 @@ target 'NarodmonApp' do
   pod 'PromiseKit/Alamofire'
   pod 'KeychainAccess'
   pod 'SwiftyUserDefaults'
+  pod 'Charts', :git => 'https://github.com/DimaRU/Charts.git'
 
 plugin 'cocoapods-keys', {
     :project => 'NarodmonApp',
