@@ -110,7 +110,7 @@ class ChartViewController: NSViewController {
         args.append(average)
 
         //"Температура in C\tMin: 8.1\tMax: 9.5\tAvg: 9.1")
-        let format = NSLocalizedString("%@ in %@\t%@ - %@\tMin: %0.1f\tMax: %0.1f\tAverage: %0.1f", comment: "Chart legend")
+        let format = NSLocalizedString("%@ in %@ \t%@ - %@ \tMin: %0.1f \tMax: %0.1f \tAverage: %0.1f", comment: "Chart legend")
 
         let label = String.init(format: format, arguments: args)
         let dataSet = LineChartDataSet(values: dataEntries, label: label)

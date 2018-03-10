@@ -44,10 +44,10 @@
 /* Class = "NSButtonCell"; title = "Ok"; ObjectID = "RGA-kC-Frr"; */
 "RGA-kC-Frr.title" = "Ok";
 
-/* Class = "NSTextFieldCell"; title = "Low value color:"; ObjectID = "S9n-iM-h7r"; */
+/* Class = "NSTextFieldCell"; title = "Low limit color:"; ObjectID = "S9n-iM-h7r"; */
 "S9n-iM-h7r.title" = "Цвет нижнего порога:";
 
-/* Class = "NSTextFieldCell"; title = "High value color:"; ObjectID = "Z9L-YK-LHX"; */
+/* Class = "NSTextFieldCell"; title = "High limit color:"; ObjectID = "Z9L-YK-LHX"; */
 "Z9L-YK-LHX.title" = "Цвет верхнего порога:";
 
 /* Class = "NSTextFieldCell"; title = "Value"; ObjectID = "aRA-Jg-PJw"; */
@@ -220,3 +220,21 @@
 
 /* Class = "NSMenuItem"; title = "Copy"; ObjectID = "x3v-GG-iWU"; */
 "x3v-GG-iWU.title" = "";
+
+/* Class = "NSButtonCell"; title = "Day"; ObjectID = "9BT-pB-MuV"; */
+"9BT-pB-MuV.title" = "День";
+
+/* Class = "NSButtonCell"; title = "Month"; ObjectID = "GIz-mC-zYj"; */
+"GIz-mC-zYj.title" = "Месяц";
+
+/* Class = "NSButtonCell"; title = "Hour"; ObjectID = "W0W-q2-knP"; */
+"W0W-q2-knP.title" = "Час";
+
+/* Class = "NSButtonCell"; title = "Year"; ObjectID = "eWP-VT-GWE"; */
+"eWP-VT-GWE.title" = "Год";
+
+/* Class = "NSTextFieldCell"; title = "28/12/2018 12:00 28,4"; ObjectID = "eo2-wW-N6m"; */
+"eo2-wW-N6m.title" = "";
+
+/* Class = "NSButtonCell"; title = "Week"; ObjectID = "fCu-rN-5TX"; */
+"fCu-rN-5TX.title" = "Неделя";

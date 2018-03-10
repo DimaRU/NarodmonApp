@@ -1,3 +1,4 @@
+
 /* No comment provided by engineer. */
 "API key blocked" = "Заблокирован ключ API";
 
@@ -50,3 +51,14 @@
 /* Empty status bar message part2 */
 "sensors" = "сенсоров";
 
+/* Chart legend */
+"%@ in %@ \t%@ - %@ \tMin: %0.1f \tMax: %0.1f \tAverage: %0.1f" = "%@ в %@ \t%@ - %@ \tМин: %0.1f \tМакс: %0.1f \tСреднее: %0.1f";
+
+/* Chart view */
+"High limit" = "Верхний порог";
+
+/* Chart view */
+"Low limit" = "Нижний порог";
+
+/* Chart view */
+"No history data for that period" = "Нет данных за этот период";
