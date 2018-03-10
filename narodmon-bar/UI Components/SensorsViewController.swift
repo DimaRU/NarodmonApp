@@ -125,7 +125,7 @@ class SensorsViewController: NSViewController {
             let cellView = sensorsTableView.view(atColumn: 0, row: sensorsTableView.clickedRow, makeIfNecessary: false)!
             let chartViewController = ChartViewController.instance()
             chartViewController.sensor = sensor
-            chartViewController.location = dataStore.device(for: sensor.id)?.location ?? ""
+            chartViewController.dataStore = dataStore
             presentViewController(chartViewController, asPopoverRelativeTo: .zero, of: cellView, preferredEdge: .minX, behavior: .transient)
 
         default: fatalError()

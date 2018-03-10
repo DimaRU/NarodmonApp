@@ -22,11 +22,11 @@ class ChartViewController: NSViewController {
     private let OffButtonState = NSControl.StateValue.off
     
 
+    weak var dataStore: AppDataStore!
     private var historyPeriod: HistoryPeriod = .day
     private var historyOffset: Int = 0
     private var history: [SensorHistoryData] = []
     var sensor: Sensor!
-    var location: String!
     
     @IBAction func chartRangeSwitch(_ sender: NSButton) {
         let parentView = sender.cell?.controlView?.superview
@@ -80,6 +80,8 @@ class ChartViewController: NSViewController {
             nextButton.isEnabled = false
         }
         chartView.noDataText = NSLocalizedString("No history data for that period", comment: "Chart view")
+        chartView.noDataFont = NSFont.systemFont(ofSize: 12)
+        chartView.noDataTextColor = NSColor.labelColor
     }
     
     func prepareDataSet(history: [SensorHistoryData], sensor: Sensor) -> LineChartDataSet {
@@ -190,7 +192,7 @@ class ChartViewController: NSViewController {
         leftAxis.labelFont = textFont
         leftAxis.granularity = 0.1
 
-        func initLimitLine(limit: Double, color: NSColor, labelPosition: ChartLimitLine.LabelPosition) -> ChartLimitLine {
+        func initLimitLine(limit: Double, color: NSColor, label: String, labelPosition: ChartLimitLine.LabelPosition) -> ChartLimitLine {
             let limitLine = ChartLimitLine(limit: limit)
             limitLine.labelPosition = labelPosition
             limitLine.valueTextColor = color
@@ -198,17 +200,19 @@ class ChartViewController: NSViewController {
             limitLine.lineWidth = 1.0;
             limitLine.lineDashLengths = [8, 3]
             limitLine.valueFont = textFont
-            switch labelPosition {
-            case .leftBottom: limitLine.label = NSLocalizedString("Low limit", comment: "Chart view")
-            case .leftTop:    limitLine.label = NSLocalizedString("High limit", comment: "Chart view")
-            default: fatalError()
-            }
+            limitLine.label = label
             return limitLine
         }
         
         leftAxis.removeAllLimitLines()
-        leftAxis.addLimitLine(initLimitLine(limit: 23.5, color: .systemBlue, labelPosition: .leftBottom))
-        leftAxis.addLimitLine(initLimitLine(limit: 24.5, color: .systemRed, labelPosition: .leftTop))
+        if let highLimit = dataStore.sensorsMax[sensor.id] {
+            let label = NSLocalizedString("High limit", comment: "Chart view")
+            leftAxis.addLimitLine(initLimitLine(limit: highLimit, color: dataStore.colorMax, label: label, labelPosition: .leftTop))
+        }
+        if let lowLimit = dataStore.sensorsMin[sensor.id] {
+            let label = NSLocalizedString("Low limit", comment: "Chart view")
+            leftAxis.addLimitLine(initLimitLine(limit: lowLimit, color: dataStore.colorMin, label: label, labelPosition: .leftBottom))
+        }
         
         let yValueFormater = DefaultAxisValueFormatter()
         yValueFormater.formatter = NumberFormatter()
@@ -221,7 +225,7 @@ class ChartViewController: NSViewController {
         let description = Description()
         description.font = textFont
         description.textColor = .systemYellow
-        description.text = location
+        description.text = dataStore.device(for: sensor.id)?.location ?? ""
         chartView.chartDescription = description
 
         chartView.dragEnabled = true
