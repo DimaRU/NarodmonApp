@@ -118,7 +118,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let timer = sensorsRefreshTimer {
             timer.invalidate()
         }
-
+        
+        CacheService.clean()
     }
 }
 
