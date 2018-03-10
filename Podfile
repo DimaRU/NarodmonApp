@@ -12,6 +12,7 @@ target 'NarodmonApp' do
   pod 'KeychainAccess'
   pod 'SwiftyUserDefaults'
   pod 'Charts', :git => 'https://github.com/DimaRU/Charts.git'
+  pod 'Cache'
 
 plugin 'cocoapods-keys', {
     :project => 'NarodmonApp',

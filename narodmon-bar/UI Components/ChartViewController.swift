@@ -265,7 +265,7 @@ class ChartViewController: NSViewController {
 
     private func redrawChart() {
         currentDataLabel.stringValue = ""
-        NetService.loadSensorHistory(id: sensor.id, period: historyPeriod, offset: historyOffset)
+        CacheService.loadSensorHistory(id: sensor.id, period: historyPeriod, offset: historyOffset)
             .then { history -> Void in
                 self.history = history
                 if history.isEmpty {
