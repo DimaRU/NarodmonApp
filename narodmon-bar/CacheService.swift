@@ -8,10 +8,10 @@ import PromiseKit
 
 class CacheService {
     
-    private static var storage: Storage = initCache()
+    private static var storage: Storage? = initCache()
     private static var expireTimer: Timer!
     
-    private static func initCache() -> Storage {
+    private static func initCache() -> Storage? {
         let diskConfig = DiskConfig(
             name: "NarodmonHistoryDataCache",
             expiry: .date(Date().addingTimeInterval(15*60)),
@@ -25,13 +25,7 @@ class CacheService {
             totalCostLimit: 10
         )
 
-        let storage: Storage
-        do {
-            storage = try Storage(diskConfig: diskConfig, memoryConfig: memoryConfig)
-        } catch {
-            print(error)
-            fatalError()
-        }
+        let storage = try? Storage(diskConfig: diskConfig, memoryConfig: memoryConfig)
         
         expireTimer = Timer.scheduledTimer(withTimeInterval: 30*60, repeats: true) {_ in 
             CacheService.clean()
@@ -40,7 +34,7 @@ class CacheService {
     }
 
     public static func clean() {
-        try? storage.removeExpiredObjects()
+        try? storage?.removeExpiredObjects()
     }
     
     static func cacheKey(id: Int, period: HistoryPeriod, offset: Int) -> String {
@@ -50,8 +44,8 @@ class CacheService {
     public static func loadSensorHistory(id: Int, period: HistoryPeriod, offset: Int) -> Promise<[SensorHistoryData]> {
         let key = CacheService.cacheKey(id: id, period: period, offset: offset)
         
-        if let historyData = try? CacheService.storage.object(ofType: [SensorHistoryData].self, forKey: key) {
-            print("cached \(key)")
+        if let storage = CacheService.storage,
+            let historyData = try? storage.object(ofType: [SensorHistoryData].self, forKey: key) {
             return Promise<[SensorHistoryData]>(value: historyData)
         } else {
             return NetService.loadSensorHistory(id: id, period: period, offset: offset)
@@ -64,8 +58,7 @@ class CacheService {
                     case .month: interval = 30
                     case .year:  interval = 60
                     }
-                    print("cache \(key)")
-                    try? CacheService.storage.setObject(historyData, forKey: key, expiry: .date(Date().addingTimeInterval(interval*60)))
+                    try? CacheService.storage?.setObject(historyData, forKey: key, expiry: .date(Date().addingTimeInterval(interval*60)))
                     return historyData
             }
         }
