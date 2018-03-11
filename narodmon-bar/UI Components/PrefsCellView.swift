@@ -48,6 +48,8 @@ class PrefsCellView: NSTableCellView, NSTextFieldDelegate {
         if let max = dataStore.sensorsMax[sensorId] {
             sensorMaxTextField?.stringValue = formater.string(from: NSNumber(value: max)) ?? ""
         }
+        sensorMaxTextField?.textColor = dataStore.colorMax
+        sensorMinTextField?.textColor = dataStore.colorMin
     }
     
     @IBAction func checkBoxSensorAction(_ sender: NSButton) {
