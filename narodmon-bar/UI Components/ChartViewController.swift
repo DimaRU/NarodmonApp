@@ -100,9 +100,10 @@ class ChartViewController: NSViewController {
         let average = sum / Double(history.count)
         
         let (from, to) = smartRange(from: history.first!.time, to: history.last!.time)
+        let sensorType = dataStore.initData?.types?.first(where: { $0.type == sensor.type })
         var args: [CVarArg] = []
         args.append(sensor.name)
-        args.append(sensor.unit)
+        args.append(sensorType?.name ?? sensor.unit)
         args.append(from)
         args.append(to)
         args.append(min)
@@ -110,7 +111,7 @@ class ChartViewController: NSViewController {
         args.append(average)
 
         //"Температура in C\tMin: 8.1\tMax: 9.5\tAvg: 9.1")
-        let format = NSLocalizedString("%@ in %@ \t%@ - %@ \tMin: %0.1f \tMax: %0.1f \tAverage: %0.1f", comment: "Chart legend")
+        let format = NSLocalizedString("%@ (%@) \t%@ - %@ \tMin: %0.1f \tMax: %0.1f \tAverage: %0.1f", comment: "Chart legend")
 
         let label = String.init(format: format, arguments: args)
         let dataSet = LineChartDataSet(values: dataEntries, label: label)

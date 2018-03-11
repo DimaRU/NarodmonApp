@@ -555,14 +555,14 @@
             <objects>
                 <viewController storyboardIdentifier="ChartViewController" id="bxu-cx-26A" customClass="ChartViewController" customModule="NarodmonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Wyp-QJ-9K2">
-                        <rect key="frame" x="0.0" y="0.0" width="710" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="710" height="370"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="q4Y-Na-Pp2" customClass="FixLineChartView" customModule="NarodmonApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="710" height="374"/>
+                                <rect key="frame" x="0.0" y="0.0" width="710" height="344"/>
                             </customView>
                             <stackView focusRingType="none" distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="1" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="baV-jf-nza">
-                                <rect key="frame" x="368" y="374" width="342" height="26"/>
+                                <rect key="frame" x="368" y="344" width="342" height="26"/>
                                 <subviews>
                                     <button focusRingType="none" verticalHuggingPriority="750" tag="5" translatesAutoresizingMaskIntoConstraints="NO" id="a4T-bL-wb9">
                                         <rect key="frame" x="4" y="3" width="66" height="19"/>
@@ -635,7 +635,7 @@
                                 </customSpacing>
                             </stackView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W7a-sK-wOa">
-                                <rect key="frame" x="33" y="379" width="141" height="17"/>
+                                <rect key="frame" x="33" y="349" width="141" height="17"/>
                                 <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="28/12/2018 12:00 28,4" id="eo2-wW-N6m">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -643,7 +643,7 @@
                                 </textFieldCell>
                             </textField>
                             <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5ww-Lm-tIh">
-                                <rect key="frame" x="289" y="377" width="35" height="19"/>
+                                <rect key="frame" x="289" y="347" width="35" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="yis-VE-Bs9"/>
                                 </constraints>
@@ -656,7 +656,7 @@
                                 </connections>
                             </button>
                             <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kb5-Ml-4Gb">
-                                <rect key="frame" x="325" y="377" width="35" height="19"/>
+                                <rect key="frame" x="325" y="347" width="35" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="8S1-e1-6e0"/>
                                 </constraints>
