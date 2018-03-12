@@ -72,6 +72,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 
                 postNotification(name: .deviceListChangedNotification)
                 self.startRefreshCycle()
+                self.addWakeObserver()
             }
             .catch { (error) in
                 if let e = error as? NarodNetworkError {
@@ -107,8 +108,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     /// Load and display data every N min
-    @objc func startRefreshCycle() {
-
+    func startRefreshCycle() {
         sensorsRefreshTimer = Timer.scheduledTimer(withTimeInterval: REFRESH_TIME_INTERVAL, repeats: true) { _ in
             self.refreshDataNow()
         }
@@ -121,6 +121,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         CacheService.clean()
     }
+    
+    func addWakeObserver() {
+        NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.didWakeNotification, object: nil, queue: nil) {_ in
+            self.refreshDataNow()
+            CacheService.clean()
+        }
+    }
+    
 }
 
 
