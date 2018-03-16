@@ -431,6 +431,7 @@
 				0A7562822002476F0033269C /* CopyFiles */,
 				84AF0B37CDE742283E617514 /* [CP] Embed Pods Frameworks */,
 				B0A3E9165FBD56BD96F01832 /* [CP] Copy Pods Resources */,
+				0A5D8587205C52C000B15AAA /* Update localizations */,
 			);
 			buildRules = (
 			);
@@ -542,6 +543,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0A5D8587205C52C000B15AAA /* Update localizations */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update localizations";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$CONFIGURATION\" == \"Debug\" ]]; then\nif which bartycrouch > /dev/null; then\n# Incrementally update all Storyboards/XIBs strings files\nbartycrouch interfaces -p \"$PROJECT_DIR\"\n\n# Add new keys to Localizable.strings files from NSLocalizedString in code\nbartycrouch code -p \"$PROJECT_DIR\" -l \"$PROJECT_DIR\" -a -s\nelse\necho \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\nfi";
+		};
 		0A9907B2200BF2B8007EDA6D /* Set version information */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
