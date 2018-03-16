@@ -238,3 +238,24 @@
 
 /* Class = "NSButtonCell"; title = "Week"; ObjectID = "fCu-rN-5TX"; */
 "fCu-rN-5TX.title" = "Неделя";
+
+/* Class = "NSMenuItem"; title = "Open in map"; ObjectID = "DtD-1I-hFI"; */
+"DtD-1I-hFI.title" = "Показать на карте";
+
+/* Class = "NSMenuItem"; title = "Month chart"; ObjectID = "H9Q-SA-qWQ"; */
+"H9Q-SA-qWQ.title" = "Месячный график";
+
+/* Class = "NSMenuItem"; title = "Hour chart"; ObjectID = "NUB-4J-s69"; */
+"NUB-4J-s69.title" = "Часовой график";
+
+/* Class = "NSMenuItem"; title = "Day chart"; ObjectID = "TJU-00-Th4"; */
+"TJU-00-Th4.title" = "Суточный график";
+
+/* Class = "NSMenuItem"; title = "Year chart"; ObjectID = "kjn-if-oH2"; */
+"kjn-if-oH2.title" = "Годовой график";
+
+/* Class = "NSMenuItem"; title = "Week chart"; ObjectID = "w3t-60-ecx"; */
+"w3t-60-ecx.title" = "Недельный график";
+
+/* Class = "NSMenuItem"; title = "Next view"; ObjectID = "xDM-32-zBX"; */
+"xDM-32-zBX.title" = "Сменить вид";
