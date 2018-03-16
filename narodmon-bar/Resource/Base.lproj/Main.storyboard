@@ -310,6 +310,7 @@
                                                             <connections>
                                                                 <outlet property="deviceLocationLabel" destination="7WP-Uq-7Po" id="FrS-bV-xlK"/>
                                                                 <outlet property="deviceNameLabel" destination="bfu-vl-SUw" id="BwU-8n-LAk"/>
+                                                                <outlet property="menu" destination="uL2-yB-aIg" id="a1l-Gg-bIL"/>
                                                             </connections>
                                                         </tableCellView>
                                                         <tableCellView identifier="DeviceCell2" id="Xiu-2x-6tl" userLabel="Device Cell View2" customClass="DeviceCellView" customModule="NarodmonApp" customModuleProvider="target">
@@ -361,6 +362,7 @@
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="deviceLocationLabel" destination="RBb-6W-T5l" id="ftE-X3-GJc"/>
+                                                                <outlet property="menu" destination="uL2-yB-aIg" id="WT9-38-t0a"/>
                                                             </connections>
                                                         </tableCellView>
                                                         <tableCellView identifier="DeviceCell3" id="PrL-MF-kal" userLabel="Device Cell View3" customClass="DeviceCellView" customModule="NarodmonApp" customModuleProvider="target">
@@ -412,6 +414,7 @@
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="deviceNameLabel" destination="7bX-Mq-qmO" id="m6J-n9-fBM"/>
+                                                                <outlet property="menu" destination="uL2-yB-aIg" id="6rs-4G-YAh"/>
                                                             </connections>
                                                         </tableCellView>
                                                         <tableCellView identifier="SensorCell" id="cQF-Gl-hUe" userLabel="Sensor Cell View" customClass="SensorCellView" customModule="NarodmonApp" customModuleProvider="target">
@@ -444,6 +447,7 @@
                                                                 <constraint firstItem="6bf-8T-I5B" firstAttribute="leading" secondItem="kbv-mD-KnV" secondAttribute="trailing" constant="4" id="tsr-q0-u1g"/>
                                                             </constraints>
                                                             <connections>
+                                                                <outlet property="menu" destination="CAp-Sn-Gz7" id="9ej-Ok-t3c"/>
                                                                 <outlet property="sensorNameLabel" destination="kbv-mD-KnV" id="HBn-gA-ZDo"/>
                                                                 <outlet property="sensorValueLabel" destination="6bf-8T-I5B" id="qRT-nr-jyx"/>
                                                             </connections>
@@ -543,6 +547,56 @@
                         <menuItem title="Quit NarodmonApp" keyEquivalent="q" id="eYi-Ed-a5W">
                             <connections>
                                 <action selector="terminate:" target="rPt-NT-nkU" id="56e-0Q-IEb"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
+                <menu id="uL2-yB-aIg" userLabel="Device Context Menu">
+                    <items>
+                        <menuItem title="Open in map" id="DtD-1I-hFI">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="viewInMapAction:" target="rPt-NT-nkU" id="H0a-zJ-fHS"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Next view" id="xDM-32-zBX">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="nextDeviceViewAction:" target="rPt-NT-nkU" id="se5-Sm-cFS"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
+                <menu id="CAp-Sn-Gz7" userLabel="Sensor Context Menu">
+                    <items>
+                        <menuItem title="Hour chart" identifier="hour" id="NUB-4J-s69">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="openChartAction:" target="rPt-NT-nkU" id="cpf-We-4Vu"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Day chart" identifier="day" id="TJU-00-Th4" userLabel="Day chart">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="openChartAction:" target="rPt-NT-nkU" id="sR8-Ze-GcS"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Week chart" identifier="week" id="w3t-60-ecx">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="openChartAction:" target="rPt-NT-nkU" id="0Oc-Li-frD"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Month chart" identifier="month" id="H9Q-SA-qWQ">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="openChartAction:" target="rPt-NT-nkU" id="ClJ-CO-kwp"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Year chart" identifier="year" id="kjn-if-oH2">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="openChartAction:" target="rPt-NT-nkU" id="a7p-CR-h13"/>
                             </connections>
                         </menuItem>
                     </items>

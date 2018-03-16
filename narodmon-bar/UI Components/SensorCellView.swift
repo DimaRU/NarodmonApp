@@ -10,6 +10,8 @@ import Cocoa
 
 class SensorCellView: NSTableCellView {
 
+    var sensor: Sensor!
+    
     @IBOutlet weak var sensorNameLabel: NSTextField!
     @IBOutlet weak var sensorValueLabel: NSTextField!
     
@@ -17,5 +19,16 @@ class SensorCellView: NSTableCellView {
         sensorNameLabel.stringValue = sensor.name
         sensorValueLabel.stringValue = "\(value)\(unit)"
         sensorValueLabel.textColor = color ?? NSColor.controlTextColor
+        self.sensor = sensor
     }
+    
+    @IBAction func openChartAction(_ sender: NSMenuItem) {
+        let id = sender.identifier!.rawValue
+        let historyPeriod = HistoryPeriod(rawValue: id)!
+        let app = NSApp.delegate as! AppDelegate
+        nextTick {
+            app.sensorsViewController.openChat(cellView: self, sensor: self.sensor, historyPeriod: historyPeriod)
+        }
+    }
+    
 }

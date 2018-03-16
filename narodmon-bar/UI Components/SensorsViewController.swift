@@ -114,20 +114,34 @@ class SensorsViewController: NSViewController {
         setToolbarTitle()
     }
     
+    func nextDeviceView() {
+        deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
+        Defaults[.DeviceCellStyle] = deviceCellStyle
+        sensorsTableView.reloadData()
+    }
+    
+    func openChat(cellView: NSView, sensor: Sensor, historyPeriod: HistoryPeriod) {
+        let chartViewController = ChartViewController.instance()
+        chartViewController.sensor = sensor
+        chartViewController.dataStore = dataStore
+        chartViewController.historyPeriod = historyPeriod
+        presentViewController(chartViewController, asPopoverRelativeTo: .zero, of: cellView, preferredEdge: .minX, behavior: .transient)
+    }
+
+    // MARK: Menu actions
+    @IBAction func nextDeviceViewAction(_ sender: NSMenuItem) {
+        nextDeviceView()
+    }
+    
+    // MARK: Double click actions
     @objc private func cellDobleClicked(_ sender: Any) {
         switch devicesSensorsList[sensorsTableView.clickedRow] {
         case is SensorsOnDevice:
-            deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
-            Defaults[.DeviceCellStyle] = deviceCellStyle
-            sensorsTableView.reloadData()
+            nextDeviceView()
         case let sensor as Sensor:
-            sensorsTableView.selectRowIndexes(IndexSet(integer: sensorsTableView.clickedRow), byExtendingSelection: false)
+//            sensorsTableView.selectRowIndexes(IndexSet(integer: sensorsTableView.clickedRow), byExtendingSelection: false)
             let cellView = sensorsTableView.view(atColumn: 0, row: sensorsTableView.clickedRow, makeIfNecessary: false)!
-            let chartViewController = ChartViewController.instance()
-            chartViewController.sensor = sensor
-            chartViewController.dataStore = dataStore
-            presentViewController(chartViewController, asPopoverRelativeTo: .zero, of: cellView, preferredEdge: .minX, behavior: .transient)
-
+            openChat(cellView: cellView, sensor: sensor, historyPeriod: .day)
         default: fatalError()
         }
     }

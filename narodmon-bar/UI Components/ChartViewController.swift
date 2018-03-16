@@ -23,7 +23,7 @@ class ChartViewController: NSViewController {
     
 
     weak var dataStore: AppDataStore!
-    private var historyPeriod: HistoryPeriod = .day
+    var historyPeriod: HistoryPeriod = .day
     private var historyOffset: Int = 0
     private var history: [SensorHistoryData] = []
     var sensor: Sensor!
