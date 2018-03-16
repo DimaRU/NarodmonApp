@@ -551,7 +551,7 @@
                         </menuItem>
                     </items>
                 </menu>
-                <menu id="uL2-yB-aIg" userLabel="Device Context Menu">
+                <menu showsStateColumn="NO" id="uL2-yB-aIg" userLabel="Device Context Menu">
                     <items>
                         <menuItem title="Open in map" id="DtD-1I-hFI">
                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -567,7 +567,7 @@
                         </menuItem>
                     </items>
                 </menu>
-                <menu id="CAp-Sn-Gz7" userLabel="Sensor Context Menu">
+                <menu showsStateColumn="NO" id="CAp-Sn-Gz7" userLabel="Sensor Context Menu">
                     <items>
                         <menuItem title="Hour chart" identifier="hour" id="NUB-4J-s69">
                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -602,7 +602,7 @@
                     </items>
                 </menu>
             </objects>
-            <point key="canvasLocation" x="-32" y="274.5"/>
+            <point key="canvasLocation" x="-33" y="396"/>
         </scene>
         <!--Chart View Controller-->
         <scene sceneID="s7Z-qt-ySl">
@@ -626,6 +626,7 @@
                                         <buttonCell key="cell" type="roundTextured" title="Year" bezelStyle="texturedRounded" alignment="center" controlSize="small" state="on" borderStyle="border" focusRingType="none" inset="2" id="eWP-VT-GWE">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
+                                            <string key="keyEquivalent">y</string>
                                         </buttonCell>
                                         <connections>
                                             <action selector="chartRangeSwitch:" target="bxu-cx-26A" id="tYY-7D-vvb"/>
@@ -636,6 +637,7 @@
                                         <buttonCell key="cell" type="roundTextured" title="Month" bezelStyle="texturedRounded" alignment="center" controlSize="small" state="on" borderStyle="border" focusRingType="none" inset="2" id="GIz-mC-zYj">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
+                                            <string key="keyEquivalent">m</string>
                                         </buttonCell>
                                         <connections>
                                             <action selector="chartRangeSwitch:" target="bxu-cx-26A" id="JFF-ib-a9h"/>
@@ -646,6 +648,7 @@
                                         <buttonCell key="cell" type="roundTextured" title="Week" bezelStyle="texturedRounded" alignment="center" controlSize="small" state="on" borderStyle="border" focusRingType="none" inset="2" id="fCu-rN-5TX">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
+                                            <string key="keyEquivalent">w</string>
                                         </buttonCell>
                                         <connections>
                                             <action selector="chartRangeSwitch:" target="bxu-cx-26A" id="L8g-oT-dGK"/>
@@ -656,6 +659,7 @@
                                         <buttonCell key="cell" type="roundTextured" title="Day" bezelStyle="texturedRounded" alignment="center" controlSize="small" enabled="NO" borderStyle="border" focusRingType="none" inset="2" id="9BT-pB-MuV">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
+                                            <string key="keyEquivalent">d</string>
                                         </buttonCell>
                                         <connections>
                                             <action selector="chartRangeSwitch:" target="bxu-cx-26A" id="J3b-zj-uIu"/>
@@ -666,6 +670,7 @@
                                         <buttonCell key="cell" type="roundTextured" title="Hour" bezelStyle="texturedRounded" alignment="center" controlSize="small" state="on" borderStyle="border" focusRingType="none" inset="2" id="W0W-q2-knP">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
+                                            <string key="keyEquivalent">h</string>
                                         </buttonCell>
                                         <connections>
                                             <action selector="chartRangeSwitch:" target="bxu-cx-26A" id="hrp-ou-Ti6"/>
@@ -704,6 +709,7 @@
                                 <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSLeftFacingTriangleTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="O4b-zV-F2e">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="smallSystem"/>
+                                    <string key="keyEquivalent"></string>
                                 </buttonCell>
                                 <connections>
                                     <action selector="prevButtonPress:" target="bxu-cx-26A" id="n14-q6-ozf"/>
@@ -717,6 +723,7 @@
                                 <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSRightFacingTriangleTemplate" imagePosition="only" alignment="center" controlSize="small" enabled="NO" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="WOW-C3-Rcd">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="smallSystem"/>
+                                    <string key="keyEquivalent"></string>
                                 </buttonCell>
                                 <connections>
                                     <action selector="nextButtonPress:" target="bxu-cx-26A" id="XUm-WI-geK"/>
