@@ -17,6 +17,7 @@
 		0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E41FC048BC006605DC /* String+MD5.swift */; };
 		0A4C61521FC83FAD009F7B51 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C61511FC83FAD009F7B51 /* Defaults.swift */; };
 		0A4DB18220234F73007E4281 /* UserDefaultsBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4DB18120234F73007E4281 /* UserDefaultsBarStyle.swift */; };
+		0A5D858B205D1C1200B15AAA /* customFontMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D858A205D1C1100B15AAA /* customFontMenu.swift */; };
 		0A5DD0BA2041EECC0095358A /* Bool+toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5DD0B92041EECC0095358A /* Bool+toggle.swift */; };
 		0A5DD0BE20420FA10095358A /* Array+nextIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5DD0BD20420FA10095358A /* Array+nextIndex.swift */; };
 		0A5F1DC1201F5B8B00B00A54 /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F1DC0201F5B8B00B00A54 /* RequestResult.swift */; };
@@ -111,6 +112,7 @@
 		0A3F22511FD2FC2C00D06A20 /* NarodmonApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NarodmonApp.entitlements; sourceTree = "<group>"; };
 		0A4C61511FC83FAD009F7B51 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		0A4DB18120234F73007E4281 /* UserDefaultsBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsBarStyle.swift; sourceTree = "<group>"; };
+		0A5D858A205D1C1100B15AAA /* customFontMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customFontMenu.swift; sourceTree = "<group>"; };
 		0A5DD0B92041EECC0095358A /* Bool+toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+toggle.swift"; sourceTree = "<group>"; };
 		0A5DD0BD20420FA10095358A /* Array+nextIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+nextIndex.swift"; sourceTree = "<group>"; };
 		0A5F1DC0201F5B8B00B00A54 /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				0A36F8DA205304640084B503 /* ChartViewController.swift */,
 				0A36F8D9205304630084B503 /* DateAxisValueFormater.swift */,
 				0A36F8D8205304630084B503 /* FixLineChartView.swift */,
+				0A5D858A205D1C1100B15AAA /* customFontMenu.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				0A63DF971FCED92800C35607 /* HwUUID.swift in Sources */,
 				0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */,
 				0AA40A3D1FE295780089585B /* PrefsCellView.swift in Sources */,
+				0A5D858B205D1C1200B15AAA /* customFontMenu.swift in Sources */,
 				0A9195231FBB463F00D72378 /* NarodAPI.swift in Sources */,
 				0A36F8DB205304640084B503 /* FixLineChartView.swift in Sources */,
 				0A4DB18220234F73007E4281 /* UserDefaultsBarStyle.swift in Sources */,

@@ -551,7 +551,7 @@
                         </menuItem>
                     </items>
                 </menu>
-                <menu showsStateColumn="NO" id="uL2-yB-aIg" userLabel="Device Context Menu">
+                <menu id="uL2-yB-aIg" userLabel="Device Context Menu" customClass="customFontMenu" customModule="NarodmonApp" customModuleProvider="target">
                     <items>
                         <menuItem title="Open in map" id="DtD-1I-hFI">
                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -567,7 +567,7 @@
                         </menuItem>
                     </items>
                 </menu>
-                <menu showsStateColumn="NO" id="CAp-Sn-Gz7" userLabel="Sensor Context Menu">
+                <menu id="CAp-Sn-Gz7" userLabel="Sensor Context Menu" customClass="customFontMenu" customModule="NarodmonApp" customModuleProvider="target">
                     <items>
                         <menuItem title="Hour chart" identifier="hour" id="NUB-4J-s69">
                             <modifierMask key="keyEquivalentModifierMask"/>
