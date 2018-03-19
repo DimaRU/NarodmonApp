@@ -15,7 +15,7 @@
 "Device already added" = "Устройство уже добавлено";
 
 /* Chart view */
-"High limit" = "Верхний порог";
+"High level" = "Верхний уровень";
 
 /* Map View url
    Open map URL */
@@ -28,7 +28,7 @@
 "Loading..." = "Загрузка...";
 
 /* Chart view */
-"Low limit" = "Нижний порог";
+"Low level" = "Нижний уровень";
 
 /* No comment provided by engineer. */
 "Network unreachable" = "Сеть не доступна";

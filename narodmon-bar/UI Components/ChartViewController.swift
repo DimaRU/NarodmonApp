@@ -207,11 +207,11 @@ class ChartViewController: NSViewController {
         
         leftAxis.removeAllLimitLines()
         if let highLimit = dataStore.sensorsMax[sensor.id] {
-            let label = NSLocalizedString("High limit", comment: "Chart view")
+            let label = NSLocalizedString("High level", comment: "Chart view")
             leftAxis.addLimitLine(initLimitLine(limit: highLimit, color: dataStore.colorMax, label: label, labelPosition: .leftTop))
         }
         if let lowLimit = dataStore.sensorsMin[sensor.id] {
-            let label = NSLocalizedString("Low limit", comment: "Chart view")
+            let label = NSLocalizedString("Low level", comment: "Chart view")
             leftAxis.addLimitLine(initLimitLine(limit: lowLimit, color: dataStore.colorMin, label: label, labelPosition: .leftBottom))
         }
         
