@@ -44,11 +44,11 @@
 /* Class = "NSButtonCell"; title = "Ok"; ObjectID = "RGA-kC-Frr"; */
 "RGA-kC-Frr.title" = "Ok";
 
-/* Class = "NSTextFieldCell"; title = "Low limit color:"; ObjectID = "S9n-iM-h7r"; */
-"S9n-iM-h7r.title" = "Цвет нижнего порога:";
+/* Class = "NSTextFieldCell"; title = "Low level color:"; ObjectID = "S9n-iM-h7r"; */
+"S9n-iM-h7r.title" = "Цвет нижнего уровня:";
 
-/* Class = "NSTextFieldCell"; title = "High limit color:"; ObjectID = "Z9L-YK-LHX"; */
-"Z9L-YK-LHX.title" = "Цвет верхнего порога:";
+/* Class = "NSTextFieldCell"; title = "High level color:"; ObjectID = "Z9L-YK-LHX"; */
+"Z9L-YK-LHX.title" = "Цвет верхнего уровня:";
 
 /* Class = "NSTextFieldCell"; title = "Value"; ObjectID = "aRA-Jg-PJw"; */
 "aRA-Jg-PJw.title" = "Value";
@@ -60,7 +60,7 @@
 "bNO-EL-I2C.title" = "Name";
 
 /* Class = "NSViewController"; title = "Sensors"; ObjectID = "dl9-43-ndJ"; */
-"dl9-43-ndJ.title" = "Сенсоры меню";
+"dl9-43-ndJ.title" = "Сенсоры";
 
 /* Class = "NSMenuItem"; title = "Quit NarodmonApp"; ObjectID = "eYi-Ed-a5W"; */
 "eYi-Ed-a5W.title" = "Закрыть Народный мониторинг";
