@@ -132,7 +132,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 windows[i].setFrame(savedWindowFrame[i], display: true, animate: false)
             }
         }
-        
     }
     
     func saveWindows() {

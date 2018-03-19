@@ -21,6 +21,12 @@
    Open map URL */
 "https://narodmon.com" = "https://narodmon.ru";
 
+/* WhereToBuy URL */
+"https://narodmon.ru/#!cathard" = "https://narodmon.ru/#!cathard";
+
+/* MakeYourOwnAction URL */
+"https://wifi-iot.com/a/lang/en/" = "https://wifi-iot.com/a/lang/ru/";
+
 /* last update in title bar */
 "Last update: " = "Обновлено: ";
 
@@ -29,6 +35,9 @@
 
 /* Chart view */
 "Low level" = "Нижний уровень";
+
+/* Support email URL */
+"mailto:macosapp@narodmon.com" = "mailto:macosapp@narodmon.ru";
 
 /* No comment provided by engineer. */
 "Network unreachable" = "Сеть не доступна";

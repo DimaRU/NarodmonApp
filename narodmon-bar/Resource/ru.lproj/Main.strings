@@ -259,3 +259,12 @@
 
 /* Class = "NSMenuItem"; title = "Next view"; ObjectID = "xDM-32-zBX"; */
 "xDM-32-zBX.title" = "Сменить вид";
+
+/* Class = "NSMenuItem"; title = "Where to buy"; ObjectID = "XQc-KP-M93"; */
+"XQc-KP-M93.title" = "Где купить";
+
+/* Class = "NSMenuItem"; title = "Make your own"; ObjectID = "riJ-bd-jdf"; */
+"riJ-bd-jdf.title" = "Сделать самостоятельно";
+
+/* Class = "NSMenuItem"; title = "Support"; ObjectID = "ra0-x0-1O5"; */
+"ra0-x0-1O5.title" = "Техподдержка";

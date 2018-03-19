@@ -526,21 +526,41 @@
                                 <action selector="orderFrontStandardAboutPanel:" target="rPt-NT-nkU" id="xQ8-Te-TVl"/>
                             </connections>
                         </menuItem>
+                        <menuItem isSeparatorItem="YES" id="Rdc-o6-E6p"/>
                         <menuItem title="Preferences…" keyEquivalent="," id="5ZA-VM-9a6">
                             <connections>
                                 <segue destination="nTa-00-8bE" kind="show" id="puu-vY-9AJ"/>
-                            </connections>
-                        </menuItem>
-                        <menuItem title="Open map" id="in2-bJ-Dwd">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="openMapAction:" target="rPt-NT-nkU" id="6Q6-3d-5GK"/>
                             </connections>
                         </menuItem>
                         <menuItem title="Always on top" tag="1" identifier="AlwaysOnTop" id="bVj-Su-Kqo">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="alwaysOnTopToggle:" target="rPt-NT-nkU" id="s2e-vg-Al4"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="wKh-ej-h39"/>
+                        <menuItem title="Open map" id="in2-bJ-Dwd">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="openMapAction:" target="rPt-NT-nkU" id="6Q6-3d-5GK"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Where to buy" identifier="WhereToBuy" id="XQc-KP-M93">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="whereToBuyAction:" target="rPt-NT-nkU" id="C11-yY-VT4"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Make your own" identifier="MakeYourOwn" id="riJ-bd-jdf">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="makeYourOwnAction:" target="rPt-NT-nkU" id="1wU-Kk-rii"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Support" id="ra0-x0-1O5">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="supportAction:" target="rPt-NT-nkU" id="d1E-sq-b8u"/>
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="PqL-Qc-l3I"/>
