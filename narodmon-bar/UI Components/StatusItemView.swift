@@ -9,17 +9,20 @@ typealias Completion = () -> Void
 final class StatusItemView: NSView {
 
 	private let tappedCallback: Completion
+    private var deviceListObserver: NotificationObserver?
+    private var dataObserver: NotificationObserver?
+    private var barSensorsObserver: NotificationObserver?
+    
     var statusItem: NSStatusItem!
 
     private static let tinyText = [ NSAttributedStringKey.font: NSFont.systemFont(ofSize: 9, weight: .semibold),
                                       NSAttributedStringKey.foregroundColor: NSColor.controlTextColor ]
     private static let normalText = [ NSAttributedStringKey.font: NSFont.systemFont(ofSize: 14),
                                       NSAttributedStringKey.foregroundColor: NSColor.controlTextColor ]
-    static private let padding: CGFloat = 3.0
+    static private let padding: CGFloat = 4.0
 
     var dataStore: AppDataStore!
-    var sensorLabels: [String] = []
-    var darkMode = false
+    var sensorLabels: [(String, NSColor?)] = []
 
     var isTinyText = true {
         didSet {
@@ -27,14 +30,6 @@ final class StatusItemView: NSView {
         }
     }
     
-	var grayOut = false {
-		didSet {
-			if grayOut != oldValue {
-				needsDisplay = true
-			}
-		}
-	}
-
 	var highlighted = false {
 		didSet {
 			if highlighted != oldValue {
@@ -50,19 +45,18 @@ final class StatusItemView: NSView {
 
         super.init(frame: NSZeroRect)
         self.statusItem.view = self
-        
-        let center = NotificationCenter.default
-        center.addObserver(forName: .deviceListChangedNotification, object: nil, queue: nil) { _ in
+
+        deviceListObserver = NotificationObserver(forName: .deviceListChangedNotification) {
             self.dataRefreshed()
         }
-        center.addObserver(forName: .dataChangedNotification, object: nil, queue: nil) { _ in
+        dataObserver = NotificationObserver(forName: .dataChangedNotification) {
             self.dataRefreshed()
         }
-        center.addObserver(forName: .barSensorsChangedNotification, object: nil, queue: nil) { _ in
+        barSensorsObserver = NotificationObserver(forName: .barSensorsChangedNotification) {
             self.dataRefreshed()
         }
-        
-        sensorLabels = [NSLocalizedString("Loading...", comment: "Status bar message")]
+
+        sensorLabels = [(NSLocalizedString("Loading...", comment: "Status bar message"), nil)]
 	}
 
 	required init?(coder: NSCoder) {
@@ -73,25 +67,25 @@ final class StatusItemView: NSView {
 		tappedCallback()
 	}
     
-    private func formatedSensorLabels() -> [String] {
-        var labels: [String] = []
+    private func formatedSensorLabels() -> [(String, NSColor?)] {
+        var labels: [(String, NSColor?)] = []
 
         for id in dataStore.selectedBarSensors {
-            guard let (value, unit) = dataStore.sensorData(for: id) else { continue }
+            guard let (value, unit, color) = dataStore.sensorData(for: id) else { continue }
             let label = String.init(format: "%.0f", value) + unit
-            labels.append(label)
+            labels.append((label, color))
         }
         return labels.isEmpty ? [
-            NSLocalizedString("No", comment: "Empty status bar message part1"),
-            NSLocalizedString("sensors", comment: "Empty status bar message part2")
+            (NSLocalizedString("No", comment: "Empty status bar message part1"), nil),
+            (NSLocalizedString("sensors", comment: "Empty status bar message part2"), nil)
             ] : labels
     }
     
     func dataRefreshed() {
         let newSensorLabels = formatedSensorLabels()
-        if sensorLabels == newSensorLabels {
-            return
-        }
+//        if sensorLabels == newSensorLabels {
+//            return
+//        }
         sensorLabels = newSensorLabels
         sizeToFit()
     }
@@ -100,9 +94,9 @@ final class StatusItemView: NSView {
 	public func sizeToFit() {
         let textAttributes = isTinyText ? StatusItemView.tinyText : StatusItemView.normalText
 
-        var offset: CGFloat = 0
+        var offset: CGFloat = StatusItemView.padding
         var prevWidth: CGFloat = 0
-        for (i, sensorLabel) in sensorLabels.enumerated() {
+        for (i, (sensorLabel, _)) in sensorLabels.enumerated() {
             let width = round(sensorLabel.size(withAttributes: textAttributes).width)
             if isTinyText {
                 if i % 2 == 0 {
@@ -128,30 +122,16 @@ final class StatusItemView: NSView {
 
         let textAttributes = isTinyText ? StatusItemView.tinyText : StatusItemView.normalText
 		var countAttributes = textAttributes
-		var foreground: NSColor
 
-		if highlighted {
-			foreground = .selectedMenuItemTextColor
-			countAttributes[NSAttributedStringKey.foregroundColor] = foreground
-		} else if darkMode {
-			foreground = .selectedMenuItemTextColor
-			if countAttributes[NSAttributedStringKey.foregroundColor] as! NSColor == NSColor.controlTextColor {
-				countAttributes[NSAttributedStringKey.foregroundColor] = foreground
-			}
-		} else {
-			foreground = .controlTextColor
-		}
-
-		if grayOut {
-			countAttributes[NSAttributedStringKey.foregroundColor] = NSColor.disabledControlTextColor
-		}
-
-        var offset: CGFloat = 0
+        var offset: CGFloat = StatusItemView.padding
         var prevWidth: CGFloat = 0
         var width: CGFloat
-        for (i, sensorLabel) in sensorLabels.enumerated() {
+        for (i, (sensorLabel, color)) in sensorLabels.enumerated() {
             var drawPoint: NSPoint
+
+            countAttributes[NSAttributedStringKey.foregroundColor] = color ?? (highlighted ? .selectedMenuItemTextColor : .controlTextColor)
             let attributed = NSMutableAttributedString(string: sensorLabel, attributes: countAttributes)
+
             width = round(sensorLabel.size(withAttributes: textAttributes).width)
             if isTinyText {
                 if i % 2 == 0 {

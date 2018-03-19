@@ -10,20 +10,21 @@ import Cocoa
 
 class DeviceCellView: NSTableCellView {
 
-    let bgColor = NSColor(white: 1, alpha: 0.3)
+    var deviceId: Int!
     
-    @IBOutlet weak var deviceLocationLabel: NSTextField!
-    @IBOutlet weak var deviceNameLabel: NSTextField!
+    @IBOutlet weak var deviceLocationLabel: NSTextField?
+    @IBOutlet weak var deviceNameLabel: NSTextField?
+    @IBOutlet weak var deviceIdLabel: NSTextField?
     
     func setContent(device: SensorsOnDevice) {
-        deviceLocationLabel.stringValue = device.location
-        deviceNameLabel.stringValue = device.name
+        deviceLocationLabel?.stringValue = device.location
+        deviceNameLabel?.stringValue = device.name
+        deviceIdLabel?.stringValue = String(device.id)
+        deviceId = device.id
     }
     
-    required init?(coder decoder: NSCoder) {
-        super.init(coder: decoder)
-        self.wantsLayer = true
-        self.layer?.backgroundColor = bgColor.cgColor
+    @IBAction func viewInMapAction(_ sender: NSMenuItem) {
+        let baseUrl = NSLocalizedString("https://narodmon.com", comment: "Open map URL")
+        NSWorkspace.shared.open(URL(string: baseUrl + "/" + String(deviceId))!)
     }
-    
 }

@@ -20,10 +20,13 @@ class SettingsTabViewController: NSTabViewController {
     }
     
     override func tabView(_ tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?) {
-        if let viewController = tabViewItem?.viewController as? SensorSettingsViewController {
+        switch tabViewItem?.viewController {
+        case let viewController as SensorSettingsViewController:
             viewController.dataStore = dataStore
+        case let viewController as GeneralSettingsViewController:
+            viewController.dataStore = dataStore
+        default: break
         }
         super.tabView(tabView, willSelect: tabViewItem)
-
     }
 }

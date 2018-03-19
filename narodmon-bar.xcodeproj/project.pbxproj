@@ -7,15 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1B864320496A1100DECB10 /* AppDelegateActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1B864220496A1100DECB10 /* AppDelegateActions.swift */; };
 		0A2BD37A20264E840058AAEC /* Promise+resolved.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2BD37920264E840058AAEC /* Promise+resolved.swift */; };
+		0A36F8DB205304640084B503 /* FixLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36F8D8205304630084B503 /* FixLineChartView.swift */; };
+		0A36F8DC205304640084B503 /* DateAxisValueFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36F8D9205304630084B503 /* DateAxisValueFormater.swift */; };
+		0A36F8DD205304640084B503 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36F8DA205304640084B503 /* ChartViewController.swift */; };
+		0A36F8E52053E68C0084B503 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36F8E42053E68C0084B503 /* CacheService.swift */; };
 		0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E11FC03230006605DC /* CwlSysctl.swift */; };
 		0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E41FC048BC006605DC /* String+MD5.swift */; };
 		0A4C61521FC83FAD009F7B51 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C61511FC83FAD009F7B51 /* Defaults.swift */; };
 		0A4DB18220234F73007E4281 /* UserDefaultsBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4DB18120234F73007E4281 /* UserDefaultsBarStyle.swift */; };
+		0A5D858B205D1C1200B15AAA /* customFontMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D858A205D1C1100B15AAA /* customFontMenu.swift */; };
+		0A5DD0BA2041EECC0095358A /* Bool+toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5DD0B92041EECC0095358A /* Bool+toggle.swift */; };
+		0A5DD0BE20420FA10095358A /* Array+nextIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5DD0BD20420FA10095358A /* Array+nextIndex.swift */; };
 		0A5F1DC1201F5B8B00B00A54 /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F1DC0201F5B8B00B00A54 /* RequestResult.swift */; };
 		0A5F1DC3201F69C600B00A54 /* ErrorReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F1DC2201F69C600B00A54 /* ErrorReport.swift */; };
 		0A63DF971FCED92800C35607 /* HwUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF961FCED92800C35607 /* HwUUID.swift */; };
-		0A63DF991FCEDAED00C35607 /* InitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF981FCEDAED00C35607 /* InitService.swift */; };
+		0A63DF991FCEDAED00C35607 /* NetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF981FCEDAED00C35607 /* NetService.swift */; };
 		0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */; };
 		0A68C0BB1FDAA1FB00E7ACD4 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */; };
 		0A6D89C41FC5C37100034A67 /* md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C31FC5C37100034A67 /* md5.swift */; };
@@ -26,6 +34,7 @@
 		0A756287200261490033269C /* LaunchOnLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A756286200261490033269C /* LaunchOnLogin.swift */; };
 		0A7968CB20067ADF008F97D9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A7968CD20067ADF008F97D9 /* Localizable.strings */; };
 		0A7968D420067ED0008F97D9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A7968D620067ED0008F97D9 /* InfoPlist.strings */; };
+		0A8AFE1320457F96001A2DBF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AFE1220457F96001A2DBF /* MapViewController.swift */; };
 		0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */; };
 		0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E01FBB3CFC00D72378 /* Assets.xcassets */; };
 		0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E21FBB3CFD00D72378 /* Main.storyboard */; };
@@ -43,7 +52,7 @@
 		0A9195251FBB463F00D72378 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195171FBB463E00D72378 /* APIKeys.swift */; };
 		0A9AF9FB1FD000C200F5B5BB /* AppDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9AF9FA1FD000C200F5B5BB /* AppDataStore.swift */; };
 		0A9AFA011FD00F1C00F5B5BB /* PopoverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */; };
-		0AA22B85201A176C0081D5FE /* DetachedWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA22B84201A176C0081D5FE /* DetachedWindow.swift */; };
+		0AA22B85201A176C0081D5FE /* ProxyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA22B84201A176C0081D5FE /* ProxyWindow.swift */; };
 		0AA40A3D1FE295780089585B /* PrefsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA40A381FE295770089585B /* PrefsCellView.swift */; };
 		0AA40A3E1FE295780089585B /* SensorSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA40A391FE295770089585B /* SensorSettingsViewController.swift */; };
 		0AA40A3F1FE295780089585B /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA40A3A1FE295780089585B /* PreferencesViewController.swift */; };
@@ -58,11 +67,14 @@
 		0AC4EAEE1FCE0526001573C8 /* SensorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */; };
 		0AC6CC4C200685A600F2DAE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AC6CC4E200685A600F2DAE0 /* InfoPlist.strings */; };
 		0AC6CC522007E5E100F2DAE0 /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */; };
+		0AC775A12041904100455100 /* IDETemplateMacros.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC775A02041904000455100 /* IDETemplateMacros.plist */; };
+		0AD867A720403C06001C5577 /* TypedNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD867A620403C06001C5577 /* TypedNotifications.swift */; };
+		0ADE148E204DEB9600E46192 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADE148D204DEB9500E46192 /* MenuButton.swift */; };
 		0AE1E7002003F47400029333 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE1E6FF2003F47400029333 /* Notifications.swift */; };
 		0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */; };
 		0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */; };
 		0AECF54C1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */; };
-		3749CA25DD1EAE736FF5C8D8 /* Pods_narodmon_bar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2A21095F6891B048060AB8 /* Pods_narodmon_bar.framework */; };
+		19C60B7AF6611009CE8F3D82 /* Pods_NarodmonApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56217F9C540BE073E62D427B /* Pods_NarodmonApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,16 +101,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A1B864220496A1100DECB10 /* AppDelegateActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateActions.swift; sourceTree = "<group>"; };
 		0A2BD37920264E840058AAEC /* Promise+resolved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+resolved.swift"; sourceTree = "<group>"; };
+		0A36F8D8205304630084B503 /* FixLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixLineChartView.swift; sourceTree = "<group>"; };
+		0A36F8D9205304630084B503 /* DateAxisValueFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAxisValueFormater.swift; sourceTree = "<group>"; };
+		0A36F8DA205304640084B503 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		0A36F8E42053E68C0084B503 /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
 		0A37C0E11FC03230006605DC /* CwlSysctl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CwlSysctl.swift; sourceTree = "<group>"; };
 		0A37C0E41FC048BC006605DC /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		0A3F22511FD2FC2C00D06A20 /* NarodmonApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NarodmonApp.entitlements; sourceTree = "<group>"; };
 		0A4C61511FC83FAD009F7B51 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		0A4DB18120234F73007E4281 /* UserDefaultsBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsBarStyle.swift; sourceTree = "<group>"; };
+		0A5D858A205D1C1100B15AAA /* customFontMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customFontMenu.swift; sourceTree = "<group>"; };
+		0A5DD0B92041EECC0095358A /* Bool+toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+toggle.swift"; sourceTree = "<group>"; };
+		0A5DD0BD20420FA10095358A /* Array+nextIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+nextIndex.swift"; sourceTree = "<group>"; };
 		0A5F1DC0201F5B8B00B00A54 /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
 		0A5F1DC2201F69C600B00A54 /* ErrorReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorReport.swift; sourceTree = "<group>"; };
 		0A63DF961FCED92800C35607 /* HwUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HwUUID.swift; sourceTree = "<group>"; };
-		0A63DF981FCEDAED00C35607 /* InitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitService.swift; sourceTree = "<group>"; };
+		0A63DF981FCEDAED00C35607 /* NetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetService.swift; sourceTree = "<group>"; };
 		0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorType.swift; sourceTree = "<group>"; };
 		0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		0A6D89C31FC5C37100034A67 /* md5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = md5.swift; sourceTree = "<group>"; };
@@ -109,10 +129,10 @@
 		0A75627E200246090033269C /* NarodBarLauncherApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NarodBarLauncherApp.entitlements; sourceTree = "<group>"; };
 		0A75628420025BFA0033269C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0A756286200261490033269C /* LaunchOnLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchOnLogin.swift; sourceTree = "<group>"; };
-		0A7968CE20067B03008F97D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0A7968CF20067B34008F97D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		0A7968D020067B35008F97D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0A7968D520067ED0008F97D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0A8AFE1220457F96001A2DBF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		0A9194D91FBB3CFC00D72378 /* NarodmonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NarodmonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A9194E01FBB3CFC00D72378 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,7 +155,7 @@
 		0A9195171FBB463E00D72378 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		0A9AF9FA1FD000C200F5B5BB /* AppDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataStore.swift; sourceTree = "<group>"; };
 		0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverDelegate.swift; sourceTree = "<group>"; };
-		0AA22B84201A176C0081D5FE /* DetachedWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetachedWindow.swift; sourceTree = "<group>"; };
+		0AA22B84201A176C0081D5FE /* ProxyWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyWindow.swift; sourceTree = "<group>"; };
 		0AA40A381FE295770089585B /* PrefsCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefsCellView.swift; sourceTree = "<group>"; };
 		0AA40A391FE295770089585B /* SensorSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorSettingsViewController.swift; sourceTree = "<group>"; };
 		0AA40A3A1FE295780089585B /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
@@ -150,12 +170,15 @@
 		0AC6CC48200683DF00F2DAE0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AC6CC4D200685A600F2DAE0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
+		0AC775A02041904000455100 /* IDETemplateMacros.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = IDETemplateMacros.plist; sourceTree = "<group>"; };
+		0AD867A620403C06001C5577 /* TypedNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedNotifications.swift; sourceTree = "<group>"; };
+		0ADE148D204DEB9500E46192 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		0AE1E6FF2003F47400029333 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeMethods.swift; sourceTree = "<group>"; };
 		0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceIDViewCotroller.swift; sourceTree = "<group>"; };
-		41ADBBDF1FF1AEBF42D54F9F /* Pods-narodmon-bar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-narodmon-bar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar.debug.xcconfig"; sourceTree = "<group>"; };
-		8E2A21095F6891B048060AB8 /* Pods_narodmon_bar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_narodmon_bar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9658BA933280F1A52AD1BB56 /* Pods-narodmon-bar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-narodmon-bar.release.xcconfig"; path = "Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar.release.xcconfig"; sourceTree = "<group>"; };
+		56217F9C540BE073E62D427B /* Pods_NarodmonApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NarodmonApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8B543A8137D8E5233766A48 /* Pods-NarodmonApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NarodmonApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E9DF986F5280E900F407CC88 /* Pods-NarodmonApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NarodmonApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3749CA25DD1EAE736FF5C8D8 /* Pods_narodmon_bar.framework in Frameworks */,
+				19C60B7AF6611009CE8F3D82 /* Pods_NarodmonApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +223,8 @@
 				0A37C0E41FC048BC006605DC /* String+MD5.swift */,
 				0ABEA4CC1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift */,
 				0A2BD37920264E840058AAEC /* Promise+resolved.swift */,
+				0A5DD0B92041EECC0095358A /* Bool+toggle.swift */,
+				0A5DD0BD20420FA10095358A /* Array+nextIndex.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -216,6 +241,7 @@
 		0A63DF951FCED8F600C35607 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				0AD867A620403C06001C5577 /* TypedNotifications.swift */,
 				0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */,
 				0A63DF961FCED92800C35607 /* HwUUID.swift */,
 				0A756286200261490033269C /* LaunchOnLogin.swift */,
@@ -227,17 +253,23 @@
 		0A6D89C51FC5CC9000034A67 /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
-				0AA40A3B1FE295780089585B /* GeneralSettingsViewController.swift */,
+				0A8AFE1220457F96001A2DBF /* MapViewController.swift */,
 				0AA40A3A1FE295780089585B /* PreferencesViewController.swift */,
+				0AA40A3B1FE295780089585B /* GeneralSettingsViewController.swift */,
+				0AA40A391FE295770089585B /* SensorSettingsViewController.swift */,
 				0AA40A381FE295770089585B /* PrefsCellView.swift */,
 				0AA40A3C1FE295780089585B /* SelectTableView.swift */,
-				0AA40A391FE295770089585B /* SensorSettingsViewController.swift */,
 				0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */,
 				0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */,
 				0AB311871FD557D500ED680F /* SensorCellView.swift */,
 				0AB311891FD557E600ED680F /* DeviceCellView.swift */,
 				0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */,
 				0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */,
+				0ADE148D204DEB9500E46192 /* MenuButton.swift */,
+				0A36F8DA205304640084B503 /* ChartViewController.swift */,
+				0A36F8D9205304630084B503 /* DateAxisValueFormater.swift */,
+				0A36F8D8205304630084B503 /* FixLineChartView.swift */,
+				0A5D858A205D1C1100B15AAA /* customFontMenu.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -258,13 +290,14 @@
 		0A9194D01FBB3CFC00D72378 = {
 			isa = PBXGroup;
 			children = (
+				0AC775A02041904000455100 /* IDETemplateMacros.plist */,
 				0A62254E2029A0E50056AEEE /* Support */,
 				0A9194DB1FBB3CFC00D72378 /* narodmon-bar */,
 				0A9194EE1FBB3CFD00D72378 /* narodmon-barTests */,
 				0A756275200246090033269C /* NarodBarLauncherApp */,
 				0A9194DA1FBB3CFC00D72378 /* Products */,
-				7FBB0C97F9628129CD0A26F5 /* Pods */,
-				8CB6DD74CF3C65ED3F8701C5 /* Frameworks */,
+				CC13861C298AD1AC9DC6B105 /* Pods */,
+				E784154F73251E22D3C20EDB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -290,11 +323,13 @@
 				0A9194FA1FBB3FB600D72378 /* Model */,
 				0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */,
 				0A9AFA001FD00F1C00F5B5BB /* PopoverDelegate.swift */,
-				0AA22B84201A176C0081D5FE /* DetachedWindow.swift */,
+				0AA22B84201A176C0081D5FE /* ProxyWindow.swift */,
 				0A5F1DC2201F69C600B00A54 /* ErrorReport.swift */,
 				0A4C61511FC83FAD009F7B51 /* Defaults.swift */,
+				0A36F8E42053E68C0084B503 /* CacheService.swift */,
 				0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */,
 				0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */,
+				0A1B864220496A1100DECB10 /* AppDelegateActions.swift */,
 			);
 			path = "narodmon-bar";
 			sourceTree = "<group>";
@@ -334,7 +369,7 @@
 				0A9195151FBB463E00D72378 /* NarodAPI.swift */,
 				0AB3DB871FBB7DC8002C0705 /* NarodNetworkError.swift */,
 				0A9195161FBB463E00D72378 /* NarProvider.swift */,
-				0A63DF981FCEDAED00C35607 /* InitService.swift */,
+				0A63DF981FCEDAED00C35607 /* NetService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -350,19 +385,19 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		7FBB0C97F9628129CD0A26F5 /* Pods */ = {
+		CC13861C298AD1AC9DC6B105 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				41ADBBDF1FF1AEBF42D54F9F /* Pods-narodmon-bar.debug.xcconfig */,
-				9658BA933280F1A52AD1BB56 /* Pods-narodmon-bar.release.xcconfig */,
+				E8B543A8137D8E5233766A48 /* Pods-NarodmonApp.debug.xcconfig */,
+				E9DF986F5280E900F407CC88 /* Pods-NarodmonApp.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		8CB6DD74CF3C65ED3F8701C5 /* Frameworks */ = {
+		E784154F73251E22D3C20EDB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8E2A21095F6891B048060AB8 /* Pods_narodmon_bar.framework */,
+				56217F9C540BE073E62D427B /* Pods_NarodmonApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -391,14 +426,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A9194F41FBB3CFD00D72378 /* Build configuration list for PBXNativeTarget "NarodmonApp" */;
 			buildPhases = (
-				5B17A6AAD56005F6F2365ABD /* [CP] Check Pods Manifest.lock */,
+				9CA40144DF03D318D1511CCD /* [CP] Check Pods Manifest.lock */,
 				0A9194D51FBB3CFC00D72378 /* Sources */,
 				0A9194D61FBB3CFC00D72378 /* Frameworks */,
 				0A9194D71FBB3CFC00D72378 /* Resources */,
 				0A9907B2200BF2B8007EDA6D /* Set version information */,
-				7472942CDF5703339BA8CC30 /* [CP] Embed Pods Frameworks */,
-				DBE5748875D0608ECCBFB0FC /* [CP] Copy Pods Resources */,
 				0A7562822002476F0033269C /* CopyFiles */,
+				84AF0B37CDE742283E617514 /* [CP] Embed Pods Frameworks */,
+				B0A3E9165FBD56BD96F01832 /* [CP] Copy Pods Resources */,
+				0A5D8587205C52C000B15AAA /* Update localizations */,
 			);
 			buildRules = (
 			);
@@ -494,6 +530,7 @@
 			files = (
 				0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */,
 				0A7968D420067ED0008F97D9 /* InfoPlist.strings in Resources */,
+				0AC775A12041904100455100 /* IDETemplateMacros.plist in Resources */,
 				0A7968CB20067ADF008F97D9 /* Localizable.strings in Resources */,
 				0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */,
 			);
@@ -509,6 +546,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0A5D8587205C52C000B15AAA /* Update localizations */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update localizations";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$CONFIGURATION\" == \"Debug\" ]]; then\nif which bartycrouch > /dev/null; then\n# Incrementally update all Storyboards/XIBs strings files\nbartycrouch interfaces -p \"$PROJECT_DIR\"\n\n# Add new keys to Localizable.strings files from NSLocalizedString in code\nbartycrouch code -p \"$PROJECT_DIR\" -l \"$PROJECT_DIR\" -a -s\nelse\necho \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\nfi";
+		};
 		0A9907B2200BF2B8007EDA6D /* Set version information */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -523,32 +574,16 @@
 			shellPath = /bin/sh;
 			shellScript = "git=$(sh /etc/profile; which git)\nnumber_of_commits=$(\"$git\" rev-list HEAD | wc -l | tr -d ' ')\n\nsource_plist=\"`pwd`/Support/Info.plist\"\ntarget_plist=\"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\ndsym_plist=\"$DWARF_DSYM_FOLDER_PATH/$DWARF_DSYM_FILE_NAME/Contents/Info.plist\"\n\nif [[ \"$CONFIGURATION\" == \"Release\" ]]; then\nsources=(\"$source_plist\" \"$target_plist\" \"$dsym_plist\")\nelse\nsources=(\"$target_plist\" \"$dsym_plist\")\nfi\n\nfor plist in ${sources[@]}; do\nif [ -f \"$plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $number_of_commits\" \"$plist\"\nfi\ndone";
 		};
-		5B17A6AAD56005F6F2365ABD /* [CP] Check Pods Manifest.lock */ = {
+		84AF0B37CDE742283E617514 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-narodmon-bar-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7472942CDF5703339BA8CC30 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Keys/Keys.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -559,6 +594,8 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keys.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -568,10 +605,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DBE5748875D0608ECCBFB0FC /* [CP] Copy Pods Resources */ = {
+		9CA40144DF03D318D1511CCD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NarodmonApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0A3E9165FBD56BD96F01832 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -583,7 +638,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-narodmon-bar/Pods-narodmon-bar-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -603,9 +658,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A6D89C41FC5C37100034A67 /* md5.swift in Sources */,
+				0A5DD0BE20420FA10095358A /* Array+nextIndex.swift in Sources */,
 				0A756287200261490033269C /* LaunchOnLogin.swift in Sources */,
 				0AC4EAEE1FCE0526001573C8 /* SensorsViewController.swift in Sources */,
 				0A9195091FBB416000D72378 /* UserLogout.swift in Sources */,
+				0A36F8DD205304640084B503 /* ChartViewController.swift in Sources */,
 				0A5F1DC1201F5B8B00B00A54 /* RequestResult.swift in Sources */,
 				0A2BD37A20264E840058AAEC /* Promise+resolved.swift in Sources */,
 				0AA40A401FE295780089585B /* GeneralSettingsViewController.swift in Sources */,
@@ -614,30 +671,37 @@
 				0AECF54C1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift in Sources */,
 				0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */,
 				0AA40A411FE295780089585B /* SelectTableView.swift in Sources */,
+				0A36F8DC205304640084B503 /* DateAxisValueFormater.swift in Sources */,
 				0AB3118A1FD557E600ED680F /* DeviceCellView.swift in Sources */,
+				0A1B864320496A1100DECB10 /* AppDelegateActions.swift in Sources */,
 				0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */,
 				0AC6CC522007E5E100F2DAE0 /* SettingsTabViewController.swift in Sources */,
 				0A63DF971FCED92800C35607 /* HwUUID.swift in Sources */,
 				0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */,
 				0AA40A3D1FE295780089585B /* PrefsCellView.swift in Sources */,
+				0A5D858B205D1C1200B15AAA /* customFontMenu.swift in Sources */,
 				0A9195231FBB463F00D72378 /* NarodAPI.swift in Sources */,
+				0A36F8DB205304640084B503 /* FixLineChartView.swift in Sources */,
 				0A4DB18220234F73007E4281 /* UserDefaultsBarStyle.swift in Sources */,
 				0A91950C1FBB41AE00D72378 /* Sensor.swift in Sources */,
 				0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */,
 				0AE1E7002003F47400029333 /* Notifications.swift in Sources */,
 				0A9195061FBB416000D72378 /* SensorsNearby.swift in Sources */,
-				0A63DF991FCEDAED00C35607 /* InitService.swift in Sources */,
+				0ADE148E204DEB9600E46192 /* MenuButton.swift in Sources */,
+				0A63DF991FCEDAED00C35607 /* NetService.swift in Sources */,
 				0A9AFA011FD00F1C00F5B5BB /* PopoverDelegate.swift in Sources */,
 				0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */,
+				0AD867A720403C06001C5577 /* TypedNotifications.swift in Sources */,
 				0A9195041FBB416000D72378 /* SensorsHistory.swift in Sources */,
 				0AA40A3F1FE295780089585B /* PreferencesViewController.swift in Sources */,
 				0A5F1DC3201F69C600B00A54 /* ErrorReport.swift in Sources */,
 				0ABEA4CD1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift in Sources */,
 				0A9AF9FB1FD000C200F5B5BB /* AppDataStore.swift in Sources */,
+				0A8AFE1320457F96001A2DBF /* MapViewController.swift in Sources */,
 				0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */,
 				0A9195251FBB463F00D72378 /* APIKeys.swift in Sources */,
 				0A9195031FBB416000D72378 /* SensorsValues.swift in Sources */,
-				0AA22B85201A176C0081D5FE /* DetachedWindow.swift in Sources */,
+				0AA22B85201A176C0081D5FE /* ProxyWindow.swift in Sources */,
 				0AB385FC1FC6D6A5007F4EE5 /* KeychainService.swift in Sources */,
 				0A9195071FBB416000D72378 /* UserLogon.swift in Sources */,
 				0A68C0BB1FDAA1FB00E7ACD4 /* Globals.swift in Sources */,
@@ -645,8 +709,10 @@
 				0AB311881FD557D500ED680F /* SensorCellView.swift in Sources */,
 				0AB3DB881FBB7DC8002C0705 /* NarodNetworkError.swift in Sources */,
 				0A9195051FBB416000D72378 /* SensorsOnDevice.swift in Sources */,
+				0A5DD0BA2041EECC0095358A /* Bool+toggle.swift in Sources */,
 				0A91950A1FBB416000D72378 /* AppInitData.swift in Sources */,
 				0A4C61521FC83FAD009F7B51 /* Defaults.swift in Sources */,
+				0A36F8E52053E68C0084B503 /* CacheService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,7 +738,6 @@
 		0A7968CD20067ADF008F97D9 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0A7968CE20067B03008F97D9 /* Base */,
 				0A7968D020067B35008F97D9 /* ru */,
 			);
 			name = Localizable.strings;
@@ -850,7 +915,7 @@
 		};
 		0A9194F51FBB3CFD00D72378 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41ADBBDF1FF1AEBF42D54F9F /* Pods-narodmon-bar.debug.xcconfig */;
+			baseConfigurationReference = E8B543A8137D8E5233766A48 /* Pods-NarodmonApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Support/NarodmonApp.entitlements;
@@ -869,7 +934,7 @@
 		};
 		0A9194F61FBB3CFD00D72378 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9658BA933280F1A52AD1BB56 /* Pods-narodmon-bar.release.xcconfig */;
+			baseConfigurationReference = E9DF986F5280E900F407CC88 /* Pods-NarodmonApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Support/NarodmonApp.entitlements;

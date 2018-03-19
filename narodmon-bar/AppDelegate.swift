@@ -14,18 +14,24 @@ import SwiftyUserDefaults
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var statusView: StatusItemView!
-    var myPopover: NSPopover?
+    var popover: NSPopover?
     var sensorsViewController: SensorsViewController!
-    var detachedWindow: DetachedWindow?
+    var proxyWindow: ProxyWindow?
     public var popoverShowed = false
+    var lastRequestTime = Date() {
+        didSet {
+            print("lastRequestTime:", lastRequestTime)
+        }
+    }
     var sensorsRefreshTimer: Timer? = nil
 
     var dataStore = AppDataStore()
+    private var savedWindowFrame: [NSRect] = []
+    
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         Defaults.appStart()
-        initPopover()
-
+        createContentViewController()
         let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusView = StatusItemView(statusItem: statusItem, dataStore: dataStore) {
             self.showPopover()
@@ -33,11 +39,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusView.isTinyText = Defaults[.TinyFont]
         statusView.sizeToFit()
       
-        InitService.appInit()
+        NetService.appInit()
             .then { (initData: AppInitData) -> Promise<Void> in
                 self.dataStore.initData = initData
                 if Int(initData.uid) == 0 {
-                    return InitService.appLogin()
+                    return NetService.appLogin()
                 }
                 let logonData = UserLogon(vip: initData.vip, login: initData.login, uid: initData.uid)
                 self.dataStore.logonData = logonData
@@ -54,21 +60,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .then {
                 if self.dataStore.selectedDevices.count == 0 {
                     // No devices for display, discovery it
-                    return InitService.loadDefaultDevices()
+                    return NetService.loadDefaultDevices()
                 } else {
                     return Promise.resolved()
                 }
             }
             .then {
-                InitService.loadDevicesDefinitions()
+                NetService.loadDevicesDefinitions()
             }
             .then { () -> Void in
                 self.dataStore.checkConsistency()
                 self.dataStore.saveDefaults()
                 
-                NotificationCenter.default.post(name: .deviceListChangedNotification, object: nil)
-                InitService.refreshSensorsData()
-                InitService.startRefreshCycle()
+                postNotification(name: .deviceListChangedNotification)
+                self.startRefreshCycle()
+                self.addWakeObserver()
             }
             .catch { (error) in
                 if let e = error as? NarodNetworkError {
@@ -91,16 +97,61 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popoverShowed = showed
         
         if showed {
-            InitService.startRefreshCycle()     // restart refresh cycle
-            InitService.refreshSensorsData()
+            refreshDataNow()
         }
     }
 
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+    func refreshDataNow() {
+        let timeInterval = -lastRequestTime.timeIntervalSinceNow
+        print("refreshDataNow timeInterval:", timeInterval)
+        if timeInterval > MIN_REFRESH_TIME_INTERVAL {
+            NetService.loadSensorsData()
+        }
     }
+    
+    /// Load and display data every N min
+    func startRefreshCycle() {
+        sensorsRefreshTimer = Timer.scheduledTimer(withTimeInterval: REFRESH_TIME_INTERVAL, repeats: true) { _ in
+            self.refreshDataNow()
+        }
+    }
+    
+    func applicationWillTerminate(_ notification: Notification) {
+        if let timer = sensorsRefreshTimer {
+            timer.invalidate()
+        }
+        
+        CacheService.clean()
+    }
+    
+    
+    @objc func recoveryWindows() {
+        let windows = NSApplication.shared.windows
+        for i in windows.indices {
+            if windows[i].className == "_NSPopoverWindow" {
+                windows[i].setFrame(savedWindowFrame[i], display: true, animate: false)
+            }
+        }
+    }
+    
+    func saveWindows() {
+        savedWindowFrame = []
+        for window in NSApplication.shared.windows {
+            savedWindowFrame.append(window.frame)
+        }
+    }
+    
+    func addWakeObserver() {
+        NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.didWakeNotification, object: nil, queue: nil) {_ in
+            self.refreshDataNow()
+            CacheService.clean()
+            Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.recoveryWindows), userInfo: nil, repeats: false)
+        }
+        NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.willSleepNotification, object: nil, queue: nil) {_ in
+            self.saveWindows()
+        }
+    }
+    
 }
-
 
 

@@ -7,38 +7,39 @@ import SwiftyUserDefaults
 
 extension AppDelegate: NSPopoverDelegate {
     
-    public func initPopover() {
+    func createContentViewController() {
         sensorsViewController = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SensorsViewController")) as! SensorsViewController
         sensorsViewController.dataStore = self.dataStore
         _ = sensorsViewController.view.bounds       // Early get bounds. !!! hack for proper size on first popup view
     }
     
     public func showPopover() {
-        if detachedWindow?.isVisible ?? false {
-            // popover is already detached to a separate window, so select its window instead
+        if let popover = popover {
+            guard popover.isShown, popover.isDetached else { return }
             NSApp.activate(ignoringOtherApps: true)
-            detachedWindow?.makeKeyAndOrderFront(self)
-            return
+            sensorsViewController.view.window?.makeKeyAndOrderFront(nil)
+        } else {
+            createPopover()
+            statusView.highlighted = true
+            popover?.show(relativeTo: NSRect.zero, of: proxyWindow!.contentView!, preferredEdge: .minY)
         }
-        
-        createPopover()
-        myPopover?.show(relativeTo: statusView.bounds, of: statusView, preferredEdge: .minY)
     }
     
     func createPopover() {
-        guard myPopover == nil else { return }
+        guard popover == nil else { return }
         // create and setup our popover
-        myPopover = NSPopover()
+        popover = NSPopover()
         // the popover retains us and we retain the popover,
         // we drop the popover whenever it is closed to avoid a cycle
-        myPopover?.contentViewController = sensorsViewController
-        myPopover?.appearance = NSAppearance(named: .vibrantLight)
-        
-        myPopover?.animates = true
-        myPopover?.behavior = .transient
-        myPopover?.delegate = self
-        if detachedWindow == nil {
-            detachedWindow = DetachedWindow(frame: sensorsViewController.view.bounds)
+        popover?.contentViewController = sensorsViewController
+
+        popover?.animates = true
+        popover?.behavior = .transient
+        popover?.delegate = self
+        if proxyWindow == nil {
+            proxyWindow = ProxyWindow(from: statusView.window!)
+            proxyWindow?.display()
+            proxyWindow?.makeKeyAndOrderFront(nil)
         }
     }
 
@@ -49,13 +50,17 @@ extension AppDelegate: NSPopoverDelegate {
     func popoverWillShow(_ notification: Notification) {
         if notification.object != nil {
             setPopoverState(showed: true)
-            self.sensorsViewController.setViewSizeOnContent()
+            sensorsViewController.windowWillShow()
         }
     }
     
     // Invoked on the delegate when the NSPopoverDidShowNotification notification is sent.
     // This method will also be invoked on the popover.
     func popoverDidShow(_ notification: Notification) {
+    }
+    
+    func popoverShouldClose(_ popover: NSPopover) -> Bool {
+        return true
     }
     
     // Invoked on the delegate when the NSPopoverWillCloseNotification notification is sent.
@@ -68,8 +73,10 @@ extension AppDelegate: NSPopoverDelegate {
         if closeReason == NSPopover.CloseReason.detachToWindow {
         }
         if closeReason == NSPopover.CloseReason.standard {
+            sensorsViewController.windowWillClose()
             setPopoverState(showed: false)
         }
+        statusView.highlighted = false
     }
     
     // Invoked on the delegate when the NSPopoverDidCloseNotification notification is sent.
@@ -80,12 +87,13 @@ extension AppDelegate: NSPopoverDelegate {
         //      NSPopoverCloseReasonStandard
         //      NSPopoverCloseReasonDetachToWindow
         if closeReason == NSPopover.CloseReason.detachToWindow {
-            detachedWindow?.contentViewController = sensorsViewController
-            detachedWindow?.invalidateShadow()
-            self.sensorsViewController.windowDidDetach()
         }
-        // release popover since it closed
-        myPopover = nil
+        if closeReason == NSPopover.CloseReason.standard {
+            proxyWindow?.close()
+            proxyWindow = nil
+            // release popover since it closed
+            popover = nil
+        }
     }
     
     // Invoked on the delegate to give permission to detach popover as a separate window.
@@ -93,10 +101,11 @@ extension AppDelegate: NSPopoverDelegate {
         return true
     }
 
-    // Invoked on the delegate asked for the detachable window for the popover.
-    func detachableWindow(for popover: NSPopover) -> NSWindow? {
-        return detachedWindow
+    // Invoked on the delegate to when the popover was detached.
+    // Note: Invoked only if AppKit provides the window for this popover.
+    func popoverDidDetach(_ popover: NSPopover) {
+        proxyWindow?.level = Defaults[.AlwaysOnTop] ? NSWindow.Level.statusBar : .normal
+        statusView.highlighted = false
     }
-
     
 }

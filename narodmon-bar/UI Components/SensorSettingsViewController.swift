@@ -13,11 +13,16 @@ protocol DeviceIdDelegate {
     func add(device id: Int)
 }
 
-class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
+class SensorSettingsViewController: NSViewController {
 
-    var dataStore: AppDataStore!
+    weak var dataStore: AppDataStore!
+    weak var mapViewController: NSViewController? = nil
     
     private var devicesSensorsList: [Any] = []
+    private var deviceCellStyle = 0
+    private let deviceCellId = ["DeviceCell1", "DeviceCell2", "DeviceCell3"]
+    private var sensorCellStyle = 0
+    private let sensorCellId = ["SensorCell1", "SensorCell2"]
 
     var hasDraggedFavoriteItem = false
     var currentItemDragOperation: NSDragOperation = []
@@ -25,19 +30,7 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
     @IBOutlet weak var sensorsTableView: SelectTableView!
     @IBOutlet weak var favoriteTableView: SelectTableView!
     @IBOutlet weak var largeFontCheckBox: NSButton!
-    
-    @IBAction func checkBoxSensorAction(_ sender: NSButton) {
-        let sensorId = sender.tag
-        if sender.state == .on {
-            dataStore.selectedWindowSensors.append(sensorId)
-        }
-        else {
-            let index = dataStore.selectedWindowSensors.index(where: {$0 == sensorId})!
-            dataStore.selectedWindowSensors.remove(at: index)
-        }
-        NotificationCenter.default.post(name: .popupSensorsChangedNotification, object: nil)
-    }
-    
+ 
     @IBAction func largeFontCheckBoxAction(_ sender: NSButton) {
         let tinyFont: Bool = sender.state == .off
         Defaults[.TinyFont] = tinyFont
@@ -46,8 +39,15 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let viewController = segue.destinationController as? DeviceIDViewCotroller else { return }
-        viewController.delegate = self
+        switch segue.destinationController {
+        case let viewController as DeviceIDViewCotroller:
+            viewController.delegate = self
+        case let viewController as MapViewController:
+            viewController.delegate = self
+            mapViewController = viewController
+        default:
+            break
+        }
     }
 
     override func viewDidLoad() {
@@ -58,38 +58,34 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
         favoriteTableView.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
         favoriteTableView.setDraggingSourceOperationMask([.move, .delete], forLocal: true)
 
+        sensorsTableView.doubleAction = #selector(cellDobleClicked)
         largeFontCheckBox.state = Defaults[.TinyFont] ? .off : .on
         devicesSensorsList = dataStore.devicesSensorsList()
-        addObservers()
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: .deviceListChangedNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .deviceListChangedNotification, object: nil)
     }
     
     override func viewWillDisappear() {
         dataStore.saveDefaults()
+        mapViewController?.view.window?.performClose(nil)
     }
-    
-    func addObservers() {
-        let center = NotificationCenter.default
-        center.addObserver(forName: .deviceListChangedNotification, object: nil, queue: nil) {_ in
-            self.devicesSensorsList = self.dataStore.devicesSensorsList()
-            self.sensorsTableView.reloadData()
-            self.favoriteTableView.reloadData()
-        }
-    }
-    
-    
-    func remove(device: SensorsOnDevice) {
-        let sensorIds = Set<Int>(device.sensors.map { $0.id })
         
-        dataStore.selectedWindowSensors = dataStore.selectedWindowSensors.filter { !sensorIds.contains($0) }
-        dataStore.selectedBarSensors = dataStore.selectedBarSensors.filter { !sensorIds.contains($0) }
-        dataStore.selectedDevices = dataStore.selectedDevices.filter{ $0 != device.id }
-        let index = dataStore.devices.index(where: {$0.id == device.id})!
-        dataStore.devices.remove(at: index)
-        
-        NotificationCenter.default.post(name: .deviceListChangedNotification, object: nil)
+    @objc func refreshData() {
+        devicesSensorsList = dataStore.devicesSensorsList()
+        sensorsTableView.reloadData()
+        favoriteTableView.reloadData()
     }
     
+
+}
+
+extension SensorSettingsViewController: DeviceIdDelegate {
     func add(device id: Int) {
+        parent?.view.window?.makeKeyAndOrderFront(nil)
+        
         guard !dataStore.selectedDevices.contains(id) else {
             let alert = NSAlert()
             alert.messageText = NSLocalizedString("Add device", comment: "Add device")
@@ -100,23 +96,26 @@ class SensorSettingsViewController: NSViewController, DeviceIdDelegate {
         
         NarProvider.shared.request(.sensorsOnDevice(id: id))
             .then { (device: SensorsOnDevice) -> Void in
-                self.dataStore.devices.append(device)
-                self.dataStore.selectedDevices.append(id)
-                let sensors: [Int] = device.sensors.map { $0.id }
-                self.dataStore.selectedWindowSensors.append(contentsOf: sensors)
-
-                NotificationCenter.default.post(name: .deviceListChangedNotification, object: nil)
+                self.dataStore.add(device: device)
+                postNotification(name: .deviceListChangedNotification)
             }
             .catch { error in
                 guard let e = error as? NarodNetworkError else { error.sendFatalReport() }
                 e.displayAlert()
         }
     }
-
+    
+    @objc private func cellDobleClicked(_ sender: Any) {
+        switch devicesSensorsList[sensorsTableView.clickedRow] {
+        case is SensorsOnDevice:
+            deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
+        case is Sensor:
+            sensorCellStyle = sensorCellId.nextIndex(sensorCellStyle)
+        default: fatalError()
+        }
+        sensorsTableView.reloadData()
+    }
 }
-
-
-
 
 extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -146,14 +145,16 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
         case sensorsTableView:
             switch devicesSensorsList[row] {
             case let device as SensorsOnDevice:
-                guard let deviceCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DeviceCell"), owner: self) as? DeviceCellView
+                let cellId = deviceCellId[deviceCellStyle]
+                guard let deviceCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), owner: self) as? DeviceCellView
                     else { return nil }
                 deviceCell.setContent(device: device)
                 return deviceCell
             case let sensor as Sensor:
-                guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? PrefsCellView
+                let cellId = sensorCellId[sensorCellStyle]
+                guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), owner: self) as? PrefsCellView
                     else { return nil }
-                sensorCell.setContent(sensor: sensor, isChecked: dataStore.selectedWindowSensors.contains(sensor.id))
+                sensorCell.setContent(sensor: sensor, dataStore: dataStore)
                 return sensorCell
             default: fatalError()
             }
@@ -168,7 +169,7 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
                     if let sensor = element as? Sensor, sensor.id == id {
                         guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? PrefsCellView
                             else { return nil }
-                        sensorCell.setContent(sensor: sensor, isChecked: false)
+                        sensorCell.setContent(sensor: sensor, dataStore: dataStore)
                         return sensorCell
                     }
                 }
@@ -233,11 +234,12 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
             case favoriteTableView:
                 dataStore.selectedBarSensors.remove(at: fromRow-1)
                 NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
-                NotificationCenter.default.post(name: .barSensorsChangedNotification, object: nil)
+                postNotification(name: .barSensorsChangedNotification)
                 favoriteTableView.reloadData()
             case sensorsTableView:
                 guard let device = devicesSensorsList[fromRow] as? SensorsOnDevice else { break }
-                remove(device: device)
+                dataStore.remove(device: device)
+                postNotification(name: .deviceListChangedNotification)
                 NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
             default: fatalError()
             }
@@ -248,9 +250,11 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
     ///
     /// - Returns: operation
     func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
+        guard let draggingSource = info.draggingSource() as? SelectTableView else {
+            return []
+        }
         currentItemDragOperation = []
         let toRow = row
-        let draggingSource = info.draggingSource() as! SelectTableView
         
         if tableView == favoriteTableView {
             let fromRow = dragRow(from: info.draggingPasteboard())
@@ -290,14 +294,14 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
             else {
                 dataStore.selectedBarSensors.insert(value, at: row-1)
             }
-            NotificationCenter.default.post(name: .barSensorsChangedNotification, object: nil)
+            postNotification(name: .barSensorsChangedNotification)
             favoriteTableView.reloadData()
             return true
             
         case sensorsTableView?:
             guard let fromSensor = devicesSensorsList[fromRow] as? Sensor else { return false }
                 dataStore.selectedBarSensors.append(fromSensor.id)
-                NotificationCenter.default.post(name: .barSensorsChangedNotification, object: nil)
+                postNotification(name: .barSensorsChangedNotification)
                 favoriteTableView.reloadData()
                 return true
         default:

@@ -12,7 +12,7 @@ struct APIKeys {
     // MARK: Shared Keys
     static let `default`: APIKeys = {
         return APIKeys(
-            apiKey: NarodmonBarKeys().apiKey
+            apiKey: NarodmonAppKeys().apiKey
             )
     }()
 

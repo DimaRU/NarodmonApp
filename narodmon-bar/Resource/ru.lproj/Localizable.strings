@@ -1,5 +1,6 @@
-/* No comment provided by engineer. */
-"API key blocked" = "Заблокирован ключ API";
+
+/* Chart legend */
+"%@ (%@) \t%@ - %@ \tMin: %0.1f \tMax: %0.1f \tAverage: %0.1f" = "%@ (%@) \t%@ - %@ \tМин: %0.1f \tМакс: %0.1f \tСреднее: %0.1f";
 
 /* No comment provided by engineer. */
 "Access denied" = "В доступе к объекту отказано";
@@ -7,20 +8,45 @@
 /* Add device */
 "Add device" = "Добавление устройства";
 
+/* No comment provided by engineer. */
+"API key blocked" = "Заблокирован ключ API";
+
 /* Add device */
 "Device already added" = "Устройство уже добавлено";
+
+/* Chart view */
+"High level" = "Верхний уровень";
+
+/* Map View url
+   Open map URL */
+"https://narodmon.com" = "https://narodmon.ru";
+
+/* WhereToBuy URL */
+"https://narodmon.ru/#!cathard" = "https://narodmon.ru/#!cathard";
+
+/* MakeYourOwnAction URL */
+"https://wifi-iot.com/a/lang/en/" = "https://wifi-iot.com/a/lang/ru/";
+
+/* last update in title bar */
+"Last update: " = "Обновлено: ";
 
 /* Status bar message */
 "Loading..." = "Загрузка...";
 
-/* Empty status bar message part1 */
-"No" = "Нет";
+/* Chart view */
+"Low level" = "Нижний уровень";
 
-/* Empty status bar message part2 */
-"sensors" = "сенсоров";
+/* Support email URL */
+"mailto:macosapp@narodmon.com" = "mailto:macosapp@narodmon.ru";
 
 /* No comment provided by engineer. */
 "Network unreachable" = "Сеть не доступна";
+
+/* Empty status bar message part1 */
+"No" = "Нет";
+
+/* Chart view */
+"No history data for that period" = "Нет данных за этот период";
 
 /* No comment provided by engineer. */
 "Object disconnected" = "Объект отключён";
@@ -34,6 +60,9 @@
 /* No comment provided by engineer. */
 "Responce syntax error" = "Ошибочный формат ответа";
 
+/* Empty status bar message part2 */
+"sensors" = "сенсоров";
+
 /* No comment provided by engineer. */
 "Server error" = "Сервер временно не обрабатывает запросы по техническим причинам";
 
@@ -42,4 +71,3 @@
 
 /* No comment provided by engineer. */
 "Unsucessful authorisation" = "Ошибка авторизации";
-
