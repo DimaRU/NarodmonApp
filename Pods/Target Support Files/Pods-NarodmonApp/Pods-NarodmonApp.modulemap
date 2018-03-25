@@ -1,0 +1,6 @@
+framework module Pods_NarodmonApp {
+  umbrella header "Pods-NarodmonApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
