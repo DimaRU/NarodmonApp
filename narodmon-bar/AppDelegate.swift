@@ -33,8 +33,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Defaults.appStart()
         createContentViewController()
         let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        statusView = StatusItemView(statusItem: statusItem, dataStore: dataStore) {
-            self.showPopover()
+        statusView = StatusItemView(statusItem: statusItem, dataStore: dataStore) { [weak self] in
+            self?.showPopover()
             }
         statusView.isTinyText = Defaults[.TinyFont]
         statusView.sizeToFit()
