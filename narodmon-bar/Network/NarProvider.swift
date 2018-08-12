@@ -99,7 +99,6 @@ extension NarProvider {
     private func checkFatal(error: NarodNetworkError, failure: @escaping WUFailureCompletion) {
         switch error {
         case .requestSyntaxError,
-             .notFound,
              .apiKeyBlocked,
              .responceSyntaxError:
             error.displayAlert()
