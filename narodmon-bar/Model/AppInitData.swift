@@ -13,6 +13,6 @@ struct AppInitData: Codable {
     let addr: String
     let latest: String?
     let url: URL?
-    let favorites: [String]
+    let favorites: [Int]
     let types: [SensorType]?
 }
