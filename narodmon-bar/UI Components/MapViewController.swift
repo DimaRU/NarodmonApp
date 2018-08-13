@@ -69,11 +69,15 @@ function whenPageFullyLoaded(e) {
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if message.name == handlerName {
-            if let number = message.body as? NSNumber {
-                let deviceId = number.intValue
-                nextTick {
-                    self.delegate?.add(device: deviceId)
+        if message.name == handlerName, let url = message.body as? String {
+            let urlParts = url.split(separator: "/")
+            if urlParts.count == 2, let deviceId = Int(urlParts[1]) {
+                if deviceId > 0 {
+                    nextTick {
+                        self.delegate?.add(device: deviceId)
+                    }
+                } else {
+                    print("Camera:", -deviceId)
                 }
             }
         }
