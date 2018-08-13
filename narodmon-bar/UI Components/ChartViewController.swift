@@ -271,7 +271,7 @@ class ChartViewController: NSViewController {
     private func redrawChart() {
         currentDataLabel.stringValue = ""
         CacheService.loadSensorHistory(id: sensor.id, period: historyPeriod, offset: historyOffset)
-            .then { history -> Void in
+            .done { history -> Void in
                 self.history = history
                 if history.isEmpty {
                     self.chartView.noDataText = NSLocalizedString("No history data for that period", comment: "Chart view")

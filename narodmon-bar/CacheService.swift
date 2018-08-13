@@ -46,10 +46,10 @@ class CacheService {
         
         if let storage = CacheService.storage,
             let historyData = try? storage.object(ofType: [SensorHistoryData].self, forKey: key) {
-            return Promise<[SensorHistoryData]>(value: historyData)
+            return Promise<[SensorHistoryData]>.value(historyData)
         } else {
             return NetService.loadSensorHistory(id: id, period: period, offset: offset)
-                .then { historyData -> [SensorHistoryData] in
+                .map { historyData -> [SensorHistoryData] in
                     let interval: Double
                     switch period {
                     case .hour:  interval = 4

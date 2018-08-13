@@ -47,31 +47,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
                 let logonData = UserLogon(vip: initData.vip, login: initData.login, uid: initData.uid)
                 self.dataStore.logonData = logonData
-                return Promise.resolved()
+                return Promise.value(())
             }
-            .recover { (error) -> Void in
-                if case NarodNetworkError.authorizationNeed = error {
-                    let e = error as! NarodNetworkError
-                    e.displayAlert()
-                    return
-                }
-                throw error
+            .recover { (error) -> Promise<Void> in
+                guard case NarodNetworkError.authorizationNeed = error else { throw error }
+                let e = error as! NarodNetworkError
+                e.displayAlert()
+                return Promise.value(())
             }
-            .then {
+            .then { (_) -> Promise<Void> in
                 if self.dataStore.selectedDevices.count == 0 {
                     // No devices for display, discovery it
                     return NetService.loadDefaultDevices()
                 } else {
-                    return Promise.resolved()
+                    return Promise.value(())
                 }
             }
             .then {
                 NetService.loadDevicesDefinitions()
             }
-            .then { () -> Void in
+            .done { () -> Void in
                 self.dataStore.checkConsistency()
                 self.dataStore.saveDefaults()
-                
+
                 postNotification(name: .deviceListChangedNotification)
                 self.startRefreshCycle()
                 self.addWakeObserver()

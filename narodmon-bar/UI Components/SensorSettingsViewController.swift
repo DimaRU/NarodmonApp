@@ -95,7 +95,7 @@ extension SensorSettingsViewController: DeviceIdDelegate {
         }
         
         NarProvider.shared.request(.sensorsOnDevice(id: id))
-            .then { (device: SensorsOnDevice) -> Void in
+            .done { (device: SensorsOnDevice) -> Void in
                 self.dataStore.add(device: device)
                 postNotification(name: .deviceListChangedNotification)
             }

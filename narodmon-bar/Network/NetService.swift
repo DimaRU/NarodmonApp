@@ -23,7 +23,7 @@ struct NetService {
     
     static func appLogin() -> Promise<Void> {
         guard let login = KeychainService.shared[.login], let password = KeychainService.shared[.password] else {
-            return Promise.resolved()
+            return Promise.value(())
         }
         let app = (NSApp.delegate as! AppDelegate)
         let initData = app.dataStore.initData!
@@ -31,10 +31,10 @@ struct NetService {
             let logonData = UserLogon(vip: initData.vip, login: initData.login, uid: initData.uid)
             app.dataStore.logonData = logonData
             // Already logged in, skip login
-            return Promise.resolved()
+            return Promise.value(())
         }
         return NarProvider.shared.request(.userLogon(login: login, password: password))
-            .then { (logonData: UserLogon) -> Void in
+            .done { (logonData: UserLogon) -> Void in
                 app.dataStore.logonData = logonData
         }
     }
@@ -52,7 +52,7 @@ struct NetService {
                 app.dataStore.logonData = logonData
                 return NarProvider.shared.request(.sensorsNearby(my: true))
             }
-            .then { (near: SensorsNearby) -> Void in
+            .done { (near: SensorsNearby) -> Void in
                 for i in near.devices.indices {
                     let device = near.devices[i]
                     if !app.dataStore.selectedDevices.contains(device.id) {
@@ -70,9 +70,10 @@ struct NetService {
         if app.dataStore.logonData != nil {
             return NarProvider.shared.request(.sensorsNearby(my: true))
                 .then { (near: SensorsNearby) -> Promise<(UserFavorites, SensorsNearby)> in
-                    NarProvider.shared.request(.userFavorites).then { ($0, near) }
+                    NarProvider.shared.request(.userFavorites).map { ($0, near) }
                 }
-                .then { (favorites, near) -> Void in
+                .done { (arg) -> Void in
+                    let (favorites, near) = arg
                     var sensorsIds: [Int] = []
                     for device in near.devices {
                         app.dataStore.selectedDevices.append(device.id)
@@ -88,7 +89,7 @@ struct NetService {
         } else {
             return NarProvider.shared.request(.sensorsNearby(my: false))
                 // get near
-                .then { (near: SensorsNearby) -> Void in
+                .done { (near: SensorsNearby) -> Void in
                     guard !near.devices.isEmpty else { return }
                     let devices = near.devices.prefix(2)
                     var sensorsIds: [Int] = []
@@ -117,13 +118,13 @@ struct NetService {
                 NarProvider.shared.request(.sensorsOnDevice(id: deviceId))
                     .then { (device: SensorsOnDevice) -> Promise<Void> in
                         app.dataStore.devices.append(device)
-                        return Promise.resolved()
+                        return Promise.value(())
                     }
                     .recover { (error) -> Promise<Void> in
                         if case NarodNetworkError.accessDenied = error {
                             let e = error as! NarodNetworkError
                             e.displayAlert()
-                            return Promise.resolved()
+                            return Promise.value(())
                         }
                         throw error
                 }
@@ -144,7 +145,7 @@ struct NetService {
         app.lastRequestTime = Date()
         
         NarProvider.shared.request(.sensorsValues(sensorIds: Array<Int>(sensors)))
-            .then { (sensorsValues: SensorsValues) -> Void in
+            .done { (sensorsValues: SensorsValues) -> Void in
                 app.dataStore.sensorValues = sensorsValues.sensors
                 postNotification(name: .dataChangedNotification)
             }
@@ -157,7 +158,7 @@ struct NetService {
     /// Load sensor history
     static func loadSensorHistory(id: Int, period: HistoryPeriod, offset: Int) -> Promise<[SensorHistoryData]> {
         return NarProvider.shared.request(.sensorHistory(id: id, period: period, offset: offset))
-            .then { (sensorHistory: SensorHistory) -> [SensorHistoryData] in
+            .map { (sensorHistory: SensorHistory) -> [SensorHistoryData] in
                 return sensorHistory.data
         }
     }

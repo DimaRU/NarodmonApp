@@ -1,40 +1,48 @@
 PODS:
-  - Alamofire (4.5.1)
+  - Alamofire (4.7.3)
   - Cache (4.1.2)
   - Charts (3.0.5):
     - Charts/Core (= 3.0.5)
   - Charts/Core (3.0.5)
-  - KeychainAccess (3.1.0)
-  - Keys (1.0.0)
+  - KeychainAccess (3.1.1)
+  - Keys (1.0.1)
   - Moya (10.0.2):
     - Moya/Core (= 10.0.2)
   - Moya/Core (10.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
-  - PromiseKit (4.4.3):
-    - PromiseKit/Foundation (= 4.4.3)
-    - PromiseKit/QuartzCore (= 4.4.3)
-    - PromiseKit/UIKit (= 4.4.3)
-  - PromiseKit/Alamofire (4.4.3):
+  - PromiseKit (6.3.4):
+    - PromiseKit/CorePromise (= 6.3.4)
+    - PromiseKit/Foundation (= 6.3.4)
+    - PromiseKit/UIKit (= 6.3.4)
+  - PromiseKit/Alamofire (6.3.4):
     - Alamofire (~> 4.0)
     - PromiseKit/CorePromise
-  - PromiseKit/CorePromise (4.4.3)
-  - PromiseKit/Foundation (4.4.3):
-    - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.4.3):
+  - PromiseKit/CorePromise (6.3.4)
+  - PromiseKit/Foundation (6.3.4):
     - PromiseKit/CorePromise
   - Result (3.2.4)
-  - SwiftyUserDefaults (3.0.0)
+  - SwiftyUserDefaults (3.0.1)
 
 DEPENDENCIES:
-  - Cache
+  - Cache (= 4.1.2)
   - Charts (from `https://github.com/DimaRU/Charts.git`)
-  - KeychainAccess
+  - KeychainAccess (= 3.1.1)
   - Keys (from `Pods/CocoaPodsKeys`)
-  - Moya (~> 10.0)
-  - PromiseKit
-  - PromiseKit/Alamofire
-  - SwiftyUserDefaults
+  - Moya (= 10.0.2)
+  - PromiseKit (= 6.3.4)
+  - PromiseKit/Alamofire (= 6.3.4)
+  - SwiftyUserDefaults (= 3.0.1)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Cache
+    - KeychainAccess
+    - Moya
+    - PromiseKit
+    - Result
+    - SwiftyUserDefaults
 
 EXTERNAL SOURCES:
   Charts:
@@ -48,16 +56,16 @@ CHECKOUT OPTIONS:
     :git: https://github.com/DimaRU/Charts.git
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Cache: bd0233fc688b5e83a27bcd87807db7e6f23adcc5
   Charts: 8a244acbb5054c54c1a54c3e82516f3aee30e68d
-  KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
-  Keys: af65e23feef2a047b3277b1ef0399f1209ef9d46
+  KeychainAccess: 7bd430028059754a3debab3cfc0bd1fc7fb85df3
+  Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   Moya: 2b0531a9fef318e0bc484030c3db1e6f279ccb66
-  PromiseKit: fbb52a0d154402c57eeb6eccd36dd7724fcf6117
+  PromiseKit: e1425568123ec844a944c93f2bcb29d511d39cf5
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
+  SwiftyUserDefaults: 3d273b1739b68ada3145dc754a70ec775bc5c8be
 
-PODFILE CHECKSUM: 99e3d89fe613667dc2cec93409487356488dda71
+PODFILE CHECKSUM: 798f05eb80d95784d037c0344e254eb8c4fed4b9
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

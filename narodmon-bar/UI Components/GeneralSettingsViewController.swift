@@ -38,7 +38,7 @@ class GeneralSettingsViewController: NSViewController {
         guard newEmail != nil && newPassword != nil else { return }
         
         NetService.appLoginDiscovery()
-            .always {
+            .ensure {
                 postNotification(name: .deviceListChangedNotification)
             }
             .catch { (error) in

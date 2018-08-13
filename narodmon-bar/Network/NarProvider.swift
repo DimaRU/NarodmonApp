@@ -13,6 +13,9 @@ typealias WuSuccessCompletion = (Data) -> Void
 typealias WUFailureCompletion = (Error) -> Void
 
 class NarProvider {
+    typealias ErrorBlock = (Error) -> Void
+    typealias RequestFuture = (target: NarodAPI, resolve: (Any) -> Void, reject: ErrorBlock)
+    
     static var shared: NarProvider = NarProvider()
     
     static func endpointClosure(_ target: NarodAPI) -> Endpoint<NarodAPI> {
@@ -30,34 +33,30 @@ class NarProvider {
 
     // MARK: - Public
     func request(_ target: NarodAPI) -> Promise<Void> {
-        let (promise, resolve, reject) = Promise<Void>.pending()
-        APIRequest(target,
-                   success: { _ in
-                    resolve(()) },
-                   failure: reject)
+        let (promise, resolver) = Promise<Void>.pending()
+        sendRequest((target,
+                     resolve: { _ in resolver.fulfill(()) },
+                     reject: resolver.reject))
         return promise
     }
 
     
     func request<T: Decodable>(_ target: NarodAPI) -> Promise<T> {
-        let (promise, resolve, reject) = Promise<T>.pending()
+        let (promise, resolver) = Promise<T>.pending()
         assert(target.mappingType == T.self)
-        APIRequest(target,
-                   success: { rawData in
-                    self.parseData(data: rawData, resolve: resolve, reject: reject) },
-                   failure: reject)
+        sendRequest((target,
+                     resolve: { rawData in self.parseData(data: rawData as! Data, resolver: resolver) },
+                     reject: resolver.reject))
         return promise
     }
     
     
-    func APIRequest(_ target: NarodAPI,
-                    success: @escaping WuSuccessCompletion,
-                    failure: @escaping WUFailureCompletion) {
-        NarProvider.instance.request(target) { (result) in
-                self.handleRequest(target: target, result: result, success: success, failure: failure) 
-            }
+    private func sendRequest(_ request: RequestFuture) {
+        print("Request:", request.target)
+        NarProvider.instance.request(request.target) { (result) in
+            self.handleRequest(request: request, result: result)
+        }
     }
-
 }
 
 
@@ -66,9 +65,7 @@ extension NarProvider {
     
     // MARK: - Private
     
-    fileprivate func handleRequest(target: NarodAPI, result: MoyaResult,
-                                   success: @escaping WuSuccessCompletion,
-                                   failure: @escaping WUFailureCompletion) {
+    fileprivate func handleRequest(request: RequestFuture, result: MoyaResult) {
         switch result {
         case let .success(moyaResponse):
             let data = moyaResponse.data
@@ -77,18 +74,18 @@ extension NarProvider {
             switch statusCode {
             case 200:
                 if let APIError = checkResponce(data: data) {
-                    checkFatal(error: APIError, failure: failure)
+                    checkFatal(error: APIError, request: request)
                 } else {
-                    success(data)
+                    request.resolve(data)
                 }
             default:
                 let APIError = NarodNetworkError.serverError(message: "Responce status code: \(statusCode)")
-                checkFatal(error: APIError, failure: failure)
+                checkFatal(error: APIError, request: request)
             }
             
         case let .failure(error):
             // Really network unreachable
-            handleNetworkFailure(target, error: error, success: success, failure: failure)
+            handleNetworkFailure(request: request, error: error)
         }
     }
 
@@ -96,7 +93,7 @@ extension NarProvider {
     /// On falal eroror, display error message end exit
     /// On non-fatal, return error
     ///
-    private func checkFatal(error: NarodNetworkError, failure: @escaping WUFailureCompletion) {
+    private func checkFatal(error: NarodNetworkError, request: RequestFuture) {
         switch error {
         case .requestSyntaxError,
              .apiKeyBlocked,
@@ -104,7 +101,7 @@ extension NarProvider {
             error.displayAlert()
             error.sendFatalReport()
         default:
-            failure(error)
+            request.reject(error)
         }
     }
     
@@ -147,43 +144,41 @@ extension NarProvider {
     }
     
     /// Parce response data
-    fileprivate func parseData<T: Decodable>(data: Any, resolve: (T) -> Void, reject: (Error) -> Void) {
+    fileprivate func parseData<T: Decodable>(data: Data, resolver: Resolver<T>) {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .secondsSince1970
         do {
-            let data = data as! Data
             if T.self == SensorHistory.self {
                 // Fuckin backend develpers!
                 // Bugfix empty reply is "[]"
                 if data.count == 2, data[0] == UInt8(ascii: "["), data[1] == UInt8(ascii: "]") {
                     let sensorHistoryData: [SensorHistoryData] = []
                     let sensorHistory = SensorHistory(data: sensorHistoryData)
-                    resolve(sensorHistory as! T)
+                    resolver.fulfill(sensorHistory as! T)
+//                    resolve(sensorHistory as! T)
                     return
                 }
             }
             let jsonable = try decoder.decode(T.self, from: data)
-            resolve(jsonable)
+            resolver.fulfill(jsonable)
         } catch {
             print(error)
             let message = error.localizedDescription
-            reject(NarodNetworkError.responceSyntaxError(message: message))
+            resolver.reject(NarodNetworkError.responceSyntaxError(message: message))
         }
     }
     
    
     /// just retry request
-    fileprivate func handleNetworkFailure(_ target: NarodAPI, error: Swift.Error,
-                                          success: @escaping WuSuccessCompletion,
-                                          failure: @escaping WUFailureCompletion) {
-        if target.requestRetry {
+    fileprivate func handleNetworkFailure(request: RequestFuture, error: Error) {
+        if request.target.requestRetry {
             delay(1) {
                 print("Retry request")
-                self.APIRequest(target, success: success, failure: failure)
+                self.sendRequest(request)
             }
         } else {
             let message = error.localizedDescription
-            failure(NarodNetworkError.networkFailure(message: message))
+            request.reject(NarodNetworkError.networkFailure(message: message))
         }
     }
     
