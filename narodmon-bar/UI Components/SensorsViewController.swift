@@ -163,7 +163,7 @@ extension SensorsViewController: NSTableViewDataSource {
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        if row == numberOfRows(in: tableView) - 1 {
+        if row == tableView.numberOfRows - 1 {
             // last row
             setViewSizeOnContent()
         }
