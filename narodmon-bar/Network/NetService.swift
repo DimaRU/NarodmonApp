@@ -8,11 +8,7 @@ import PromiseKit
 struct NetService {
 
     static func appInit() -> Promise<AppInitData> {
-        let dictionary = Bundle.main.infoDictionary!
-        let bundleVersion = dictionary["CFBundleShortVersionString"] as! String
-        let bundleBuild = dictionary["CFBundleVersion"] as! String
-        let version = "\(bundleVersion).\(bundleBuild)"
-        
+        let version = appVersion()
         let system = ProcessInfo.processInfo.operatingSystemVersion
         let platform = "\(system.minorVersion).\(system.patchVersion)"
         let model = Sysctl.model

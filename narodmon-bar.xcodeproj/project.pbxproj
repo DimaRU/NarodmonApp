@@ -15,6 +15,7 @@
 		0A36F8E52053E68C0084B503 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36F8E42053E68C0084B503 /* CacheService.swift */; };
 		0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E11FC03230006605DC /* CwlSysctl.swift */; };
 		0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E41FC048BC006605DC /* String+MD5.swift */; };
+		0A41A376212318FF001D27D6 /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A41A375212318FF001D27D6 /* AppVersion.swift */; };
 		0A4C61521FC83FAD009F7B51 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C61511FC83FAD009F7B51 /* Defaults.swift */; };
 		0A4DB18220234F73007E4281 /* UserDefaultsBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4DB18120234F73007E4281 /* UserDefaultsBarStyle.swift */; };
 		0A5D858B205D1C1200B15AAA /* customFontMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D858A205D1C1100B15AAA /* customFontMenu.swift */; };
@@ -110,6 +111,7 @@
 		0A37C0E11FC03230006605DC /* CwlSysctl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CwlSysctl.swift; sourceTree = "<group>"; };
 		0A37C0E41FC048BC006605DC /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		0A3F22511FD2FC2C00D06A20 /* NarodmonApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NarodmonApp.entitlements; sourceTree = "<group>"; };
+		0A41A375212318FF001D27D6 /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		0A4C61511FC83FAD009F7B51 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		0A4DB18120234F73007E4281 /* UserDefaultsBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsBarStyle.swift; sourceTree = "<group>"; };
 		0A5D858A205D1C1100B15AAA /* customFontMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customFontMenu.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				0A63DF961FCED92800C35607 /* HwUUID.swift */,
 				0A756286200261490033269C /* LaunchOnLogin.swift */,
 				0A4DB18120234F73007E4281 /* UserDefaultsBarStyle.swift */,
+				0A41A375212318FF001D27D6 /* AppVersion.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 				0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */,
 				0AE1E7002003F47400029333 /* Notifications.swift in Sources */,
 				0A9195061FBB416000D72378 /* SensorsNearby.swift in Sources */,
+				0A41A376212318FF001D27D6 /* AppVersion.swift in Sources */,
 				0ADE148E204DEB9600E46192 /* MenuButton.swift in Sources */,
 				0A63DF991FCEDAED00C35607 /* NetService.swift in Sources */,
 				0A9AFA011FD00F1C00F5B5BB /* PopoverDelegate.swift in Sources */,

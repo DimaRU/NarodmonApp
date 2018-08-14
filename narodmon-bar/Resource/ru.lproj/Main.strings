@@ -268,3 +268,6 @@
 
 /* Class = "NSMenuItem"; title = "Support"; ObjectID = "ra0-x0-1O5"; */
 "ra0-x0-1O5.title" = "Техподдержка";
+
+/* Class = "NSTextFieldCell"; title = "New version avaible, please update"; ObjectID = "XXw-8P-hUz"; */
+"XXw-8P-hUz.title" = "Пожалуйста обновите приложение";

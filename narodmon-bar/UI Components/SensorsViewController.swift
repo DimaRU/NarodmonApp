@@ -95,7 +95,6 @@ class SensorsViewController: NSViewController {
             return
         }
         let lastUpdateTime = dataStore.lastUpdate()
-        //let interval = -Int(lastUpdateTime.timeIntervalSinceNow)
         let updateString = NSLocalizedString("Last update: ", comment: "last update in title bar")
         toolbarTitle.stringValue = updateString + DateFormatter.localizedString(from: lastUpdateTime, dateStyle: .none, timeStyle: .short)
     }
@@ -120,7 +119,7 @@ class SensorsViewController: NSViewController {
         sensorsTableView.reloadData()
     }
     
-    func openChat(cellView: NSView, sensor: Sensor, historyPeriod: HistoryPeriod) {
+    func openChart(cellView: NSView, sensor: Sensor, historyPeriod: HistoryPeriod) {
         let chartViewController = ChartViewController.instance()
         chartViewController.sensor = sensor
         chartViewController.dataStore = dataStore
@@ -135,13 +134,16 @@ class SensorsViewController: NSViewController {
     
     // MARK: Double click actions
     @objc private func cellDobleClicked(_ sender: Any) {
+        guard sensorsTableView.clickedRow < devicesSensorsList.count else {
+            // Footer row clicked
+            return
+        }
         switch devicesSensorsList[sensorsTableView.clickedRow] {
         case is SensorsOnDevice:
             nextDeviceView()
         case let sensor as Sensor:
-//            sensorsTableView.selectRowIndexes(IndexSet(integer: sensorsTableView.clickedRow), byExtendingSelection: false)
             let cellView = sensorsTableView.view(atColumn: 0, row: sensorsTableView.clickedRow, makeIfNecessary: false)!
-            openChat(cellView: cellView, sensor: sensor, historyPeriod: .day)
+            openChart(cellView: cellView, sensor: sensor, historyPeriod: .day)
         default: fatalError()
         }
     }
@@ -149,17 +151,28 @@ class SensorsViewController: NSViewController {
 
 extension SensorsViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return devicesSensorsList.isEmpty ? 1 : devicesSensorsList.count
+        var rows = devicesSensorsList.count
+        if devicesSensorsList.isEmpty {
+            rows += 1
+        }
+        if dataStore.initData?.latest != appVersion() {
+            // Footer
+            rows += 1
+        }
+        return rows
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        if devicesSensorsList.isEmpty || row == devicesSensorsList.count - 1 {
+        if row == numberOfRows(in: tableView) - 1 {
             // last row
             setViewSizeOnContent()
         }
         
-        guard !devicesSensorsList.isEmpty else {
+        if devicesSensorsList.isEmpty && row == 0 {
             return tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MessageCell"), owner: self)
+        }
+        guard row < devicesSensorsList.count else {
+            return tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "FooterCell"), owner: self)
         }
         switch devicesSensorsList[row] {
         case let device as SensorsOnDevice:

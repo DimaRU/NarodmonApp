@@ -27,7 +27,7 @@ class SensorCellView: NSTableCellView {
         let historyPeriod = HistoryPeriod(rawValue: id)!
         let app = NSApp.delegate as! AppDelegate
         nextTick {
-            app.sensorsViewController.openChat(cellView: self, sensor: self.sensor, historyPeriod: historyPeriod)
+            app.sensorsViewController.openChart(cellView: self, sensor: self.sensor, historyPeriod: historyPeriod)
         }
     }
     
