@@ -14,7 +14,7 @@ struct NetService {
         let version = "\(bundleVersion).\(bundleBuild)"
         
         let system = ProcessInfo.processInfo.operatingSystemVersion
-        let platform = "\(system.majorVersion).\(system.minorVersion).\(system.patchVersion)"
+        let platform = "\(system.minorVersion).\(system.patchVersion)"
         let model = Sysctl.model
         let utc = TimeZone.current.secondsFromGMT() / 3600
         
