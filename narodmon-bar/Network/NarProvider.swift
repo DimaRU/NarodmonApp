@@ -9,17 +9,14 @@ import Result
 import Alamofire
 import PromiseKit
 
-typealias WuSuccessCompletion = (Data) -> Void
-typealias WUFailureCompletion = (Error) -> Void
-
 class NarProvider {
     typealias ErrorBlock = (Error) -> Void
     typealias RequestFuture = (target: NarodAPI, resolve: (Any) -> Void, reject: ErrorBlock)
     
     static var shared: NarProvider = NarProvider()
     
-    static func endpointClosure(_ target: NarodAPI) -> Endpoint<NarodAPI> {
-        let endpoint = Endpoint<NarodAPI>(url: url(target),
+    static func endpointClosure(_ target: NarodAPI) -> Endpoint {
+        let endpoint = Endpoint(url: url(target),
                                            sampleResponseClosure: { return target.stubbedNetworkResponse },
                                            method: target.method,
                                            task: target.task,

@@ -6,7 +6,7 @@ target 'NarodmonApp' do
   use_frameworks!
 
   # Pods for MoyaTest
-  pod 'Moya', '10.0.2'
+  pod 'Moya', '~> 11.0'
   pod 'PromiseKit', '6.3.4'
   pod 'PromiseKit/Alamofire', '6.3.4'
   pod 'KeychainAccess', '3.1.1'
