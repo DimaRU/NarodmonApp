@@ -28,6 +28,7 @@
 		0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */; };
 		0A68C0BB1FDAA1FB00E7ACD4 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */; };
 		0A6D89C41FC5C37100034A67 /* md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C31FC5C37100034A67 /* md5.swift */; };
+		0A70D3FD21387358005BB814 /* IDETemplateMacros.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A70D3FC21387358005BB814 /* IDETemplateMacros.plist */; };
 		0A756277200246090033269C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A756276200246090033269C /* AppDelegate.swift */; };
 		0A756279200246090033269C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A756278200246090033269C /* Assets.xcassets */; };
 		0A756283200247930033269C /* NarodBarLauncherApp.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0A756274200246090033269C /* NarodBarLauncherApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -68,7 +69,6 @@
 		0AC4EAEE1FCE0526001573C8 /* SensorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */; };
 		0AC6CC4C200685A600F2DAE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AC6CC4E200685A600F2DAE0 /* InfoPlist.strings */; };
 		0AC6CC522007E5E100F2DAE0 /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */; };
-		0AC775A12041904100455100 /* IDETemplateMacros.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC775A02041904000455100 /* IDETemplateMacros.plist */; };
 		0AD867A720403C06001C5577 /* TypedNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD867A620403C06001C5577 /* TypedNotifications.swift */; };
 		0ADE148E204DEB9600E46192 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADE148D204DEB9500E46192 /* MenuButton.swift */; };
 		0AE1E7002003F47400029333 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE1E6FF2003F47400029333 /* Notifications.swift */; };
@@ -125,6 +125,7 @@
 		0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		0A6D89C31FC5C37100034A67 /* md5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = md5.swift; sourceTree = "<group>"; };
 		0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemView.swift; sourceTree = "<group>"; };
+		0A70D3FC21387358005BB814 /* IDETemplateMacros.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = IDETemplateMacros.plist; path = "narodmon-bar.xcworkspace/xcshareddata/IDETemplateMacros.plist"; sourceTree = "<group>"; };
 		0A756274200246090033269C /* NarodBarLauncherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NarodBarLauncherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A756276200246090033269C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A756278200246090033269C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -172,7 +173,6 @@
 		0AC6CC48200683DF00F2DAE0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AC6CC4D200685A600F2DAE0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
-		0AC775A02041904000455100 /* IDETemplateMacros.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = IDETemplateMacros.plist; sourceTree = "<group>"; };
 		0AD867A620403C06001C5577 /* TypedNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedNotifications.swift; sourceTree = "<group>"; };
 		0ADE148D204DEB9500E46192 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		0AE1E6FF2003F47400029333 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -293,7 +293,7 @@
 		0A9194D01FBB3CFC00D72378 = {
 			isa = PBXGroup;
 			children = (
-				0AC775A02041904000455100 /* IDETemplateMacros.plist */,
+				0A70D3FC21387358005BB814 /* IDETemplateMacros.plist */,
 				0A62254E2029A0E50056AEEE /* Support */,
 				0A9194DB1FBB3CFC00D72378 /* narodmon-bar */,
 				0A9194EE1FBB3CFD00D72378 /* narodmon-barTests */,
@@ -532,7 +532,7 @@
 			files = (
 				0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */,
 				0A7968D420067ED0008F97D9 /* InfoPlist.strings in Resources */,
-				0AC775A12041904100455100 /* IDETemplateMacros.plist in Resources */,
+				0A70D3FD21387358005BB814 /* IDETemplateMacros.plist in Resources */,
 				0A7968CB20067ADF008F97D9 /* Localizable.strings in Resources */,
 				0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */,
 			);
