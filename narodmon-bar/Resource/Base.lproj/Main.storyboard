@@ -622,7 +622,7 @@
                         </menuItem>
                     </items>
                 </menu>
-                <menu id="uL2-yB-aIg" userLabel="Device Context Menu" customClass="customFontMenu" customModule="NarodmonApp" customModuleProvider="target">
+                <menu id="uL2-yB-aIg" userLabel="Device Context Menu" customClass="CustomFontMenu" customModule="NarodmonApp" customModuleProvider="target">
                     <items>
                         <menuItem title="Open in map" id="DtD-1I-hFI">
                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -638,7 +638,7 @@
                         </menuItem>
                     </items>
                 </menu>
-                <menu id="CAp-Sn-Gz7" userLabel="Sensor Context Menu" customClass="customFontMenu" customModule="NarodmonApp" customModuleProvider="target">
+                <menu id="CAp-Sn-Gz7" userLabel="Sensor Context Menu" customClass="CustomFontMenu" customModule="NarodmonApp" customModuleProvider="target">
                     <items>
                         <menuItem title="Hour chart" identifier="hour" id="NUB-4J-s69">
                             <modifierMask key="keyEquivalentModifierMask"/>

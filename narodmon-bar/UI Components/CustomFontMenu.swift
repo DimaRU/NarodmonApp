@@ -1,9 +1,9 @@
 ////
-///  customFontMenu.swift
+///  CustomFontMenu.swift
 //
 import Cocoa
 
-class customFontMenu: NSMenu {
+class CustomFontMenu: NSMenu {
 
     let menuFont = NSFont.init(name: "Helvetica", size: 14)
     
