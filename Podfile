@@ -12,7 +12,7 @@ target 'NarodmonApp' do
   pod 'KeychainAccess', '3.1.1'
   pod 'SwiftyUserDefaults', '3.0.1'
   pod 'Cache', '4.1.2'
-  pod 'Charts', :git => 'https://github.com/DimaRU/Charts.git'
+  pod 'Charts', :git => 'https://github.com/DimaRU/Charts.git', :branch => '4.0.0-fixX'
 
 plugin 'cocoapods-keys', {
     :project => 'NarodmonApp',

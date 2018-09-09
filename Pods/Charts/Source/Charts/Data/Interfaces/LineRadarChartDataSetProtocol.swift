@@ -1,5 +1,5 @@
 //
-//  ILineRadarChartDataSet.swift
+//  LineRadarChartDataSetProtocol.swift
 //  Charts
 //
 //  Copyright 2015 Daniel Cohen Gindi & Philipp Jahoda
@@ -13,7 +13,7 @@ import Foundation
 import CoreGraphics
 
 @objc
-public protocol ILineRadarChartDataSet: ILineScatterCandleRadarChartDataSet
+public protocol LineRadarChartDataSetProtocol: LineScatterCandleRadarChartDataSetProtocol
 {
     // MARK: - Data functions and accessors
     
@@ -40,6 +40,6 @@ public protocol ILineRadarChartDataSet: ILineScatterCandleRadarChartDataSet
     /// Please note that this method uses the path clipping for drawing the filled area (with images, gradients and layers).
     var drawFilledEnabled: Bool { get set }
     
-    /// - returns: `true` if filled drawing is enabled, `false` ifnot
+    /// - returns: `true` if filled drawing is enabled, `false` if not
     var isDrawFilledEnabled: Bool { get }
 }
