@@ -5,11 +5,17 @@
 /* No comment provided by engineer. */
 "Access denied" = "В доступе к объекту отказано";
 
+/* Add camera */
+"Add camera" = "Добавление камеры";
+
 /* Add device */
 "Add device" = "Добавление устройства";
 
 /* No comment provided by engineer. */
 "API key blocked" = "Заблокирован ключ API";
+
+/* Add camera */
+"Camera already in list" = "Камера уже в списке";
 
 /* Add device */
 "Device already added" = "Устройство уже добавлено";

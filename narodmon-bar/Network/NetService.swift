@@ -66,7 +66,7 @@ struct NetService {
         if app.dataStore.logonData != nil {
             return NarProvider.shared.request(.sensorsNearby(my: true))
                 .then { (near: SensorsNearby) -> Promise<(UserFavorites, SensorsNearby)> in
-                    NarProvider.shared.request(.userFavorites).map { ($0, near) }
+                    NarProvider.shared.request(.userFavorites(webcams: [])).map { ($0, near) }
                 }
                 .done { (arg) -> Void in
                     let (favorites, near) = arg

@@ -13,7 +13,7 @@ import JavaScriptCore
 
 class MapViewController: NSViewController, WKUIDelegate, WKScriptMessageHandler {
 
-    var delegate: DeviceIdDelegate? = nil
+    var delegate: (DeviceIdDelegate & CameraIdDelegate)? = nil
 
     var titlebarViewController: NSTitlebarAccessoryViewController!
     var webView: WKWebView!
@@ -69,16 +69,18 @@ function whenPageFullyLoaded(e) {
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if message.name == handlerName, let url = message.body as? String {
-            let urlParts = url.split(separator: "/")
-            if urlParts.count == 2, let deviceId = Int(urlParts[1]) {
-                if deviceId > 0 {
-                    nextTick {
-                        self.delegate?.add(device: deviceId)
-                    }
-                } else {
-                    print("Camera:", -deviceId)
-                }
+        guard message.name == handlerName, let url = message.body as? String else {
+            return
+        }
+        let urlParts = url.split(separator: "/")
+        guard urlParts.count == 2, let deviceId = Int(urlParts[1]) else {
+            return
+        }
+        nextTick {
+            if deviceId > 0 {
+                self.delegate?.add(device: deviceId)
+            } else {
+                self.delegate?.add(camera: -deviceId)
             }
         }
     }

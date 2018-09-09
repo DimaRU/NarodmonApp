@@ -25,7 +25,7 @@ class NarProvider {
     }
     
     fileprivate static let instance = MoyaProvider<NarodAPI>(endpointClosure: NarProvider.endpointClosure
-//                                                                   ,plugins: [NetworkLoggerPlugin(verbose: true)]
+                                                                   ,plugins: [NetworkLoggerPlugin(verbose: true)]
                                                                   )
 
     // MARK: - Public
@@ -159,7 +159,9 @@ extension NarProvider {
             let jsonable = try decoder.decode(T.self, from: data)
             resolver.fulfill(jsonable)
         } catch {
+            let json = String.init(data: data, encoding: .utf8) ?? "??unknown??"
             print(error)
+            print(json)
             let message = error.localizedDescription
             resolver.reject(NarodNetworkError.responceSyntaxError(message: message))
         }

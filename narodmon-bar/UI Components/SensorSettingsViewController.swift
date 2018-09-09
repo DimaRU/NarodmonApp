@@ -8,9 +8,14 @@
 
 import Cocoa
 import SwiftyUserDefaults
+import PromiseKit
 
 protocol DeviceIdDelegate {
     func add(device id: Int)
+}
+
+protocol CameraIdDelegate {
+    func add(camera id: Int)
 }
 
 class SensorSettingsViewController: NSViewController {
@@ -79,6 +84,16 @@ class SensorSettingsViewController: NSViewController {
         favoriteTableView.reloadData()
     }
     
+    @objc private func cellDobleClicked(_ sender: Any) {
+        switch devicesSensorsList[sensorsTableView.clickedRow] {
+        case is SensorsOnDevice:
+            deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
+        case is Sensor:
+            sensorCellStyle = sensorCellId.nextIndex(sensorCellStyle)
+        default: fatalError()
+        }
+        sensorsTableView.reloadData()
+    }
 
 }
 
@@ -104,16 +119,36 @@ extension SensorSettingsViewController: DeviceIdDelegate {
                 e.displayAlert()
         }
     }
-    
-    @objc private func cellDobleClicked(_ sender: Any) {
-        switch devicesSensorsList[sensorsTableView.clickedRow] {
-        case is SensorsOnDevice:
-            deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
-        case is Sensor:
-            sensorCellStyle = sensorCellId.nextIndex(sensorCellStyle)
-        default: fatalError()
+}
+
+extension SensorSettingsViewController: CameraIdDelegate {
+    func add(camera id: Int) {
+        parent?.view.window?.makeKeyAndOrderFront(nil)
+        
+        NarProvider.shared.request(.userFavorites(webcams: []))
+            .map { (userFavorites: UserFavorites) -> [Int] in
+                userFavorites.webcams.map { $0.id }
+            }.then { (webcamIds: [Int]) -> Promise<UserFavorites> in
+                guard !webcamIds.contains(id) else {
+                    return Promise(error: PMKError.cancelled)
+                }
+                let webcamsIdsUpdated = webcamIds + [id]
+                return NarProvider.shared.request(.userFavorites(webcams: webcamsIdsUpdated))
+            }.done { (userFavorites: UserFavorites) -> Void in
+                userFavorites.webcams.forEach { print($0.id, $0.name) }
+            }.catch(policy: .allErrors) { error in
+                switch error {
+                case PMKError.cancelled:
+                    let alert = NSAlert()
+                    alert.messageText = NSLocalizedString("Add camera", comment: "Add camera")
+                    alert.informativeText = NSLocalizedString("Camera already in list", comment: "Add camera")
+                    alert.runModal()
+                case let e as NarodNetworkError:
+                    e.displayAlert()
+                default:
+                    error.sendFatalReport()
+                }
         }
-        sensorsTableView.reloadData()
     }
 }
 

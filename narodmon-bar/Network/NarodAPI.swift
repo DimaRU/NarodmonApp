@@ -26,7 +26,7 @@ public enum NarodAPI: TargetType {
     case appInit(version: String, platform: String, model: String, timeZone: Int)
     case userLogon(login: String, password: String)
     case userLogout
-    case userFavorites
+    case userFavorites(webcams: [Int])
     case sensorsOnDevice(id: Int)
     case sensorsValues(sensorIds: [Int])
     case sensorHistory(id: Int, period: HistoryPeriod, offset: Int)
@@ -107,10 +107,13 @@ extension NarodAPI {
             parameters = [
                 "cmd" : "userLogout"
             ]
-        case .userFavorites:
+        case .userFavorites(let webcams):
             parameters = [
                 "cmd" : "userFavorites"
             ]
+            if !webcams.isEmpty {
+                parameters["webcams"] = webcams
+            }
         case .sensorsOnDevice(let id):
             parameters = [
                 "cmd" : "sensorsOnDevice",
