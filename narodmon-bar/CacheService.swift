@@ -16,8 +16,7 @@ class CacheService {
             name: "NarodmonHistoryDataCache",
             expiry: .date(Date().addingTimeInterval(15*60)),
             maxSize: 10000,
-            directory: nil,
-            protectionType: .none
+            directory: nil
         )
         let memoryConfig = MemoryConfig(
             expiry: .date(Date().addingTimeInterval(5*60)),
