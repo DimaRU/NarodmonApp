@@ -18,6 +18,7 @@ final class AppDataStore {
     
     var devices: [SensorsOnDevice] = []         // Discovered devices
     var sensorValues: [SensorValue] = []        // Current sensors value
+    var webcams: [UserFavorites.Webcam] = []
     
     var initData: AppInitData? = nil
     var logonData: UserLogon? = nil

@@ -1457,9 +1457,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="favoriteTableView" destination="DFs-Rr-z8q" id="UEZ-1O-1yf"/>
+                        <outlet property="barSensorsTableView" destination="DFs-Rr-z8q" id="UEZ-1O-1yf"/>
                         <outlet property="largeFontCheckBox" destination="FME-CF-0UX" id="Vie-KT-avv"/>
-                        <outlet property="sensorsTableView" destination="IdJ-rQ-Uq8" id="H7H-gQ-TBB"/>
+                        <outlet property="sourceTableView" destination="IdJ-rQ-Uq8" id="H7H-gQ-TBB"/>
                     </connections>
                 </viewController>
                 <customObject id="1sc-v7-6id" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

@@ -66,7 +66,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .then {
                 NetService.loadDevicesDefinitions()
             }
-            .done { () -> Void in
+            .then {
+                NarProvider.shared.request(.userFavorites(webcams: []))
+            }
+            .done { (userFavorites: UserFavorites) -> Void in
+                self.dataStore.webcams = userFavorites.webcams
                 self.dataStore.checkConsistency()
                 self.dataStore.saveDefaults()
 
@@ -87,8 +91,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     error.sendFatalReport()
                 }
         }
-        
-        
     }
 
     func setPopoverState(showed: Bool) {
