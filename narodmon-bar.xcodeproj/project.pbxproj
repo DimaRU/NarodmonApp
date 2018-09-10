@@ -42,7 +42,6 @@
 		0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */; };
 		0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E01FBB3CFC00D72378 /* Assets.xcassets */; };
 		0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E21FBB3CFD00D72378 /* Main.storyboard */; };
-		0A9194F01FBB3CFD00D72378 /* narodmon_barTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194EF1FBB3CFD00D72378 /* narodmon_barTests.swift */; };
 		0A9195031FBB416000D72378 /* SensorsValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194FB1FBB416000D72378 /* SensorsValues.swift */; };
 		0A9195041FBB416000D72378 /* SensorsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194FC1FBB416000D72378 /* SensorsHistory.swift */; };
 		0A9195051FBB416000D72378 /* SensorsOnDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194FD1FBB416000D72378 /* SensorsOnDevice.swift */; };
@@ -79,16 +78,6 @@
 		0AECF54C1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */; };
 		19C60B7AF6611009CE8F3D82 /* Pods_NarodmonApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56217F9C540BE073E62D427B /* Pods_NarodmonApp.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		0A9194EC1FBB3CFD00D72378 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0A9194D11FBB3CFC00D72378 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0A9194D81FBB3CFC00D72378;
-			remoteInfo = "narodmon-bar";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		0A7562822002476F0033269C /* CopyFiles */ = {
@@ -145,9 +134,6 @@
 		0A9194E01FBB3CFC00D72378 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A9194E31FBB3CFD00D72378 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A9194E51FBB3CFD00D72378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A9194EB1FBB3CFD00D72378 /* narodmon-barTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "narodmon-barTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A9194EF1FBB3CFD00D72378 /* narodmon_barTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = narodmon_barTests.swift; sourceTree = "<group>"; };
-		0A9194F11FBB3CFD00D72378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A9194FB1FBB416000D72378 /* SensorsValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsValues.swift; sourceTree = "<group>"; };
 		0A9194FC1FBB416000D72378 /* SensorsHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsHistory.swift; sourceTree = "<group>"; };
 		0A9194FD1FBB416000D72378 /* SensorsOnDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsOnDevice.swift; sourceTree = "<group>"; };
@@ -200,13 +186,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				19C60B7AF6611009CE8F3D82 /* Pods_NarodmonApp.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0A9194E81FBB3CFD00D72378 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +279,6 @@
 				0A70D3FC21387358005BB814 /* IDETemplateMacros.plist */,
 				0A62254E2029A0E50056AEEE /* Support */,
 				0A9194DB1FBB3CFC00D72378 /* narodmon-bar */,
-				0A9194EE1FBB3CFD00D72378 /* narodmon-barTests */,
 				0A756275200246090033269C /* NarodBarLauncherApp */,
 				0A9194DA1FBB3CFC00D72378 /* Products */,
 				CC13861C298AD1AC9DC6B105 /* Pods */,
@@ -312,7 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				0A9194D91FBB3CFC00D72378 /* NarodmonApp.app */,
-				0A9194EB1FBB3CFD00D72378 /* narodmon-barTests.xctest */,
 				0A756274200246090033269C /* NarodBarLauncherApp.app */,
 			);
 			name = Products;
@@ -339,15 +316,6 @@
 				0A1B864220496A1100DECB10 /* AppDelegateActions.swift */,
 			);
 			path = "narodmon-bar";
-			sourceTree = "<group>";
-		};
-		0A9194EE1FBB3CFD00D72378 /* narodmon-barTests */ = {
-			isa = PBXGroup;
-			children = (
-				0A9194EF1FBB3CFD00D72378 /* narodmon_barTests.swift */,
-				0A9194F11FBB3CFD00D72378 /* Info.plist */,
-			);
-			path = "narodmon-barTests";
 			sourceTree = "<group>";
 		};
 		0A9194FA1FBB3FB600D72378 /* Model */ = {
@@ -453,24 +421,6 @@
 			productReference = 0A9194D91FBB3CFC00D72378 /* NarodmonApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0A9194EA1FBB3CFD00D72378 /* narodmon-barTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0A9194F71FBB3CFD00D72378 /* Build configuration list for PBXNativeTarget "narodmon-barTests" */;
-			buildPhases = (
-				0A9194E71FBB3CFD00D72378 /* Sources */,
-				0A9194E81FBB3CFD00D72378 /* Frameworks */,
-				0A9194E91FBB3CFD00D72378 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0A9194ED1FBB3CFD00D72378 /* PBXTargetDependency */,
-			);
-			name = "narodmon-barTests";
-			productName = "narodmon-barTests";
-			productReference = 0A9194EB1FBB3CFD00D72378 /* narodmon-barTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -494,11 +444,6 @@
 							};
 						};
 					};
-					0A9194EA1FBB3CFD00D72378 = {
-						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 0A9194D81FBB3CFC00D72378;
-					};
 				};
 			};
 			buildConfigurationList = 0A9194D41FBB3CFC00D72378 /* Build configuration list for PBXProject "narodmon-bar" */;
@@ -516,7 +461,6 @@
 			projectRoot = "";
 			targets = (
 				0A9194D81FBB3CFC00D72378 /* NarodmonApp */,
-				0A9194EA1FBB3CFD00D72378 /* narodmon-barTests */,
 				0A756273200246090033269C /* NarodBarLauncherApp */,
 			);
 		};
@@ -541,13 +485,6 @@
 				0A70D3FD21387358005BB814 /* IDETemplateMacros.plist in Resources */,
 				0A7968CB20067ADF008F97D9 /* Localizable.strings in Resources */,
 				0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0A9194E91FBB3CFD00D72378 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,23 +649,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0A9194E71FBB3CFD00D72378 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0A9194F01FBB3CFD00D72378 /* narodmon_barTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0A9194ED1FBB3CFD00D72378 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0A9194D81FBB3CFC00D72378 /* NarodmonApp */;
-			targetProxy = 0A9194EC1FBB3CFD00D72378 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0A7968CD20067ADF008F97D9 /* Localizable.strings */ = {
@@ -951,40 +872,6 @@
 			};
 			name = Release;
 		};
-		0A9194F81FBB3CFD00D72378 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9BEQ8V4XH9;
-				INFOPLIST_FILE = "narodmon-barTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.borovikov.narodmon-barTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/narodmon-bar.app/Contents/MacOS/narodmon-bar";
-			};
-			name = Debug;
-		};
-		0A9194F91FBB3CFD00D72378 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9BEQ8V4XH9;
-				INFOPLIST_FILE = "narodmon-barTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.borovikov.narodmon-barTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/narodmon-bar.app/Contents/MacOS/narodmon-bar";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1011,15 +898,6 @@
 			buildConfigurations = (
 				0A9194F51FBB3CFD00D72378 /* Debug */,
 				0A9194F61FBB3CFD00D72378 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0A9194F71FBB3CFD00D72378 /* Build configuration list for PBXNativeTarget "narodmon-barTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0A9194F81FBB3CFD00D72378 /* Debug */,
-				0A9194F91FBB3CFD00D72378 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
