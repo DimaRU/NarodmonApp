@@ -1070,8 +1070,29 @@
                                                                     </textFieldCell>
                                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                     <prototypeCellViews>
+                                                                        <tableCellView identifier="HeaderCell" id="xiQ-dY-tRo">
+                                                                            <rect key="frame" x="1" y="1" width="228" height="17"/>
+                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                            <subviews>
+                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="jTF-aB-nUn">
+                                                                                    <rect key="frame" x="99" y="1" width="31" height="15"/>
+                                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Title" id="u6d-Z4-uXa">
+                                                                                        <font key="font" size="12" name="Helvetica"/>
+                                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                    </textFieldCell>
+                                                                                </textField>
+                                                                            </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstItem="jTF-aB-nUn" firstAttribute="centerY" secondItem="xiQ-dY-tRo" secondAttribute="centerY" id="Hc5-KR-VN7"/>
+                                                                                <constraint firstItem="jTF-aB-nUn" firstAttribute="centerX" secondItem="xiQ-dY-tRo" secondAttribute="centerX" id="vPv-sH-egN"/>
+                                                                            </constraints>
+                                                                            <connections>
+                                                                                <outlet property="textField" destination="jTF-aB-nUn" id="UmG-Jt-GlY"/>
+                                                                            </connections>
+                                                                        </tableCellView>
                                                                         <tableCellView identifier="DeviceCell1" id="bEr-IN-eq7" userLabel="Device Cell View1" customClass="DeviceCellView" customModule="NarodmonApp" customModuleProvider="target">
-                                                                            <rect key="frame" x="1" y="1" width="228" height="18"/>
+                                                                            <rect key="frame" x="1" y="20" width="228" height="18"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <subviews>
                                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="qFy-Ym-zvw">
@@ -1105,7 +1126,7 @@
                                                                             </connections>
                                                                         </tableCellView>
                                                                         <tableCellView identifier="DeviceCell2" id="v1I-OJ-Usk" userLabel="Device Cell View2" customClass="DeviceCellView" customModule="NarodmonApp" customModuleProvider="target">
-                                                                            <rect key="frame" x="1" y="21" width="228" height="18"/>
+                                                                            <rect key="frame" x="1" y="40" width="228" height="18"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <subviews>
                                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="ah5-DM-xci">
@@ -1142,7 +1163,7 @@
                                                                             </connections>
                                                                         </tableCellView>
                                                                         <tableCellView identifier="DeviceCell3" id="4t3-cO-Igi" userLabel="Device Cell View3" customClass="DeviceCellView" customModule="NarodmonApp" customModuleProvider="target">
-                                                                            <rect key="frame" x="1" y="41" width="228" height="18"/>
+                                                                            <rect key="frame" x="1" y="60" width="228" height="18"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <subviews>
                                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Pab-Ek-bsg">
@@ -1165,7 +1186,7 @@
                                                                             </connections>
                                                                         </tableCellView>
                                                                         <tableCellView identifier="SensorCell1" id="CSa-Cz-ZRW" customClass="PrefsCellView" customModule="NarodmonApp" customModuleProvider="target">
-                                                                            <rect key="frame" x="1" y="61" width="228" height="19"/>
+                                                                            <rect key="frame" x="1" y="80" width="228" height="19"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <subviews>
                                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="R84-Pe-RkZ">
@@ -1215,7 +1236,7 @@
                                                                             </connections>
                                                                         </tableCellView>
                                                                         <tableCellView identifier="SensorCell2" id="NQZ-Gy-Wfk" userLabel="Prefs Cell View2" customClass="PrefsCellView" customModule="NarodmonApp" customModuleProvider="target">
-                                                                            <rect key="frame" x="1" y="82" width="228" height="19"/>
+                                                                            <rect key="frame" x="1" y="101" width="228" height="19"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <subviews>
                                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="JWy-0u-RKY">
@@ -1264,6 +1285,40 @@
                                                                                 <outlet property="sensorMaxTextField" destination="RKb-m6-OF1" id="WRP-3c-8DC"/>
                                                                                 <outlet property="sensorMinTextField" destination="XvV-wV-djG" id="NzN-ga-f06"/>
                                                                                 <outlet property="sensorNameLabel" destination="JWy-0u-RKY" id="WjN-wr-iyF"/>
+                                                                            </connections>
+                                                                        </tableCellView>
+                                                                        <tableCellView identifier="WebcamCell" id="yKR-by-6OH" userLabel="Webcam Cell View1" customClass="WebcamCellView" customModule="NarodmonApp" customModuleProvider="target">
+                                                                            <rect key="frame" x="1" y="122" width="228" height="18"/>
+                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                            <subviews>
+                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="FOB-mH-SfY">
+                                                                                    <rect key="frame" x="0.0" y="1" width="213" height="15"/>
+                                                                                    <textFieldCell key="cell" controlSize="mini" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" alignment="left" title="Name" id="jtY-WE-n9e">
+                                                                                        <font key="font" size="12" name="Helvetica"/>
+                                                                                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                        <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                                                                                    </textFieldCell>
+                                                                                </textField>
+                                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="761" translatesAutoresizingMaskIntoConstraints="NO" id="9tm-cZ-jap">
+                                                                                    <rect key="frame" x="213" y="1" width="15" height="15"/>
+                                                                                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Id" id="pLo-Qd-zjZ">
+                                                                                        <font key="font" size="12" name="Helvetica"/>
+                                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                    </textFieldCell>
+                                                                                </textField>
+                                                                            </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="bottom" secondItem="FOB-mH-SfY" secondAttribute="bottom" constant="1" id="4Uc-Zd-cMj"/>
+                                                                                <constraint firstItem="9tm-cZ-jap" firstAttribute="centerY" secondItem="yKR-by-6OH" secondAttribute="centerY" id="RwW-bA-GhQ"/>
+                                                                                <constraint firstItem="FOB-mH-SfY" firstAttribute="leading" secondItem="yKR-by-6OH" secondAttribute="leading" constant="2" id="Ydj-Yk-C9p"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="9tm-cZ-jap" secondAttribute="trailing" constant="2" id="mcP-WU-PMX"/>
+                                                                                <constraint firstItem="9tm-cZ-jap" firstAttribute="leading" secondItem="FOB-mH-SfY" secondAttribute="trailing" constant="4" id="t0A-Yf-pml"/>
+                                                                                <constraint firstItem="FOB-mH-SfY" firstAttribute="top" secondItem="yKR-by-6OH" secondAttribute="top" constant="2" id="wG5-G7-kgI"/>
+                                                                            </constraints>
+                                                                            <connections>
+                                                                                <outlet property="webcamIdLabel" destination="9tm-cZ-jap" id="r3r-Ug-b9S"/>
+                                                                                <outlet property="webcamNameLabel" destination="FOB-mH-SfY" id="5kp-Ex-OL9"/>
                                                                             </connections>
                                                                         </tableCellView>
                                                                     </prototypeCellViews>

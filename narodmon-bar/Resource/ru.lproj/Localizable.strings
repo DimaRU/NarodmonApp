@@ -20,6 +20,9 @@
 /* Add device */
 "Device already added" = "Устройство уже добавлено";
 
+/* Devices & Sensors & Webcams table header */
+"Devices & Sensors" = "Устройства и сенсоры";
+
 /* Chart view */
 "High level" = "Верхний уровень";
 
@@ -77,3 +80,6 @@
 
 /* No comment provided by engineer. */
 "Unsucessful authorisation" = "Ошибка авторизации";
+
+/* Devices & Sensors & Webcams table header */
+"Webcams" = "Вебкамеры";

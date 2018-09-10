@@ -271,3 +271,12 @@
 
 /* Class = "NSTextFieldCell"; title = "New version avaible, please update"; ObjectID = "XXw-8P-hUz"; */
 "XXw-8P-hUz.title" = "Пожалуйста обновите приложение";
+
+/* Class = "NSTextFieldCell"; title = "Name"; ObjectID = "jtY-WE-n9e"; */
+"jtY-WE-n9e.title" = "";
+
+/* Class = "NSTextFieldCell"; title = "Id"; ObjectID = "pLo-Qd-zjZ"; */
+"pLo-Qd-zjZ.title" = "";
+
+/* Class = "NSTextFieldCell"; title = "Title"; ObjectID = "u6d-Z4-uXa"; */
+"u6d-Z4-uXa.title" = "";

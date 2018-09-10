@@ -13,7 +13,7 @@ import JavaScriptCore
 
 class MapViewController: NSViewController, WKUIDelegate, WKScriptMessageHandler {
 
-    var delegate: (DeviceIdDelegate & CameraIdDelegate)? = nil
+    var delegate: IdDelegate? = nil
 
     var titlebarViewController: NSTitlebarAccessoryViewController!
     var webView: WKWebView!
@@ -77,11 +77,7 @@ function whenPageFullyLoaded(e) {
             return
         }
         nextTick {
-            if deviceId > 0 {
-                self.delegate?.add(device: deviceId)
-            } else {
-                self.delegate?.add(camera: -deviceId)
-            }
+            self.delegate?.add(id: deviceId)
         }
     }
 }

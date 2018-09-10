@@ -15,6 +15,7 @@
 		0A36F8E52053E68C0084B503 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36F8E42053E68C0084B503 /* CacheService.swift */; };
 		0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E11FC03230006605DC /* CwlSysctl.swift */; };
 		0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E41FC048BC006605DC /* String+MD5.swift */; };
+		0A3FAB2F2146EB5800831C21 /* WebcamCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3FAB2E2146EB5800831C21 /* WebcamCellView.swift */; };
 		0A41A376212318FF001D27D6 /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A41A375212318FF001D27D6 /* AppVersion.swift */; };
 		0A4C61521FC83FAD009F7B51 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C61511FC83FAD009F7B51 /* Defaults.swift */; };
 		0A4DB18220234F73007E4281 /* UserDefaultsBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4DB18120234F73007E4281 /* UserDefaultsBarStyle.swift */; };
@@ -102,6 +103,7 @@
 		0A37C0E11FC03230006605DC /* CwlSysctl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CwlSysctl.swift; sourceTree = "<group>"; };
 		0A37C0E41FC048BC006605DC /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		0A3F22511FD2FC2C00D06A20 /* NarodmonApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NarodmonApp.entitlements; sourceTree = "<group>"; };
+		0A3FAB2E2146EB5800831C21 /* WebcamCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebcamCellView.swift; sourceTree = "<group>"; };
 		0A41A375212318FF001D27D6 /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		0A4C61511FC83FAD009F7B51 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		0A4DB18120234F73007E4281 /* UserDefaultsBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsBarStyle.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */,
 				0AB311871FD557D500ED680F /* SensorCellView.swift */,
 				0AB311891FD557E600ED680F /* DeviceCellView.swift */,
+				0A3FAB2E2146EB5800831C21 /* WebcamCellView.swift */,
 				0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */,
 				0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */,
 				0ADE148D204DEB9500E46192 /* MenuButton.swift */,
@@ -626,6 +629,7 @@
 				0A9AFA011FD00F1C00F5B5BB /* PopoverDelegate.swift in Sources */,
 				0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */,
 				0AD867A720403C06001C5577 /* TypedNotifications.swift in Sources */,
+				0A3FAB2F2146EB5800831C21 /* WebcamCellView.swift in Sources */,
 				0A9195041FBB416000D72378 /* SensorsHistory.swift in Sources */,
 				0AA40A3F1FE295780089585B /* PreferencesViewController.swift in Sources */,
 				0A5F1DC3201F69C600B00A54 /* ErrorReport.swift in Sources */,

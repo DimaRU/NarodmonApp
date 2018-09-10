@@ -98,7 +98,18 @@ struct NetService {
                 }
         }
     }
-
+    
+    static func postFavoriteWebcams(webcams: [Int]) -> Promise<Void> {
+        let app = (NSApp.delegate as! AppDelegate)
+        
+        return NarProvider.shared.request(.userFavorites(webcams: webcams))
+            .done { (userFavorites: UserFavorites) -> Void in
+                app.dataStore.webcams = userFavorites.webcams
+                postNotification(name: .deviceListChangedNotification)
+        }
+    }
+    
+    
     /// Load device and sensors definitions (location, name, etc)
     ///
     /// - Returns: void Promise
