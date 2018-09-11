@@ -141,6 +141,13 @@ class PopupViewController: NSViewController {
         presentViewController(chartViewController, asPopoverRelativeTo: .zero, of: cellView, preferredEdge: .minX, behavior: .transient)
     }
 
+    func openWebcamView(cellView: NSView, webcam: UserFavorites.Webcam) {
+        let webcamViewController = WebcamViewController.instance()
+        webcamViewController.dataStore = dataStore
+        webcamViewController.webcam = webcam
+        presentViewController(webcamViewController, asPopoverRelativeTo: .zero, of: cellView, preferredEdge: .minX, behavior: .transient)
+    }
+
     // MARK: Menu actions
     @IBAction func nextDeviceViewAction(_ sender: NSMenuItem) {
         nextDeviceView()
@@ -158,6 +165,8 @@ class PopupViewController: NSViewController {
             openChart(cellView: cellView, sensor: sensor, historyPeriod: .day)
         case let webcam as UserFavorites.Webcam:
             print(webcam.id)
+            let cellView = sensorsTableView.view(atColumn: 0, row: sensorsTableView.clickedRow, makeIfNecessary: false)!
+            openWebcamView(cellView: cellView, webcam: webcam)
         default: fatalError()
         }
     }
