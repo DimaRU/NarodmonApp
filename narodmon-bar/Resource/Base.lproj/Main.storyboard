@@ -709,7 +709,7 @@
                         </menuItem>
                     </items>
                 </menu>
-                <menu id="OCp-Gd-cWu" userLabel="Webcam Context Menu">
+                <menu id="OCp-Gd-cWu" userLabel="Webcam Context Menu" customClass="CustomFontMenu" customModule="NarodmonApp" customModuleProvider="target">
                     <items>
                         <menuItem title="Open in map" id="nJo-HN-0p7">
                             <modifierMask key="keyEquivalentModifierMask"/>
