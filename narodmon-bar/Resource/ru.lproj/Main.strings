@@ -280,3 +280,9 @@
 
 /* Class = "NSTextFieldCell"; title = "Title"; ObjectID = "u6d-Z4-uXa"; */
 "u6d-Z4-uXa.title" = "";
+
+/* Class = "NSTextFieldCell"; title = "name"; ObjectID = "seb-g2-qwq"; */
+"seb-g2-qwq.title" = "";
+
+/* Class = "NSMenuItem"; title = "Open in map"; ObjectID = "nJo-HN-0p7"; */
+"nJo-HN-0p7.title" = "Показать на карте";

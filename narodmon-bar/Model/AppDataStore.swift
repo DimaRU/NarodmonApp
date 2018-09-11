@@ -76,7 +76,9 @@ final class AppDataStore {
         return nil
     }
     
-    func lastUpdate() -> Date {
+    func lastUpdate() -> Date? {
+        guard !devices.isEmpty, !devices[0].sensors.isEmpty else { return nil }
+        
         var lastTime = devices[0].sensors[0].time
         for device in devices {
             for sensor in device.sensors{

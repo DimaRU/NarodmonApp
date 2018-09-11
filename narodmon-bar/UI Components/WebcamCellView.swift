@@ -18,7 +18,7 @@ class WebcamCellView: NSTableCellView {
         webcamId = webcam.id
     }
     
-    @IBAction func viewInMapAction(_ sender: NSMenuItem) {
+    @IBAction func viewWebcamInMapAction(_ sender: NSMenuItem) {
         let baseUrl = NSLocalizedString("https://narodmon.com", comment: "Open map URL")
         NSWorkspace.shared.open(URL(string: baseUrl + "/-" + String(webcamId))!)
     }

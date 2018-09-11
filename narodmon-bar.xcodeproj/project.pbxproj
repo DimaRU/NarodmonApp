@@ -68,7 +68,7 @@
 		0AB3DB881FBB7DC8002C0705 /* NarodNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3DB871FBB7DC8002C0705 /* NarodNetworkError.swift */; };
 		0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195161FBB463E00D72378 /* NarProvider.swift */; };
 		0ABEA4CD1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEA4CC1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift */; };
-		0AC4EAEE1FCE0526001573C8 /* SensorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */; };
+		0AC4EAEE1FCE0526001573C8 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4EAED1FCE0526001573C8 /* PopupViewController.swift */; };
 		0AC6CC4C200685A600F2DAE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AC6CC4E200685A600F2DAE0 /* InfoPlist.strings */; };
 		0AC6CC522007E5E100F2DAE0 /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */; };
 		0AD867A720403C06001C5577 /* TypedNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD867A620403C06001C5577 /* TypedNotifications.swift */; };
@@ -161,7 +161,7 @@
 		0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		0AB3DB871FBB7DC8002C0705 /* NarodNetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarodNetworkError.swift; sourceTree = "<group>"; };
 		0ABEA4CC1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedDecodingContainer.swift; sourceTree = "<group>"; };
-		0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorsViewController.swift; sourceTree = "<group>"; };
+		0AC4EAED1FCE0526001573C8 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		0AC6CC48200683DF00F2DAE0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AC6CC4D200685A600F2DAE0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
@@ -248,7 +248,7 @@
 				0AA40A381FE295770089585B /* PrefsCellView.swift */,
 				0AA40A3C1FE295780089585B /* SelectTableView.swift */,
 				0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */,
-				0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */,
+				0AC4EAED1FCE0526001573C8 /* PopupViewController.swift */,
 				0AB311871FD557D500ED680F /* SensorCellView.swift */,
 				0AB311891FD557E600ED680F /* DeviceCellView.swift */,
 				0A3FAB2E2146EB5800831C21 /* WebcamCellView.swift */,
@@ -595,7 +595,7 @@
 				0A6D89C41FC5C37100034A67 /* md5.swift in Sources */,
 				0A5DD0BE20420FA10095358A /* Array+nextIndex.swift in Sources */,
 				0A756287200261490033269C /* LaunchOnLogin.swift in Sources */,
-				0AC4EAEE1FCE0526001573C8 /* SensorsViewController.swift in Sources */,
+				0AC4EAEE1FCE0526001573C8 /* PopupViewController.swift in Sources */,
 				0A9195091FBB416000D72378 /* UserLogout.swift in Sources */,
 				0A36F8DD205304640084B503 /* ChartViewController.swift in Sources */,
 				0A5F1DC1201F5B8B00B00A54 /* RequestResult.swift in Sources */,

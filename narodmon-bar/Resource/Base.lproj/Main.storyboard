@@ -160,10 +160,10 @@
             </objects>
             <point key="canvasLocation" x="-32" y="85"/>
         </scene>
-        <!--Sensors View Controller-->
+        <!--Popup View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController storyboardIdentifier="SensorsViewController" id="XfG-lQ-9wD" customClass="SensorsViewController" customModule="NarodmonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopupViewController" id="XfG-lQ-9wD" customClass="PopupViewController" customModule="NarodmonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="222" height="201"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -451,8 +451,46 @@
                                                                 <outlet property="sensorValueLabel" destination="6bf-8T-I5B" id="qRT-nr-jyx"/>
                                                             </connections>
                                                         </tableCellView>
+                                                        <tableCellView identifier="WebcamCell" id="myy-b8-3zn" userLabel="Webcam Cell View" customClass="WebcamCellView" customModule="NarodmonApp" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="86" width="222" height="20"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="755" translatesAutoresizingMaskIntoConstraints="NO" id="wr2-MQ-ZCg">
+                                                                    <rect key="frame" x="6" y="2" width="210" height="15"/>
+                                                                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="name" id="seb-g2-qwq">
+                                                                        <font key="font" size="12" name="Helvetica"/>
+                                                                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <box focusRingType="none" boxType="custom" borderType="none" borderWidth="0.0" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="eQc-eD-uyx" userLabel="Top Separator">
+                                                                    <rect key="frame" x="8" y="18" width="206" height="1"/>
+                                                                    <view key="contentView" id="0wG-CS-tgo">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="206" height="1"/>
+                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    </view>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="1" id="IsQ-9f-YSw"/>
+                                                                    </constraints>
+                                                                    <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                                </box>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="wr2-MQ-ZCg" firstAttribute="leading" secondItem="myy-b8-3zn" secondAttribute="leading" constant="8" id="0e6-rW-gHF"/>
+                                                                <constraint firstItem="eQc-eD-uyx" firstAttribute="top" secondItem="myy-b8-3zn" secondAttribute="top" constant="1" id="10H-vl-7Kd"/>
+                                                                <constraint firstItem="wr2-MQ-ZCg" firstAttribute="top" secondItem="myy-b8-3zn" secondAttribute="top" constant="3" id="5F3-Jr-9Zg"/>
+                                                                <constraint firstAttribute="trailing" secondItem="eQc-eD-uyx" secondAttribute="trailing" constant="8" id="HGr-S4-GaL"/>
+                                                                <constraint firstAttribute="bottom" secondItem="wr2-MQ-ZCg" secondAttribute="bottom" constant="2" id="WZu-yC-hcA"/>
+                                                                <constraint firstItem="eQc-eD-uyx" firstAttribute="leading" secondItem="myy-b8-3zn" secondAttribute="leading" constant="8" id="xk1-5Y-ASj"/>
+                                                                <constraint firstAttribute="trailing" secondItem="wr2-MQ-ZCg" secondAttribute="trailing" constant="8" id="yxO-CY-7Wi"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="menu" destination="OCp-Gd-cWu" id="3ho-be-XH6"/>
+                                                                <outlet property="webcamNameLabel" destination="wr2-MQ-ZCg" id="AwN-QK-yu5"/>
+                                                            </connections>
+                                                        </tableCellView>
                                                         <tableCellView identifier="MessageCell" id="j6x-pI-eGp" userLabel="Message Cell View">
-                                                            <rect key="frame" x="0.0" y="86" width="222" height="19"/>
+                                                            <rect key="frame" x="0.0" y="108" width="222" height="19"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="zN4-xJ-8Jk">
@@ -476,7 +514,7 @@
                                                             </connections>
                                                         </tableCellView>
                                                         <tableCellView identifier="FooterCell" id="Dfx-hM-8gs" userLabel="Footer Cell View">
-                                                            <rect key="frame" x="0.0" y="107" width="222" height="18"/>
+                                                            <rect key="frame" x="0.0" y="129" width="222" height="18"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="755" translatesAutoresizingMaskIntoConstraints="NO" id="12w-Ui-BoM">
@@ -667,6 +705,16 @@
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="openChartAction:" target="rPt-NT-nkU" id="a7p-CR-h13"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
+                <menu id="OCp-Gd-cWu" userLabel="Webcam Context Menu">
+                    <items>
+                        <menuItem title="Open in map" id="nJo-HN-0p7">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="viewWebcamInMapAction:" target="rPt-NT-nkU" id="KlF-I0-czZ"/>
                             </connections>
                         </menuItem>
                     </items>

@@ -1,5 +1,5 @@
 //
-//  SensorsViewController.swift
+//  PopupViewController.swift
 //  narodmon-bar
 //
 //  Created by Dmitriy Borovikov on 28.11.2017.
@@ -9,9 +9,9 @@
 import Cocoa
 import SwiftyUserDefaults
 
-class SensorsViewController: NSViewController {
+class PopupViewController: NSViewController {
     
-    private var devicesSensorsList: [Any] = []
+    private var tableData: [Any] = []
     private var deviceListObserver: NotificationObserver?
     private var dataObserver: NotificationObserver?
     private var popupSensorsObserver: NotificationObserver?
@@ -48,11 +48,26 @@ class SensorsViewController: NSViewController {
         if deviceCellStyle >= deviceCellId.count {
             deviceCellStyle = 0
         }
-        devicesSensorsList = dataStore.windowSelectionsList()
+        prepareTableData()
         setToolbarTitle()
         sensorsTableView.doubleAction = #selector(cellDobleClicked)
     }
 
+    private func prepareTableData() {
+        let popupList = dataStore.windowSelectionsList()
+        if popupList.isEmpty {
+            tableData = ["MessageCell"]
+        } else {
+            tableData = popupList
+        }
+        if !dataStore.webcams.isEmpty {
+            tableData.append(contentsOf: dataStore.webcams)
+        }
+        if dataStore.initData?.latest != appVersion() {
+            tableData.append("FooterCell")
+        }
+    }
+    
     public func windowDidDetach() {
         closeButton.isHidden = false
     }
@@ -89,14 +104,13 @@ class SensorsViewController: NSViewController {
     }
     
     private func setToolbarTitle() {
-        guard !devicesSensorsList.isEmpty else {
+        if let lastUpdateTime = dataStore.lastUpdate() {
+            let updateString = NSLocalizedString("Last update: ", comment: "last update in title bar")
+            toolbarTitle.stringValue = updateString + DateFormatter.localizedString(from: lastUpdateTime, dateStyle: .none, timeStyle: .short)
+        } else {
             let bundleName = Bundle.main.localizedInfoDictionary?["CFBundleName"] as? String
             toolbarTitle.stringValue = bundleName ?? Bundle.main.infoDictionary!["CFBundleName"] as! String
-            return
         }
-        let lastUpdateTime = dataStore.lastUpdate()
-        let updateString = NSLocalizedString("Last update: ", comment: "last update in title bar")
-        toolbarTitle.stringValue = updateString + DateFormatter.localizedString(from: lastUpdateTime, dateStyle: .none, timeStyle: .short)
     }
     
     func setViewSizeOnContent() {
@@ -108,7 +122,7 @@ class SensorsViewController: NSViewController {
     }
 
     private func reloadData() {
-        devicesSensorsList = dataStore.windowSelectionsList()
+        prepareTableData()
         sensorsTableView.reloadData()
         setToolbarTitle()
     }
@@ -134,32 +148,24 @@ class SensorsViewController: NSViewController {
     
     // MARK: Double click actions
     @objc private func cellDobleClicked(_ sender: Any) {
-        guard sensorsTableView.clickedRow < devicesSensorsList.count else {
-            // Footer row clicked
+        switch tableData[sensorsTableView.clickedRow] {
+        case is String:
             return
-        }
-        switch devicesSensorsList[sensorsTableView.clickedRow] {
         case is SensorsOnDevice:
             nextDeviceView()
         case let sensor as Sensor:
             let cellView = sensorsTableView.view(atColumn: 0, row: sensorsTableView.clickedRow, makeIfNecessary: false)!
             openChart(cellView: cellView, sensor: sensor, historyPeriod: .day)
+        case let webcam as UserFavorites.Webcam:
+            print(webcam.id)
         default: fatalError()
         }
     }
 }
 
-extension SensorsViewController: NSTableViewDataSource {
+extension PopupViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        var rows = devicesSensorsList.count
-        if devicesSensorsList.isEmpty {
-            rows += 1
-        }
-        if dataStore.initData?.latest != appVersion() {
-            // Footer
-            rows += 1
-        }
-        return rows
+        return tableData.count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -168,33 +174,29 @@ extension SensorsViewController: NSTableViewDataSource {
             setViewSizeOnContent()
         }
         
-        if devicesSensorsList.isEmpty && row == 0 {
-            return tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MessageCell"), owner: self)
-        }
-        guard row < devicesSensorsList.count else {
-            return tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "FooterCell"), owner: self)
-        }
-        switch devicesSensorsList[row] {
+        switch tableData[row] {
+        case let cellId as String:
+            return tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), owner: self)
         case let device as SensorsOnDevice:
             let cellId = deviceCellId[deviceCellStyle]
-            guard let deviceCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), owner: self) as? DeviceCellView
-                else { return nil }
-            deviceCell.setContent(device: device)
+            let deviceCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), owner: self) as? DeviceCellView
+            deviceCell?.setContent(device: device)
             return deviceCell
         case let sensor as Sensor:
-            guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? SensorCellView
-                else { return nil }
-            if let (value, unit, color) = dataStore.sensorData(for: sensor.id) {
-                sensorCell.setContent(sensor: sensor, value: value, unit: unit, color: color)
-                return sensorCell
-            }
-            return nil
+            let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? SensorCellView
+            guard let (value, unit, color) = dataStore.sensorData(for: sensor.id) else { return nil }
+            sensorCell?.setContent(sensor: sensor, value: value, unit: unit, color: color)
+            return sensorCell
+        case let webcam as UserFavorites.Webcam:
+            let webcamCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "WebcamCell"), owner: self) as? WebcamCellView
+            webcamCell?.setContent(webcam: webcam)
+            return webcamCell
         default: fatalError()
         }
     }
 }
 
-extension SensorsViewController: NSTableViewDelegate {
+extension PopupViewController: NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
         return false
