@@ -5,6 +5,9 @@
 import Foundation
 
 struct WebcamImages: Codable {
+    let name: String
+    let location: String
+    let distance: Double
     let images: [Image]
 }
 
