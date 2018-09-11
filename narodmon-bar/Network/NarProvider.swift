@@ -24,9 +24,13 @@ class NarProvider {
         return endpoint
     }
     
-    fileprivate static let instance = MoyaProvider<NarodAPI>(endpointClosure: NarProvider.endpointClosure
-                                                                   ,plugins: [NetworkLoggerPlugin(verbose: true)]
-                                                                  )
+    fileprivate static let instance = { () -> MoyaProvider<NarodAPI> in
+        if let value = ProcessInfo.processInfo.environment["MoyaLogger"] {
+            return MoyaProvider<NarodAPI>(endpointClosure: NarProvider.endpointClosure, plugins: [NetworkLoggerPlugin(verbose: true)])
+        } else {
+            return MoyaProvider<NarodAPI>(endpointClosure: NarProvider.endpointClosure)
+        }
+    }()
 
     // MARK: - Public
     func request(_ target: NarodAPI) -> Promise<Void> {
@@ -49,7 +53,9 @@ class NarProvider {
     
     
     private func sendRequest(_ request: RequestFuture) {
+        #if DEBUG
         print("Request:", request.target)
+        #endif
         NarProvider.instance.request(request.target) { (result) in
             self.handleRequest(request: request, result: result)
         }
