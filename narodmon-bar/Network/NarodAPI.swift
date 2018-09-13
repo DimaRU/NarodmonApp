@@ -33,7 +33,7 @@ public enum NarodAPI: TargetType {
     case sensorsNearby(my: Bool)
     case sendReport(message: String, logs: String)
     case webcamsNearby(lat: Double, lng: Double, limit: Int)
-    case webcamImages(id: Int, since: Date?)
+    case webcamImages(id: Int, limit: Int, since: Date?)
     
     var mappingType: Decodable.Type {
         switch self {
@@ -158,10 +158,11 @@ extension NarodAPI {
                 "limit" : limit
             ]
 
-        case .webcamImages(let id, let since):
+        case .webcamImages(let id, let limit, let since):
             parameters = [
                 "cmd" : "webcamImages",
-                "id" : id
+                "id" : id,
+                "limit" : limit
             ]
             if let since = since {
                 parameters["since"] = since.timeIntervalSince1970

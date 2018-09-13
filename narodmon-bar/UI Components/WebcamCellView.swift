@@ -12,9 +12,9 @@ class WebcamCellView: NSTableCellView {
     @IBOutlet weak var webcamNameLabel: NSTextField?
     @IBOutlet weak var webcamIdLabel: NSTextField?
     
-    func setContent(webcam: UserFavorites.Webcam) {
+    func setContent(webcam: WebcamImages) {
         webcamNameLabel?.stringValue = webcam.name
-        webcamIdLabel?.stringValue = String(webcam.id)
+        webcamIdLabel?.stringValue = String(webcam.id!)
         webcamId = webcam.id
     }
     

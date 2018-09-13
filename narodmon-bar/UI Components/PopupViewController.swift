@@ -141,7 +141,7 @@ class PopupViewController: NSViewController {
         presentViewController(chartViewController, asPopoverRelativeTo: .zero, of: cellView, preferredEdge: .minX, behavior: .transient)
     }
 
-    func openWebcamView(cellView: NSView, webcam: UserFavorites.Webcam) {
+    func openWebcamView(cellView: NSView, webcam: WebcamImages) {
         let webcamViewController = WebcamViewController.instance()
         webcamViewController.dataStore = dataStore
         webcamViewController.webcam = webcam
@@ -163,8 +163,8 @@ class PopupViewController: NSViewController {
         case let sensor as Sensor:
             let cellView = sensorsTableView.view(atColumn: 0, row: sensorsTableView.clickedRow, makeIfNecessary: false)!
             openChart(cellView: cellView, sensor: sensor, historyPeriod: .day)
-        case let webcam as UserFavorites.Webcam:
-            print(webcam.id)
+        case let webcam as WebcamImages:
+            print(webcam.id!)
             let cellView = sensorsTableView.view(atColumn: 0, row: sensorsTableView.clickedRow, makeIfNecessary: false)!
             openWebcamView(cellView: cellView, webcam: webcam)
         default: fatalError()
@@ -196,7 +196,7 @@ extension PopupViewController: NSTableViewDataSource {
             guard let (value, unit, color) = dataStore.sensorData(for: sensor.id) else { return nil }
             sensorCell?.setContent(sensor: sensor, value: value, unit: unit, color: color)
             return sensorCell
-        case let webcam as UserFavorites.Webcam:
+        case let webcam as WebcamImages:
             let webcamCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "WebcamCell"), owner: self) as? WebcamCellView
             webcamCell?.setContent(webcam: webcam)
             return webcamCell

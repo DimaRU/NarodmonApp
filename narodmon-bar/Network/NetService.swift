@@ -35,6 +35,9 @@ struct NetService {
         }
     }
 
+    /// Add own devices & sensors to list when login
+    ///
+    /// - Returns: void Promise
     static func appLoginDiscovery() -> Promise<Void> {
         let login = KeychainService.shared[.login]!
         let password = KeychainService.shared[.password]!
@@ -61,6 +64,9 @@ struct NetService {
         }
     }
 
+    /// Discovery & add nearest or own devices & sensors to list
+    ///
+    /// - Returns: void Promise
     static func loadDefaultDevices() -> Promise<Void> {
         let app = (NSApp.delegate as! AppDelegate)
         if app.dataStore.logonData != nil {
@@ -99,17 +105,6 @@ struct NetService {
         }
     }
     
-    static func postFavoriteWebcams(webcams: [Int]) -> Promise<Void> {
-        let app = (NSApp.delegate as! AppDelegate)
-        
-        return NarProvider.shared.request(.userFavorites(webcams: webcams))
-            .done { (userFavorites: UserFavorites) -> Void in
-                app.dataStore.webcams = userFavorites.webcams
-                postNotification(name: .deviceListChangedNotification)
-        }
-    }
-    
-    
     /// Load device and sensors definitions (location, name, etc)
     ///
     /// - Returns: void Promise
@@ -139,6 +134,36 @@ struct NetService {
         }
         return when(fulfilled: promises)
     }
+    
+    /// Load Webcam definitions (location, name )
+    ///
+    /// - Returns: void Promise
+    static func loadWebcamDefinitions() -> Promise<Void> {
+        let app = (NSApp.delegate as! AppDelegate)
+        let selectedWebcams = app.dataStore.selectedWebcams
+        app.lastRequestTime = Date()
+        
+        var promises: [Promise<Void>] = []
+        for webcamId in selectedWebcams {
+            promises.append(
+                NarProvider.shared.request(.webcamImages(id: webcamId, limit: 1, since: nil))
+                    .done { (webcamImages: WebcamImages) -> Void in
+                        app.dataStore.webcams.append(webcamImages)
+                        return
+                    }
+                    .recover { (error) -> Void in
+                        if case NarodNetworkError.accessDenied = error {
+                            let e = error as! NarodNetworkError
+                            e.displayAlert()
+                            return
+                        }
+                        throw error
+                }
+            )
+        }
+        return when(fulfilled: promises)
+    }
+
     
     /// Load device data and send notification
     static func loadSensorsData() {

@@ -720,7 +720,7 @@
                     </items>
                 </menu>
             </objects>
-            <point key="canvasLocation" x="-33" y="415.5"/>
+            <point key="canvasLocation" x="-33" y="295"/>
         </scene>
         <!--Chart View Controller-->
         <scene sceneID="s7Z-qt-ySl">
@@ -907,15 +907,15 @@
             <objects>
                 <viewController storyboardIdentifier="WebcamViewController" id="6yq-py-cg8" customClass="WebcamViewController" customModule="NarodmonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="LGf-pi-Ifv">
-                        <rect key="frame" x="0.0" y="0.0" width="710" height="370"/>
+                        <rect key="frame" x="0.0" y="0.0" width="626" height="370"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OX3-IU-zW6">
-                                <rect key="frame" x="-3" y="-3" width="716" height="345"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" imageFrameStyle="photo" id="ZR8-ui-d82"/>
+                                <rect key="frame" x="0.0" y="0.0" width="626" height="345"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" id="ZR8-ui-d82"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="99K-tg-A3g">
-                                <rect key="frame" x="33" y="347" width="644" height="17"/>
+                                <rect key="frame" x="33" y="350" width="560" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Camera Name" id="Ic8-Ph-iYN">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -924,9 +924,9 @@
                             </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="99K-tg-A3g" firstAttribute="top" secondItem="LGf-pi-Ifv" secondAttribute="top" constant="6" id="HSo-Ir-Ide"/>
+                            <constraint firstItem="99K-tg-A3g" firstAttribute="top" secondItem="LGf-pi-Ifv" secondAttribute="top" constant="3" id="HSo-Ir-Ide"/>
                             <constraint firstAttribute="trailing" secondItem="99K-tg-A3g" secondAttribute="trailing" constant="35" id="Kqp-6I-zBI"/>
-                            <constraint firstItem="OX3-IU-zW6" firstAttribute="top" secondItem="99K-tg-A3g" secondAttribute="bottom" constant="8" symbolic="YES" id="Q1W-88-EmM"/>
+                            <constraint firstItem="OX3-IU-zW6" firstAttribute="top" secondItem="99K-tg-A3g" secondAttribute="bottom" constant="5" id="Q1W-88-EmM"/>
                             <constraint firstItem="OX3-IU-zW6" firstAttribute="leading" secondItem="LGf-pi-Ifv" secondAttribute="leading" id="RfI-A6-dXM"/>
                             <constraint firstAttribute="bottom" secondItem="OX3-IU-zW6" secondAttribute="bottom" id="Wy9-Ng-7Vc"/>
                             <constraint firstItem="99K-tg-A3g" firstAttribute="leading" secondItem="LGf-pi-Ifv" secondAttribute="leading" constant="35" id="e3L-Ap-BdD"/>
@@ -940,7 +940,7 @@
                 </viewController>
                 <customObject id="8MC-pT-rtj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1143" y="-265"/>
+            <point key="canvasLocation" x="1101" y="-265"/>
         </scene>
         <!--General-->
         <scene sceneID="rqd-cN-vev">
@@ -1678,8 +1678,8 @@ Gw
         </scene>
     </scenes>
     <resources>
-        <image name="04-eye" width="20" height="13"/>
-        <image name="04-eye-alt" width="20" height="13"/>
+        <image name="04-eye" width="40" height="26"/>
+        <image name="04-eye-alt" width="40" height="26"/>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSAdvanced" width="32" height="32"/>
         <image name="NSLeftFacingTriangleTemplate" width="9" height="12"/>

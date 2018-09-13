@@ -122,7 +122,7 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
         case sourceTableView:
             switch sourceTableData[row] {
             case is SensorsOnDevice: return true
-            case is UserFavorites.Webcam: return false
+            case is WebcamImages: return false
             case is String: return true
             default: return false
             }
@@ -151,7 +151,7 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
                 let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), owner: self) as? PrefsCellView
                 sensorCell?.setContent(sensor: sensor, dataStore: dataStore)
                 return sensorCell
-            case let webcam as UserFavorites.Webcam:
+            case let webcam as WebcamImages:
                 let webcamCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "WebcamCell"), owner: self) as? WebcamCellView
                 webcamCell?.setContent(webcam: webcam)
                 return webcamCell
@@ -198,7 +198,7 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
             switch sourceTableData[row] {
             case is String:
                 return false
-            case is UserFavorites.Webcam,
+            case is WebcamImages,
                  is SensorsOnDevice:
                 hasDraggedFavoriteItem = true
                 currentItemDragOperation = .delete
@@ -251,15 +251,10 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
                     dataStore.remove(device: device)
                     postNotification(name: .deviceListChangedNotification)
                     NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
-                case let webcam as UserFavorites.Webcam:
-                    let webcamIds = dataStore.webcams.map { $0.id }.filter {$0 != webcam.id}
-                    NetService.postFavoriteWebcams(webcams: webcamIds)
-                        .catch { error in
-                            guard let e = error as? NarodNetworkError else { error.sendFatalReport() }
-                            nextTick {
-                                e.displayAlert()
-                            }
-                    }
+                case let webcam as WebcamImages:
+                    let id = webcam.id!
+                    dataStore.selectedWebcams.removeAll(where: {$0 == id})
+                    dataStore.webcams.removeAll(where: {$0.id == id})
                     NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
                 default:
                     break
@@ -289,7 +284,7 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
             else if draggingSource == sourceTableView {
                 switch sourceTableData[fromRow] {
                 case is SensorsOnDevice,
-                     is UserFavorites.Webcam,
+                     is WebcamImages,
                      is String:
                     currentItemDragOperation = []
                 case is Sensor:
@@ -373,26 +368,23 @@ extension SensorSettingsViewController: IdDelegate {
     func add(camera id: Int) {
         parent?.view.window?.makeKeyAndOrderFront(nil)
         
-        NarProvider.shared.request(.userFavorites(webcams: []))
-            .map { (userFavorites: UserFavorites) -> [Int] in
-                userFavorites.webcams.map { $0.id }
-            }.then { (webcamIds: [Int]) -> Promise<Void> in
-                guard !webcamIds.contains(id) else {
-                    return Promise(error: PMKError.cancelled)
-                }
-                return NetService.postFavoriteWebcams(webcams: webcamIds + [id])
-            }.catch(policy: .allErrors) { error in
-                switch error {
-                case PMKError.cancelled:
-                    let alert = NSAlert()
-                    alert.messageText = NSLocalizedString("Add camera", comment: "Add camera")
-                    alert.informativeText = NSLocalizedString("Camera already in list", comment: "Add camera")
-                    alert.runModal()
-                case let e as NarodNetworkError:
-                    e.displayAlert()
-                default:
-                    error.sendFatalReport()
-                }
+        guard !dataStore.selectedWebcams.contains(id) else {
+            let alert = NSAlert()
+            alert.messageText = NSLocalizedString("Add camera", comment: "Add camera")
+            alert.informativeText = NSLocalizedString("Camera already in list", comment: "Add camera")
+            alert.runModal()
+            return
+        }
+
+        NarProvider.shared.request(.webcamImages(id: id, limit: 1, since: nil))
+            .done { (webcamImages: WebcamImages) -> Void in
+                self.dataStore.selectedWebcams.append(id)
+                self.dataStore.webcams.append(webcamImages)
+                postNotification(name: .deviceListChangedNotification)
+            }
+            .catch { error in
+                guard let e = error as? NarodNetworkError else { error.sendFatalReport() }
+                e.displayAlert()
         }
     }
 }

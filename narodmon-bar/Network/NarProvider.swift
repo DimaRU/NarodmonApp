@@ -24,6 +24,7 @@ class NarProvider {
         return endpoint
     }
     
+    #if DEBUG
     fileprivate static let instance = { () -> MoyaProvider<NarodAPI> in
         if let value = ProcessInfo.processInfo.environment["MoyaLogger"] {
             return MoyaProvider<NarodAPI>(endpointClosure: NarProvider.endpointClosure, plugins: [NetworkLoggerPlugin(verbose: true)])
@@ -31,6 +32,9 @@ class NarProvider {
             return MoyaProvider<NarodAPI>(endpointClosure: NarProvider.endpointClosure)
         }
     }()
+    #else
+    fileprivate static let instance = MoyaProvider<NarodAPI>(endpointClosure: NarProvider.endpointClosure)
+    #endif
 
     // MARK: - Public
     func request(_ target: NarodAPI) -> Promise<Void> {
@@ -46,7 +50,7 @@ class NarProvider {
         let (promise, resolver) = Promise<T>.pending()
         assert(target.mappingType == T.self)
         sendRequest((target,
-                     resolve: { rawData in self.parseData(data: rawData as! Data, resolver: resolver) },
+                     resolve: { rawData in self.parseData(data: rawData as! Data, resolver: resolver, target: target) },
                      reject: resolver.reject))
         return promise
     }
@@ -147,7 +151,7 @@ extension NarProvider {
     }
     
     /// Parce response data
-    fileprivate func parseData<T: Decodable>(data: Data, resolver: Resolver<T>) {
+    fileprivate func parseData<T: Decodable>(data: Data, resolver: Resolver<T>, target: NarodAPI) {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .secondsSince1970
         do {
@@ -158,12 +162,17 @@ extension NarProvider {
                     let sensorHistoryData: [SensorHistoryData] = []
                     let sensorHistory = SensorHistory(data: sensorHistoryData)
                     resolver.fulfill(sensorHistory as! T)
-//                    resolve(sensorHistory as! T)
                     return
                 }
             }
             let jsonable = try decoder.decode(T.self, from: data)
-            resolver.fulfill(jsonable)
+            if var webcamImages = jsonable as? WebcamImages, case .webcamImages(let id, _, _) = target {
+                webcamImages.id = id
+                print(webcamImages)
+                resolver.fulfill(webcamImages as! T)
+            } else {
+                resolver.fulfill(jsonable)
+            }
         } catch {
             let json = String.init(data: data, encoding: .utf8) ?? "??unknown??"
             print(error)

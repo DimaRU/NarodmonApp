@@ -66,11 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .then {
                 NetService.loadDevicesDefinitions()
             }
-            .then {
-                NarProvider.shared.request(.userFavorites(webcams: []))
-            }
-            .done { (userFavorites: UserFavorites) -> Void in
-                self.dataStore.webcams = userFavorites.webcams
+            .done { () -> Void in
                 self.dataStore.checkConsistency()
                 self.dataStore.saveDefaults()
 

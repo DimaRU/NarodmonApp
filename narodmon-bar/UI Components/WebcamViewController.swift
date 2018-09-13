@@ -8,7 +8,7 @@ import Cocoa
 class WebcamViewController: NSViewController {
 
     weak var dataStore: AppDataStore!
-    var webcam: UserFavorites.Webcam!
+    var webcam: WebcamImages!
     
     @IBOutlet weak var cameraName: NSTextField!
     @IBOutlet weak var cameraImageView: NSImageView!
@@ -21,7 +21,7 @@ class WebcamViewController: NSViewController {
         super.viewDidLoad()
         
         cameraName.stringValue = webcam.name
-        let imageURL = URL.init(string: webcam.image.replacingOccurrences(of: "http:", with: "https:"))!
+        let imageURL = URL.init(string: webcam.images[0].image.replacingOccurrences(of: "http:", with: "https:"))!
         cameraImageView.image = NSImage.init(contentsOf: imageURL)
     }
 }
