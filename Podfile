@@ -11,7 +11,7 @@ target 'NarodmonApp' do
   pod 'PromiseKit/Alamofire', '6.3.5'
   pod 'KeychainAccess', '3.1.1'
   pod 'SwiftyUserDefaults', '3.0.1'
-  pod 'Cache', '4.2.0'
+  pod 'Cache', '5.1.0'
   pod 'Charts', :git => 'https://github.com/DimaRU/Charts.git', :branch => '4.0.0-fixX'
 
 plugin 'cocoapods-keys', {
