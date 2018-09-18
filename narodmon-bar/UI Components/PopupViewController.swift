@@ -143,7 +143,6 @@ class PopupViewController: NSViewController {
 
     func openWebcamView(cellView: NSView, webcam: WebcamImages) {
         let webcamViewController = WebcamViewController.instance()
-        webcamViewController.dataStore = dataStore
         webcamViewController.webcam = webcam
         presentViewController(webcamViewController, asPopoverRelativeTo: .zero, of: cellView, preferredEdge: .minX, behavior: .transient)
     }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.13.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -902,46 +902,6 @@
             </objects>
             <point key="canvasLocation" x="388" y="344"/>
         </scene>
-        <!--Webcam View Controller-->
-        <scene sceneID="yX0-hO-tlh">
-            <objects>
-                <viewController storyboardIdentifier="WebcamViewController" id="6yq-py-cg8" customClass="WebcamViewController" customModule="NarodmonApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="LGf-pi-Ifv">
-                        <rect key="frame" x="0.0" y="0.0" width="626" height="370"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OX3-IU-zW6">
-                                <rect key="frame" x="0.0" y="0.0" width="626" height="345"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" id="ZR8-ui-d82"/>
-                            </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="99K-tg-A3g">
-                                <rect key="frame" x="33" y="350" width="560" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Camera Name" id="Ic8-Ph-iYN">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="99K-tg-A3g" firstAttribute="top" secondItem="LGf-pi-Ifv" secondAttribute="top" constant="3" id="HSo-Ir-Ide"/>
-                            <constraint firstAttribute="trailing" secondItem="99K-tg-A3g" secondAttribute="trailing" constant="35" id="Kqp-6I-zBI"/>
-                            <constraint firstItem="OX3-IU-zW6" firstAttribute="top" secondItem="99K-tg-A3g" secondAttribute="bottom" constant="5" id="Q1W-88-EmM"/>
-                            <constraint firstItem="OX3-IU-zW6" firstAttribute="leading" secondItem="LGf-pi-Ifv" secondAttribute="leading" id="RfI-A6-dXM"/>
-                            <constraint firstAttribute="bottom" secondItem="OX3-IU-zW6" secondAttribute="bottom" id="Wy9-Ng-7Vc"/>
-                            <constraint firstItem="99K-tg-A3g" firstAttribute="leading" secondItem="LGf-pi-Ifv" secondAttribute="leading" constant="35" id="e3L-Ap-BdD"/>
-                            <constraint firstAttribute="trailing" secondItem="OX3-IU-zW6" secondAttribute="trailing" id="gYP-z4-wSd"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="cameraImageView" destination="OX3-IU-zW6" id="GgI-wa-VkU"/>
-                        <outlet property="cameraName" destination="99K-tg-A3g" id="nJm-I8-aQp"/>
-                    </connections>
-                </viewController>
-                <customObject id="8MC-pT-rtj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1101" y="-265"/>
-        </scene>
         <!--General-->
         <scene sceneID="rqd-cN-vev">
             <objects>
@@ -1675,6 +1635,133 @@ Gw
                 <customObject id="EQ3-yg-tuX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1575" y="675"/>
+        </scene>
+        <!--Webcam View Controller-->
+        <scene sceneID="RXB-Ws-tld">
+            <objects>
+                <viewController storyboardIdentifier="WebcamViewController" id="C1k-NZ-tIv" customClass="WebcamViewController" customModule="TestWebcamView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="nda-HG-gxA">
+                        <rect key="frame" x="0.0" y="0.0" width="626" height="370"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k34-P3-hWM">
+                                <rect key="frame" x="0.0" y="0.0" width="626" height="0.0"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="fwU-ww-7bN"/>
+                            </imageView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="uyJ-Zv-Mxp" customClass="Spinner" customModule="ProgressKit">
+                                <rect key="frame" x="278" y="150" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="EJg-uY-SR1"/>
+                                    <constraint firstAttribute="width" constant="70" id="y9R-G7-oeM"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="displayAfterAnimationEnds" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="starSize">
+                                        <size key="value" width="7" height="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="distance">
+                                        <real key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="background">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="foreground">
+                                        <color key="value" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                        <integer key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clockwise" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </customView>
+                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="loE-qX-zUQ">
+                                <rect key="frame" x="551" y="347" width="35" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="H9C-Cr-czQ"/>
+                                </constraints>
+                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSLeftFacingTriangleTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="sRL-R0-Msv">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <string key="keyEquivalent"></string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="prevButtonPress:" target="C1k-NZ-tIv" id="2FT-Rn-15m"/>
+                                </connections>
+                            </button>
+                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="baG-SN-KSB">
+                                <rect key="frame" x="587" y="347" width="35" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="qJi-8o-O8W"/>
+                                </constraints>
+                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSRightFacingTriangleTemplate" imagePosition="only" alignment="center" controlSize="small" enabled="NO" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="aF3-E8-cud">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <string key="keyEquivalent"></string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="nextButtonPress:" target="C1k-NZ-tIv" id="fak-x5-p7Y"/>
+                                </connections>
+                            </button>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fcq-ce-xzL">
+                                <rect key="frame" x="248" y="349" width="131" height="17"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tmz-yt-UmS">
+                                        <rect key="frame" x="-2" y="0.0" width="39" height="17"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="19:00" id="HCh-mP-3o7">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DtM-07-wgW">
+                                        <rect key="frame" x="39" y="0.0" width="94" height="17"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Camera Name" id="Xjq-YM-tPo">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="loE-qX-zUQ" firstAttribute="centerY" secondItem="baG-SN-KSB" secondAttribute="centerY" id="AEK-e4-FJK"/>
+                            <constraint firstAttribute="trailing" secondItem="k34-P3-hWM" secondAttribute="trailing" id="DkK-OQ-O8M"/>
+                            <constraint firstItem="k34-P3-hWM" firstAttribute="leading" secondItem="nda-HG-gxA" secondAttribute="leading" id="KPI-1U-Ixh"/>
+                            <constraint firstItem="uyJ-Zv-Mxp" firstAttribute="centerY" secondItem="nda-HG-gxA" secondAttribute="centerY" id="Ki7-1Q-bkj"/>
+                            <constraint firstItem="baG-SN-KSB" firstAttribute="leading" secondItem="loE-qX-zUQ" secondAttribute="trailing" constant="1" id="RZy-Tl-YdQ"/>
+                            <constraint firstAttribute="bottom" secondItem="k34-P3-hWM" secondAttribute="bottom" id="T0h-xM-x1t"/>
+                            <constraint firstItem="fcq-ce-xzL" firstAttribute="centerY" secondItem="loE-qX-zUQ" secondAttribute="centerY" id="b5d-Xa-y68"/>
+                            <constraint firstItem="uyJ-Zv-Mxp" firstAttribute="centerX" secondItem="nda-HG-gxA" secondAttribute="centerX" id="kly-NT-vbF"/>
+                            <constraint firstItem="fcq-ce-xzL" firstAttribute="centerX" secondItem="nda-HG-gxA" secondAttribute="centerX" id="pDd-kS-LiG"/>
+                            <constraint firstItem="baG-SN-KSB" firstAttribute="top" secondItem="nda-HG-gxA" secondAttribute="top" constant="4" id="pE4-EK-p49"/>
+                            <constraint firstAttribute="trailing" secondItem="baG-SN-KSB" secondAttribute="trailing" constant="4" id="uU7-3H-lzS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cameraImageView" destination="k34-P3-hWM" id="7GQ-mk-ZMm"/>
+                        <outlet property="cameraName" destination="DtM-07-wgW" id="qjE-Xu-1We"/>
+                        <outlet property="cameraTime" destination="tmz-yt-UmS" id="6WJ-Md-bHo"/>
+                        <outlet property="nextButton" destination="baG-SN-KSB" id="BDM-A2-5PR"/>
+                        <outlet property="prevButton" destination="loE-qX-zUQ" id="VBN-D1-ehe"/>
+                        <outlet property="spinner" destination="uyJ-Zv-Mxp" id="Kbz-gP-4TE"/>
+                    </connections>
+                </viewController>
+                <customObject id="pFF-NF-yAw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1101" y="-265"/>
         </scene>
     </scenes>
     <resources>

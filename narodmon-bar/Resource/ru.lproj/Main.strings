@@ -287,5 +287,8 @@
 /* Class = "NSMenuItem"; title = "Open in map"; ObjectID = "nJo-HN-0p7"; */
 "nJo-HN-0p7.title" = "Показать на карте";
 
-/* Class = "NSTextFieldCell"; title = "Camera Name"; ObjectID = "Ic8-Ph-iYN"; */
-"Ic8-Ph-iYN.title" = "";
+/* Class = "NSTextFieldCell"; title = "19:00"; ObjectID = "HCh-mP-3o7"; */
+"HCh-mP-3o7.title" = "";
+
+/* Class = "NSTextFieldCell"; title = "Camera Name"; ObjectID = "Xjq-YM-tPo"; */
+"Xjq-YM-tPo.title" = "";

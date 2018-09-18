@@ -13,6 +13,8 @@ target 'NarodmonApp' do
   pod 'SwiftyUserDefaults', '3.0.1'
   pod 'Cache', '5.1.0'
   pod 'Charts', :git => 'https://github.com/DimaRU/Charts.git', :branch => '4.0.0-fixX'
+  pod 'ProgressKit', :git => 'https://github.com/DimaRU/ProgressKit.git'
+
 
 plugin 'cocoapods-keys', {
     :project => 'NarodmonApp',
