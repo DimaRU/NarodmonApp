@@ -66,6 +66,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .then {
                 NetService.loadDevicesDefinitions()
             }
+            .then {
+                NetService.loadWebcamDefinitions()
+            }
             .done { () -> Void in
                 self.dataStore.checkConsistency()
                 self.dataStore.saveDefaults()

@@ -28,6 +28,7 @@ final class AppDataStore {
         selectedDevices = Defaults[.SelectedDevices]
         selectedWindowSensors = Defaults[.SelectedWindowSensors]
         selectedBarSensors = Defaults[.SelectedBarSensors]
+        selectedWebcams = Defaults[.SelectedWebcams]
         for (key,value) in Defaults[.SensorsMin] {
             sensorsMin[Int(key)!] = value as? Double
         }
