@@ -120,6 +120,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             timer.invalidate()
         }
         
+        URLCache.shared.removeAllCachedResponses()
         CacheService.clean()
     }
     

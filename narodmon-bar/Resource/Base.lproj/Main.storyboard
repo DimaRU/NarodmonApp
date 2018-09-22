@@ -1639,7 +1639,7 @@ Gw
         <!--Webcam View Controller-->
         <scene sceneID="RXB-Ws-tld">
             <objects>
-                <viewController storyboardIdentifier="WebcamViewController" id="C1k-NZ-tIv" customClass="WebcamViewController" customModule="TestWebcamView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebcamViewController" id="C1k-NZ-tIv" customClass="WebcamViewController" customModule="NarodmonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="nda-HG-gxA">
                         <rect key="frame" x="0.0" y="0.0" width="626" height="370"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1707,10 +1707,10 @@ Gw
                                 </connections>
                             </button>
                             <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fcq-ce-xzL">
-                                <rect key="frame" x="248" y="349" width="131" height="17"/>
+                                <rect key="frame" x="248" y="8" width="131" height="699"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tmz-yt-UmS">
-                                        <rect key="frame" x="-2" y="0.0" width="39" height="17"/>
+                                        <rect key="frame" x="-2" y="682" width="39" height="17"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="19:00" id="HCh-mP-3o7">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1718,7 +1718,7 @@ Gw
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DtM-07-wgW">
-                                        <rect key="frame" x="39" y="0.0" width="94" height="17"/>
+                                        <rect key="frame" x="39" y="682" width="94" height="17"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Camera Name" id="Xjq-YM-tPo">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1744,6 +1744,7 @@ Gw
                             <constraint firstItem="baG-SN-KSB" firstAttribute="leading" secondItem="loE-qX-zUQ" secondAttribute="trailing" constant="1" id="RZy-Tl-YdQ"/>
                             <constraint firstAttribute="bottom" secondItem="k34-P3-hWM" secondAttribute="bottom" id="T0h-xM-x1t"/>
                             <constraint firstItem="fcq-ce-xzL" firstAttribute="centerY" secondItem="loE-qX-zUQ" secondAttribute="centerY" id="b5d-Xa-y68"/>
+                            <constraint firstItem="k34-P3-hWM" firstAttribute="top" secondItem="fcq-ce-xzL" secondAttribute="bottom" constant="8" symbolic="YES" id="d2G-Zg-Qwq"/>
                             <constraint firstItem="uyJ-Zv-Mxp" firstAttribute="centerX" secondItem="nda-HG-gxA" secondAttribute="centerX" id="kly-NT-vbF"/>
                             <constraint firstItem="fcq-ce-xzL" firstAttribute="centerX" secondItem="nda-HG-gxA" secondAttribute="centerX" id="pDd-kS-LiG"/>
                             <constraint firstItem="baG-SN-KSB" firstAttribute="top" secondItem="nda-HG-gxA" secondAttribute="top" constant="4" id="pE4-EK-p49"/>

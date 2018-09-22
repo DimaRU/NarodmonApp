@@ -146,7 +146,7 @@ struct NetService {
         var promises: [Promise<Void>] = []
         for webcamId in selectedWebcams {
             promises.append(
-                NarProvider.shared.request(.webcamImages(id: webcamId, limit: 1, since: nil))
+                NarProvider.shared.request(.webcamImages(id: webcamId, limit: 1, latest: nil))
                     .done { (webcamImages: WebcamImages) -> Void in
                         app.dataStore.webcams.append(webcamImages)
                         return

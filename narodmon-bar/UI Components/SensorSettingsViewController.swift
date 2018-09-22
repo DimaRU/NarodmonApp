@@ -376,7 +376,7 @@ extension SensorSettingsViewController: IdDelegate {
             return
         }
 
-        NarProvider.shared.request(.webcamImages(id: id, limit: 1, since: nil))
+        NarProvider.shared.request(.webcamImages(id: id, limit: 1, latest: nil))
             .done { (webcamImages: WebcamImages) -> Void in
                 self.dataStore.selectedWebcams.append(id)
                 self.dataStore.webcams.append(webcamImages)
