@@ -63,7 +63,7 @@ class PopupViewController: NSViewController {
         if !dataStore.webcams.isEmpty {
             tableData.append(contentsOf: dataStore.webcams)
         }
-        if dataStore.initData?.latest != appVersion() {
+        if checkAppUpdate() {
             tableData.append("FooterCell")
         }
     }
