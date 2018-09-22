@@ -153,7 +153,19 @@ extension NarProvider {
     /// Parce response data
     fileprivate func parseData<T: Decodable>(data: Data, resolver: Resolver<T>, target: NarodAPI) {
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .secondsSince1970
+        // Fuckin backend develpers!
+        decoder.dateDecodingStrategy = .custom({ (decoder) -> Date in
+            let container = try decoder.singleValueContainer()
+            if let seconds = try? container.decode(Double.self) {
+                return Date.init(timeIntervalSince1970: seconds)
+            }
+            if let secondsStr = try? container.decode(String.self), let seconds = Double(secondsStr) {
+                return Date.init(timeIntervalSince1970: seconds)
+            } else {
+                throw DecodingError.dataCorruptedError(in: container, debugDescription: "Can't decode date")
+            }
+        })
+
         do {
             if T.self == SensorHistory.self {
                 // Fuckin backend develpers!

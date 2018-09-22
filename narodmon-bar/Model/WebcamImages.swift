@@ -13,7 +13,7 @@ struct WebcamImages: Codable {
 }
 
 struct Image: Codable {
-    let time: Int
+    let time: Date
     let liked: Int
     let image: String
 }
