@@ -92,7 +92,7 @@ class WebcamViewController: NSViewController {
             cameraTime.stringValue = ""
             return
         }
-        cameraTime.stringValue = currentDate.description
+        cameraTime.stringValue = smartDate(from: currentDate)
         guard let screenSize = NSScreen.main?.visibleFrame.size else {
             return
         }
@@ -109,6 +109,21 @@ class WebcamViewController: NSViewController {
         self.cameraImageView.image = image
     }
     
+    
+    func smartDate(from: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .medium
+        
+        if Calendar.current.isDateInToday(from) {
+            // Today
+            formatter.dateStyle = .none
+        } else {
+            // Not same day
+            formatter.dateStyle = .short
+        }
+        
+        return formatter.string(from: from)
+    }
 }
 
 
