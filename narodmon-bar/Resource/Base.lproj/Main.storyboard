@@ -1646,6 +1646,10 @@ Gw
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k34-P3-hWM">
                                 <rect key="frame" x="0.0" y="0.0" width="626" height="344"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="626" id="pDX-FV-iui"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="344" id="wkQ-Yh-fdq"/>
+                                </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="fwU-ww-7bN"/>
                             </imageView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="uyJ-Zv-Mxp" customClass="Spinner" customModule="ProgressKit">
@@ -1758,6 +1762,8 @@ Gw
                         <outlet property="nextButton" destination="baG-SN-KSB" id="BDM-A2-5PR"/>
                         <outlet property="prevButton" destination="loE-qX-zUQ" id="VBN-D1-ehe"/>
                         <outlet property="spinner" destination="uyJ-Zv-Mxp" id="Kbz-gP-4TE"/>
+                        <outlet property="webcamViewHeight" destination="wkQ-Yh-fdq" id="zeS-I0-q3g"/>
+                        <outlet property="webcamViewWidth" destination="pDX-FV-iui" id="CZq-V4-MsF"/>
                     </connections>
                 </viewController>
                 <customObject id="pFF-NF-yAw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

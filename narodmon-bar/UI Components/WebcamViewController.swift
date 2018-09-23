@@ -23,6 +23,8 @@ class WebcamViewController: NSViewController {
     @IBOutlet weak var prevButton: NSButton!
     @IBOutlet weak var nextButton: NSButton!
     @IBOutlet weak var spinner: Spinner!
+    @IBOutlet weak var webcamViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var webcamViewHeight: NSLayoutConstraint!
     
     
     
@@ -83,6 +85,30 @@ class WebcamViewController: NSViewController {
             nextButton.isEnabled = false
         }
     }
+    
+    func setWebcamView(with image: NSImage?) {
+        guard let image = image else {
+            self.cameraImageView.image = nil
+            cameraTime.stringValue = ""
+            return
+        }
+        cameraTime.stringValue = currentDate.description
+        guard let screenSize = NSScreen.main?.visibleFrame.size else {
+            return
+        }
+        let maxSize = CGSize(width: screenSize.width / 3 * 2, height: screenSize.height / 3 * 2)
+        
+        let size = image.size
+        if size.height > maxSize.height {
+            webcamViewHeight.constant = maxSize.height
+            webcamViewWidth.constant = maxSize.height / size.height * size.width
+        } else if size.width > maxSize.width {
+            webcamViewWidth.constant = maxSize.width
+            webcamViewHeight.constant = maxSize.width / size.width * size.height
+        }
+        self.cameraImageView.image = image
+    }
+    
 }
 
 
@@ -114,8 +140,7 @@ extension WebcamViewController {
     func loadImage() -> Promise<Void> {
         let url = imageUrl[self.currentDate]!.replacingOccurrences(of: "http:", with: "https:")
         return Alamofire.request(url).responseData().done { data, response in
-            self.cameraTime.stringValue = self.currentDate.description
-            self.cameraImageView.image = NSImage(data: data)
+            self.setWebcamView(with: NSImage(data: data))
         }
     }
     
@@ -124,22 +149,9 @@ extension WebcamViewController {
             .done { (webcamImages: WebcamImages) -> Void in
                 webcamImages.images.forEach { self.imageUrl[$0.time] = $0.image }
                 self.imageDateIndex = self.imageUrl.keys.sorted()   //  Recreate index
-//                print("ImageDateIndexCount:", self.imageDateIndex.count)
-//                print(self.imageDateIndex)
         }
     }
     
-}
-
-extension WebcamViewController {
-    func loadWebcam() -> WebcamImages {
-        let url = Bundle.main.url(forResource: "webcamImages", withExtension: "json")!
-        let json = try! Data(contentsOf: url)
-        
-        let decoder = JSONDecoder()
-        let webcam = try! decoder.decode(WebcamImages.self, from: json)
-        return webcam
-    }
 }
 
 extension WebcamViewController: NSPopoverDelegate {
