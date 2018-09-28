@@ -180,7 +180,6 @@ extension NarProvider {
             let jsonable = try decoder.decode(T.self, from: data)
             if var webcamImages = jsonable as? WebcamImages, case .webcamImages(let id, _, _) = target {
                 webcamImages.id = id
-                print(webcamImages)
                 resolver.fulfill(webcamImages as! T)
             } else {
                 resolver.fulfill(jsonable)
