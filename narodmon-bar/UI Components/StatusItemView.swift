@@ -147,7 +147,7 @@ final class StatusItemView: NSView {
                     offset += width + StatusItemView.padding
                 }
             } else {
-                drawPoint = NSPoint(x: offset, y: round((frame.size.height - attributed.size().height) / 2))
+                drawPoint = NSPoint(x: offset, y: round((frame.size.height - attributed.size().height) / 2) + 1)
                 offset += width + StatusItemView.padding
             }
             attributed.draw(at: drawPoint)

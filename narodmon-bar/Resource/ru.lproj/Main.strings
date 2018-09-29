@@ -27,7 +27,7 @@
 "Cpx-Fm-F6Q.title" = "Выберите устройство и нажмите";
 
 /* Class = "NSButtonCell"; title = "Use larger font"; ObjectID = "Gj0-0D-VU2"; */
-"Gj0-0D-VU2.title" = "Использовать большой шрифт";
+"Gj0-0D-VU2.title" = "Крупный шрифт";
 
 /* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "LC6-3P-QLC"; */
 "LC6-3P-QLC.title" = "Отменить";
@@ -292,3 +292,6 @@
 
 /* Class = "NSTextFieldCell"; title = "Camera Name"; ObjectID = "Xjq-YM-tPo"; */
 "Xjq-YM-tPo.title" = "";
+
+/* Class = "NSButtonCell"; title = "Add by ID"; ObjectID = "Ug5-TB-3l3"; */
+"Ug5-TB-3l3.title" = "Добавить по ID";
