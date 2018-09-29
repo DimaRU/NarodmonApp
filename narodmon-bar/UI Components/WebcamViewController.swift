@@ -60,6 +60,7 @@ class WebcamViewController: NSViewController {
     }
     
     @IBAction func prevButtonPress(_ sender: NSButton) {
+        errorMessageView.clearError()
         guard let date = prevDate() else {
             self.prevButton.isEnabled = false
             let promise = loadImageList(latest: currentDate)
@@ -83,6 +84,7 @@ class WebcamViewController: NSViewController {
     }
     
     @IBAction func nextButtonPress(_ sender: NSButton) {
+        errorMessageView.clearError()
         guard let date = nextDate() else { return }
         currentDate = date
         prevButton.isEnabled = true
