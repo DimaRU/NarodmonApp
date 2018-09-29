@@ -1647,8 +1647,8 @@ Gw
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k34-P3-hWM">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="600" id="pDX-FV-iui"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="wkQ-Yh-fdq"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="640" id="pDX-FV-iui"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="600" id="wkQ-Yh-fdq"/>
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="fwU-ww-7bN"/>
                             </imageView>
