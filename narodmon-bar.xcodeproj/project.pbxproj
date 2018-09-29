@@ -69,6 +69,9 @@
 		0AB3DB881FBB7DC8002C0705 /* NarodNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3DB871FBB7DC8002C0705 /* NarodNetworkError.swift */; };
 		0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195161FBB463E00D72378 /* NarProvider.swift */; };
 		0ABEA4CD1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEA4CC1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift */; };
+		0AC051BE215EAD5200CDB157 /* ErrorMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC051BC215EAD5100CDB157 /* ErrorMessageView.swift */; };
+		0AC051C0215EAE0700CDB157 /* NSViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC051BF215EAE0700CDB157 /* NSViewExtension.swift */; };
+		0AC051C1215EAE8300CDB157 /* ErrorMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AC051BD215EAD5100CDB157 /* ErrorMessageView.xib */; };
 		0AC4EAEE1FCE0526001573C8 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4EAED1FCE0526001573C8 /* PopupViewController.swift */; };
 		0AC6CC4C200685A600F2DAE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AC6CC4E200685A600F2DAE0 /* InfoPlist.strings */; };
 		0AC6CC522007E5E100F2DAE0 /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */; };
@@ -163,6 +166,9 @@
 		0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		0AB3DB871FBB7DC8002C0705 /* NarodNetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarodNetworkError.swift; sourceTree = "<group>"; };
 		0ABEA4CC1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedDecodingContainer.swift; sourceTree = "<group>"; };
+		0AC051BC215EAD5100CDB157 /* ErrorMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessageView.swift; sourceTree = "<group>"; };
+		0AC051BD215EAD5100CDB157 /* ErrorMessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorMessageView.xib; sourceTree = "<group>"; };
+		0AC051BF215EAE0700CDB157 /* NSViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewExtension.swift; sourceTree = "<group>"; };
 		0AC4EAED1FCE0526001573C8 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		0AC6CC48200683DF00F2DAE0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AC6CC4D200685A600F2DAE0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -214,6 +220,7 @@
 				0A2BD37920264E840058AAEC /* Promise+resolved.swift */,
 				0A5DD0B92041EECC0095358A /* Bool+toggle.swift */,
 				0A5DD0BD20420FA10095358A /* Array+nextIndex.swift */,
+				0AC051BF215EAE0700CDB157 /* NSViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -260,6 +267,8 @@
 				0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */,
 				0ADE148D204DEB9500E46192 /* MenuButton.swift */,
 				0A36F8D9205304630084B503 /* DateAxisValueFormater.swift */,
+				0AC051BC215EAD5100CDB157 /* ErrorMessageView.swift */,
+				0AC051BD215EAD5100CDB157 /* ErrorMessageView.xib */,
 				0A36F8D8205304630084B503 /* FixLineChartView.swift */,
 				0A5D858A205D1C1100B15AAA /* CustomFontMenu.swift */,
 			);
@@ -493,6 +502,7 @@
 				0A70D3FD21387358005BB814 /* IDETemplateMacros.plist in Resources */,
 				0A7968CB20067ADF008F97D9 /* Localizable.strings in Resources */,
 				0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */,
+				0AC051C1215EAE8300CDB157 /* ErrorMessageView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +634,7 @@
 				0A9195231FBB463F00D72378 /* NarodAPI.swift in Sources */,
 				0A36F8DB205304640084B503 /* FixLineChartView.swift in Sources */,
 				0A4DB18220234F73007E4281 /* UserDefaultsBarStyle.swift in Sources */,
+				0AC051BE215EAD5200CDB157 /* ErrorMessageView.swift in Sources */,
 				0A91950C1FBB41AE00D72378 /* Sensor.swift in Sources */,
 				0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */,
 				0AE1E7002003F47400029333 /* Notifications.swift in Sources */,
@@ -645,6 +656,7 @@
 				0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */,
 				0A9195251FBB463F00D72378 /* APIKeys.swift in Sources */,
 				0A70D4032139A426005BB814 /* WebcamsNearby.swift in Sources */,
+				0AC051C0215EAE0700CDB157 /* NSViewExtension.swift in Sources */,
 				0A9195031FBB416000D72378 /* SensorsValues.swift in Sources */,
 				0AA22B85201A176C0081D5FE /* ProxyWindow.swift in Sources */,
 				0AB385FC1FC6D6A5007F4EE5 /* KeychainService.swift in Sources */,

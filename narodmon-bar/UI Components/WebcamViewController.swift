@@ -10,6 +10,10 @@ import Alamofire
 
 class WebcamViewController: NSViewController {
     
+    enum WebcamErrors: Error {
+        case noData
+    }
+    
     // Mark: Data
     var webcam: WebcamImages!
     var imageUrl: [Date: String] = [:]
@@ -26,7 +30,8 @@ class WebcamViewController: NSViewController {
     @IBOutlet weak var webcamViewWidth: NSLayoutConstraint!
     @IBOutlet weak var webcamViewHeight: NSLayoutConstraint!
     
-    
+    var errorMessageView: ErrorMessageView!
+
     
     public class func instance() -> WebcamViewController {
         return NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "WebcamViewController")) as! WebcamViewController
@@ -37,14 +42,14 @@ class WebcamViewController: NSViewController {
         nextButton.isEnabled = false
         prevButton.isEnabled = false
         cameraTime.stringValue = ""
-        
+        errorMessageView = ErrorMessageView.load(superView: view)
+
         cameraName.stringValue = webcam.name
         spinner.animate = true
         let promise = self.loadImageList()
             .done {
                 guard let date = self.imageDateIndex.max() else {
-                    // Todo: Nodata message
-                    throw PMKError.cancelled
+                    throw WebcamErrors.noData
                 }
                 self.currentDate = date
                 if self.imageDateIndex.count > 1 {
@@ -56,15 +61,16 @@ class WebcamViewController: NSViewController {
     
     @IBAction func prevButtonPress(_ sender: NSButton) {
         guard let date = prevDate() else {
+            self.prevButton.isEnabled = false
             let promise = loadImageList(latest: currentDate)
                 .done {
                     guard let date = self.prevDate() else {
-                        self.prevButton.isEnabled = false
                         throw PMKError.cancelled
                     }
+                    self.prevButton.isEnabled = true
+                    self.nextButton.isEnabled = true
                     self.currentDate = date
             }
-            self.nextButton.isEnabled = true
             fetchImage(promise)
             return
         }
@@ -143,19 +149,54 @@ extension WebcamViewController {
     func fetchImage(_ promise: Promise<Void>) {
         spinner.animate = true
         promise
-            .then { _ -> Promise<Void> in
+            .then {
                 self.loadImage()
             }.ensure {
                 self.spinner.animate = false
             }.catch { error in
-                print(error)
+                var title: String
+                var message: String
+                
+                switch(error) {
+                case WebcamErrors.noData:
+                    title = "Warning"
+                    message = "No webcam data"
+                case let error as NarodNetworkError:
+                    title = error.localizedDescription
+                    message = error.message()
+                    print(error.message())
+                case let AFError.responseValidationFailed(reason: reason):
+                    title = "Error"
+                    if case let .unacceptableStatusCode(statusCode) = reason {
+                        print("statusCode:", statusCode)
+                        switch statusCode {
+                        case 400...499:
+                            message = "Image not found"
+                        case 500...599:
+                            message = "Server error"
+                        default:
+                            message = "Network error"
+                        }
+                    } else {
+                        return
+                    }
+                default:
+                    title = "Network unreachable"
+                    message = error.localizedDescription
+                    print("Nerwork error:", error)
+                }
+                self.errorMessageView.showError(title: title, message: message)
         }
     }
     
     func loadImage() -> Promise<Void> {
         let url = imageUrl[self.currentDate]!.replacingOccurrences(of: "http:", with: "https:")
-        return Alamofire.request(url).responseData().done { data, response in
-            self.setWebcamView(with: NSImage(data: data))
+        return Alamofire.request(url)
+            .validate(statusCode: 200..<300)
+            .responseData()
+            .done { data, response in
+                
+                self.setWebcamView(with: NSImage(data: data))
         }
     }
     
