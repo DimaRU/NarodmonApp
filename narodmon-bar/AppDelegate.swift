@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var statusView: StatusItemView!
     var popover: NSPopover?
-    var sensorsViewController: SensorsViewController!
+    var sensorsViewController: PopupViewController!
     var proxyWindow: ProxyWindow?
     public var popoverShowed = false
     var lastRequestTime = Date() {
@@ -66,6 +66,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .then {
                 NetService.loadDevicesDefinitions()
             }
+            .then {
+                NetService.loadWebcamDefinitions()
+            }
             .done { () -> Void in
                 self.dataStore.checkConsistency()
                 self.dataStore.saveDefaults()
@@ -87,8 +90,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     error.sendFatalReport()
                 }
         }
-        
-        
     }
 
     func setPopoverState(showed: Bool) {
@@ -119,6 +120,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             timer.invalidate()
         }
         
+        URLCache.shared.removeAllCachedResponses()
         CacheService.clean()
     }
     

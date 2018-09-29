@@ -8,16 +8,15 @@ import PromiseKit
 
 class CacheService {
     
-    private static var storage: Storage? = initCache()
+    private static var storage: Storage<[SensorHistoryData]>? = initCache()
     private static var expireTimer: Timer!
     
-    private static func initCache() -> Storage? {
+    private static func initCache() -> Storage<[SensorHistoryData]>? {
         let diskConfig = DiskConfig(
             name: "NarodmonHistoryDataCache",
             expiry: .date(Date().addingTimeInterval(15*60)),
             maxSize: 10000,
-            directory: nil,
-            protectionType: .none
+            directory: nil
         )
         let memoryConfig = MemoryConfig(
             expiry: .date(Date().addingTimeInterval(5*60)),
@@ -25,7 +24,7 @@ class CacheService {
             totalCostLimit: 10
         )
 
-        let storage = try? Storage(diskConfig: diskConfig, memoryConfig: memoryConfig)
+        let storage = try? Storage<[SensorHistoryData]>.init(diskConfig: diskConfig, memoryConfig: memoryConfig, transformer: TransformerFactory.forCodable(ofType: [SensorHistoryData].self))
         
         expireTimer = Timer.scheduledTimer(withTimeInterval: 30*60, repeats: true) {_ in 
             CacheService.clean()
@@ -45,7 +44,7 @@ class CacheService {
         let key = CacheService.cacheKey(id: id, period: period, offset: offset)
         
         if let storage = CacheService.storage,
-            let historyData = try? storage.object(ofType: [SensorHistoryData].self, forKey: key) {
+            let historyData = try? storage.object(forKey: key) {
             return Promise<[SensorHistoryData]>.value(historyData)
         } else {
             return NetService.loadSensorHistory(id: id, period: period, offset: offset)

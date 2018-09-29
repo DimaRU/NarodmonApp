@@ -19,6 +19,7 @@ extension DefaultsKeys {
     static let SelectedDevices = DefaultsKey<[Int]>("SelectedDevices")
     static let SelectedWindowSensors = DefaultsKey<[Int]>("SelectedWindowSensors")
     static let SelectedBarSensors = DefaultsKey<[Int]>("SelectedBarSensors")
+    static let SelectedWebcams = DefaultsKey<[Int]>("SelectedWebcams")
     static let SensorsMin = DefaultsKey<[String: Any]>("SensorsMin")
     static let SensorsMax = DefaultsKey<[String: Any]>("SensorsMax")
     static let ColorMin = DefaultsKey<NSColor?>("ColorMin")
@@ -52,4 +53,3 @@ extension UserDefaults {
         return !Defaults[.SelectedDevices].isEmpty && !Defaults[.SelectedBarSensors].isEmpty
     }
 }
-

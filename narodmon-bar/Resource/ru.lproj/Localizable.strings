@@ -5,14 +5,26 @@
 /* No comment provided by engineer. */
 "Access denied" = "В доступе к объекту отказано";
 
+/* Add camera */
+"Add camera" = "Добавление камеры";
+
 /* Add device */
 "Add device" = "Добавление устройства";
 
 /* No comment provided by engineer. */
 "API key blocked" = "Заблокирован ключ API";
 
+/* Add camera */
+"Camera already in list" = "Камера уже в списке";
+
 /* Add device */
 "Device already added" = "Устройство уже добавлено";
+
+/* Devices & Sensors & Webcams table header */
+"Devices & Sensors" = "Устройства и сенсоры";
+
+/* WebcamView error title */
+"Error" = "Ошибка";
 
 /* Chart view */
 "High level" = "Верхний уровень";
@@ -27,6 +39,9 @@
 /* MakeYourOwnAction URL */
 "https://wifi-iot.com/a/lang/en/" = "https://wifi-iot.com/a/lang/ru/";
 
+/* WebcamView error message */
+"Image not found" = "Изображение не найдено";
+
 /* last update in title bar */
 "Last update: " = "Обновлено: ";
 
@@ -39,6 +54,9 @@
 /* Support email URL */
 "mailto:macosapp@narodmon.com" = "mailto:macosapp@narodmon.ru";
 
+/* WebcamView error message */
+"Network error" = "Сетевая ошибка";
+
 /* No comment provided by engineer. */
 "Network unreachable" = "Сеть не доступна";
 
@@ -47,6 +65,9 @@
 
 /* Chart view */
 "No history data for that period" = "Нет данных за этот период";
+
+/* WebcamView error message */
+"No webcam data" = "Нет данных с вебкамеры";
 
 /* No comment provided by engineer. */
 "Object disconnected" = "Объект отключён";
@@ -71,3 +92,9 @@
 
 /* No comment provided by engineer. */
 "Unsucessful authorisation" = "Ошибка авторизации";
+
+/* WebcamView error title */
+"Warning" = "Предупреждение";
+
+/* Devices & Sensors & Webcams table header */
+"Webcams" = "Вебкамеры";

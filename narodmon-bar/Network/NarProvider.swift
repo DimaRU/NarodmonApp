@@ -24,9 +24,17 @@ class NarProvider {
         return endpoint
     }
     
-    fileprivate static let instance = MoyaProvider<NarodAPI>(endpointClosure: NarProvider.endpointClosure
-//                                                                   ,plugins: [NetworkLoggerPlugin(verbose: true)]
-                                                                  )
+    #if DEBUG
+    fileprivate static let instance = { () -> MoyaProvider<NarodAPI> in
+        if let value = ProcessInfo.processInfo.environment["MoyaLogger"] {
+            return MoyaProvider<NarodAPI>(endpointClosure: NarProvider.endpointClosure, plugins: [NetworkLoggerPlugin(verbose: true)])
+        } else {
+            return MoyaProvider<NarodAPI>(endpointClosure: NarProvider.endpointClosure)
+        }
+    }()
+    #else
+    fileprivate static let instance = MoyaProvider<NarodAPI>(endpointClosure: NarProvider.endpointClosure)
+    #endif
 
     // MARK: - Public
     func request(_ target: NarodAPI) -> Promise<Void> {
@@ -42,14 +50,16 @@ class NarProvider {
         let (promise, resolver) = Promise<T>.pending()
         assert(target.mappingType == T.self)
         sendRequest((target,
-                     resolve: { rawData in self.parseData(data: rawData as! Data, resolver: resolver) },
+                     resolve: { rawData in self.parseData(data: rawData as! Data, resolver: resolver, target: target) },
                      reject: resolver.reject))
         return promise
     }
     
     
     private func sendRequest(_ request: RequestFuture) {
+        #if DEBUG
         print("Request:", request.target)
+        #endif
         NarProvider.instance.request(request.target) { (result) in
             self.handleRequest(request: request, result: result)
         }
@@ -141,9 +151,21 @@ extension NarProvider {
     }
     
     /// Parce response data
-    fileprivate func parseData<T: Decodable>(data: Data, resolver: Resolver<T>) {
+    fileprivate func parseData<T: Decodable>(data: Data, resolver: Resolver<T>, target: NarodAPI) {
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .secondsSince1970
+        // Fuckin backend develpers!
+        decoder.dateDecodingStrategy = .custom({ (decoder) -> Date in
+            let container = try decoder.singleValueContainer()
+            if let seconds = try? container.decode(Double.self) {
+                return Date.init(timeIntervalSince1970: seconds)
+            }
+            if let secondsStr = try? container.decode(String.self), let seconds = Double(secondsStr) {
+                return Date.init(timeIntervalSince1970: seconds)
+            } else {
+                throw DecodingError.dataCorruptedError(in: container, debugDescription: "Can't decode date")
+            }
+        })
+
         do {
             if T.self == SensorHistory.self {
                 // Fuckin backend develpers!
@@ -152,14 +174,20 @@ extension NarProvider {
                     let sensorHistoryData: [SensorHistoryData] = []
                     let sensorHistory = SensorHistory(data: sensorHistoryData)
                     resolver.fulfill(sensorHistory as! T)
-//                    resolve(sensorHistory as! T)
                     return
                 }
             }
             let jsonable = try decoder.decode(T.self, from: data)
-            resolver.fulfill(jsonable)
+            if var webcamImages = jsonable as? WebcamImages, case .webcamImages(let id, _, _) = target {
+                webcamImages.id = id
+                resolver.fulfill(webcamImages as! T)
+            } else {
+                resolver.fulfill(jsonable)
+            }
         } catch {
+            let json = String.init(data: data, encoding: .utf8) ?? "??unknown??"
             print(error)
+            print(json)
             let message = error.localizedDescription
             resolver.reject(NarodNetworkError.responceSyntaxError(message: message))
         }

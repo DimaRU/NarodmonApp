@@ -9,6 +9,7 @@ import SwiftyUserDefaults
 final class AppDataStore {
     var selectedDevices: [Int] = []             // Selected device ID list
     var selectedWindowSensors: [Int] = []       // Selected popup window sensors
+    var selectedWebcams: [Int] = []             // Selected webcams
     var selectedBarSensors: [Int] = []          // Selected bar sensors
     var sensorsMin: [Int:Double] = [:]
     var sensorsMax: [Int:Double] = [:]
@@ -18,6 +19,7 @@ final class AppDataStore {
     
     var devices: [SensorsOnDevice] = []         // Discovered devices
     var sensorValues: [SensorValue] = []        // Current sensors value
+    var webcams: [WebcamImages] = []            // Discovered webcams
     
     var initData: AppInitData? = nil
     var logonData: UserLogon? = nil
@@ -26,6 +28,7 @@ final class AppDataStore {
         selectedDevices = Defaults[.SelectedDevices]
         selectedWindowSensors = Defaults[.SelectedWindowSensors]
         selectedBarSensors = Defaults[.SelectedBarSensors]
+        selectedWebcams = Defaults[.SelectedWebcams]
         for (key,value) in Defaults[.SensorsMin] {
             sensorsMin[Int(key)!] = value as? Double
         }
@@ -40,6 +43,7 @@ final class AppDataStore {
         Defaults[.SelectedDevices] = selectedDevices
         Defaults[.SelectedBarSensors] = selectedBarSensors
         Defaults[.SelectedWindowSensors] = Array<Int>(selectedWindowSensors)
+        Defaults[.SelectedWebcams] = Array<Int>(selectedWebcams)
 
         let minArray = sensorsMin.map { (String($0), $1) }
         Defaults[.SensorsMin] = Dictionary.init(uniqueKeysWithValues: minArray)
@@ -75,7 +79,9 @@ final class AppDataStore {
         return nil
     }
     
-    func lastUpdate() -> Date {
+    func lastUpdate() -> Date? {
+        guard !devices.isEmpty, !devices[0].sensors.isEmpty else { return nil }
+        
         var lastTime = devices[0].sensors[0].time
         for device in devices {
             for sensor in device.sensors{

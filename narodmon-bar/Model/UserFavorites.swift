@@ -12,5 +12,13 @@ struct UserFavorites: Codable {
         let value: Double
         let time: Date
     }
+    struct Webcam: Codable {
+        let id: Int
+        let name: String
+        let time: Int
+        let image: String
+    }
+
     let sensors: [FavoriteSensor]
+    let webcams: [Webcam]
 }

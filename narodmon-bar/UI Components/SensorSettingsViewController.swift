@@ -8,9 +8,10 @@
 
 import Cocoa
 import SwiftyUserDefaults
+import PromiseKit
 
-protocol DeviceIdDelegate {
-    func add(device id: Int)
+protocol IdDelegate {
+    func add(id: Int)
 }
 
 class SensorSettingsViewController: NSViewController {
@@ -18,7 +19,7 @@ class SensorSettingsViewController: NSViewController {
     weak var dataStore: AppDataStore!
     weak var mapViewController: NSViewController? = nil
     
-    private var devicesSensorsList: [Any] = []
+    private var sourceTableData: [Any] = []
     private var deviceCellStyle = 0
     private let deviceCellId = ["DeviceCell1", "DeviceCell2", "DeviceCell3"]
     private var sensorCellStyle = 0
@@ -27,8 +28,8 @@ class SensorSettingsViewController: NSViewController {
     var hasDraggedFavoriteItem = false
     var currentItemDragOperation: NSDragOperation = []
     
-    @IBOutlet weak var sensorsTableView: SelectTableView!
-    @IBOutlet weak var favoriteTableView: SelectTableView!
+    @IBOutlet weak var sourceTableView: SelectTableView!
+    @IBOutlet weak var barSensorsTableView: SelectTableView!
     @IBOutlet weak var largeFontCheckBox: NSButton!
  
     @IBAction func largeFontCheckBoxAction(_ sender: NSButton) {
@@ -53,15 +54,25 @@ class SensorSettingsViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sensorsTableView.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
-        sensorsTableView.setDraggingSourceOperationMask([.move, .delete], forLocal: true)
-        favoriteTableView.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
-        favoriteTableView.setDraggingSourceOperationMask([.move, .delete], forLocal: true)
+        sourceTableView.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
+        sourceTableView.setDraggingSourceOperationMask([.move, .delete], forLocal: true)
+        barSensorsTableView.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
+        barSensorsTableView.setDraggingSourceOperationMask([.move, .delete], forLocal: true)
 
-        sensorsTableView.doubleAction = #selector(cellDobleClicked)
+        sourceTableView.doubleAction = #selector(cellDobleClicked)
         largeFontCheckBox.state = Defaults[.TinyFont] ? .off : .on
-        devicesSensorsList = dataStore.devicesSensorsList()
+        prepareViewControllerData()
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: .deviceListChangedNotification, object: nil)
+    }
+    
+    private func prepareViewControllerData() {
+        sourceTableData = []
+        sourceTableData.append(NSLocalizedString("Devices & Sensors", comment: "Devices & Sensors & Webcams table header"))
+        sourceTableData.append(contentsOf: dataStore.devicesSensorsList())
+
+        guard !dataStore.webcams.isEmpty else { return }
+        sourceTableData.append(NSLocalizedString("Webcams", comment: "Devices & Sensors & Webcams table header"))
+        sourceTableData.append(contentsOf: dataStore.webcams)
     }
     
     deinit {
@@ -74,55 +85,32 @@ class SensorSettingsViewController: NSViewController {
     }
         
     @objc func refreshData() {
-        devicesSensorsList = dataStore.devicesSensorsList()
-        sensorsTableView.reloadData()
-        favoriteTableView.reloadData()
-    }
-    
-
-}
-
-extension SensorSettingsViewController: DeviceIdDelegate {
-    func add(device id: Int) {
-        parent?.view.window?.makeKeyAndOrderFront(nil)
-        
-        guard !dataStore.selectedDevices.contains(id) else {
-            let alert = NSAlert()
-            alert.messageText = NSLocalizedString("Add device", comment: "Add device")
-            alert.informativeText = NSLocalizedString("Device already added", comment: "Add device")
-            alert.runModal()
-            return
-        }
-        
-        NarProvider.shared.request(.sensorsOnDevice(id: id))
-            .done { (device: SensorsOnDevice) -> Void in
-                self.dataStore.add(device: device)
-                postNotification(name: .deviceListChangedNotification)
-            }
-            .catch { error in
-                guard let e = error as? NarodNetworkError else { error.sendFatalReport() }
-                e.displayAlert()
-        }
+        prepareViewControllerData()
+        sourceTableView.reloadData()
+        barSensorsTableView.reloadData()
     }
     
     @objc private func cellDobleClicked(_ sender: Any) {
-        switch devicesSensorsList[sensorsTableView.clickedRow] {
+        switch sourceTableData[sourceTableView.clickedRow] {
         case is SensorsOnDevice:
             deviceCellStyle = deviceCellId.nextIndex(deviceCellStyle)
         case is Sensor:
             sensorCellStyle = sensorCellId.nextIndex(sensorCellStyle)
-        default: fatalError()
+        default:
+            return
         }
-        sensorsTableView.reloadData()
+        sourceTableView.reloadData()
     }
+
 }
+
 
 extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         switch tableView {
-        case sensorsTableView:
-            return devicesSensorsList.count
-        case favoriteTableView:
+        case sourceTableView:
+            return sourceTableData.count
+        case barSensorsTableView:
             return dataStore.selectedBarSensors.count + 1
         default:
             return 0
@@ -131,9 +119,14 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
     
     func tableView(_ tableView: NSTableView, isGroupRow row: Int) -> Bool {
         switch tableView {
-        case sensorsTableView:
-            return devicesSensorsList[row] is SensorsOnDevice
-        case favoriteTableView:
+        case sourceTableView:
+            switch sourceTableData[row] {
+            case is SensorsOnDevice: return true
+            case is WebcamImages: return false
+            case is String: return true
+            default: return false
+            }
+        case barSensorsTableView:
             return row == 0
         default: fatalError()
         }
@@ -142,30 +135,36 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         switch tableView {
             
-        case sensorsTableView:
-            switch devicesSensorsList[row] {
+        case sourceTableView:
+            switch sourceTableData[row] {
+            case let headerTitle as String:
+                let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HeaderCell"), owner: self) as? NSTableCellView
+                cell?.textField?.stringValue = headerTitle
+                return cell
             case let device as SensorsOnDevice:
                 let cellId = deviceCellId[deviceCellStyle]
-                guard let deviceCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), owner: self) as? DeviceCellView
-                    else { return nil }
-                deviceCell.setContent(device: device)
+                let deviceCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), owner: self) as? DeviceCellView
+                deviceCell?.setContent(device: device)
                 return deviceCell
             case let sensor as Sensor:
                 let cellId = sensorCellId[sensorCellStyle]
-                guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), owner: self) as? PrefsCellView
-                    else { return nil }
-                sensorCell.setContent(sensor: sensor, dataStore: dataStore)
+                let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), owner: self) as? PrefsCellView
+                sensorCell?.setContent(sensor: sensor, dataStore: dataStore)
                 return sensorCell
+            case let webcam as WebcamImages:
+                let webcamCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "WebcamCell"), owner: self) as? WebcamCellView
+                webcamCell?.setContent(webcam: webcam)
+                return webcamCell
             default: fatalError()
             }
 
             
-        case favoriteTableView:
+        case barSensorsTableView:
             if row == 0 {
                 return tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HeaderCell"), owner: self)
             } else {
                 let id = dataStore.selectedBarSensors[row-1]
-                for element in devicesSensorsList {
+                for element in sourceTableData {
                     if let sensor = element as? Sensor, sensor.id == id {
                         guard let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? PrefsCellView
                             else { return nil }
@@ -194,16 +193,25 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
         let row = rowIndexes.first!
 
         switch tableView {
-        case sensorsTableView:
+        case sourceTableView:
             hasDraggedFavoriteItem = false
-            if devicesSensorsList[row] is SensorsOnDevice {
+            switch sourceTableData[row] {
+            case is String:
+                return false
+            case is WebcamImages,
+                 is SensorsOnDevice:
                 hasDraggedFavoriteItem = true
                 currentItemDragOperation = .delete
+            case let sensor as Sensor:
+                if dataStore.selectedBarSensors.contains(sensor.id) {
+                    return false
+                }
+
+            default:
+                fatalError()
             }
-            if let sensor = devicesSensorsList[row] as? Sensor, dataStore.selectedBarSensors.contains(sensor.id) {
-                return false
-            }
-        case favoriteTableView:
+
+        case barSensorsTableView:
             if row == 0 {
                 return false
             }
@@ -231,16 +239,26 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
         if operation == .delete || currentItemDragOperation == .delete {
             let fromRow = dragRow(from: session.draggingPasteboard)
             switch tableView {
-            case favoriteTableView:
+            case barSensorsTableView:
                 dataStore.selectedBarSensors.remove(at: fromRow-1)
                 NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
                 postNotification(name: .barSensorsChangedNotification)
-                favoriteTableView.reloadData()
-            case sensorsTableView:
-                guard let device = devicesSensorsList[fromRow] as? SensorsOnDevice else { break }
-                dataStore.remove(device: device)
-                postNotification(name: .deviceListChangedNotification)
-                NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
+                barSensorsTableView.reloadData()
+                
+            case sourceTableView:
+                switch sourceTableData[fromRow] {
+                case let device as SensorsOnDevice:
+                    dataStore.remove(device: device)
+                    postNotification(name: .deviceListChangedNotification)
+                    NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
+                case let webcam as WebcamImages:
+                    let id = webcam.id!
+                    dataStore.selectedWebcams.removeAll(where: {$0 == id})
+                    dataStore.webcams.removeAll(where: {$0.id == id})
+                    NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
+                default:
+                    break
+                }
             default: fatalError()
             }
         }
@@ -256,16 +274,18 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
         currentItemDragOperation = []
         let toRow = row
         
-        if tableView == favoriteTableView {
+        if tableView == barSensorsTableView {
             let fromRow = dragRow(from: info.draggingPasteboard())
             
-            if draggingSource == favoriteTableView {
+            if draggingSource == barSensorsTableView {
                 tableView.setDropRow(toRow, dropOperation: .above)
                 currentItemDragOperation = toRow < 1 || toRow == fromRow || toRow == fromRow + 1 ? [] : .move
             }
-            else if draggingSource == sensorsTableView {
-                switch devicesSensorsList[fromRow] {
-                case is SensorsOnDevice:
+            else if draggingSource == sourceTableView {
+                switch sourceTableData[fromRow] {
+                case is SensorsOnDevice,
+                     is WebcamImages,
+                     is String:
                     currentItemDragOperation = []
                 case is Sensor:
                     tableView.setDropRow(toRow, dropOperation: .above)
@@ -281,11 +301,11 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
     ///
     /// - Returns: true if drop accepted
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
-        guard tableView == sensorsTableView || tableView == favoriteTableView else { return false }
+        guard tableView == sourceTableView || tableView == barSensorsTableView else { return false }
         let fromRow = dragRow(from: info.draggingPasteboard())
 
         switch info.draggingSource() as? NSTableView {
-        case favoriteTableView?:
+        case barSensorsTableView?:
             let value = dataStore.selectedBarSensors[fromRow-1]
             dataStore.selectedBarSensors.remove(at: fromRow-1)
             if (row-1) > dataStore.selectedBarSensors.count {
@@ -295,19 +315,76 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
                 dataStore.selectedBarSensors.insert(value, at: row-1)
             }
             postNotification(name: .barSensorsChangedNotification)
-            favoriteTableView.reloadData()
+            barSensorsTableView.reloadData()
             return true
             
-        case sensorsTableView?:
-            guard let fromSensor = devicesSensorsList[fromRow] as? Sensor else { return false }
+        case sourceTableView?:
+            guard let fromSensor = sourceTableData[fromRow] as? Sensor else { return false }
                 dataStore.selectedBarSensors.append(fromSensor.id)
                 postNotification(name: .barSensorsChangedNotification)
-                favoriteTableView.reloadData()
+                barSensorsTableView.reloadData()
                 return true
         default:
             return false
         }
         
     }
+}
+
+// Mark: IdDelegate
+
+extension SensorSettingsViewController: IdDelegate {
     
+    public func add(id: Int) {
+        if id > 0 {
+            self.add(device: id)
+        } else {
+            self.add(camera: -id)
+        }
+    }
+    
+    func add(device id: Int) {
+        parent?.view.window?.makeKeyAndOrderFront(nil)
+        
+        guard !dataStore.selectedDevices.contains(id) else {
+            let alert = NSAlert()
+            alert.messageText = NSLocalizedString("Add device", comment: "Add device")
+            alert.informativeText = NSLocalizedString("Device already added", comment: "Add device")
+            alert.runModal()
+            return
+        }
+        
+        NarProvider.shared.request(.sensorsOnDevice(id: id))
+            .done { (device: SensorsOnDevice) -> Void in
+                self.dataStore.add(device: device)
+                postNotification(name: .deviceListChangedNotification)
+            }
+            .catch { error in
+                guard let e = error as? NarodNetworkError else { error.sendFatalReport() }
+                e.displayAlert()
+        }
+    }
+    
+    func add(camera id: Int) {
+        parent?.view.window?.makeKeyAndOrderFront(nil)
+        
+        guard !dataStore.selectedWebcams.contains(id) else {
+            let alert = NSAlert()
+            alert.messageText = NSLocalizedString("Add camera", comment: "Add camera")
+            alert.informativeText = NSLocalizedString("Camera already in list", comment: "Add camera")
+            alert.runModal()
+            return
+        }
+
+        NarProvider.shared.request(.webcamImages(id: id, limit: 1, latest: nil))
+            .done { (webcamImages: WebcamImages) -> Void in
+                self.dataStore.selectedWebcams.append(id)
+                self.dataStore.webcams.append(webcamImages)
+                postNotification(name: .deviceListChangedNotification)
+            }
+            .catch { error in
+                guard let e = error as? NarodNetworkError else { error.sendFatalReport() }
+                e.displayAlert()
+        }
+    }
 }
