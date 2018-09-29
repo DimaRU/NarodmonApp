@@ -161,31 +161,29 @@ extension WebcamViewController {
                 
                 switch(error) {
                 case WebcamErrors.noData:
-                    title = "Warning"
-                    message = "No webcam data"
+                    title = NSLocalizedString("Warning", comment: "WebcamView error title")
+                    message = NSLocalizedString("No webcam data", comment: "WebcamView error message")
                 case let error as NarodNetworkError:
                     title = error.localizedDescription
                     message = error.message()
                     print(error.message())
                 case let AFError.responseValidationFailed(reason: reason):
-                    title = "Error"
+                    title = NSLocalizedString("Error", comment: "WebcamView error title")
                     if case let .unacceptableStatusCode(statusCode) = reason {
-                        print("statusCode:", statusCode)
                         switch statusCode {
                         case 400...499:
-                            message = "Image not found"
+                            message = NSLocalizedString("Image not found", comment: "WebcamView error message")
                         case 500...599:
-                            message = "Server error"
+                            message = NSLocalizedString("Server error", comment: "WebcamView error message")
                         default:
-                            message = "Network error"
+                            message = NSLocalizedString("Network error", comment: "WebcamView error message")
                         }
                     } else {
                         return
                     }
                 default:
-                    title = "Network unreachable"
+                    title = NSLocalizedString("Network unreachable", comment: "WebcamView error title")
                     message = error.localizedDescription
-                    print("Nerwork error:", error)
                 }
                 self.errorMessageView.showError(title: title, message: message)
         }
