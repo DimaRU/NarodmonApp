@@ -81,6 +81,7 @@
 		0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */; };
 		0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */; };
 		0AECF54C1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */; };
+		0AFB498F2160F8C400CF3619 /* LocaleTemperatureUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB498E2160F8C400CF3619 /* LocaleTemperatureUnit.swift */; };
 		19C60B7AF6611009CE8F3D82 /* Pods_NarodmonApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56217F9C540BE073E62D427B /* Pods_NarodmonApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +179,7 @@
 		0AE1E6FF2003F47400029333 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeMethods.swift; sourceTree = "<group>"; };
 		0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceIDViewCotroller.swift; sourceTree = "<group>"; };
+		0AFB498E2160F8C400CF3619 /* LocaleTemperatureUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleTemperatureUnit.swift; sourceTree = "<group>"; };
 		56217F9C540BE073E62D427B /* Pods_NarodmonApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NarodmonApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8B543A8137D8E5233766A48 /* Pods-NarodmonApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NarodmonApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E9DF986F5280E900F407CC88 /* Pods-NarodmonApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NarodmonApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */,
 				0A63DF961FCED92800C35607 /* HwUUID.swift */,
 				0A756286200261490033269C /* LaunchOnLogin.swift */,
+				0AFB498E2160F8C400CF3619 /* LocaleTemperatureUnit.swift */,
 				0A4DB18120234F73007E4281 /* UserDefaultsBarStyle.swift */,
 				0A41A375212318FF001D27D6 /* AppVersion.swift */,
 			);
@@ -659,6 +662,7 @@
 				0AC051C0215EAE0700CDB157 /* NSViewExtension.swift in Sources */,
 				0A9195031FBB416000D72378 /* SensorsValues.swift in Sources */,
 				0AA22B85201A176C0081D5FE /* ProxyWindow.swift in Sources */,
+				0AFB498F2160F8C400CF3619 /* LocaleTemperatureUnit.swift in Sources */,
 				0AB385FC1FC6D6A5007F4EE5 /* KeychainService.swift in Sources */,
 				0A9195071FBB416000D72378 /* UserLogon.swift in Sources */,
 				0A68C0BB1FDAA1FB00E7ACD4 /* Globals.swift in Sources */,
