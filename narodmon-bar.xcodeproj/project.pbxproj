@@ -239,13 +239,13 @@
 		0A63DF951FCED8F600C35607 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				0AD867A620403C06001C5577 /* TypedNotifications.swift */,
+				0A41A375212318FF001D27D6 /* AppVersion.swift */,
 				0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */,
 				0A63DF961FCED92800C35607 /* HwUUID.swift */,
 				0A756286200261490033269C /* LaunchOnLogin.swift */,
 				0AFB498E2160F8C400CF3619 /* LocaleTemperatureUnit.swift */,
+				0AD867A620403C06001C5577 /* TypedNotifications.swift */,
 				0A4DB18120234F73007E4281 /* UserDefaultsBarStyle.swift */,
-				0A41A375212318FF001D27D6 /* AppVersion.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";

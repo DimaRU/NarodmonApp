@@ -63,22 +63,15 @@ final class AppDataStore {
     func sensorData(for id: Int, format: SensorFormat) -> (value: String, color: NSColor?)? {
         for device in devices {
             if let sensor = device.sensors.first(where: { $0.id == id }) {
-                let unit = sensor.unit
+                var unit = sensor.unit
                 var value = sensor.value
                 if let sensorValue = (sensorValues.first { $0.id == id }) {
                     value = sensorValue.value
                 }
-                var color: NSColor? = nil
-                if let min = sensorsMin[id], value < min {
-                    color = colorMin
-                }
-                if let max = sensorsMax[id], value > max {
-                    color = colorMax
-                }
-                
                 if sensor.type == 1 {
                     // temperature
-                    
+                    value = LocaleTemperature.convert(from: value)
+                    unit = LocaleTemperature.unit()
                 }
                 
                 let stringValue: String
@@ -88,8 +81,17 @@ final class AppDataStore {
                 case .medium:
                     stringValue = String(format: "%.1f", value) + unit
                 case .long:
-                    stringValue = "\(value)\(unit)"
+                    stringValue = String(format: "%.2f", value) + unit
                 }
+
+                var color: NSColor? = nil
+                if let min = sensorsMin[id], value < min {
+                    color = colorMin
+                }
+                if let max = sensorsMax[id], value > max {
+                    color = colorMax
+                }
+                
                 return (stringValue, color)
             }
         }
