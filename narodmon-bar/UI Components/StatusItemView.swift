@@ -71,9 +71,8 @@ final class StatusItemView: NSView {
         var labels: [(String, NSColor?)] = []
 
         for id in dataStore.selectedBarSensors {
-            guard let (value, unit, color) = dataStore.sensorData(for: id) else { continue }
-            let label = String.init(format: "%.0f", value) + unit
-            labels.append((label, color))
+            guard let (value, color) = dataStore.sensorData(for: id, format: .short) else { continue }
+            labels.append((value, color))
         }
         return labels.isEmpty ? [
             (NSLocalizedString("No", comment: "Empty status bar message part1"), nil),

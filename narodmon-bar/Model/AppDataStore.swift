@@ -57,8 +57,10 @@ final class AppDataStore {
     func selectionExist() -> Bool {
         return !selectedDevices.isEmpty && !selectedBarSensors.isEmpty
     }
+
+    enum SensorFormat { case short, medium, long }
     
-    func sensorData(for id: Int) -> (value: Double, unit: String, color: NSColor?)? {
+    func sensorData(for id: Int, format: SensorFormat) -> (value: String, color: NSColor?)? {
         for device in devices {
             if let sensor = device.sensors.first(where: { $0.id == id }) {
                 let unit = sensor.unit
@@ -73,7 +75,22 @@ final class AppDataStore {
                 if let max = sensorsMax[id], value > max {
                     color = colorMax
                 }
-                return (value, unit, color)
+                
+                if sensor.type == 1 {
+                    // temperature
+                    
+                }
+                
+                let stringValue: String
+                switch format {
+                case .short:
+                    stringValue = String(format: "%.0f", value) + unit
+                case .medium:
+                    stringValue = String(format: "%.1f", value) + unit
+                case .long:
+                    stringValue = "\(value)\(unit)"
+                }
+                return (stringValue, color)
             }
         }
         return nil

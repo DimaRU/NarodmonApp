@@ -192,8 +192,8 @@ extension PopupViewController: NSTableViewDataSource {
             return deviceCell
         case let sensor as Sensor:
             let sensorCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SensorCell"), owner: self) as? SensorCellView
-            guard let (value, unit, color) = dataStore.sensorData(for: sensor.id) else { return nil }
-            sensorCell?.setContent(sensor: sensor, value: value, unit: unit, color: color)
+            guard let (value, color) = dataStore.sensorData(for: sensor.id, format: .medium) else { return nil }
+            sensorCell?.setContent(sensor: sensor, value: value, color: color)
             return sensorCell
         case let webcam as WebcamImages:
             let webcamCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "WebcamCell"), owner: self) as? WebcamCellView
