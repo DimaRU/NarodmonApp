@@ -103,7 +103,12 @@ class ChartViewController: NSViewController {
         let sensorType = dataStore.initData?.types?.first(where: { $0.type == sensor.type })
         var args: [CVarArg] = []
         args.append(sensor.name)
-        args.append(sensorType?.name ?? sensor.unit)
+        
+        if sensor.type == 1 {
+            args.append(NSLocalizedString("temperature, ", comment: "Chart legend") + LocaleTemperature.unit)
+        } else {
+            args.append(sensorType?.name ?? sensor.unit)
+        }
         args.append(from)
         args.append(to)
         args.append(min)
@@ -218,8 +223,13 @@ class ChartViewController: NSViewController {
         let yValueFormater = DefaultAxisValueFormatter()
         yValueFormater.formatter = NumberFormatter()
         yValueFormater.formatter?.maximumFractionDigits = 1
-        yValueFormater.formatter?.positiveSuffix = sensor.unit
-        yValueFormater.formatter?.negativeSuffix = sensor.unit
+        if sensor.type == 1 {
+            yValueFormater.formatter?.positiveSuffix = LocaleTemperature.unit
+            yValueFormater.formatter?.negativeSuffix = LocaleTemperature.unit
+        } else {
+            yValueFormater.formatter?.positiveSuffix = sensor.unit
+            yValueFormater.formatter?.negativeSuffix = sensor.unit
+        }
         leftAxis.valueFormatter = yValueFormater
         chartView.rightAxis.enabled = false
 
@@ -272,7 +282,11 @@ class ChartViewController: NSViewController {
         currentDataLabel.stringValue = ""
         CacheService.loadSensorHistory(id: sensor.id, period: historyPeriod, offset: historyOffset)
             .done { history -> Void in
-                self.history = history
+                if self.sensor.type == 1 {
+                    self.history = history.map { SensorHistoryData(time: $0.time, value: LocaleTemperature.convert(from: $0.value)) }
+                } else {
+                    self.history = history
+                }
                 if history.isEmpty {
                     self.chartView.noDataText = NSLocalizedString("No history data for that period", comment: "Chart view")
                     self.chartView.data = nil

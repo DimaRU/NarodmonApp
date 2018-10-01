@@ -87,6 +87,9 @@
 /* No comment provided by engineer. */
 "Server error" = "Сервер временно не обрабатывает запросы по техническим причинам";
 
+/* Chart legend */
+"temperature, " = "температура, ";
+
 /* No comment provided by engineer. */
 "Too frequent requests" = "Слишком частые запросы";
 

@@ -71,7 +71,7 @@ final class AppDataStore {
                 if sensor.type == 1 {
                     // temperature
                     value = LocaleTemperature.convert(from: value)
-                    unit = LocaleTemperature.unit()
+                    unit = LocaleTemperature.unit
                 }
                 
                 let stringValue: String

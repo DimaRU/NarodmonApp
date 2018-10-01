@@ -24,7 +24,7 @@ struct LocaleTemperature {
         return t.converted(to: LocaleTemperature.LocaleTemperatureUnit).value
     }
     
-    static public func unit() -> String {
+    static public var unit: String {
         return LocaleTemperatureUnit.symbol
     }
 }
