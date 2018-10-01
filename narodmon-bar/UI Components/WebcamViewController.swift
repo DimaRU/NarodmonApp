@@ -19,6 +19,7 @@ class WebcamViewController: NSViewController {
     var imageUrl: [Date: String] = [:]
     var imageDateIndex: [Date] = []
     var currentDate: Date!
+    var minSize: CGSize!
     
     // Mark: storyboard elements
     @IBOutlet weak var cameraName: NSTextField!
@@ -27,8 +28,6 @@ class WebcamViewController: NSViewController {
     @IBOutlet weak var prevButton: NSButton!
     @IBOutlet weak var nextButton: NSButton!
     @IBOutlet weak var spinner: Spinner!
-    @IBOutlet weak var webcamViewWidth: NSLayoutConstraint!
-    @IBOutlet weak var webcamViewHeight: NSLayoutConstraint!
     
     var errorMessageView: ErrorMessageView!
 
@@ -44,6 +43,7 @@ class WebcamViewController: NSViewController {
         cameraTime.stringValue = ""
         errorMessageView = ErrorMessageView.load(superView: view)
 
+        minSize = cameraImageView.frame.size
         cameraName.stringValue = webcam.name
         spinner.animate = true
         let promise = self.loadImageList()
@@ -96,7 +96,7 @@ class WebcamViewController: NSViewController {
     
     func setWebcamView(with image: NSImage?) {
         guard let image = image else {
-            self.cameraImageView.image = nil
+            cameraImageView.image = nil
             cameraTime.stringValue = ""
             return
         }
@@ -106,15 +106,24 @@ class WebcamViewController: NSViewController {
         }
         let maxSize = CGSize(width: screenSize.width / 3 * 2, height: screenSize.height / 3 * 2)
         
-        let size = image.size
-        if size.height > maxSize.height {
-            webcamViewHeight.constant = maxSize.height
-            webcamViewWidth.constant = maxSize.height / size.height * size.width
-        } else if size.width > maxSize.width {
-            webcamViewWidth.constant = maxSize.width
-            webcamViewHeight.constant = maxSize.width / size.width * size.height
+        var size = image.size
+        if size.width < minSize.width {
+            size.height = minSize.width / image.size.width * image.size.height
+            size.width = minSize.width
+        } else if size.height < minSize.height {
+            size.height = minSize!.height
+            size.width = minSize!.height / image.size.height * image.size.width
         }
-        self.cameraImageView.image = image
+        if size.height > maxSize.height {
+            size.height = maxSize.height
+            size.width = maxSize.height / image.size.height * image.size.width
+        } else if size.width > maxSize.width {
+            size.height = maxSize.width / image.size.width * image.size.height
+            size.width = maxSize.width
+        }
+        size.height += 13 * 2
+        self.preferredContentSize = size
+        cameraImageView.image = image
     }
     
     
