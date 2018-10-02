@@ -123,6 +123,8 @@ class WebcamViewController: NSViewController {
             size.height = maxSize.width / image.size.width * image.size.height
             size.width = maxSize.width
         }
+        size.width.round()
+        size.height.round()
         cameraImageView.image = image
         webcamViewWidth.constant = size.width
         webcamViewHeight.constant = size.height
