@@ -28,6 +28,8 @@ class WebcamViewController: NSViewController {
     @IBOutlet weak var prevButton: NSButton!
     @IBOutlet weak var nextButton: NSButton!
     @IBOutlet weak var spinner: Spinner!
+    @IBOutlet weak var webcamViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var webcamViewHeight: NSLayoutConstraint!
     
     var errorMessageView: ErrorMessageView!
 
@@ -121,9 +123,11 @@ class WebcamViewController: NSViewController {
             size.height = maxSize.width / image.size.width * image.size.height
             size.width = maxSize.width
         }
+        cameraImageView.image = image
+        webcamViewWidth.constant = size.width
+        webcamViewHeight.constant = size.height
         size.height += 13 * 2
         self.preferredContentSize = size
-        cameraImageView.image = image
     }
     
     
