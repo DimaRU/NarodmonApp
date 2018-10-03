@@ -255,6 +255,7 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
                     let id = webcam.id!
                     dataStore.selectedWebcams.removeAll(where: {$0 == id})
                     dataStore.webcams.removeAll(where: {$0.id == id})
+                    postNotification(name: .deviceListChangedNotification)
                     NSAnimationEffect.poof.show(centeredAt: screenPoint, size: NSZeroSize)
                 default:
                     break

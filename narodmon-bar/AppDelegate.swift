@@ -69,9 +69,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .then { _ -> Promise<Void> in
                 self.dataStore.checkConsistency()
                 self.dataStore.saveDefaults()
-                postNotification(name: .deviceListChangedNotification)
                 return NetService.loadWebcamDefinitions()
             }.done {
+                postNotification(name: .deviceListChangedNotification)
                 self.startRefreshCycle()
                 self.addWakeObserver()
             }
