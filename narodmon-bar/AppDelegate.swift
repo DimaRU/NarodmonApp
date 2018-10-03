@@ -55,7 +55,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 e.displayAlert()
                 return Promise.value(())
             }
-            .then { (_) -> Promise<Void> in
+            .then { _ -> Promise<Void> in
                 if self.dataStore.selectedDevices.count == 0 {
                     // No devices for display, discovery it
                     return NetService.loadDefaultDevices()
@@ -66,14 +66,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .then {
                 NetService.loadDevicesDefinitions()
             }
-            .then {
-                NetService.loadWebcamDefinitions()
-            }
-            .done { () -> Void in
+            .then { _ -> Promise<Void> in
                 self.dataStore.checkConsistency()
                 self.dataStore.saveDefaults()
-
                 postNotification(name: .deviceListChangedNotification)
+                return NetService.loadWebcamDefinitions()
+            }.done {
                 self.startRefreshCycle()
                 self.addWakeObserver()
             }
