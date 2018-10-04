@@ -221,24 +221,6 @@
 /* Class = "NSMenuItem"; title = "Copy"; ObjectID = "x3v-GG-iWU"; */
 "x3v-GG-iWU.title" = "";
 
-/* Class = "NSButtonCell"; title = "Day"; ObjectID = "9BT-pB-MuV"; */
-"9BT-pB-MuV.title" = "День";
-
-/* Class = "NSButtonCell"; title = "Month"; ObjectID = "GIz-mC-zYj"; */
-"GIz-mC-zYj.title" = "Месяц";
-
-/* Class = "NSButtonCell"; title = "Hour"; ObjectID = "W0W-q2-knP"; */
-"W0W-q2-knP.title" = "Час";
-
-/* Class = "NSButtonCell"; title = "Year"; ObjectID = "eWP-VT-GWE"; */
-"eWP-VT-GWE.title" = "Год";
-
-/* Class = "NSTextFieldCell"; title = "28/12/2018 12:00 28,4"; ObjectID = "eo2-wW-N6m"; */
-"eo2-wW-N6m.title" = "";
-
-/* Class = "NSButtonCell"; title = "Week"; ObjectID = "fCu-rN-5TX"; */
-"fCu-rN-5TX.title" = "Неделя";
-
 /* Class = "NSMenuItem"; title = "Open in map"; ObjectID = "DtD-1I-hFI"; */
 "DtD-1I-hFI.title" = "Показать на карте";
 
@@ -286,12 +268,6 @@
 
 /* Class = "NSMenuItem"; title = "Open in map"; ObjectID = "nJo-HN-0p7"; */
 "nJo-HN-0p7.title" = "Показать на карте";
-
-/* Class = "NSTextFieldCell"; title = "19:00"; ObjectID = "HCh-mP-3o7"; */
-"HCh-mP-3o7.title" = "";
-
-/* Class = "NSTextFieldCell"; title = "Camera Name"; ObjectID = "Xjq-YM-tPo"; */
-"Xjq-YM-tPo.title" = "";
 
 /* Class = "NSButtonCell"; title = "Add by ID"; ObjectID = "Ug5-TB-3l3"; */
 "Ug5-TB-3l3.title" = "Добавить по ID";

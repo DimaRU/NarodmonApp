@@ -41,6 +41,8 @@
 		0A7968D420067ED0008F97D9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A7968D620067ED0008F97D9 /* InfoPlist.strings */; };
 		0A7F52B321482BF000A1334E /* WebcamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F52B221482BF000A1334E /* WebcamViewController.swift */; };
 		0A8AFE1320457F96001A2DBF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AFE1220457F96001A2DBF /* MapViewController.swift */; };
+		0A8FDB43216631AA006C48D9 /* WebcamViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8FDB45216631AA006C48D9 /* WebcamViewController.storyboard */; };
+		0A8FDB4921663237006C48D9 /* ChartViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8FDB4B21663237006C48D9 /* ChartViewController.storyboard */; };
 		0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */; };
 		0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E01FBB3CFC00D72378 /* Assets.xcassets */; };
 		0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E21FBB3CFD00D72378 /* Main.storyboard */; };
@@ -137,6 +139,10 @@
 		0A7968D520067ED0008F97D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0A7F52B221482BF000A1334E /* WebcamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebcamViewController.swift; sourceTree = "<group>"; };
 		0A8AFE1220457F96001A2DBF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		0A8FDB46216631B8006C48D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/WebcamViewController.storyboard; sourceTree = "<group>"; };
+		0A8FDB4821663210006C48D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/WebcamViewController.strings; sourceTree = "<group>"; };
+		0A8FDB4A21663237006C48D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ChartViewController.storyboard; sourceTree = "<group>"; };
+		0A8FDB4D21663240006C48D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ChartViewController.strings; sourceTree = "<group>"; };
 		0A9194D91FBB3CFC00D72378 /* NarodmonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NarodmonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A9194E01FBB3CFC00D72378 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -376,6 +382,8 @@
 				0A7968CD20067ADF008F97D9 /* Localizable.strings */,
 				0A9194E01FBB3CFC00D72378 /* Assets.xcassets */,
 				0A9194E21FBB3CFD00D72378 /* Main.storyboard */,
+				0A8FDB45216631AA006C48D9 /* WebcamViewController.storyboard */,
+				0A8FDB4B21663237006C48D9 /* ChartViewController.storyboard */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -501,8 +509,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */,
+				0A8FDB4921663237006C48D9 /* ChartViewController.storyboard in Resources */,
 				0A7968D420067ED0008F97D9 /* InfoPlist.strings in Resources */,
 				0A70D3FD21387358005BB814 /* IDETemplateMacros.plist in Resources */,
+				0A8FDB43216631AA006C48D9 /* WebcamViewController.storyboard in Resources */,
 				0A7968CB20067ADF008F97D9 /* Localizable.strings in Resources */,
 				0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */,
 				0AC051C1215EAE8300CDB157 /* ErrorMessageView.xib in Resources */,
@@ -694,6 +704,24 @@
 				0A7968D520067ED0008F97D9 /* ru */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0A8FDB45216631AA006C48D9 /* WebcamViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A8FDB46216631B8006C48D9 /* Base */,
+				0A8FDB4821663210006C48D9 /* ru */,
+			);
+			name = WebcamViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		0A8FDB4B21663237006C48D9 /* ChartViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A8FDB4A21663237006C48D9 /* Base */,
+				0A8FDB4D21663240006C48D9 /* ru */,
+			);
+			name = ChartViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		0A9194E21FBB3CFD00D72378 /* Main.storyboard */ = {

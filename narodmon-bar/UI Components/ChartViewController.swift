@@ -58,7 +58,7 @@ class ChartViewController: NSViewController {
     }
 
     public class func instance() -> ChartViewController {
-        return NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ChartViewController")) as! ChartViewController
+        return NSStoryboard(name: NSStoryboard.Name(rawValue: "ChartViewController"), bundle: nil).instantiateInitialController() as! ChartViewController
     }
     
     override func viewDidLoad() {
