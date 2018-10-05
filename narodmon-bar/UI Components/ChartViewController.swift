@@ -175,17 +175,30 @@ class ChartViewController: NSViewController {
 
         xAxis.valueFormatter = DateAxisValueFormatter(historyPeriod: historyPeriod)
         xAxis.labelPosition = .bottom
-        xAxis.labelRotationAngle = -90
         switch historyPeriod {
-        case .hour:     xAxis.granularity = 60.0
-        case .day:      xAxis.granularity = 60.0
-        case .week:     xAxis.granularity = 60*60
-        case .month:    xAxis.granularity = 60*60
-        case .year:     xAxis.granularity = 60*60*24
+        case .hour:
+            xAxis.granularity = 60.0
+            xAxis.axisMaxLabels = history.count
+            xAxis.labelRotationAngle = 0
+        case .day:
+            xAxis.granularity = 60.0
+            xAxis.axisMaxLabels = 24
+            xAxis.labelRotationAngle = -90
+        case .week:
+            xAxis.granularity = 60*60
+            xAxis.axisMaxLabels = 14
+            xAxis.labelRotationAngle = -45
+        case .month:
+            xAxis.granularity = 60*60
+            xAxis.axisMaxLabels = 30
+            xAxis.labelRotationAngle = -45
+        case .year:
+            xAxis.granularity = 60*60*24
+            xAxis.axisMaxLabels = 12
+            xAxis.labelRotationAngle = -45
         }
         xAxis.spaceMax = 1
         xAxis.spaceMin = 1
-        xAxis.axisMaxLabels = 20
         xAxis.setLabelCount(history.count, force: false)
         
         let leftAxis = chartView.leftAxis
