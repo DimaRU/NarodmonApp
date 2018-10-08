@@ -1,0 +1,18 @@
+
+/* Class = "NSButtonCell"; title = "Month"; ObjectID = "04z-rN-gt8"; */
+"04z-rN-gt8.title" = "Месяц";
+
+/* Class = "NSButtonCell"; title = "Week"; ObjectID = "Q4z-WJ-XID"; */
+"Q4z-WJ-XID.title" = "Неделя";
+
+/* Class = "NSButtonCell"; title = "Day"; ObjectID = "m4r-D8-i3F"; */
+"m4r-D8-i3F.title" = "День";
+
+/* Class = "NSButtonCell"; title = "Hour"; ObjectID = "pY3-28-VK9"; */
+"pY3-28-VK9.title" = "Час";
+
+/* Class = "NSButtonCell"; title = "Year"; ObjectID = "pYh-en-Udf"; */
+"pYh-en-Udf.title" = "Год";
+
+/* Class = "NSTextFieldCell"; title = "28/12/2018 12:00 28,4"; ObjectID = "rr5-2s-vty"; */
+"rr5-2s-vty.title" = "";

@@ -15,9 +15,11 @@
 		0A36F8E52053E68C0084B503 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36F8E42053E68C0084B503 /* CacheService.swift */; };
 		0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E11FC03230006605DC /* CwlSysctl.swift */; };
 		0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C0E41FC048BC006605DC /* String+MD5.swift */; };
+		0A3FAB2F2146EB5800831C21 /* WebcamCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3FAB2E2146EB5800831C21 /* WebcamCellView.swift */; };
+		0A41A376212318FF001D27D6 /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A41A375212318FF001D27D6 /* AppVersion.swift */; };
 		0A4C61521FC83FAD009F7B51 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C61511FC83FAD009F7B51 /* Defaults.swift */; };
 		0A4DB18220234F73007E4281 /* UserDefaultsBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4DB18120234F73007E4281 /* UserDefaultsBarStyle.swift */; };
-		0A5D858B205D1C1200B15AAA /* customFontMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D858A205D1C1100B15AAA /* customFontMenu.swift */; };
+		0A5D858B205D1C1200B15AAA /* CustomFontMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D858A205D1C1100B15AAA /* CustomFontMenu.swift */; };
 		0A5DD0BA2041EECC0095358A /* Bool+toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5DD0B92041EECC0095358A /* Bool+toggle.swift */; };
 		0A5DD0BE20420FA10095358A /* Array+nextIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5DD0BD20420FA10095358A /* Array+nextIndex.swift */; };
 		0A5F1DC1201F5B8B00B00A54 /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F1DC0201F5B8B00B00A54 /* RequestResult.swift */; };
@@ -27,6 +29,9 @@
 		0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */; };
 		0A68C0BB1FDAA1FB00E7ACD4 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */; };
 		0A6D89C41FC5C37100034A67 /* md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C31FC5C37100034A67 /* md5.swift */; };
+		0A70D3FD21387358005BB814 /* IDETemplateMacros.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A70D3FC21387358005BB814 /* IDETemplateMacros.plist */; };
+		0A70D40121390D70005BB814 /* WebcamImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70D40021390D70005BB814 /* WebcamImages.swift */; };
+		0A70D4032139A426005BB814 /* WebcamsNearby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70D4022139A426005BB814 /* WebcamsNearby.swift */; };
 		0A756277200246090033269C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A756276200246090033269C /* AppDelegate.swift */; };
 		0A756279200246090033269C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A756278200246090033269C /* Assets.xcassets */; };
 		0A756283200247930033269C /* NarodBarLauncherApp.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0A756274200246090033269C /* NarodBarLauncherApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -34,11 +39,13 @@
 		0A756287200261490033269C /* LaunchOnLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A756286200261490033269C /* LaunchOnLogin.swift */; };
 		0A7968CB20067ADF008F97D9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A7968CD20067ADF008F97D9 /* Localizable.strings */; };
 		0A7968D420067ED0008F97D9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A7968D620067ED0008F97D9 /* InfoPlist.strings */; };
+		0A7F52B321482BF000A1334E /* WebcamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F52B221482BF000A1334E /* WebcamViewController.swift */; };
 		0A8AFE1320457F96001A2DBF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AFE1220457F96001A2DBF /* MapViewController.swift */; };
+		0A8FDB43216631AA006C48D9 /* WebcamViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8FDB45216631AA006C48D9 /* WebcamViewController.storyboard */; };
+		0A8FDB4921663237006C48D9 /* ChartViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8FDB4B21663237006C48D9 /* ChartViewController.storyboard */; };
 		0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */; };
 		0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E01FBB3CFC00D72378 /* Assets.xcassets */; };
 		0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9194E21FBB3CFD00D72378 /* Main.storyboard */; };
-		0A9194F01FBB3CFD00D72378 /* narodmon_barTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194EF1FBB3CFD00D72378 /* narodmon_barTests.swift */; };
 		0A9195031FBB416000D72378 /* SensorsValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194FB1FBB416000D72378 /* SensorsValues.swift */; };
 		0A9195041FBB416000D72378 /* SensorsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194FC1FBB416000D72378 /* SensorsHistory.swift */; };
 		0A9195051FBB416000D72378 /* SensorsOnDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9194FD1FBB416000D72378 /* SensorsOnDevice.swift */; };
@@ -64,28 +71,21 @@
 		0AB3DB881FBB7DC8002C0705 /* NarodNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3DB871FBB7DC8002C0705 /* NarodNetworkError.swift */; };
 		0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9195161FBB463E00D72378 /* NarProvider.swift */; };
 		0ABEA4CD1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEA4CC1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift */; };
-		0AC4EAEE1FCE0526001573C8 /* SensorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */; };
+		0AC051BE215EAD5200CDB157 /* ErrorMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC051BC215EAD5100CDB157 /* ErrorMessageView.swift */; };
+		0AC051C0215EAE0700CDB157 /* NSViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC051BF215EAE0700CDB157 /* NSViewExtension.swift */; };
+		0AC051C1215EAE8300CDB157 /* ErrorMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AC051BD215EAD5100CDB157 /* ErrorMessageView.xib */; };
+		0AC4EAEE1FCE0526001573C8 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4EAED1FCE0526001573C8 /* PopupViewController.swift */; };
 		0AC6CC4C200685A600F2DAE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AC6CC4E200685A600F2DAE0 /* InfoPlist.strings */; };
 		0AC6CC522007E5E100F2DAE0 /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */; };
-		0AC775A12041904100455100 /* IDETemplateMacros.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC775A02041904000455100 /* IDETemplateMacros.plist */; };
 		0AD867A720403C06001C5577 /* TypedNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD867A620403C06001C5577 /* TypedNotifications.swift */; };
 		0ADE148E204DEB9600E46192 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADE148D204DEB9500E46192 /* MenuButton.swift */; };
 		0AE1E7002003F47400029333 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE1E6FF2003F47400029333 /* Notifications.swift */; };
 		0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */; };
 		0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */; };
 		0AECF54C1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */; };
+		0AFB498F2160F8C400CF3619 /* LocaleTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB498E2160F8C400CF3619 /* LocaleTemperature.swift */; };
 		19C60B7AF6611009CE8F3D82 /* Pods_NarodmonApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56217F9C540BE073E62D427B /* Pods_NarodmonApp.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		0A9194EC1FBB3CFD00D72378 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0A9194D11FBB3CFC00D72378 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0A9194D81FBB3CFC00D72378;
-			remoteInfo = "narodmon-bar";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		0A7562822002476F0033269C /* CopyFiles */ = {
@@ -110,9 +110,11 @@
 		0A37C0E11FC03230006605DC /* CwlSysctl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CwlSysctl.swift; sourceTree = "<group>"; };
 		0A37C0E41FC048BC006605DC /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		0A3F22511FD2FC2C00D06A20 /* NarodmonApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NarodmonApp.entitlements; sourceTree = "<group>"; };
+		0A3FAB2E2146EB5800831C21 /* WebcamCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebcamCellView.swift; sourceTree = "<group>"; };
+		0A41A375212318FF001D27D6 /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		0A4C61511FC83FAD009F7B51 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		0A4DB18120234F73007E4281 /* UserDefaultsBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsBarStyle.swift; sourceTree = "<group>"; };
-		0A5D858A205D1C1100B15AAA /* customFontMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customFontMenu.swift; sourceTree = "<group>"; };
+		0A5D858A205D1C1100B15AAA /* CustomFontMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontMenu.swift; sourceTree = "<group>"; };
 		0A5DD0B92041EECC0095358A /* Bool+toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+toggle.swift"; sourceTree = "<group>"; };
 		0A5DD0BD20420FA10095358A /* Array+nextIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+nextIndex.swift"; sourceTree = "<group>"; };
 		0A5F1DC0201F5B8B00B00A54 /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
@@ -123,6 +125,9 @@
 		0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		0A6D89C31FC5C37100034A67 /* md5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = md5.swift; sourceTree = "<group>"; };
 		0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemView.swift; sourceTree = "<group>"; };
+		0A70D3FC21387358005BB814 /* IDETemplateMacros.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = IDETemplateMacros.plist; path = "narodmon-bar.xcworkspace/xcshareddata/IDETemplateMacros.plist"; sourceTree = "<group>"; };
+		0A70D40021390D70005BB814 /* WebcamImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebcamImages.swift; sourceTree = "<group>"; };
+		0A70D4022139A426005BB814 /* WebcamsNearby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebcamsNearby.swift; sourceTree = "<group>"; };
 		0A756274200246090033269C /* NarodBarLauncherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NarodBarLauncherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A756276200246090033269C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A756278200246090033269C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,15 +137,17 @@
 		0A7968CF20067B34008F97D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		0A7968D020067B35008F97D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0A7968D520067ED0008F97D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0A7F52B221482BF000A1334E /* WebcamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebcamViewController.swift; sourceTree = "<group>"; };
 		0A8AFE1220457F96001A2DBF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		0A8FDB46216631B8006C48D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/WebcamViewController.storyboard; sourceTree = "<group>"; };
+		0A8FDB4821663210006C48D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/WebcamViewController.strings; sourceTree = "<group>"; };
+		0A8FDB4A21663237006C48D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ChartViewController.storyboard; sourceTree = "<group>"; };
+		0A8FDB4D21663240006C48D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ChartViewController.strings; sourceTree = "<group>"; };
 		0A9194D91FBB3CFC00D72378 /* NarodmonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NarodmonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A9194DC1FBB3CFC00D72378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A9194E01FBB3CFC00D72378 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A9194E31FBB3CFD00D72378 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A9194E51FBB3CFD00D72378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A9194EB1FBB3CFD00D72378 /* narodmon-barTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "narodmon-barTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A9194EF1FBB3CFD00D72378 /* narodmon_barTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = narodmon_barTests.swift; sourceTree = "<group>"; };
-		0A9194F11FBB3CFD00D72378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A9194FB1FBB416000D72378 /* SensorsValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsValues.swift; sourceTree = "<group>"; };
 		0A9194FC1FBB416000D72378 /* SensorsHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsHistory.swift; sourceTree = "<group>"; };
 		0A9194FD1FBB416000D72378 /* SensorsOnDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorsOnDevice.swift; sourceTree = "<group>"; };
@@ -166,16 +173,19 @@
 		0AB385FB1FC6D6A5007F4EE5 /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		0AB3DB871FBB7DC8002C0705 /* NarodNetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarodNetworkError.swift; sourceTree = "<group>"; };
 		0ABEA4CC1FD33D6E000CCBC3 /* KeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedDecodingContainer.swift; sourceTree = "<group>"; };
-		0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorsViewController.swift; sourceTree = "<group>"; };
+		0AC051BC215EAD5100CDB157 /* ErrorMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessageView.swift; sourceTree = "<group>"; };
+		0AC051BD215EAD5100CDB157 /* ErrorMessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorMessageView.xib; sourceTree = "<group>"; };
+		0AC051BF215EAE0700CDB157 /* NSViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewExtension.swift; sourceTree = "<group>"; };
+		0AC4EAED1FCE0526001573C8 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		0AC6CC48200683DF00F2DAE0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AC6CC4D200685A600F2DAE0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
-		0AC775A02041904000455100 /* IDETemplateMacros.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = IDETemplateMacros.plist; sourceTree = "<group>"; };
 		0AD867A620403C06001C5577 /* TypedNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedNotifications.swift; sourceTree = "<group>"; };
 		0ADE148D204DEB9500E46192 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		0AE1E6FF2003F47400029333 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeMethods.swift; sourceTree = "<group>"; };
 		0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceIDViewCotroller.swift; sourceTree = "<group>"; };
+		0AFB498E2160F8C400CF3619 /* LocaleTemperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleTemperature.swift; sourceTree = "<group>"; };
 		56217F9C540BE073E62D427B /* Pods_NarodmonApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NarodmonApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8B543A8137D8E5233766A48 /* Pods-NarodmonApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NarodmonApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E9DF986F5280E900F407CC88 /* Pods-NarodmonApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NarodmonApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,13 +204,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				19C60B7AF6611009CE8F3D82 /* Pods_NarodmonApp.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0A9194E81FBB3CFD00D72378 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +228,7 @@
 				0A2BD37920264E840058AAEC /* Promise+resolved.swift */,
 				0A5DD0B92041EECC0095358A /* Bool+toggle.swift */,
 				0A5DD0BD20420FA10095358A /* Array+nextIndex.swift */,
+				0AC051BF215EAE0700CDB157 /* NSViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -241,10 +245,12 @@
 		0A63DF951FCED8F600C35607 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				0AD867A620403C06001C5577 /* TypedNotifications.swift */,
+				0A41A375212318FF001D27D6 /* AppVersion.swift */,
 				0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */,
 				0A63DF961FCED92800C35607 /* HwUUID.swift */,
 				0A756286200261490033269C /* LaunchOnLogin.swift */,
+				0AFB498E2160F8C400CF3619 /* LocaleTemperature.swift */,
+				0AD867A620403C06001C5577 /* TypedNotifications.swift */,
 				0A4DB18120234F73007E4281 /* UserDefaultsBarStyle.swift */,
 			);
 			path = Utility;
@@ -254,22 +260,26 @@
 			isa = PBXGroup;
 			children = (
 				0A8AFE1220457F96001A2DBF /* MapViewController.swift */,
+				0A7F52B221482BF000A1334E /* WebcamViewController.swift */,
+				0A36F8DA205304640084B503 /* ChartViewController.swift */,
 				0AA40A3A1FE295780089585B /* PreferencesViewController.swift */,
 				0AA40A3B1FE295780089585B /* GeneralSettingsViewController.swift */,
 				0AA40A391FE295770089585B /* SensorSettingsViewController.swift */,
 				0AA40A381FE295770089585B /* PrefsCellView.swift */,
 				0AA40A3C1FE295780089585B /* SelectTableView.swift */,
 				0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */,
-				0AC4EAED1FCE0526001573C8 /* SensorsViewController.swift */,
+				0AC4EAED1FCE0526001573C8 /* PopupViewController.swift */,
 				0AB311871FD557D500ED680F /* SensorCellView.swift */,
 				0AB311891FD557E600ED680F /* DeviceCellView.swift */,
+				0A3FAB2E2146EB5800831C21 /* WebcamCellView.swift */,
 				0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */,
 				0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */,
 				0ADE148D204DEB9500E46192 /* MenuButton.swift */,
-				0A36F8DA205304640084B503 /* ChartViewController.swift */,
 				0A36F8D9205304630084B503 /* DateAxisValueFormater.swift */,
+				0AC051BC215EAD5100CDB157 /* ErrorMessageView.swift */,
+				0AC051BD215EAD5100CDB157 /* ErrorMessageView.xib */,
 				0A36F8D8205304630084B503 /* FixLineChartView.swift */,
-				0A5D858A205D1C1100B15AAA /* customFontMenu.swift */,
+				0A5D858A205D1C1100B15AAA /* CustomFontMenu.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -290,10 +300,9 @@
 		0A9194D01FBB3CFC00D72378 = {
 			isa = PBXGroup;
 			children = (
-				0AC775A02041904000455100 /* IDETemplateMacros.plist */,
+				0A70D3FC21387358005BB814 /* IDETemplateMacros.plist */,
 				0A62254E2029A0E50056AEEE /* Support */,
 				0A9194DB1FBB3CFC00D72378 /* narodmon-bar */,
-				0A9194EE1FBB3CFD00D72378 /* narodmon-barTests */,
 				0A756275200246090033269C /* NarodBarLauncherApp */,
 				0A9194DA1FBB3CFC00D72378 /* Products */,
 				CC13861C298AD1AC9DC6B105 /* Pods */,
@@ -305,7 +314,6 @@
 			isa = PBXGroup;
 			children = (
 				0A9194D91FBB3CFC00D72378 /* NarodmonApp.app */,
-				0A9194EB1FBB3CFD00D72378 /* narodmon-barTests.xctest */,
 				0A756274200246090033269C /* NarodBarLauncherApp.app */,
 			);
 			name = Products;
@@ -334,15 +342,6 @@
 			path = "narodmon-bar";
 			sourceTree = "<group>";
 		};
-		0A9194EE1FBB3CFD00D72378 /* narodmon-barTests */ = {
-			isa = PBXGroup;
-			children = (
-				0A9194EF1FBB3CFD00D72378 /* narodmon_barTests.swift */,
-				0A9194F11FBB3CFD00D72378 /* Info.plist */,
-			);
-			path = "narodmon-barTests";
-			sourceTree = "<group>";
-		};
 		0A9194FA1FBB3FB600D72378 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +357,8 @@
 				0A91950B1FBB41AE00D72378 /* Sensor.swift */,
 				0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */,
 				0A5F1DC0201F5B8B00B00A54 /* RequestResult.swift */,
+				0A70D40021390D70005BB814 /* WebcamImages.swift */,
+				0A70D4022139A426005BB814 /* WebcamsNearby.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -381,6 +382,8 @@
 				0A7968CD20067ADF008F97D9 /* Localizable.strings */,
 				0A9194E01FBB3CFC00D72378 /* Assets.xcassets */,
 				0A9194E21FBB3CFD00D72378 /* Main.storyboard */,
+				0A8FDB45216631AA006C48D9 /* WebcamViewController.storyboard */,
+				0A8FDB4B21663237006C48D9 /* ChartViewController.storyboard */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -433,7 +436,6 @@
 				0A9907B2200BF2B8007EDA6D /* Set version information */,
 				0A7562822002476F0033269C /* CopyFiles */,
 				84AF0B37CDE742283E617514 /* [CP] Embed Pods Frameworks */,
-				B0A3E9165FBD56BD96F01832 /* [CP] Copy Pods Resources */,
 				0A5D8587205C52C000B15AAA /* Update localizations */,
 			);
 			buildRules = (
@@ -445,24 +447,6 @@
 			productReference = 0A9194D91FBB3CFC00D72378 /* NarodmonApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0A9194EA1FBB3CFD00D72378 /* narodmon-barTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0A9194F71FBB3CFD00D72378 /* Build configuration list for PBXNativeTarget "narodmon-barTests" */;
-			buildPhases = (
-				0A9194E71FBB3CFD00D72378 /* Sources */,
-				0A9194E81FBB3CFD00D72378 /* Frameworks */,
-				0A9194E91FBB3CFD00D72378 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0A9194ED1FBB3CFD00D72378 /* PBXTargetDependency */,
-			);
-			name = "narodmon-barTests";
-			productName = "narodmon-barTests";
-			productReference = 0A9194EB1FBB3CFD00D72378 /* narodmon-barTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -470,26 +454,23 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Dmitriy Borovikov";
 				TargetAttributes = {
 					0A756273200246090033269C = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					0A9194D81FBB3CFC00D72378 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
 							};
 						};
-					};
-					0A9194EA1FBB3CFD00D72378 = {
-						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 0A9194D81FBB3CFC00D72378;
 					};
 				};
 			};
@@ -508,7 +489,6 @@
 			projectRoot = "";
 			targets = (
 				0A9194D81FBB3CFC00D72378 /* NarodmonApp */,
-				0A9194EA1FBB3CFD00D72378 /* narodmon-barTests */,
 				0A756273200246090033269C /* NarodBarLauncherApp */,
 			);
 		};
@@ -529,17 +509,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */,
+				0A8FDB4921663237006C48D9 /* ChartViewController.storyboard in Resources */,
 				0A7968D420067ED0008F97D9 /* InfoPlist.strings in Resources */,
-				0AC775A12041904100455100 /* IDETemplateMacros.plist in Resources */,
+				0A70D3FD21387358005BB814 /* IDETemplateMacros.plist in Resources */,
+				0A8FDB43216631AA006C48D9 /* WebcamViewController.storyboard in Resources */,
 				0A7968CB20067ADF008F97D9 /* Localizable.strings in Resources */,
 				0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0A9194E91FBB3CFD00D72378 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				0AC051C1215EAE8300CDB157 /* ErrorMessageView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +563,7 @@
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Keys/Keys.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/ProgressKit/ProgressKit.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
@@ -599,6 +576,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keys.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
@@ -626,21 +604,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B0A3E9165FBD56BD96F01832 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -660,7 +623,7 @@
 				0A6D89C41FC5C37100034A67 /* md5.swift in Sources */,
 				0A5DD0BE20420FA10095358A /* Array+nextIndex.swift in Sources */,
 				0A756287200261490033269C /* LaunchOnLogin.swift in Sources */,
-				0AC4EAEE1FCE0526001573C8 /* SensorsViewController.swift in Sources */,
+				0AC4EAEE1FCE0526001573C8 /* PopupViewController.swift in Sources */,
 				0A9195091FBB416000D72378 /* UserLogout.swift in Sources */,
 				0A36F8DD205304640084B503 /* ChartViewController.swift in Sources */,
 				0A5F1DC1201F5B8B00B00A54 /* RequestResult.swift in Sources */,
@@ -669,6 +632,7 @@
 				0A37C0E51FC048BC006605DC /* String+MD5.swift in Sources */,
 				0A9195081FBB416000D72378 /* UserFavorites.swift in Sources */,
 				0AECF54C1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift in Sources */,
+				0A70D40121390D70005BB814 /* WebcamImages.swift in Sources */,
 				0A37C0E21FC03230006605DC /* CwlSysctl.swift in Sources */,
 				0AA40A411FE295780089585B /* SelectTableView.swift in Sources */,
 				0A36F8DC205304640084B503 /* DateAxisValueFormater.swift in Sources */,
@@ -679,19 +643,23 @@
 				0A63DF971FCED92800C35607 /* HwUUID.swift in Sources */,
 				0AB3DB891FBC5A1B002C0705 /* NarProvider.swift in Sources */,
 				0AA40A3D1FE295780089585B /* PrefsCellView.swift in Sources */,
-				0A5D858B205D1C1200B15AAA /* customFontMenu.swift in Sources */,
+				0A5D858B205D1C1200B15AAA /* CustomFontMenu.swift in Sources */,
 				0A9195231FBB463F00D72378 /* NarodAPI.swift in Sources */,
 				0A36F8DB205304640084B503 /* FixLineChartView.swift in Sources */,
 				0A4DB18220234F73007E4281 /* UserDefaultsBarStyle.swift in Sources */,
+				0AC051BE215EAD5200CDB157 /* ErrorMessageView.swift in Sources */,
 				0A91950C1FBB41AE00D72378 /* Sensor.swift in Sources */,
 				0A9194DD1FBB3CFC00D72378 /* AppDelegate.swift in Sources */,
 				0AE1E7002003F47400029333 /* Notifications.swift in Sources */,
 				0A9195061FBB416000D72378 /* SensorsNearby.swift in Sources */,
+				0A41A376212318FF001D27D6 /* AppVersion.swift in Sources */,
 				0ADE148E204DEB9600E46192 /* MenuButton.swift in Sources */,
 				0A63DF991FCEDAED00C35607 /* NetService.swift in Sources */,
 				0A9AFA011FD00F1C00F5B5BB /* PopoverDelegate.swift in Sources */,
+				0A7F52B321482BF000A1334E /* WebcamViewController.swift in Sources */,
 				0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */,
 				0AD867A720403C06001C5577 /* TypedNotifications.swift in Sources */,
+				0A3FAB2F2146EB5800831C21 /* WebcamCellView.swift in Sources */,
 				0A9195041FBB416000D72378 /* SensorsHistory.swift in Sources */,
 				0AA40A3F1FE295780089585B /* PreferencesViewController.swift in Sources */,
 				0A5F1DC3201F69C600B00A54 /* ErrorReport.swift in Sources */,
@@ -700,8 +668,11 @@
 				0A8AFE1320457F96001A2DBF /* MapViewController.swift in Sources */,
 				0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */,
 				0A9195251FBB463F00D72378 /* APIKeys.swift in Sources */,
+				0A70D4032139A426005BB814 /* WebcamsNearby.swift in Sources */,
+				0AC051C0215EAE0700CDB157 /* NSViewExtension.swift in Sources */,
 				0A9195031FBB416000D72378 /* SensorsValues.swift in Sources */,
 				0AA22B85201A176C0081D5FE /* ProxyWindow.swift in Sources */,
+				0AFB498F2160F8C400CF3619 /* LocaleTemperature.swift in Sources */,
 				0AB385FC1FC6D6A5007F4EE5 /* KeychainService.swift in Sources */,
 				0A9195071FBB416000D72378 /* UserLogon.swift in Sources */,
 				0A68C0BB1FDAA1FB00E7ACD4 /* Globals.swift in Sources */,
@@ -716,23 +687,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0A9194E71FBB3CFD00D72378 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0A9194F01FBB3CFD00D72378 /* narodmon_barTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0A9194ED1FBB3CFD00D72378 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0A9194D81FBB3CFC00D72378 /* NarodmonApp */;
-			targetProxy = 0A9194EC1FBB3CFD00D72378 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0A7968CD20067ADF008F97D9 /* Localizable.strings */ = {
@@ -749,6 +704,24 @@
 				0A7968D520067ED0008F97D9 /* ru */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0A8FDB45216631AA006C48D9 /* WebcamViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A8FDB46216631B8006C48D9 /* Base */,
+				0A8FDB4821663210006C48D9 /* ru */,
+			);
+			name = WebcamViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		0A8FDB4B21663237006C48D9 /* ChartViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A8FDB4A21663237006C48D9 /* Base */,
+				0A8FDB4D21663240006C48D9 /* ru */,
+			);
+			name = ChartViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		0A9194E21FBB3CFD00D72378 /* Main.storyboard */ = {
@@ -820,6 +793,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -827,6 +801,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -878,6 +853,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -885,6 +861,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -951,40 +928,6 @@
 			};
 			name = Release;
 		};
-		0A9194F81FBB3CFD00D72378 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9BEQ8V4XH9;
-				INFOPLIST_FILE = "narodmon-barTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.borovikov.narodmon-barTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/narodmon-bar.app/Contents/MacOS/narodmon-bar";
-			};
-			name = Debug;
-		};
-		0A9194F91FBB3CFD00D72378 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9BEQ8V4XH9;
-				INFOPLIST_FILE = "narodmon-barTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.borovikov.narodmon-barTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/narodmon-bar.app/Contents/MacOS/narodmon-bar";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1011,15 +954,6 @@
 			buildConfigurations = (
 				0A9194F51FBB3CFD00D72378 /* Debug */,
 				0A9194F61FBB3CFD00D72378 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0A9194F71FBB3CFD00D72378 /* Build configuration list for PBXNativeTarget "narodmon-barTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0A9194F81FBB3CFD00D72378 /* Debug */,
-				0A9194F91FBB3CFD00D72378 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

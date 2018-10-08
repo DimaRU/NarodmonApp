@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var statusView: StatusItemView!
     var popover: NSPopover?
-    var sensorsViewController: SensorsViewController!
+    var sensorsViewController: PopupViewController!
     var proxyWindow: ProxyWindow?
     public var popoverShowed = false
     var lastRequestTime = Date() {
@@ -33,8 +33,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Defaults.appStart()
         createContentViewController()
         let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        statusView = StatusItemView(statusItem: statusItem, dataStore: dataStore) {
-            self.showPopover()
+        statusView = StatusItemView(statusItem: statusItem, dataStore: dataStore) { [weak self] in
+            self?.showPopover()
             }
         statusView.isTinyText = Defaults[.TinyFont]
         statusView.sizeToFit()
@@ -47,31 +47,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
                 let logonData = UserLogon(vip: initData.vip, login: initData.login, uid: initData.uid)
                 self.dataStore.logonData = logonData
-                return Promise.resolved()
+                return Promise.value(())
             }
-            .recover { (error) -> Void in
-                if case NarodNetworkError.authorizationNeed = error {
-                    let e = error as! NarodNetworkError
-                    e.displayAlert()
-                    return
-                }
-                throw error
+            .recover { (error) -> Promise<Void> in
+                guard case NarodNetworkError.authorizationNeed = error else { throw error }
+                let e = error as! NarodNetworkError
+                e.displayAlert()
+                return Promise.value(())
             }
-            .then {
+            .then { _ -> Promise<Void> in
                 if self.dataStore.selectedDevices.count == 0 {
                     // No devices for display, discovery it
                     return NetService.loadDefaultDevices()
                 } else {
-                    return Promise.resolved()
+                    return Promise.value(())
                 }
             }
             .then {
                 NetService.loadDevicesDefinitions()
             }
-            .then { () -> Void in
+            .then { _ -> Promise<Void> in
                 self.dataStore.checkConsistency()
                 self.dataStore.saveDefaults()
-                
+                return NetService.loadWebcamDefinitions()
+            }.done {
                 postNotification(name: .deviceListChangedNotification)
                 self.startRefreshCycle()
                 self.addWakeObserver()
@@ -89,8 +88,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     error.sendFatalReport()
                 }
         }
-        
-        
     }
 
     func setPopoverState(showed: Bool) {
@@ -121,6 +118,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             timer.invalidate()
         }
         
+        URLCache.shared.removeAllCachedResponses()
         CacheService.clean()
     }
     

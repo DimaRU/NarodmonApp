@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="i9R-Tb-1P4">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Webcam View Controller-->
+        <scene sceneID="fX6-sQ-tJy">
+            <objects>
+                <viewController storyboardIdentifier="WebcamViewController" id="i9R-Tb-1P4" customClass="WebcamViewController" customModule="NarodmonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="mmu-M8-63C">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="326"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sEz-4z-mBo">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="J2O-jf-hrB"/>
+                                    <constraint firstAttribute="height" constant="300" id="eca-dL-zMs"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="3JO-fs-cuO"/>
+                            </imageView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="07z-K7-Tkl" customClass="Spinner" customModule="ProgressKit">
+                                <rect key="frame" x="265" y="128" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="3tU-lr-D6n"/>
+                                    <constraint firstAttribute="height" constant="70" id="AUa-bW-Z3M"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="displayAfterAnimationEnds" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="starSize">
+                                        <size key="value" width="7" height="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="distance">
+                                        <real key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="background">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="foreground">
+                                        <color key="value" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                        <integer key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clockwise" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </customView>
+                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9vZ-Tx-cKi">
+                                <rect key="frame" x="525" y="303" width="35" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="rpP-Ym-BH8"/>
+                                </constraints>
+                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSLeftFacingTriangleTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="Zpz-Ig-VoH">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <string key="keyEquivalent"></string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="prevButtonPress:" target="i9R-Tb-1P4" id="Mp4-JR-Ami"/>
+                                </connections>
+                            </button>
+                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cPJ-23-yHH">
+                                <rect key="frame" x="561" y="303" width="35" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="nAc-V8-Kl4"/>
+                                </constraints>
+                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSRightFacingTriangleTemplate" imagePosition="only" alignment="center" controlSize="small" enabled="NO" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="5bo-vE-JN8">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <string key="keyEquivalent"></string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="nextButtonPress:" target="i9R-Tb-1P4" id="kRd-t7-Ura"/>
+                                </connections>
+                            </button>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BMx-hu-DZE">
+                                <rect key="frame" x="235" y="305" width="131" height="17"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IFf-In-JFO">
+                                        <rect key="frame" x="-2" y="0.0" width="39" height="17"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="19:00" id="Os9-Rb-igT">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9N2-uN-mZk">
+                                        <rect key="frame" x="39" y="0.0" width="94" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" alignment="center" title="Camera Name" id="VII-2X-33e">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" priority="750" constant="400" id="VSL-8E-CzZ"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="cPJ-23-yHH" firstAttribute="top" secondItem="mmu-M8-63C" secondAttribute="top" constant="4" id="0ce-kb-xJq"/>
+                            <constraint firstItem="sEz-4z-mBo" firstAttribute="leading" secondItem="mmu-M8-63C" secondAttribute="leading" id="19q-mE-9KV"/>
+                            <constraint firstAttribute="bottom" secondItem="sEz-4z-mBo" secondAttribute="bottom" id="3ss-cQ-hfV"/>
+                            <constraint firstItem="9vZ-Tx-cKi" firstAttribute="centerY" secondItem="cPJ-23-yHH" secondAttribute="centerY" id="6UZ-I8-eaD"/>
+                            <constraint firstAttribute="trailing" secondItem="cPJ-23-yHH" secondAttribute="trailing" constant="4" id="Cqh-Iu-vDo"/>
+                            <constraint firstItem="07z-K7-Tkl" firstAttribute="centerX" secondItem="mmu-M8-63C" secondAttribute="centerX" id="DBD-VG-cwD"/>
+                            <constraint firstItem="sEz-4z-mBo" firstAttribute="top" secondItem="9vZ-Tx-cKi" secondAttribute="bottom" constant="4" id="QXn-OW-J0t"/>
+                            <constraint firstItem="07z-K7-Tkl" firstAttribute="centerY" secondItem="mmu-M8-63C" secondAttribute="centerY" id="RYt-8H-6Fq"/>
+                            <constraint firstItem="cPJ-23-yHH" firstAttribute="leading" secondItem="9vZ-Tx-cKi" secondAttribute="trailing" constant="1" id="cE0-eF-usi"/>
+                            <constraint firstItem="BMx-hu-DZE" firstAttribute="centerX" secondItem="mmu-M8-63C" secondAttribute="centerX" id="lMw-Pu-noG"/>
+                            <constraint firstItem="BMx-hu-DZE" firstAttribute="centerY" secondItem="9vZ-Tx-cKi" secondAttribute="centerY" id="tP8-59-Ly3"/>
+                            <constraint firstAttribute="trailing" secondItem="sEz-4z-mBo" secondAttribute="trailing" id="zdT-kM-hSf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cameraImageView" destination="sEz-4z-mBo" id="Cm4-JA-HuS"/>
+                        <outlet property="cameraName" destination="9N2-uN-mZk" id="HOF-Ns-JiS"/>
+                        <outlet property="cameraTime" destination="IFf-In-JFO" id="yMI-JO-qBZ"/>
+                        <outlet property="nextButton" destination="cPJ-23-yHH" id="fud-Df-hwz"/>
+                        <outlet property="prevButton" destination="9vZ-Tx-cKi" id="n3g-QF-gRo"/>
+                        <outlet property="spinner" destination="07z-K7-Tkl" id="lUq-O1-4xc"/>
+                        <outlet property="webcamViewHeight" destination="eca-dL-zMs" id="WS8-dG-lJv"/>
+                        <outlet property="webcamViewWidth" destination="J2O-jf-hrB" id="W7v-H4-M84"/>
+                    </connections>
+                </viewController>
+                <customObject id="Ilz-at-9Bp" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1101" y="-265"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="NSLeftFacingTriangleTemplate" width="9" height="12"/>
+        <image name="NSRightFacingTriangleTemplate" width="9" height="12"/>
+    </resources>
+</document>

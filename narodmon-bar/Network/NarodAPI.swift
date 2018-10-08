@@ -26,12 +26,14 @@ public enum NarodAPI: TargetType {
     case appInit(version: String, platform: String, model: String, timeZone: Int)
     case userLogon(login: String, password: String)
     case userLogout
-    case userFavorites
+    case userFavorites(webcams: [Int])
     case sensorsOnDevice(id: Int)
     case sensorsValues(sensorIds: [Int])
     case sensorHistory(id: Int, period: HistoryPeriod, offset: Int)
     case sensorsNearby(my: Bool)
     case sendReport(message: String, logs: String)
+    case webcamsNearby(lat: Double, lng: Double, limit: Int)
+    case webcamImages(id: Int, limit: Int, latest: Date?)
     
     var mappingType: Decodable.Type {
         switch self {
@@ -53,6 +55,10 @@ public enum NarodAPI: TargetType {
             return SensorsNearby.self
         case .sendReport:
             return RequestResult.self
+        case .webcamsNearby:
+            return WebcamsNearby.self
+        case .webcamImages:
+            return WebcamImages.self
         }
     }
 }
@@ -107,10 +113,13 @@ extension NarodAPI {
             parameters = [
                 "cmd" : "userLogout"
             ]
-        case .userFavorites:
+        case .userFavorites(let webcams):
             parameters = [
                 "cmd" : "userFavorites"
             ]
+            if !webcams.isEmpty {
+                parameters["webcams"] = webcams
+            }
         case .sensorsOnDevice(let id):
             parameters = [
                 "cmd" : "sensorsOnDevice",
@@ -140,7 +149,26 @@ extension NarodAPI {
                 "mess" : message,
                 "logs" : logs
             ]
+            
+        case .webcamsNearby(let lat, let lng, let limit):
+            parameters = [
+                "cmd" : "webcamsNearby",
+                "lat" : String(lat),
+                "lng" : String(lng),
+                "limit" : limit
+            ]
+
+        case .webcamImages(let id, let limit, let latest):
+            parameters = [
+                "cmd" : "webcamImages",
+                "id" : id,
+                "limit" : limit
+            ]
+            if let latest = latest {
+                parameters["latest"] = latest.timeIntervalSince1970
+            }
         }
+        
         parameters["api_key"] = APIKeys.shared.apiKey
         parameters["uuid"] = Defaults[.MachineUUID]!
         parameters["lang"] = NSLocale.current.languageCode!

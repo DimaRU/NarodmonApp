@@ -58,7 +58,7 @@ class ChartViewController: NSViewController {
     }
 
     public class func instance() -> ChartViewController {
-        return NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ChartViewController")) as! ChartViewController
+        return NSStoryboard(name: NSStoryboard.Name(rawValue: "ChartViewController"), bundle: nil).instantiateInitialController() as! ChartViewController
     }
     
     override func viewDidLoad() {
@@ -103,7 +103,12 @@ class ChartViewController: NSViewController {
         let sensorType = dataStore.initData?.types?.first(where: { $0.type == sensor.type })
         var args: [CVarArg] = []
         args.append(sensor.name)
-        args.append(sensorType?.name ?? sensor.unit)
+        
+        if sensor.type == 1 {
+            args.append(NSLocalizedString("temperature, ", comment: "Chart legend") + LocaleTemperature.unit)
+        } else {
+            args.append(sensorType?.name ?? sensor.unit)
+        }
         args.append(from)
         args.append(to)
         args.append(min)
@@ -170,17 +175,30 @@ class ChartViewController: NSViewController {
 
         xAxis.valueFormatter = DateAxisValueFormatter(historyPeriod: historyPeriod)
         xAxis.labelPosition = .bottom
-        xAxis.labelRotationAngle = -90
         switch historyPeriod {
-        case .hour:     xAxis.granularity = 60.0
-        case .day:      xAxis.granularity = 60.0
-        case .week:     xAxis.granularity = 60*60
-        case .month:    xAxis.granularity = 60*60
-        case .year:     xAxis.granularity = 60*60*24
+        case .hour:
+            xAxis.granularity = 60.0
+            xAxis.axisMaxLabels = history.count
+            xAxis.labelRotationAngle = 0
+        case .day:
+            xAxis.granularity = 60.0
+            xAxis.axisMaxLabels = 24
+            xAxis.labelRotationAngle = -90
+        case .week:
+            xAxis.granularity = 60*60
+            xAxis.axisMaxLabels = 14
+            xAxis.labelRotationAngle = -45
+        case .month:
+            xAxis.granularity = 60*60
+            xAxis.axisMaxLabels = 30
+            xAxis.labelRotationAngle = -45
+        case .year:
+            xAxis.granularity = 60*60*24
+            xAxis.axisMaxLabels = 12
+            xAxis.labelRotationAngle = -45
         }
         xAxis.spaceMax = 1
         xAxis.spaceMin = 1
-        xAxis.axisMaxLabels = 20
         xAxis.setLabelCount(history.count, force: false)
         
         let leftAxis = chartView.leftAxis
@@ -218,8 +236,13 @@ class ChartViewController: NSViewController {
         let yValueFormater = DefaultAxisValueFormatter()
         yValueFormater.formatter = NumberFormatter()
         yValueFormater.formatter?.maximumFractionDigits = 1
-        yValueFormater.formatter?.positiveSuffix = sensor.unit
-        yValueFormater.formatter?.negativeSuffix = sensor.unit
+        if sensor.type == 1 {
+            yValueFormater.formatter?.positiveSuffix = LocaleTemperature.unit
+            yValueFormater.formatter?.negativeSuffix = LocaleTemperature.unit
+        } else {
+            yValueFormater.formatter?.positiveSuffix = sensor.unit
+            yValueFormater.formatter?.negativeSuffix = sensor.unit
+        }
         leftAxis.valueFormatter = yValueFormater
         chartView.rightAxis.enabled = false
 
@@ -271,8 +294,12 @@ class ChartViewController: NSViewController {
     private func redrawChart() {
         currentDataLabel.stringValue = ""
         CacheService.loadSensorHistory(id: sensor.id, period: historyPeriod, offset: historyOffset)
-            .then { history -> Void in
-                self.history = history
+            .done { history -> Void in
+                if self.sensor.type == 1 {
+                    self.history = history.map { SensorHistoryData(time: $0.time, value: LocaleTemperature.convert(from: $0.value)) }
+                } else {
+                    self.history = history
+                }
                 if history.isEmpty {
                     self.chartView.noDataText = NSLocalizedString("No history data for that period", comment: "Chart view")
                     self.chartView.data = nil

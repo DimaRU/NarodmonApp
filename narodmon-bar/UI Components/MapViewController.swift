@@ -13,7 +13,7 @@ import JavaScriptCore
 
 class MapViewController: NSViewController, WKUIDelegate, WKScriptMessageHandler {
 
-    var delegate: DeviceIdDelegate? = nil
+    var delegate: IdDelegate? = nil
 
     var titlebarViewController: NSTitlebarAccessoryViewController!
     var webView: WKWebView!
@@ -32,7 +32,7 @@ function whenPageFullyLoaded(e) {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
-        titlebarViewController = NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "MapTitlebarViewController")) as! NSTitlebarAccessoryViewController
+        titlebarViewController = (NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "MapTitlebarViewController")) as! NSTitlebarAccessoryViewController)
         titlebarViewController.layoutAttribute = .left
 
         let request = URLRequest(url: url)
@@ -69,13 +69,15 @@ function whenPageFullyLoaded(e) {
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if message.name == handlerName {
-            if let number = message.body as? NSNumber {
-                let deviceId = number.intValue
-                nextTick {
-                    self.delegate?.add(device: deviceId)
-                }
-            }
+        guard message.name == handlerName, let url = message.body as? String else {
+            return
+        }
+        let urlParts = url.split(separator: "/")
+        guard urlParts.count == 2, let deviceId = Int(urlParts[1]) else {
+            return
+        }
+        nextTick {
+            self.delegate?.add(id: deviceId)
         }
     }
 }

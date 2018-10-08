@@ -9,6 +9,7 @@ import SwiftyUserDefaults
 final class AppDataStore {
     var selectedDevices: [Int] = []             // Selected device ID list
     var selectedWindowSensors: [Int] = []       // Selected popup window sensors
+    var selectedWebcams: [Int] = []             // Selected webcams
     var selectedBarSensors: [Int] = []          // Selected bar sensors
     var sensorsMin: [Int:Double] = [:]
     var sensorsMax: [Int:Double] = [:]
@@ -18,6 +19,7 @@ final class AppDataStore {
     
     var devices: [SensorsOnDevice] = []         // Discovered devices
     var sensorValues: [SensorValue] = []        // Current sensors value
+    var webcams: [WebcamImages] = []            // Discovered webcams
     
     var initData: AppInitData? = nil
     var logonData: UserLogon? = nil
@@ -26,6 +28,7 @@ final class AppDataStore {
         selectedDevices = Defaults[.SelectedDevices]
         selectedWindowSensors = Defaults[.SelectedWindowSensors]
         selectedBarSensors = Defaults[.SelectedBarSensors]
+        selectedWebcams = Defaults[.SelectedWebcams]
         for (key,value) in Defaults[.SensorsMin] {
             sensorsMin[Int(key)!] = value as? Double
         }
@@ -40,6 +43,7 @@ final class AppDataStore {
         Defaults[.SelectedDevices] = selectedDevices
         Defaults[.SelectedBarSensors] = selectedBarSensors
         Defaults[.SelectedWindowSensors] = Array<Int>(selectedWindowSensors)
+        Defaults[.SelectedWebcams] = Array<Int>(selectedWebcams)
 
         let minArray = sensorsMin.map { (String($0), $1) }
         Defaults[.SensorsMin] = Dictionary.init(uniqueKeysWithValues: minArray)
@@ -53,15 +57,33 @@ final class AppDataStore {
     func selectionExist() -> Bool {
         return !selectedDevices.isEmpty && !selectedBarSensors.isEmpty
     }
+
+    enum SensorFormat { case short, medium, long }
     
-    func sensorData(for id: Int) -> (value: Double, unit: String, color: NSColor?)? {
+    func sensorData(for id: Int, format: SensorFormat) -> (value: String, color: NSColor?)? {
         for device in devices {
             if let sensor = device.sensors.first(where: { $0.id == id }) {
-                let unit = sensor.unit
+                var unit = sensor.unit
                 var value = sensor.value
                 if let sensorValue = (sensorValues.first { $0.id == id }) {
                     value = sensorValue.value
                 }
+                if sensor.type == 1 {
+                    // temperature
+                    value = LocaleTemperature.convert(from: value)
+                    unit = LocaleTemperature.unit
+                }
+                
+                let stringValue: String
+                switch format {
+                case .short:
+                    stringValue = String(format: "%.0f", value) + unit
+                case .medium:
+                    stringValue = String(format: "%.1f", value) + unit
+                case .long:
+                    stringValue = String(format: "%.2f", value) + unit
+                }
+
                 var color: NSColor? = nil
                 if let min = sensorsMin[id], value < min {
                     color = colorMin
@@ -69,13 +91,16 @@ final class AppDataStore {
                 if let max = sensorsMax[id], value > max {
                     color = colorMax
                 }
-                return (value, unit, color)
+                
+                return (stringValue, color)
             }
         }
         return nil
     }
     
-    func lastUpdate() -> Date {
+    func lastUpdate() -> Date? {
+        guard !devices.isEmpty, !devices[0].sensors.isEmpty else { return nil }
+        
         var lastTime = devices[0].sensors[0].time
         for device in devices {
             for sensor in device.sensors{

@@ -31,9 +31,9 @@ class PrefsCellView: NSTableCellView, NSTextFieldDelegate {
     func setContent(sensor: Sensor, dataStore: AppDataStore) {
         self.dataStore = dataStore
         sensorId = sensor.id
-        if let (value, unit, color) = dataStore.sensorData(for: sensorId) {
+        if let (value, color) = dataStore.sensorData(for: sensorId, format: .long) {
             sensorNameLabel.stringValue = sensor.name
-            sensorValueLabel?.stringValue = "\(value)\(unit)"
+            sensorValueLabel?.stringValue = value
             sensorValueLabel?.textColor = color ?? .controlTextColor
         }
         checkBox?.state = dataStore.selectedWindowSensors.contains(sensorId) ? .on : .off

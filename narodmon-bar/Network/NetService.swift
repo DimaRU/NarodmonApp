@@ -8,13 +8,9 @@ import PromiseKit
 struct NetService {
 
     static func appInit() -> Promise<AppInitData> {
-        let dictionary = Bundle.main.infoDictionary!
-        let bundleVersion = dictionary["CFBundleShortVersionString"] as! String
-        let bundleBuild = dictionary["CFBundleVersion"] as! String
-        let version = "\(bundleVersion).\(bundleBuild)"
-        
+        let version = appVersion()
         let system = ProcessInfo.processInfo.operatingSystemVersion
-        let platform = "\(system.majorVersion).\(system.minorVersion).\(system.patchVersion)"
+        let platform = "\(system.minorVersion).\(system.patchVersion)"
         let model = Sysctl.model
         let utc = TimeZone.current.secondsFromGMT() / 3600
         
@@ -23,7 +19,7 @@ struct NetService {
     
     static func appLogin() -> Promise<Void> {
         guard let login = KeychainService.shared[.login], let password = KeychainService.shared[.password] else {
-            return Promise.resolved()
+            return Promise.value(())
         }
         let app = (NSApp.delegate as! AppDelegate)
         let initData = app.dataStore.initData!
@@ -31,14 +27,17 @@ struct NetService {
             let logonData = UserLogon(vip: initData.vip, login: initData.login, uid: initData.uid)
             app.dataStore.logonData = logonData
             // Already logged in, skip login
-            return Promise.resolved()
+            return Promise.value(())
         }
         return NarProvider.shared.request(.userLogon(login: login, password: password))
-            .then { (logonData: UserLogon) -> Void in
+            .done { (logonData: UserLogon) -> Void in
                 app.dataStore.logonData = logonData
         }
     }
 
+    /// Add own devices & sensors to list when login
+    ///
+    /// - Returns: void Promise
     static func appLoginDiscovery() -> Promise<Void> {
         let login = KeychainService.shared[.login]!
         let password = KeychainService.shared[.password]!
@@ -52,7 +51,7 @@ struct NetService {
                 app.dataStore.logonData = logonData
                 return NarProvider.shared.request(.sensorsNearby(my: true))
             }
-            .then { (near: SensorsNearby) -> Void in
+            .done { (near: SensorsNearby) -> Void in
                 for i in near.devices.indices {
                     let device = near.devices[i]
                     if !app.dataStore.selectedDevices.contains(device.id) {
@@ -65,14 +64,18 @@ struct NetService {
         }
     }
 
+    /// Discovery & add nearest or own devices & sensors to list
+    ///
+    /// - Returns: void Promise
     static func loadDefaultDevices() -> Promise<Void> {
         let app = (NSApp.delegate as! AppDelegate)
         if app.dataStore.logonData != nil {
             return NarProvider.shared.request(.sensorsNearby(my: true))
                 .then { (near: SensorsNearby) -> Promise<(UserFavorites, SensorsNearby)> in
-                    NarProvider.shared.request(.userFavorites).then { ($0, near) }
+                    NarProvider.shared.request(.userFavorites(webcams: [])).map { ($0, near) }
                 }
-                .then { (favorites, near) -> Void in
+                .done { (arg) -> Void in
+                    let (favorites, near) = arg
                     var sensorsIds: [Int] = []
                     for device in near.devices {
                         app.dataStore.selectedDevices.append(device.id)
@@ -88,7 +91,7 @@ struct NetService {
         } else {
             return NarProvider.shared.request(.sensorsNearby(my: false))
                 // get near
-                .then { (near: SensorsNearby) -> Void in
+                .done { (near: SensorsNearby) -> Void in
                     guard !near.devices.isEmpty else { return }
                     let devices = near.devices.prefix(2)
                     var sensorsIds: [Int] = []
@@ -101,7 +104,7 @@ struct NetService {
                 }
         }
     }
-
+    
     /// Load device and sensors definitions (location, name, etc)
     ///
     /// - Returns: void Promise
@@ -117,13 +120,13 @@ struct NetService {
                 NarProvider.shared.request(.sensorsOnDevice(id: deviceId))
                     .then { (device: SensorsOnDevice) -> Promise<Void> in
                         app.dataStore.devices.append(device)
-                        return Promise.resolved()
+                        return Promise.value(())
                     }
                     .recover { (error) -> Promise<Void> in
                         if case NarodNetworkError.accessDenied = error {
                             let e = error as! NarodNetworkError
                             e.displayAlert()
-                            return Promise.resolved()
+                            return Promise.value(())
                         }
                         throw error
                 }
@@ -131,6 +134,36 @@ struct NetService {
         }
         return when(fulfilled: promises)
     }
+    
+    /// Load Webcam definitions (location, name )
+    ///
+    /// - Returns: void Promise
+    static func loadWebcamDefinitions() -> Promise<Void> {
+        let app = (NSApp.delegate as! AppDelegate)
+        let selectedWebcams = app.dataStore.selectedWebcams
+        app.lastRequestTime = Date()
+        
+        var promises: [Promise<Void>] = []
+        for webcamId in selectedWebcams {
+            promises.append(
+                NarProvider.shared.request(.webcamImages(id: webcamId, limit: 1, latest: nil))
+                    .done { (webcamImages: WebcamImages) -> Void in
+                        app.dataStore.webcams.append(webcamImages)
+                        return
+                    }
+                    .recover { (error) -> Void in
+                        if case NarodNetworkError.accessDenied = error {
+                            let e = error as! NarodNetworkError
+                            e.displayAlert()
+                            return
+                        }
+                        throw error
+                }
+            )
+        }
+        return when(fulfilled: promises)
+    }
+
     
     /// Load device data and send notification
     static func loadSensorsData() {
@@ -144,7 +177,7 @@ struct NetService {
         app.lastRequestTime = Date()
         
         NarProvider.shared.request(.sensorsValues(sensorIds: Array<Int>(sensors)))
-            .then { (sensorsValues: SensorsValues) -> Void in
+            .done { (sensorsValues: SensorsValues) -> Void in
                 app.dataStore.sensorValues = sensorsValues.sensors
                 postNotification(name: .dataChangedNotification)
             }
@@ -157,7 +190,7 @@ struct NetService {
     /// Load sensor history
     static func loadSensorHistory(id: Int, period: HistoryPeriod, offset: Int) -> Promise<[SensorHistoryData]> {
         return NarProvider.shared.request(.sensorHistory(id: id, period: period, offset: offset))
-            .then { (sensorHistory: SensorHistory) -> [SensorHistoryData] in
+            .map { (sensorHistory: SensorHistory) -> [SensorHistoryData] in
                 return sensorHistory.data
         }
     }
