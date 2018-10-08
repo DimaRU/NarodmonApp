@@ -72,7 +72,7 @@ class SensorSettingsViewController: NSViewController {
 
         guard !dataStore.webcams.isEmpty else { return }
         sourceTableData.append(NSLocalizedString("Webcams", comment: "Devices & Sensors & Webcams table header"))
-        sourceTableData.append(contentsOf: dataStore.webcams)
+        sourceTableData.append(contentsOf: dataStore.webcams.sorted{ $0.name < $1.name })
     }
     
     deinit {

@@ -61,7 +61,7 @@ class PopupViewController: NSViewController {
             tableData = popupList
         }
         if !dataStore.webcams.isEmpty {
-            tableData.append(contentsOf: dataStore.webcams)
+            tableData.append(contentsOf: dataStore.webcams.sorted{ $0.name < $1.name })
         }
         if checkAppUpdate() {
             tableData.append("FooterCell")
