@@ -69,6 +69,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .then { _ -> Promise<Void> in
                 self.dataStore.checkConsistency()
                 self.dataStore.saveDefaults()
+                postNotification(name: .barSensorsChangedNotification)
+                postNotification(name: .dataChangedNotification)
                 return NetService.loadWebcamDefinitions()
             }.done {
                 postNotification(name: .deviceListChangedNotification)
