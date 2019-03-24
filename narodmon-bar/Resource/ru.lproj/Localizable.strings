@@ -29,8 +29,7 @@
 /* Chart view */
 "High level" = "Верхний уровень";
 
-/* Map View url
-   Open map URL */
+/* Open map URL */
 "https://narodmon.com" = "https://narodmon.ru";
 
 /* WhereToBuy URL */
