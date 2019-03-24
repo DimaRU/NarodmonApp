@@ -152,12 +152,16 @@ struct NetService {
                         return
                     }
                     .recover { (error) -> Void in
-                        if case NarodNetworkError.accessDenied = error {
+                        switch error {
+                        case NarodNetworkError.notFound:
+                            break
+                        case NarodNetworkError.accessDenied:
                             let e = error as! NarodNetworkError
                             e.displayAlert()
                             return
+                        default:
+                            throw error
                         }
-                        throw error
                 }
             )
         }
