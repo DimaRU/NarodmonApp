@@ -31,7 +31,6 @@ extension DefaultsKeys {
 
 
 extension UserDefaults {
-
     /// Inital setup when App Started
     public func appStart() {
         Defaults[.Launchcount] += 1
@@ -45,10 +44,37 @@ extension UserDefaults {
             Defaults[.LaunchOnLogin] = true
         } else {
             // Not first start
-            
         }
+#if DEBUG
+        dumpDefaults()
+#endif
     }
     
+#if DEBUG
+    private func dumpDefaults() {
+        print("------- Defaults dump start")
+        dumpDefault(.Launchcount)
+        dumpDefault(.MachineUUID)
+        dumpDefault(.SelectedDevices)
+        dumpDefault(.SelectedWindowSensors)
+        dumpDefault(.SelectedBarSensors)
+        dumpDefault(.SelectedWebcams)
+        dumpDefault(.SensorsMin)
+        dumpDefault(.SensorsMax)
+        print("------- Defaults dump end")
+    }
+    
+    private func dumpDefault(_ defaultsKey: DefaultsKey<Int> ) { print("\(defaultsKey._key):", Defaults[defaultsKey]) }
+    private func dumpDefault(_ defaultsKey: DefaultsKey<[Int]> ) { print("\(defaultsKey._key):", Defaults[defaultsKey]) }
+    private func dumpDefault(_ defaultsKey: DefaultsKey<Bool> ) { print("\(defaultsKey._key):", Defaults[defaultsKey]) }
+    private func dumpDefault(_ defaultsKey: DefaultsKey<[String]> ) { print("\(defaultsKey._key):", Defaults[defaultsKey]) }
+    private func dumpDefault(_ defaultsKey: DefaultsKey<[String: Any]> ) { print("\(defaultsKey._key):", Defaults[defaultsKey]) }
+    private func dumpDefault(_ defaultsKey: DefaultsKey<String?> ) {
+        guard Defaults[defaultsKey] != nil else { return }
+        print("\(defaultsKey._key):", Defaults[defaultsKey]!)
+    }
+#endif
+
     public func selectionExist() -> Bool {
         return !Defaults[.SelectedDevices].isEmpty && !Defaults[.SelectedBarSensors].isEmpty
     }
