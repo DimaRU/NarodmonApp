@@ -123,12 +123,16 @@ struct NetService {
                         return Promise.value(())
                     }
                     .recover { (error) -> Promise<Void> in
-                        if case NarodNetworkError.accessDenied = error {
+                        switch error {
+                        case NarodNetworkError.accessDenied:
                             let e = error as! NarodNetworkError
                             e.displayAlert()
+                            fallthrough
+                        case NarodNetworkError.notFound:
                             return Promise.value(())
+                        default:
+                            throw error
                         }
-                        throw error
                 }
             )
         }
