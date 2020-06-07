@@ -9,7 +9,7 @@ target 'NarodmonApp' do
   pod 'PromiseKit', '6.13.0'
   pod 'KeychainAccess', '4.2.0'
   pod 'SwiftyUserDefaults', '3.0.1'
-  pod 'Cache', '5.1.0'
+  pod 'Cache', '5.3.0'
   pod 'Charts', :git => 'https://github.com/DimaRU/Charts.git', :branch => '4.0.0-fixX'
   pod 'ProgressKit', :git => 'https://github.com/DimaRU/ProgressKit.git'
 

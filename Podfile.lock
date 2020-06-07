@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.2.1)
-  - Cache (5.1.0)
+  - Cache (5.3.0)
   - Charts (3.1.1):
     - Charts/Core (= 3.1.1)
   - Charts/Core (3.1.1)
@@ -21,7 +21,7 @@ PODS:
   - SwiftyUserDefaults (3.0.1)
 
 DEPENDENCIES:
-  - Cache (= 5.1.0)
+  - Cache (= 5.3.0)
   - Charts (from `https://github.com/DimaRU/Charts.git`, branch `4.0.0-fixX`)
   - KeychainAccess (= 4.2.0)
   - Keys (from `Pods/CocoaPodsKeys`)
@@ -58,7 +58,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
-  Cache: 7737c595aae7d94c7c0feca2c887288624e3b07e
+  Cache: 48762993ec44e1d93483c4d4a13edd18452326f4
   Charts: 930dc1cb13a164e9e16bc3578826f3a26f0872f8
   KeychainAccess: 3f760109aa99b05d0f231e28b22642da7153e38a
   Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
@@ -67,6 +67,6 @@ SPEC CHECKSUMS:
   PromiseKit: c8668a559f26c98277a543192c51bc38dd2dfc76
   SwiftyUserDefaults: 3d273b1739b68ada3145dc754a70ec775bc5c8be
 
-PODFILE CHECKSUM: b6ee30c61f14b63acf03747adaccec3bbee3ec60
+PODFILE CHECKSUM: 7d58e11b532c24feaee3e9b049c5e3345fea9f33
 
 COCOAPODS: 1.9.3
