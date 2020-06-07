@@ -5,7 +5,6 @@
 //  Copyright © 2017 Dmitriy Borovikov. All rights reserved.
 //
 import Moya
-import Result
 import Alamofire
 import PromiseKit
 
@@ -27,7 +26,7 @@ class NarProvider {
     #if DEBUG
     fileprivate static let instance = { () -> MoyaProvider<NarodAPI> in
         if let value = ProcessInfo.processInfo.environment["MoyaLogger"] {
-            return MoyaProvider<NarodAPI>(endpointClosure: NarProvider.endpointClosure, plugins: [NetworkLoggerPlugin(verbose: true)])
+            return MoyaProvider<NarodAPI>(endpointClosure: NarProvider.endpointClosure, plugins: [NetworkLoggerPlugin()])
         } else {
             return MoyaProvider<NarodAPI>(endpointClosure: NarProvider.endpointClosure)
         }

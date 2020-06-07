@@ -207,7 +207,7 @@ extension WebcamViewController {
     func loadImage() -> Promise<Void> {
         let url = imageUrl[self.currentDate]!.replacingOccurrences(of: "http:", with: "https:")
         let (promise, seal) = Promise<Void>.pending()
-        Alamofire.request(url)
+        AF.request(url)
             .validate(statusCode: 200..<300)
             .responseData { responce in
                 switch responce.result {
