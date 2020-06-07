@@ -37,7 +37,7 @@ extension UserDefaults {
         
         if Defaults[.MachineUUID] == nil {
             // First start
-            let uuid = getHwUUID().md5()!
+            let uuid = getHwUUID().md5()
             Defaults[.MachineUUID] = uuid
 
             setLaunchOnLogin(state: true)

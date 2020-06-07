@@ -28,7 +28,6 @@
 		0A63DF991FCEDAED00C35607 /* NetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF981FCEDAED00C35607 /* NetService.swift */; };
 		0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */; };
 		0A68C0BB1FDAA1FB00E7ACD4 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */; };
-		0A6D89C41FC5C37100034A67 /* md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C31FC5C37100034A67 /* md5.swift */; };
 		0A70D3FD21387358005BB814 /* IDETemplateMacros.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A70D3FC21387358005BB814 /* IDETemplateMacros.plist */; };
 		0A70D40121390D70005BB814 /* WebcamImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70D40021390D70005BB814 /* WebcamImages.swift */; };
 		0A70D4032139A426005BB814 /* WebcamsNearby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70D4022139A426005BB814 /* WebcamsNearby.swift */; };
@@ -123,7 +122,6 @@
 		0A63DF981FCEDAED00C35607 /* NetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetService.swift; sourceTree = "<group>"; };
 		0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorType.swift; sourceTree = "<group>"; };
 		0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
-		0A6D89C31FC5C37100034A67 /* md5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = md5.swift; sourceTree = "<group>"; };
 		0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemView.swift; sourceTree = "<group>"; };
 		0A70D3FC21387358005BB814 /* IDETemplateMacros.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = IDETemplateMacros.plist; path = "narodmon-bar.xcworkspace/xcshareddata/IDETemplateMacros.plist"; sourceTree = "<group>"; };
 		0A70D40021390D70005BB814 /* WebcamImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebcamImages.swift; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 		0A37C0E01FC03217006605DC /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				0A6D89C31FC5C37100034A67 /* md5.swift */,
 				0A37C0E11FC03230006605DC /* CwlSysctl.swift */,
 			);
 			path = ThirdParty;
@@ -620,7 +617,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A6D89C41FC5C37100034A67 /* md5.swift in Sources */,
 				0A5DD0BE20420FA10095358A /* Array+nextIndex.swift in Sources */,
 				0A756287200261490033269C /* LaunchOnLogin.swift in Sources */,
 				0AC4EAEE1FCE0526001573C8 /* PopupViewController.swift in Sources */,
