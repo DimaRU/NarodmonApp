@@ -75,7 +75,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }.done {
                 postNotification(name: .deviceListChangedNotification)
                 self.startRefreshCycle()
-                self.addWakeObserver()
             }
             .catch { (error) in
                 if let e = error as? NarodNetworkError {
@@ -123,35 +122,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         URLCache.shared.removeAllCachedResponses()
         CacheService.clean()
     }
-    
-    
-    @objc func recoveryWindows() {
-        let windows = NSApplication.shared.windows
-        for i in windows.indices {
-            if windows[i].className == "_NSPopoverWindow" {
-                windows[i].setFrame(savedWindowFrame[i], display: true, animate: false)
-            }
-        }
-    }
-    
-    func saveWindows() {
-        savedWindowFrame = []
-        for window in NSApplication.shared.windows {
-            savedWindowFrame.append(window.frame)
-        }
-    }
-    
-    func addWakeObserver() {
-        NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.didWakeNotification, object: nil, queue: nil) {_ in
-            self.refreshDataNow()
-            CacheService.clean()
-            Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.recoveryWindows), userInfo: nil, repeats: false)
-        }
-        NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.willSleepNotification, object: nil, queue: nil) {_ in
-            self.saveWindows()
-        }
-    }
-    
 }
-
-
