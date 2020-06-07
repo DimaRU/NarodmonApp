@@ -145,7 +145,7 @@ final class AppDataStore {
         selectedWindowSensors = selectedWindowSensors.filter { !sensorIds.contains($0) }
         selectedBarSensors = selectedBarSensors.filter { !sensorIds.contains($0) }
         selectedDevices = selectedDevices.filter{ $0 != device.id }
-        let index = devices.index(where: {$0.id == device.id})!
+        let index = devices.firstIndex(where: {$0.id == device.id})!
         devices.remove(at: index)
     }
     

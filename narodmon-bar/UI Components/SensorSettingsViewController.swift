@@ -269,14 +269,14 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
     ///
     /// - Returns: operation
     func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
-        guard let draggingSource = info.draggingSource() as? SelectTableView else {
+        guard let draggingSource = info.draggingSource as? SelectTableView else {
             return []
         }
         currentItemDragOperation = []
         let toRow = row
         
         if tableView == barSensorsTableView {
-            let fromRow = dragRow(from: info.draggingPasteboard())
+            let fromRow = dragRow(from: info.draggingPasteboard)
             
             if draggingSource == barSensorsTableView {
                 tableView.setDropRow(toRow, dropOperation: .above)
@@ -303,9 +303,9 @@ extension  SensorSettingsViewController: NSTableViewDelegate, NSTableViewDataSou
     /// - Returns: true if drop accepted
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
         guard tableView == sourceTableView || tableView == barSensorsTableView else { return false }
-        let fromRow = dragRow(from: info.draggingPasteboard())
+        let fromRow = dragRow(from: info.draggingPasteboard)
 
-        switch info.draggingSource() as? NSTableView {
+        switch info.draggingSource as? NSTableView {
         case barSensorsTableView?:
             let value = dataStore.selectedBarSensors[fromRow-1]
             dataStore.selectedBarSensors.remove(at: fromRow-1)

@@ -138,13 +138,13 @@ class PopupViewController: NSViewController {
         chartViewController.sensor = sensor
         chartViewController.dataStore = dataStore
         chartViewController.historyPeriod = historyPeriod
-        presentViewController(chartViewController, asPopoverRelativeTo: .zero, of: cellView, preferredEdge: .minX, behavior: .transient)
+        present(chartViewController, asPopoverRelativeTo: .zero, of: cellView, preferredEdge: .minX, behavior: .transient)
     }
 
     func openWebcamView(cellView: NSView, webcam: WebcamImages) {
         let webcamViewController = WebcamViewController.instance()
         webcamViewController.webcam = webcam
-        presentViewController(webcamViewController, asPopoverRelativeTo: .zero, of: cellView, preferredEdge: .minX, behavior: .transient)
+        present(webcamViewController, asPopoverRelativeTo: .zero, of: cellView, preferredEdge: .minX, behavior: .transient)
     }
 
     // MARK: Menu actions

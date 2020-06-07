@@ -6,7 +6,7 @@ import Cocoa
 import SwiftyUserDefaults
 
 // Mark: Common actions
-extension AppDelegate {
+extension AppDelegate: NSMenuDelegate, NSMenuItemValidation {
     
     @IBAction func openMapAction(_ sender: Any) {
         let url = NSLocalizedString("https://narodmon.com", comment: "Open map URL")
@@ -38,7 +38,7 @@ extension AppDelegate {
     }
 
 
-    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+    @objc func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         switch menuItem.identifier!.rawValue {
         case "AlwaysOnTop":
             menuItem.state = Defaults[.AlwaysOnTop] ? .on : .off

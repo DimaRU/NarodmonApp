@@ -27,10 +27,10 @@ class SelectTableView: NSTableView {
 
         let windowPoint = window!.mouseLocationOutsideOfEventStream
         let localPoint = convert(windowPoint , from: nil)
-        if viewController.currentItemDragOperation != .delete && viewController.hasDraggedFavoriteItem && mouse(localPoint, in: NSInsetRect(visibleRect, -35, -35)) == false {
+        if viewController.currentItemDragOperation != .delete && viewController.hasDraggedFavoriteItem && isMousePoint(localPoint, in: NSInsetRect(visibleRect, -35, -35)) == false {
             viewController.currentItemDragOperation = .delete
         }
-        else if viewController.currentItemDragOperation == .delete && viewController.hasDraggedFavoriteItem && mouse(localPoint, in: NSInsetRect(visibleRect, -35, -35)) == true {
+        else if viewController.currentItemDragOperation == .delete && viewController.hasDraggedFavoriteItem && isMousePoint(localPoint, in: NSInsetRect(visibleRect, -35, -35)) == true {
             viewController.currentItemDragOperation = []
         }
         

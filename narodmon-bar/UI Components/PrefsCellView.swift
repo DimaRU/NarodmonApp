@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class PrefsCellView: NSTableCellView, NSTextFieldDelegate {
+class PrefsCellView: NSTableCellView {
 
     @IBOutlet weak var checkBox: NSButton?
     @IBOutlet weak var sensorNameLabel: NSTextField!
@@ -57,13 +57,14 @@ class PrefsCellView: NSTableCellView, NSTextFieldDelegate {
             dataStore.selectedWindowSensors.append(sensorId)
         }
         else {
-            let index = dataStore.selectedWindowSensors.index(where: {$0 == sensorId})!
+            let index = dataStore.selectedWindowSensors.firstIndex(where: {$0 == sensorId})!
             dataStore.selectedWindowSensors.remove(at: index)
         }
         postNotification(name: .popupSensorsChangedNotification)
     }
-    
-    override func controlTextDidEndEditing(_ obj: Notification) {
+}
+extension PrefsCellView: NSTextFieldDelegate {
+    func controlTextDidEndEditing(_ obj: Notification) {
         guard let textField = obj.object as? NSTextField else { return }
         
         let formater = NumberFormatter()

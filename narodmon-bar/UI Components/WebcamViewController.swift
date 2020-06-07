@@ -35,7 +35,7 @@ class WebcamViewController: NSViewController {
 
     
     public class func instance() -> WebcamViewController {
-        return NSStoryboard(name: NSStoryboard.Name(rawValue: "WebcamViewController"), bundle: nil).instantiateInitialController() as! WebcamViewController
+        return NSStoryboard(name: "WebcamViewController", bundle: nil).instantiateInitialController() as! WebcamViewController
     }
     
     override func viewDidLoad() {

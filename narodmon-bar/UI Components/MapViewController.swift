@@ -32,7 +32,7 @@ function whenPageFullyLoaded(e) {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
-        titlebarViewController = (NSStoryboard.main?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "MapTitlebarViewController")) as! NSTitlebarAccessoryViewController)
+        titlebarViewController = (NSStoryboard.main?.instantiateController(withIdentifier: "MapTitlebarViewController") as! NSTitlebarAccessoryViewController)
         titlebarViewController.layoutAttribute = .left
 
         let request = URLRequest(url: url)

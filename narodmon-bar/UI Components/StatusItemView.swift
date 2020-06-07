@@ -15,10 +15,10 @@ final class StatusItemView: NSView {
     
     var statusItem: NSStatusItem!
 
-    private static let tinyText = [ NSAttributedStringKey.font: NSFont.systemFont(ofSize: 9, weight: .semibold),
-                                      NSAttributedStringKey.foregroundColor: NSColor.controlTextColor ]
-    private static let normalText = [ NSAttributedStringKey.font: NSFont.systemFont(ofSize: 14),
-                                      NSAttributedStringKey.foregroundColor: NSColor.controlTextColor ]
+    private static let tinyText = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 9, weight: .semibold),
+                                      NSAttributedString.Key.foregroundColor: NSColor.controlTextColor ]
+    private static let normalText = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 14),
+                                      NSAttributedString.Key.foregroundColor: NSColor.controlTextColor ]
     static private let padding: CGFloat = 4.0
 
     var dataStore: AppDataStore!
@@ -128,7 +128,7 @@ final class StatusItemView: NSView {
         for (i, (sensorLabel, color)) in sensorLabels.enumerated() {
             var drawPoint: NSPoint
 
-            countAttributes[NSAttributedStringKey.foregroundColor] = color ?? (highlighted ? .selectedMenuItemTextColor : .controlTextColor)
+            countAttributes[NSAttributedString.Key.foregroundColor] = color ?? (highlighted ? .selectedMenuItemTextColor : .controlTextColor)
             let attributed = NSMutableAttributedString(string: sensorLabel, attributes: countAttributes)
 
             width = round(sensorLabel.size(withAttributes: textAttributes).width)
