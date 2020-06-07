@@ -4,7 +4,7 @@ PODS:
   - Charts (3.1.1):
     - Charts/Core (= 3.1.1)
   - Charts/Core (3.1.1)
-  - KeychainAccess (3.1.1)
+  - KeychainAccess (4.2.0)
   - Keys (1.0.1)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
@@ -23,7 +23,7 @@ PODS:
 DEPENDENCIES:
   - Cache (= 5.1.0)
   - Charts (from `https://github.com/DimaRU/Charts.git`, branch `4.0.0-fixX`)
-  - KeychainAccess (= 3.1.1)
+  - KeychainAccess (= 4.2.0)
   - Keys (from `Pods/CocoaPodsKeys`)
   - Moya (~> 14.0.0)
   - ProgressKit (from `https://github.com/DimaRU/ProgressKit.git`)
@@ -60,13 +60,13 @@ SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   Cache: 7737c595aae7d94c7c0feca2c887288624e3b07e
   Charts: 930dc1cb13a164e9e16bc3578826f3a26f0872f8
-  KeychainAccess: 7bd430028059754a3debab3cfc0bd1fc7fb85df3
+  KeychainAccess: 3f760109aa99b05d0f231e28b22642da7153e38a
   Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   ProgressKit: 47145a4a267a9b4262c481d8c46e1d527dd9e024
   PromiseKit: c8668a559f26c98277a543192c51bc38dd2dfc76
   SwiftyUserDefaults: 3d273b1739b68ada3145dc754a70ec775bc5c8be
 
-PODFILE CHECKSUM: 374f3a298746ca1c63320d65798b7f93bd0bc5e7
+PODFILE CHECKSUM: b6ee30c61f14b63acf03747adaccec3bbee3ec60
 
 COCOAPODS: 1.9.3
