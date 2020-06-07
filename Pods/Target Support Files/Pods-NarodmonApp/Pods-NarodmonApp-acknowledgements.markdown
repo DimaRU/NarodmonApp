@@ -1,6 +1,10 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## Keys
+
+MIT LICENSE Found in the repo
+
 ## Alamofire
 
 Copyright (c) 2014-2018 Alamofire Software Foundation (http://alamofire.org/)
@@ -281,10 +285,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-
-## Keys
-
-MIT LICENSE Found in the repo
 
 ## Moya
 

@@ -1,5 +1,4 @@
-# Uncomment the next line to define a global platform for your project
-platform :osx, '10.11'
+platform :osx, '10.13'
 
 target 'NarodmonApp' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -8,7 +7,6 @@ target 'NarodmonApp' do
   # Pods for MoyaTest
   pod 'Moya', '~> 11.0'
   pod 'PromiseKit', '6.3.5'
-  pod 'PromiseKit/Alamofire', '6.3.5'
   pod 'KeychainAccess', '3.1.1'
   pod 'SwiftyUserDefaults', '3.0.1'
   pod 'Cache', '5.1.0'

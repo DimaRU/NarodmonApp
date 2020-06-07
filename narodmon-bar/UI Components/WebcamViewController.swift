@@ -206,13 +206,19 @@ extension WebcamViewController {
     
     func loadImage() -> Promise<Void> {
         let url = imageUrl[self.currentDate]!.replacingOccurrences(of: "http:", with: "https:")
-        return Alamofire.request(url)
+        let (promise, seal) = Promise<Void>.pending()
+        Alamofire.request(url)
             .validate(statusCode: 200..<300)
-            .responseData()
-            .done { data, response in
-                
-                self.setWebcamView(with: NSImage(data: data))
+            .responseData { responce in
+                switch responce.result {
+                case .success(let value):
+                    self.setWebcamView(with: NSImage(data: value))
+                    seal.fulfill(())
+                case .failure(let error):
+                    seal.reject(error)
+                }
         }
+        return promise
     }
     
     func loadImageList(latest: Date? = nil) -> Promise<Void> {
