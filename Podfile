@@ -6,7 +6,7 @@ target 'NarodmonApp' do
 
   # Pods for MoyaTest
   pod 'Moya', '~> 11.0'
-  pod 'PromiseKit', '6.3.5'
+  pod 'PromiseKit', '6.13.0'
   pod 'KeychainAccess', '3.1.1'
   pod 'SwiftyUserDefaults', '3.0.1'
   pod 'Cache', '5.1.0'
