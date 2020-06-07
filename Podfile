@@ -10,7 +10,8 @@ target 'NarodmonApp' do
   pod 'KeychainAccess', '4.2.0'
   pod 'SwiftyUserDefaults', '3.0.1'
   pod 'Cache', '5.3.0'
-  pod 'Charts', :git => 'https://github.com/DimaRU/Charts.git', :branch => '4.0.0-fixX'
+#  pod 'Charts', :git => 'https://github.com/DimaRU/Charts.git', :branch => '4.0.0-fixX'
+  pod 'Charts'
   pod 'ProgressKit', :git => 'https://github.com/DimaRU/ProgressKit.git'
 
 

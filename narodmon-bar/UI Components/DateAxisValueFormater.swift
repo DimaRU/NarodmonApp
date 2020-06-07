@@ -6,7 +6,7 @@ import Foundation
 import Cocoa
 import Charts
 
-open class DateAxisValueFormatter: NSObject, AxisValueFormatter
+open class DateAxisValueFormatter: NSObject, IAxisValueFormatter
 {
     private let formatter = DateFormatter()
     

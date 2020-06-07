@@ -1,5 +1,5 @@
 //
-//  LineRadarChartDataSetProtocol.swift
+//  ILineRadarChartDataSet.swift
 //  Charts
 //
 //  Copyright 2015 Daniel Cohen Gindi & Philipp Jahoda
@@ -13,7 +13,7 @@ import Foundation
 import CoreGraphics
 
 @objc
-public protocol LineRadarChartDataSetProtocol: LineScatterCandleRadarChartDataSetProtocol
+public protocol ILineRadarChartDataSet: ILineScatterCandleRadarChartDataSet
 {
     // MARK: - Data functions and accessors
     
@@ -22,7 +22,7 @@ public protocol LineRadarChartDataSetProtocol: LineScatterCandleRadarChartDataSe
     /// The color that is used for filling the line surface area.
     var fillColor: NSUIColor { get set }
 
-    /// - returns: The object that is used for filling the area below the line.
+    /// - Returns: The object that is used for filling the area below the line.
     /// **default**: nil
     var fill: Fill? { get set }
     
@@ -40,6 +40,6 @@ public protocol LineRadarChartDataSetProtocol: LineScatterCandleRadarChartDataSe
     /// Please note that this method uses the path clipping for drawing the filled area (with images, gradients and layers).
     var drawFilledEnabled: Bool { get set }
     
-    /// - returns: `true` if filled drawing is enabled, `false` if not
+    /// `true` if filled drawing is enabled, `false` if not
     var isDrawFilledEnabled: Bool { get }
 }

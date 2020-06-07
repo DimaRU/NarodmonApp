@@ -1,5 +1,5 @@
 //
-//  BarChartDataSetProtocol.swift
+//  IBarChartDataSet.swift
 //  Charts
 //
 //  Copyright 2015 Daniel Cohen Gindi & Philipp Jahoda
@@ -13,16 +13,16 @@ import Foundation
 import CoreGraphics
 
 @objc
-public protocol BarChartDataSetProtocol: BarLineScatterCandleBubbleChartDataSetProtocol
+public protocol IBarChartDataSet: IBarLineScatterCandleBubbleChartDataSet
 {
     // MARK: - Data functions and accessors
     
     // MARK: - Styling functions and accessors
     
-    /// - returns: `true` if this DataSet is stacked (stacksize > 1) or not.
+    /// `true` if this DataSet is stacked (stacksize > 1) or not.
     var isStacked: Bool { get }
     
-    /// - returns: The maximum number of bars that can be stacked upon another in this DataSet.
+    /// The maximum number of bars that can be stacked upon another in this DataSet.
     var stackSize: Int { get }
     
     /// the color used for drawing the bar-shadows. The bar shadows is a surface behind the bar that indicates the maximum value

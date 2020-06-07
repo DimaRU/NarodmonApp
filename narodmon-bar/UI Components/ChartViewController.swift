@@ -119,7 +119,7 @@ class ChartViewController: NSViewController {
         let format = NSLocalizedString("%@ (%@) \t%@ - %@ \tMin: %0.1f \tMax: %0.1f \tAverage: %0.1f", comment: "Chart legend")
 
         let label = String.init(format: format, arguments: args)
-        let dataSet = LineChartDataSet(values: dataEntries, label: label)
+        let dataSet = LineChartDataSet(entries: dataEntries, label: label)
 
         return dataSet
     }
@@ -226,11 +226,11 @@ class ChartViewController: NSViewController {
         leftAxis.removeAllLimitLines()
         if let highLimit = dataStore.sensorsMax[sensor.id] {
             let label = NSLocalizedString("High level", comment: "Chart view")
-            leftAxis.addLimitLine(initLimitLine(limit: highLimit, color: dataStore.colorMax, label: label, labelPosition: .leftTop))
+            leftAxis.addLimitLine(initLimitLine(limit: highLimit, color: dataStore.colorMax, label: label, labelPosition: .topLeft))
         }
         if let lowLimit = dataStore.sensorsMin[sensor.id] {
             let label = NSLocalizedString("Low level", comment: "Chart view")
-            leftAxis.addLimitLine(initLimitLine(limit: lowLimit, color: dataStore.colorMin, label: label, labelPosition: .leftBottom))
+            leftAxis.addLimitLine(initLimitLine(limit: lowLimit, color: dataStore.colorMin, label: label, labelPosition: .bottomLeft))
         }
         
         let yValueFormater = DefaultAxisValueFormatter()

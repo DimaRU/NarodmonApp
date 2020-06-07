@@ -24,7 +24,7 @@ open class BarHighlighter: ChartHighlighter
         
         let pos = getValsForTouch(x: x, y: y)
 
-        if let set = barData[high.dataSetIndex] as? BarChartDataSetProtocol,
+        if let set = barData.getDataSetByIndex(high.dataSetIndex) as? IBarChartDataSet,
             set.isStacked
         {
             return getStackedHighlight(high: high,
@@ -49,13 +49,15 @@ open class BarHighlighter: ChartHighlighter
     }
     
     /// This method creates the Highlight object that also indicates which value of a stacked BarEntry has been selected.
-    /// - parameter high: the Highlight to work with looking for stacked values
-    /// - parameter set:
-    /// - parameter xIndex:
-    /// - parameter yValue:
-    /// - returns:
+    ///
+    /// - Parameters:
+    ///   - high: the Highlight to work with looking for stacked values
+    ///   - set:
+    ///   - xIndex:
+    ///   - yValue:
+    /// - Returns:
     @objc open func getStackedHighlight(high: Highlight,
-                                  set: BarChartDataSetProtocol,
+                                  set: IBarChartDataSet,
                                   xValue: Double,
                                   yValue: Double) -> Highlight?
     {
@@ -89,30 +91,18 @@ open class BarHighlighter: ChartHighlighter
                          axis: high.axis)
     }
     
-    /// - returns: The index of the closest value inside the values array / ranges (stacked barchart) to the value given as a parameter.
-    /// - parameter entry:
-    /// - parameter value:
-    /// - returns:
+    /// - Parameters:
+    ///   - entry:
+    ///   - value:
+    /// - Returns: The index of the closest value inside the values array / ranges (stacked barchart) to the value given as a parameter.
     @objc open func getClosestStackIndex(ranges: [Range]?, value: Double) -> Int
     {
         guard let ranges = ranges else { return 0 }
-
-        var stackIndex = 0
-        
-        for range in ranges
-        {
-            if range.contains(value)
-            {
-                return stackIndex
-            }
-            else
-            {
-                stackIndex += 1
-            }
+        if let stackIndex = ranges.firstIndex(where: { $0.contains(value) }) {
+            return stackIndex
+        } else {
+            let length = max(ranges.count - 1, 0)
+            return (value > ranges[length].to) ? length : 0
         }
-        
-        let length = max(ranges.count - 1, 0)
-        
-        return (value > ranges[length].to) ? length : 0
     }
 }

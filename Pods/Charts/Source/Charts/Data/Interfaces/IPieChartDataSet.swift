@@ -1,5 +1,5 @@
 //
-//  PieChartDataSetProtocol.swift
+//  IPieChartDataSet.swift
 //  Charts
 //
 //  Copyright 2015 Daniel Cohen Gindi & Philipp Jahoda
@@ -12,12 +12,8 @@
 import Foundation
 import CoreGraphics
 
-#if !os(OSX)
-    import UIKit
-#endif
-
 @objc
-public protocol PieChartDataSetProtocol: ChartDataSetProtocol
+public protocol IPieChartDataSet: IChartDataSet
 {
     // MARK: - Styling functions and accessors
 
@@ -37,6 +33,9 @@ public protocol PieChartDataSetProtocol: ChartDataSetProtocol
 
     /// When valuePosition is OutsideSlice, indicates line color
     var valueLineColor: NSUIColor? { get set }
+
+    /// When valuePosition is OutsideSlice and enabled, line will have the same color as the slice
+    var useValueColorForLine: Bool { get set }
 
     /// When valuePosition is OutsideSlice, indicates line width
     var valueLineWidth: CGFloat { get set }

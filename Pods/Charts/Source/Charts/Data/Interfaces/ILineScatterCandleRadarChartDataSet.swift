@@ -1,5 +1,5 @@
 //
-//  LineScatterCandleRadarChartDataSetProtocol.swift
+//  ILineScatterCandleRadarChartDataSet.swift
 //  Charts
 //
 //  Copyright 2015 Daniel Cohen Gindi & Philipp Jahoda
@@ -12,7 +12,7 @@
 import Foundation
 
 @objc
-public protocol LineScatterCandleRadarChartDataSetProtocol: BarLineScatterCandleBubbleChartDataSetProtocol
+public protocol ILineScatterCandleRadarChartDataSet: IBarLineScatterCandleBubbleChartDataSet
 {
     // MARK: - Data functions and accessors
     
@@ -24,10 +24,10 @@ public protocol LineScatterCandleRadarChartDataSetProtocol: BarLineScatterCandle
     /// Enables / disables the vertical highlight-indicator. If disabled, the indicator is not drawn.
     var drawVerticalHighlightIndicatorEnabled: Bool { get set }
     
-    /// - returns: `true` if horizontal highlight indicator lines are enabled (drawn)
+    /// `true` if horizontal highlight indicator lines are enabled (drawn)
     var isHorizontalHighlightIndicatorEnabled: Bool { get }
     
-    /// - returns: `true` if vertical highlight indicator lines are enabled (drawn)
+    /// `true` if vertical highlight indicator lines are enabled (drawn)
     var isVerticalHighlightIndicatorEnabled: Bool { get }
     
     /// Enables / disables both vertical and horizontal highlight-indicators.

@@ -1,5 +1,5 @@
 //
-//  LineChartDataSetProtocol.swift
+//  ILineChartDataSet.swift
 //  Charts
 //
 //  Copyright 2015 Daniel Cohen Gindi & Philipp Jahoda
@@ -14,7 +14,7 @@ import CoreGraphics
 
 
 @objc
-public protocol LineChartDataSetProtocol: LineRadarChartDataSetProtocol
+public protocol ILineChartDataSet: ILineRadarChartDataSet
 {
     // MARK: - Data functions and accessors
     
@@ -29,13 +29,7 @@ public protocol LineChartDataSetProtocol: LineRadarChartDataSetProtocol
     ///
     /// **default**: 0.2
     var cubicIntensity: CGFloat { get set }
-
-    /// If true, gradient lines are drawn instead of solid
-    var isDrawLineWithGradientEnabled: Bool { get set }
-
-    /// The points where gradient should change color
-    var gradientPositions: [CGFloat]? { get set }
-
+    
     /// The radius of the drawn circles.
     var circleRadius: CGFloat { get set }
     
@@ -44,7 +38,7 @@ public protocol LineChartDataSetProtocol: LineRadarChartDataSetProtocol
     
     var circleColors: [NSUIColor] { get set }
     
-    /// - returns: The color at the given index of the DataSet's circle-color array.
+    /// - Returns: The color at the given index of the DataSet's circle-color array.
     /// Performs a IndexOutOfBounds check by modulus.
     func getCircleColor(atIndex: Int) -> NSUIColor?
     
@@ -58,7 +52,7 @@ public protocol LineChartDataSetProtocol: LineRadarChartDataSetProtocol
     /// If true, drawing circles is enabled
     var drawCirclesEnabled: Bool { get set }
     
-    /// - returns: `true` if drawing circles for this DataSet is enabled, `false` ifnot
+    /// `true` if drawing circles for this DataSet is enabled, `false` ifnot
     var isDrawCirclesEnabled: Bool { get }
     
     /// The color of the inner circle (the circle-hole).
@@ -67,7 +61,7 @@ public protocol LineChartDataSetProtocol: LineRadarChartDataSetProtocol
     /// `true` if drawing circles for this DataSet is enabled, `false` ifnot
     var drawCircleHoleEnabled: Bool { get set }
     
-    /// - returns: `true` if drawing the circle-holes is enabled, `false` ifnot.
+    /// `true` if drawing the circle-holes is enabled, `false` ifnot.
     var isDrawCircleHoleEnabled: Bool { get }
     
     /// This is how much (in pixels) into the dash pattern are we starting from.
@@ -81,6 +75,6 @@ public protocol LineChartDataSetProtocol: LineRadarChartDataSetProtocol
     /// Line cap type, default is CGLineCap.Butt
     var lineCapType: CGLineCap { get set }
     
-    /// Sets a custom FillFormatterProtocol to the chart that handles the position of the filled-line for each DataSet. Set this to null to use the default logic.
-    var fillFormatter: FillFormatter? { get set }
+    /// Sets a custom IFillFormatter to the chart that handles the position of the filled-line for each DataSet. Set this to null to use the default logic.
+    var fillFormatter: IFillFormatter? { get set }
 }
