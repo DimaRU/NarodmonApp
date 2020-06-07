@@ -2,7 +2,7 @@
 ///  Defaults.swift
 //
 
-import SwiftyUserDefaults
+import Cocoa
 
 extension UserDefaults {
     subscript(key: DefaultsKey<NSColor?>) -> NSColor? {

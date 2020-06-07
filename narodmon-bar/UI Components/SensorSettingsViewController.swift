@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import SwiftyUserDefaults
 import PromiseKit
 
 protocol IdDelegate {

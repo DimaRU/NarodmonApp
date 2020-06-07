@@ -3,7 +3,6 @@
 //
 
 import Cocoa
-import SwiftyUserDefaults
 
 // Mark: Common actions
 extension AppDelegate: NSMenuDelegate, NSMenuItemValidation {

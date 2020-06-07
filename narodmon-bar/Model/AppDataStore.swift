@@ -4,7 +4,6 @@
 
 import Foundation
 import Cocoa
-import SwiftyUserDefaults
 
 final class AppDataStore {
     var selectedDevices: [Int] = []             // Selected device ID list

@@ -3,7 +3,6 @@
 //
 import Foundation
 import Moya
-import SwiftyUserDefaults
 
 typealias MoyaResult = Result<Moya.Response, Moya.MoyaError>
 

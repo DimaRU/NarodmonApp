@@ -3,7 +3,6 @@
 //
 
 import Cocoa
-import SwiftyUserDefaults
 
 class GeneralSettingsViewController: NSViewController {
 

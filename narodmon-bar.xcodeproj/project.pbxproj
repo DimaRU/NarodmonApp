@@ -82,6 +82,7 @@
 		0AE4A8B51FD094F800B6EEAB /* FreeMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */; };
 		0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */; };
 		0AECF54C1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */; };
+		0AF6CDB9248D92200088560B /* SwiftyUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6CDB8248D92200088560B /* SwiftyUserDefaults.swift */; };
 		0AFB498F2160F8C400CF3619 /* LocaleTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFB498E2160F8C400CF3619 /* LocaleTemperature.swift */; };
 		19C60B7AF6611009CE8F3D82 /* Pods_NarodmonApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56217F9C540BE073E62D427B /* Pods_NarodmonApp.framework */; };
 /* End PBXBuildFile section */
@@ -183,6 +184,7 @@
 		0AE1E6FF2003F47400029333 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		0AE4A8B41FD094F800B6EEAB /* FreeMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeMethods.swift; sourceTree = "<group>"; };
 		0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceIDViewCotroller.swift; sourceTree = "<group>"; };
+		0AF6CDB8248D92200088560B /* SwiftyUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyUserDefaults.swift; sourceTree = "<group>"; };
 		0AFB498E2160F8C400CF3619 /* LocaleTemperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleTemperature.swift; sourceTree = "<group>"; };
 		56217F9C540BE073E62D427B /* Pods_NarodmonApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NarodmonApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8B543A8137D8E5233766A48 /* Pods-NarodmonApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NarodmonApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				0A37C0E11FC03230006605DC /* CwlSysctl.swift */,
+				0AF6CDB8248D92200088560B /* SwiftyUserDefaults.swift */,
 			);
 			path = ThirdParty;
 			sourceTree = "<group>";
@@ -562,7 +565,6 @@
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/ProgressKit/ProgressKit.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -574,7 +576,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -631,6 +632,7 @@
 				0AA40A411FE295780089585B /* SelectTableView.swift in Sources */,
 				0A36F8DC205304640084B503 /* DateAxisValueFormater.swift in Sources */,
 				0AB3118A1FD557E600ED680F /* DeviceCellView.swift in Sources */,
+				0AF6CDB9248D92200088560B /* SwiftyUserDefaults.swift in Sources */,
 				0A1B864320496A1100DECB10 /* AppDelegateActions.swift in Sources */,
 				0AEBDF631FCA0B3B0027A043 /* StatusItemView.swift in Sources */,
 				0AC6CC522007E5E100F2DAE0 /* SettingsTabViewController.swift in Sources */,

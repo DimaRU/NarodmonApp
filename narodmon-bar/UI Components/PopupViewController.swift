@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import SwiftyUserDefaults
 
 class PopupViewController: NSViewController {
     

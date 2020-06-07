@@ -3,7 +3,6 @@
 //
 
 import Cocoa
-import SwiftyUserDefaults
 
 extension AppDelegate: NSPopoverDelegate {
     

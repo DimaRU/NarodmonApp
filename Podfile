@@ -8,7 +8,7 @@ target 'NarodmonApp' do
   pod 'Moya', '~> 14.0.0'
   pod 'PromiseKit', '6.13.0'
   pod 'KeychainAccess', '4.2.0'
-  pod 'SwiftyUserDefaults', '3.0.1'
+#  pod 'SwiftyUserDefaults', '3.0.1'
   pod 'Cache', '5.3.0'
 #  pod 'Charts', :git => 'https://github.com/DimaRU/Charts.git', :branch => '4.0.0-fixX'
   pod 'Charts'
