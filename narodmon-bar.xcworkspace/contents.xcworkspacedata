@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:narodmon-bar.xcodeproj">
+      location = "group:/Users/dmitry/Developer/Narodmon/narodmonbar/NarodmonApp.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

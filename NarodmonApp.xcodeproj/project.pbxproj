@@ -302,7 +302,7 @@
 			children = (
 				0A70D3FC21387358005BB814 /* IDETemplateMacros.plist */,
 				0A62254E2029A0E50056AEEE /* Support */,
-				0A9194DB1FBB3CFC00D72378 /* narodmon-bar */,
+				0A9194DB1FBB3CFC00D72378 /* NarodmonApp */,
 				0A756275200246090033269C /* NarodBarLauncherApp */,
 				0A9194DA1FBB3CFC00D72378 /* Products */,
 				CC13861C298AD1AC9DC6B105 /* Pods */,
@@ -319,7 +319,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0A9194DB1FBB3CFC00D72378 /* narodmon-bar */ = {
+		0A9194DB1FBB3CFC00D72378 /* NarodmonApp */ = {
 			isa = PBXGroup;
 			children = (
 				0AB22DAB201895C40000EC30 /* Resource */,
@@ -339,7 +339,7 @@
 				0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */,
 				0A1B864220496A1100DECB10 /* AppDelegateActions.swift */,
 			);
-			path = "narodmon-bar";
+			path = NarodmonApp;
 			sourceTree = "<group>";
 		};
 		0A9194FA1FBB3FB600D72378 /* Model */ = {
@@ -474,7 +474,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0A9194D41FBB3CFC00D72378 /* Build configuration list for PBXProject "narodmon-bar" */;
+			buildConfigurationList = 0A9194D41FBB3CFC00D72378 /* Build configuration list for PBXProject "NarodmonApp" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -940,7 +940,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A9194D41FBB3CFC00D72378 /* Build configuration list for PBXProject "narodmon-bar" */ = {
+		0A9194D41FBB3CFC00D72378 /* Build configuration list for PBXProject "NarodmonApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A9194F21FBB3CFD00D72378 /* Debug */,
