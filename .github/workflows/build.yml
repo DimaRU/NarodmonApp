@@ -25,6 +25,7 @@ jobs:
         - name: Install Dependences
           run: |
             cd NarodmonApp
+            gem install -N cocoapods-keys
             pod repo update
             pod keys set ApiKey DummyKey
             pod install
