@@ -28,7 +28,6 @@
 		0A63DF991FCEDAED00C35607 /* NetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF981FCEDAED00C35607 /* NetService.swift */; };
 		0A63DF9B1FCEEDAC00C35607 /* SensorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */; };
 		0A68C0BB1FDAA1FB00E7ACD4 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */; };
-		0A70D3FD21387358005BB814 /* IDETemplateMacros.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A70D3FC21387358005BB814 /* IDETemplateMacros.plist */; };
 		0A70D40121390D70005BB814 /* WebcamImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70D40021390D70005BB814 /* WebcamImages.swift */; };
 		0A70D4032139A426005BB814 /* WebcamsNearby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A70D4022139A426005BB814 /* WebcamsNearby.swift */; };
 		0A756277200246090033269C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A756276200246090033269C /* AppDelegate.swift */; };
@@ -124,7 +123,7 @@
 		0A63DF9A1FCEEDAC00C35607 /* SensorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorType.swift; sourceTree = "<group>"; };
 		0A68C0BA1FDAA1FB00E7ACD4 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemView.swift; sourceTree = "<group>"; };
-		0A70D3FC21387358005BB814 /* IDETemplateMacros.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = IDETemplateMacros.plist; path = "narodmon-bar.xcworkspace/xcshareddata/IDETemplateMacros.plist"; sourceTree = "<group>"; };
+		0A70D3FC21387358005BB814 /* IDETemplateMacros.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = IDETemplateMacros.plist; path = NarodmonApp.xcworkspace/xcshareddata/IDETemplateMacros.plist; sourceTree = "<group>"; };
 		0A70D40021390D70005BB814 /* WebcamImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebcamImages.swift; sourceTree = "<group>"; };
 		0A70D4022139A426005BB814 /* WebcamsNearby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebcamsNearby.swift; sourceTree = "<group>"; };
 		0A756274200246090033269C /* NarodBarLauncherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NarodBarLauncherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -443,7 +442,7 @@
 			dependencies = (
 			);
 			name = NarodmonApp;
-			productName = "narodmon-bar";
+			productName = "NarodmonApp";
 			productReference = 0A9194D91FBB3CFC00D72378 /* NarodmonApp.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -511,7 +510,6 @@
 				0A9194E11FBB3CFD00D72378 /* Assets.xcassets in Resources */,
 				0A8FDB4921663237006C48D9 /* ChartViewController.storyboard in Resources */,
 				0A7968D420067ED0008F97D9 /* InfoPlist.strings in Resources */,
-				0A70D3FD21387358005BB814 /* IDETemplateMacros.plist in Resources */,
 				0A8FDB43216631AA006C48D9 /* WebcamViewController.storyboard in Resources */,
 				0A7968CB20067ADF008F97D9 /* Localizable.strings in Resources */,
 				0A9194E41FBB3CFD00D72378 /* Main.storyboard in Resources */,
@@ -548,7 +546,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "git=$(sh /etc/profile; which git)\nnumber_of_commits=$(\"$git\" rev-list HEAD | wc -l | tr -d ' ')\n\nsource_plist=\"`pwd`/Support/Info.plist\"\ntarget_plist=\"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\ndsym_plist=\"$DWARF_DSYM_FOLDER_PATH/$DWARF_DSYM_FILE_NAME/Contents/Info.plist\"\n\nif [[ \"$CONFIGURATION\" == \"Release\" ]]; then\nsources=(\"$source_plist\" \"$target_plist\" \"$dsym_plist\")\nelse\nsources=(\"$target_plist\" \"$dsym_plist\")\nfi\n\nfor plist in ${sources[@]}; do\nif [ -f \"$plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $number_of_commits\" \"$plist\"\nfi\ndone";
+			shellScript = "git=$(sh /etc/profile; which git)\nnumber_of_commits=$(\"$git\" rev-list HEAD | wc -l | tr -d ' ')\n\nsource_plist=\"`pwd`/Support/Info.plist\"\ntarget_plist=\"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\ndsym_plist=\"$DWARF_DSYM_FOLDER_PATH/$DWARF_DSYM_FILE_NAME/Contents/Info.plist\"\n\nif [[ \"$CONFIGURATION\" == \"Release\" ]]; then\nsources=(\"$source_plist\" \"$target_plist\" \"$dsym_plist\")\nelse\nsources=(\"$target_plist\" \"$dsym_plist\")\nfi\n\nfor plist in ${sources[@]}; do\nif [ -f \"$plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $number_of_commits\" \"$plist\"\nfi\ndone\n";
 		};
 		84AF0B37CDE742283E617514 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

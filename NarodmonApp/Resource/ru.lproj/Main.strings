@@ -106,7 +106,7 @@
 /* Class = "NSTextFieldCell"; placeholderString = "low"; ObjectID = "yUU-jE-lV7"; */
 "yUU-jE-lV7.placeholderString" = "нижний";
 
-/* Class = "NSMenuItem"; title = "narodmon-bar"; ObjectID = "1Xt-HY-uBw"; */
+/* Class = "NSMenuItem"; title = "NarodmonApp"; ObjectID = "1Xt-HY-uBw"; */
 "1Xt-HY-uBw.title" = "";
 
 /* Class = "NSTextFieldCell"; title = "name"; ObjectID = "3LG-tT-CSf"; */
@@ -115,13 +115,13 @@
 /* Class = "NSMenuItem"; title = "Enter Full Screen"; ObjectID = "4J7-dP-txa"; */
 "4J7-dP-txa.title" = "";
 
-/* Class = "NSMenuItem"; title = "Quit narodmon-bar"; ObjectID = "4sb-4s-VLi"; */
+/* Class = "NSMenuItem"; title = "Quit NarodmonApp"; ObjectID = "4sb-4s-VLi"; */
 "4sb-4s-VLi.title" = "";
 
 /* Class = "NSMenuItem"; title = "Edit"; ObjectID = "5QF-Oa-p0T"; */
 "5QF-Oa-p0T.title" = "";
 
-/* Class = "NSMenuItem"; title = "About narodmon-bar"; ObjectID = "5kV-Vb-QxS"; */
+/* Class = "NSMenuItem"; title = "About NarodmonApp"; ObjectID = "5kV-Vb-QxS"; */
 "5kV-Vb-QxS.title" = "";
 
 /* Class = "NSMenuItem"; title = "Redo"; ObjectID = "6dh-zS-Vam"; */
@@ -139,7 +139,7 @@
 /* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
 "F2S-fz-NVQ.title" = "";
 
-/* Class = "NSMenuItem"; title = "narodmon-bar Help"; ObjectID = "FKE-Sm-Kum"; */
+/* Class = "NSMenuItem"; title = "NarodmonApp Help"; ObjectID = "FKE-Sm-Kum"; */
 "FKE-Sm-Kum.title" = "";
 
 /* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
@@ -154,7 +154,7 @@
 /* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
 "OY7-WF-poV.title" = "";
 
-/* Class = "NSMenuItem"; title = "Hide narodmon-bar"; ObjectID = "Olw-nP-bQN"; */
+/* Class = "NSMenuItem"; title = "Hide NarodmonApp"; ObjectID = "Olw-nP-bQN"; */
 "Olw-nP-bQN.title" = "";
 
 /* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
@@ -202,7 +202,7 @@
 /* Class = "NSMenuItem"; title = "Delete"; ObjectID = "pa3-QI-u2k"; */
 "pa3-QI-u2k.title" = "";
 
-/* Class = "NSMenu"; title = "narodmon-bar"; ObjectID = "uQy-DD-JDr"; */
+/* Class = "NSMenu"; title = "NarodmonApp"; ObjectID = "uQy-DD-JDr"; */
 "uQy-DD-JDr.title" = "";
 
 /* Class = "NSMenuItem"; title = "Cut"; ObjectID = "uRl-iY-unG"; */

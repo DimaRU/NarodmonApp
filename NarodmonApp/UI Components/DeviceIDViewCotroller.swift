@@ -1,6 +1,6 @@
 //
 //  DeviceIDViewCotroller.swift
-//  narodmon-bar
+//  NarodmonApp
 //
 //  Created by Dmitriy Borovikov on 04.01.2018.
 //  Copyright © 2018 Dmitriy Borovikov. All rights reserved.
