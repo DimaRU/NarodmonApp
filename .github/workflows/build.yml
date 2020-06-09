@@ -1,0 +1,28 @@
+name: Build
+
+on: 
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+    build:
+        name: build
+        runs-on: macOS-latest
+        steps:
+        - uses: sinoru/actions-setup-xcode@v1.1
+          with:
+            xcode-version: '11.5'
+        - name: Checkout
+          uses: actions/checkout@v2
+          with:
+            submodules: false
+        - name: Check XCode Version
+          run: xcodebuild -version
+
+        - name: macOS
+          run: |
+            set -o pipefail && xcodebuild clean build --workspace NarodmonApp.xcworkspace -scheme NarodmonApp -destination "platform=macOS"  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
