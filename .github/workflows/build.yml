@@ -27,7 +27,7 @@ jobs:
             cd NarodmonApp
             gem install -N cocoapods-keys
             pod repo update
-            pod keys set ApiKey DummyKey
+            export ApiKey=DummyKey
             pod install
           shell: bash
 
