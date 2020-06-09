@@ -25,4 +25,4 @@ jobs:
 
         - name: macOS
           run: |
-            set -o pipefail && xcodebuild clean build --workspace NarodmonApp.xcworkspace -scheme NarodmonApp -destination "platform=macOS"  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
+            set -o pipefail && xcodebuild clean build -workspace NarodmonApp.xcworkspace -scheme NarodmonApp -destination "platform=macOS"  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
