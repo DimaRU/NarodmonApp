@@ -258,27 +258,27 @@
 		0A6D89C51FC5CC9000034A67 /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
-				0A8AFE1220457F96001A2DBF /* MapViewController.swift */,
-				0A7F52B221482BF000A1334E /* WebcamViewController.swift */,
 				0A36F8DA205304640084B503 /* ChartViewController.swift */,
-				0AA40A3A1FE295780089585B /* PreferencesViewController.swift */,
-				0AA40A3B1FE295780089585B /* GeneralSettingsViewController.swift */,
-				0AA40A391FE295770089585B /* SensorSettingsViewController.swift */,
-				0AA40A381FE295770089585B /* PrefsCellView.swift */,
-				0AA40A3C1FE295780089585B /* SelectTableView.swift */,
-				0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */,
-				0AC4EAED1FCE0526001573C8 /* PopupViewController.swift */,
-				0AB311871FD557D500ED680F /* SensorCellView.swift */,
-				0AB311891FD557E600ED680F /* DeviceCellView.swift */,
-				0A3FAB2E2146EB5800831C21 /* WebcamCellView.swift */,
-				0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */,
-				0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */,
-				0ADE148D204DEB9500E46192 /* MenuButton.swift */,
+				0A5D858A205D1C1100B15AAA /* CustomFontMenu.swift */,
 				0A36F8D9205304630084B503 /* DateAxisValueFormater.swift */,
+				0AB311891FD557E600ED680F /* DeviceCellView.swift */,
+				0AECF54B1FFE8FC3007362D2 /* DeviceIDViewCotroller.swift */,
 				0AC051BC215EAD5100CDB157 /* ErrorMessageView.swift */,
 				0AC051BD215EAD5100CDB157 /* ErrorMessageView.xib */,
 				0A36F8D8205304630084B503 /* FixLineChartView.swift */,
-				0A5D858A205D1C1100B15AAA /* CustomFontMenu.swift */,
+				0AA40A3B1FE295780089585B /* GeneralSettingsViewController.swift */,
+				0A8AFE1220457F96001A2DBF /* MapViewController.swift */,
+				0ADE148D204DEB9500E46192 /* MenuButton.swift */,
+				0AC4EAED1FCE0526001573C8 /* PopupViewController.swift */,
+				0AA40A3A1FE295780089585B /* PreferencesViewController.swift */,
+				0AA40A381FE295770089585B /* PrefsCellView.swift */,
+				0AA40A3C1FE295780089585B /* SelectTableView.swift */,
+				0AB311871FD557D500ED680F /* SensorCellView.swift */,
+				0AA40A391FE295770089585B /* SensorSettingsViewController.swift */,
+				0AC6CC512007E5E100F2DAE0 /* SettingsTabViewController.swift */,
+				0A6D89C61FC5CCA500034A67 /* StatusItemView.swift */,
+				0A3FAB2E2146EB5800831C21 /* WebcamCellView.swift */,
+				0A7F52B221482BF000A1334E /* WebcamViewController.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -434,7 +434,6 @@
 				0A9194D71FBB3CFC00D72378 /* Resources */,
 				0A9907B2200BF2B8007EDA6D /* Set version information */,
 				0A7562822002476F0033269C /* CopyFiles */,
-				84AF0B37CDE742283E617514 /* [CP] Embed Pods Frameworks */,
 				0A5D8587205C52C000B15AAA /* Update localizations */,
 			);
 			buildRules = (
@@ -442,7 +441,7 @@
 			dependencies = (
 			);
 			name = NarodmonApp;
-			productName = "NarodmonApp";
+			productName = NarodmonApp;
 			productReference = 0A9194D91FBB3CFC00D72378 /* NarodmonApp.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -453,7 +452,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Dmitriy Borovikov";
 				TargetAttributes = {
 					0A756273200246090033269C = {
@@ -547,38 +546,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "git=$(sh /etc/profile; which git)\nnumber_of_commits=$(\"$git\" rev-list HEAD | wc -l | tr -d ' ')\n\nsource_plist=\"`pwd`/Support/Info.plist\"\ntarget_plist=\"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\ndsym_plist=\"$DWARF_DSYM_FOLDER_PATH/$DWARF_DSYM_FILE_NAME/Contents/Info.plist\"\n\nif [[ \"$CONFIGURATION\" == \"Release\" ]]; then\nsources=(\"$source_plist\" \"$target_plist\" \"$dsym_plist\")\nelse\nsources=(\"$target_plist\" \"$dsym_plist\")\nfi\n\nfor plist in ${sources[@]}; do\nif [ -f \"$plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $number_of_commits\" \"$plist\"\nfi\ndone\n";
-		};
-		84AF0B37CDE742283E617514 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Keys-framework/Keys.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
-				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/ProgressKit/ProgressKit.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keys.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NarodmonApp/Pods-NarodmonApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		9CA40144DF03D318D1511CCD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -800,6 +767,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -860,6 +828,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

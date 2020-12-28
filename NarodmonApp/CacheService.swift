@@ -8,10 +8,10 @@ import PromiseKit
 
 class CacheService {
     
-    private static var storage: Storage<[SensorHistoryData]>? = initCache()
+    private static var storage: Storage<String, [SensorHistoryData]>? = initCache()
     private static var expireTimer: Timer!
     
-    private static func initCache() -> Storage<[SensorHistoryData]>? {
+    private static func initCache() -> Storage<String, [SensorHistoryData]>? {
         let diskConfig = DiskConfig(
             name: "NarodmonHistoryDataCache",
             expiry: .date(Date().addingTimeInterval(15*60)),
@@ -24,7 +24,7 @@ class CacheService {
             totalCostLimit: 10
         )
 
-        let storage = try? Storage<[SensorHistoryData]>.init(diskConfig: diskConfig, memoryConfig: memoryConfig, transformer: TransformerFactory.forCodable(ofType: [SensorHistoryData].self))
+        let storage = try? Storage<String, [SensorHistoryData]>.init(diskConfig: diskConfig, memoryConfig: memoryConfig, transformer: TransformerFactory.forCodable(ofType: [SensorHistoryData].self))
         
         expireTimer = Timer.scheduledTimer(withTimeInterval: 30*60, repeats: true) {_ in 
             CacheService.clean()
