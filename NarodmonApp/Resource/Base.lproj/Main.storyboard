@@ -924,24 +924,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Bs-YL-87j">
-                                <rect key="frame" x="18" y="3" width="165" height="16"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose device and press" id="Cpx-Fm-F6Q">
-                                    <font key="font" metaFont="systemBold"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ex1-F3-bYo">
-                                <rect key="frame" x="185" y="3" width="16" height="16"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="16" id="7bZ-uy-Ohd"/>
-                                    <constraint firstAttribute="height" constant="16" id="pqj-8a-psL"/>
-                                </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="chain" id="Lrn-B6-7zt"/>
-                            </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="epo-GO-tOB">
-                                <rect key="frame" x="203" y="3" width="32" height="16"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="icon" id="shb-yb-Qcb">
+                                <rect key="frame" x="18" y="3" width="262" height="16"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose device and press share link icon" id="Cpx-Fm-F6Q">
                                     <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -949,13 +933,8 @@
                             </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ex1-F3-bYo" firstAttribute="centerY" secondItem="4Bs-YL-87j" secondAttribute="centerY" id="2pD-Ve-QUN"/>
-                            <constraint firstItem="epo-GO-tOB" firstAttribute="leading" secondItem="ex1-F3-bYo" secondAttribute="trailing" constant="4" id="RyR-sg-cbA"/>
-                            <constraint firstItem="epo-GO-tOB" firstAttribute="centerY" secondItem="4Bs-YL-87j" secondAttribute="centerY" id="Y5g-ty-13k"/>
                             <constraint firstItem="4Bs-YL-87j" firstAttribute="leading" secondItem="NzM-a9-VOo" secondAttribute="leading" constant="20" symbolic="YES" id="aKg-sh-yqF"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="epo-GO-tOB" secondAttribute="trailing" constant="20" symbolic="YES" id="dWb-Qj-oZV"/>
                             <constraint firstItem="4Bs-YL-87j" firstAttribute="centerY" secondItem="NzM-a9-VOo" secondAttribute="centerY" id="g7T-uZ-5wl"/>
-                            <constraint firstItem="ex1-F3-bYo" firstAttribute="leading" secondItem="4Bs-YL-87j" secondAttribute="trailing" constant="4" id="vMJ-lR-6Mc"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -972,23 +951,23 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <splitView arrangesAllSubviews="NO" dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fmb-oA-Vgi">
-                                <rect key="frame" x="20" y="52" width="478" height="380"/>
+                                <rect key="frame" x="20" y="52" width="478" height="378"/>
                                 <subviews>
                                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Ouf-Wb-QPg">
-                                        <rect key="frame" x="0.0" y="0.0" width="234" height="380"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="234" height="378"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <clipView key="contentView" id="17z-qV-Hsm">
-                                            <rect key="frame" x="1" y="1" width="232" height="378"/>
+                                            <rect key="frame" x="1" y="1" width="232" height="376"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="18" viewBased="YES" id="IdJ-rQ-Uq8" customClass="SelectTableView" customModule="NarodmonApp" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="232" height="378"/>
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" tableStyle="plain" selectionHighlightStyle="none" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="18" viewBased="YES" id="IdJ-rQ-Uq8" customClass="SelectTableView" customModule="NarodmonApp" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="232" height="376"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
-                                                        <tableColumn width="220" minWidth="40" maxWidth="1000" id="hu9-LD-CfU">
+                                                        <tableColumn width="229" minWidth="40" maxWidth="1000" id="hu9-LD-CfU">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -1259,7 +1238,7 @@
                                             </subviews>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="ywH-CF-MvY">
-                                            <rect key="frame" x="1" y="364" width="150" height="16"/>
+                                            <rect key="frame" x="1" y="363" width="232" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Kux-2D-JqX">
@@ -1268,20 +1247,20 @@
                                         </scroller>
                                     </scrollView>
                                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="ngb-f1-r4i">
-                                        <rect key="frame" x="244" y="0.0" width="234" height="380"/>
+                                        <rect key="frame" x="244" y="0.0" width="234" height="378"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <clipView key="contentView" id="FV1-7I-PNz">
-                                            <rect key="frame" x="1" y="1" width="232" height="378"/>
+                                            <rect key="frame" x="1" y="1" width="232" height="376"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="18" viewBased="YES" id="DFs-Rr-z8q" customClass="SelectTableView" customModule="NarodmonApp" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="232" height="378"/>
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" tableStyle="plain" selectionHighlightStyle="none" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="18" viewBased="YES" id="DFs-Rr-z8q" customClass="SelectTableView" customModule="NarodmonApp" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="232" height="376"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
-                                                        <tableColumn width="220" minWidth="40" maxWidth="1000" id="VzQ-r1-ovn">
+                                                        <tableColumn width="229" minWidth="40" maxWidth="1000" id="VzQ-r1-ovn">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -1355,7 +1334,7 @@
                                             </subviews>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="skW-qJ-DHv">
-                                            <rect key="frame" x="1" y="364" width="150" height="16"/>
+                                            <rect key="frame" x="1" y="362" width="232" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="dDY-cf-vBx">
@@ -1497,7 +1476,6 @@ Gw
         <image name="NSAdvanced" width="32" height="32"/>
         <image name="NSPreferencesGeneral" width="32" height="32"/>
         <image name="camera" width="18" height="18"/>
-        <image name="chain" width="16" height="16"/>
         <image name="chip" width="18" height="18"/>
         <image name="close-x" width="1000" height="1000"/>
         <image name="gear" width="1000" height="1000"/>
