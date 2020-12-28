@@ -15,5 +15,5 @@ struct SensorHistoryData: Codable {
 }
 
 struct SensorHistory: Codable {
-    let data: [SensorHistoryData]
+    let data: [SensorHistoryData]?
 }

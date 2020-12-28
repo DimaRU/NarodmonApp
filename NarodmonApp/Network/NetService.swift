@@ -199,7 +199,7 @@ struct NetService {
     static func loadSensorHistory(id: Int, period: HistoryPeriod, offset: Int) -> Promise<[SensorHistoryData]> {
         return NarProvider.shared.request(.sensorHistory(id: id, period: period, offset: offset))
             .map { (sensorHistory: SensorHistory) -> [SensorHistoryData] in
-                return sensorHistory.data
+                return sensorHistory.data ?? []
         }
     }
 }
