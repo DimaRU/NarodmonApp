@@ -153,6 +153,9 @@ class PopupViewController: NSViewController {
     
     // MARK: Double click actions
     @objc private func cellDobleClicked(_ sender: Any) {
+        guard sensorsTableView.clickedRow != -1 else {
+            return
+        }
         switch tableData[sensorsTableView.clickedRow] {
         case is String:
             return
