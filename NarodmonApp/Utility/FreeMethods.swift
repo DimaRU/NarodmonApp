@@ -161,7 +161,7 @@ func nextTick(_ on: DispatchQueue, block: @escaping BasicBlock) {
 
 func timeout(_ duration: TimeInterval, block: @escaping BasicBlock) -> BasicBlock {
     let handler = once(block)
-    _ = delay(duration) {
+    delay(duration) {
         handler()
     }
     return handler
