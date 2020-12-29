@@ -44,7 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 if Int(initData.uid) == 0 {
                     return NetService.appLogin()
                 }
-                let logonData = UserLogon(vip: initData.vip, login: initData.login, uid: initData.uid)
+                let logonData = UserLogon(vip: initData.vip ?? 0, login: initData.login, uid: initData.uid)
                 self.dataStore.logonData = logonData
                 return Promise.value(())
             }

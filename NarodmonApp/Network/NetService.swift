@@ -24,7 +24,7 @@ struct NetService {
         let app = (NSApp.delegate as! AppDelegate)
         let initData = app.dataStore.initData!
         if Int(initData.uid) != 0 {
-            let logonData = UserLogon(vip: initData.vip, login: initData.login, uid: initData.uid)
+            let logonData = UserLogon(vip: initData.vip ?? 0, login: initData.login, uid: initData.uid)
             app.dataStore.logonData = logonData
             // Already logged in, skip login
             return Promise.value(())
