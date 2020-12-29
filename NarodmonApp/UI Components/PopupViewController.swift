@@ -52,6 +52,11 @@ class PopupViewController: NSViewController {
         sensorsTableView.doubleAction = #selector(cellDobleClicked)
     }
 
+    override func viewDidLayout() {
+        super.viewDidLayout()
+        setViewSizeOnContent()
+    }
+
     private func prepareTableData() {
         let popupList = dataStore.windowSelectionsList()
         if popupList.isEmpty {
@@ -179,11 +184,6 @@ extension PopupViewController: NSTableViewDataSource {
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        if row == tableView.numberOfRows - 1 {
-            // last row
-            setViewSizeOnContent()
-        }
-        
         switch tableData[row] {
         case let cellId as String:
             return tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), owner: self)
