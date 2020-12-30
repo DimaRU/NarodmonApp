@@ -13,7 +13,7 @@ extension AppDelegate: NSMenuDelegate, NSMenuItemValidation {
     }
     
     @IBAction func alwaysOnTopToggle(_ sender: Any) {
-        Defaults[.AlwaysOnTop].toogle()
+        Defaults[.AlwaysOnTop].toggle()
         proxyWindow?.level = Defaults[.AlwaysOnTop] ? NSWindow.Level.statusBar : .normal
         if let menuItem = sender as? NSMenuItem {
             menuItem.state = Defaults[.AlwaysOnTop] ? .on : .off
